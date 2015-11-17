@@ -1,0 +1,7 @@
+package pb;
+
+message SessionInfo
+{
+	required string UserName = 1;
+    required string SessionId = 2;
+}
