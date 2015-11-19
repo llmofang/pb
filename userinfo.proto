@@ -1,0 +1,15 @@
+package pb;
+
+message FundInfo
+{
+	required string FundName = 1;
+	required string StockCode = 2;
+	required string StockName = 3;
+	required string StockNum = 4;
+}
+
+message UserInfo
+{
+	required string UserName = 1;
+    repeated FundInfo Funds  = 2;
+}
