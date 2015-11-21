@@ -1,0 +1,17 @@
+package pb;
+
+message TradeServiceMessage
+{
+	required string name = 1;
+	required string ip = 2;
+	required string port = 3;
+	required string fundaccount = 4;
+	required string stat = 5;
+}
+
+message TradeServiceNetMsg
+{
+	required string qid = 1;
+	required string type = 2;
+	required bytes data = 3;
+}
