@@ -1,0 +1,27 @@
+package pb;
+
+message FundAccountUserInfo
+{
+    required string UserName = 1;
+	required int32 AvailableCount = 2;
+	required int32 Status = 3;
+}
+
+message FundAccountStockInfo
+{
+	required string StockCode = 1;
+	required string StockName = 2;
+	required int32 StockCount = 3;
+	repeated FundAccountUserInfo UsersInfo = 4;
+}
+
+message FundAccountInfo
+{
+	required string FundAccountName = 1;
+	repeated FundAccountStockInfo StocksInfo = 2;
+}
+
+message FundAccountsInfo
+{
+	repeated FundAccountInfo FundAccount = 1;
+}
