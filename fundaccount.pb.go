@@ -59,7 +59,8 @@ type FundAccountStockInfo struct {
 	StockCode        *string                `protobuf:"bytes,1,req" json:"StockCode,omitempty"`
 	StockName        *string                `protobuf:"bytes,2,req" json:"StockName,omitempty"`
 	StockCount       *int32                 `protobuf:"varint,3,req" json:"StockCount,omitempty"`
-	UsersInfo        []*FundAccountUserInfo `protobuf:"bytes,4,rep" json:"UsersInfo,omitempty"`
+	Reapportion      *bool                  `protobuf:"varint,4,req" json:"Reapportion,omitempty"`
+	UsersInfo        []*FundAccountUserInfo `protobuf:"bytes,5,rep" json:"UsersInfo,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
 }
 
@@ -86,6 +87,13 @@ func (m *FundAccountStockInfo) GetStockCount() int32 {
 		return *m.StockCount
 	}
 	return 0
+}
+
+func (m *FundAccountStockInfo) GetReapportion() bool {
+	if m != nil && m.Reapportion != nil {
+		return *m.Reapportion
+	}
+	return false
 }
 
 func (m *FundAccountStockInfo) GetUsersInfo() []*FundAccountUserInfo {

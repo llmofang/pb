@@ -12,7 +12,8 @@ message FundAccountStockInfo
 	required string StockCode = 1;
 	required string StockName = 2;
 	required int32 StockCount = 3;
-	repeated FundAccountUserInfo UsersInfo = 4;
+	required bool Reapportion = 4;
+	repeated FundAccountUserInfo UsersInfo = 5;
 }
 
 message FundAccountInfo
