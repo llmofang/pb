@@ -1,0 +1,30 @@
+package pb;
+
+enum ACCOUNT_TYPE 
+{
+    ACCOUNT_TYPE_ROOT = 0;
+    ACCOUNT_TYPE_USER = 1;
+    ACCOUNT_TYPE_INSTITUTION = 2;
+}
+
+message User
+{
+	//用户名
+	required string UserName = 1;
+	//密码
+    required string PassWord = 2;
+	//中文姓名
+	required string ChineseName = 3;
+	//可用资金
+	required string AvailableMoney = 4;
+	//停机位
+	required string StopLost = 5;
+	//单笔最大股数
+	required int32 VolumeLimit = 6;
+	//单笔最大金额
+	required float MonetaryLimit = 7;
+	//状态，０：停用，１启用
+	required int32 Status = 8;
+	//账号类型
+	required ACCOUNT_TYPE AccountType = 9;
+}
