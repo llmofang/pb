@@ -1,0 +1,8 @@
+package pb;
+
+message TradeEngineMessage
+{
+	required string type = 1;
+	required int32 resultCode= 2;
+	required bytes data = 3;
+}
