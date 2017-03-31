@@ -2,7 +2,49 @@ package pb;
 
 message TradeEngineMessage
 {
-	required string type = 1;
-	required int32 resultCode= 2;
-	required bytes data = 3;
+	optional string qid = 1;
+	required string type = 2;
+	optional int32 resultCode= 3;
+	required bytes data = 4;
+}
+
+//data部分协议
+
+// ****tradex协议****
+message TradeXQueryMessage
+{
+	//查询信息的种类，0资金 1股份 2当日委托 3当日成交 4可撤单 5股东代码 6融资余额 7融券余额 8可融证券
+	required int32 QueryType = 1;
+}
+message TradeXOrderMessage
+{
+	//委托的种类，0买入 1卖出 2融资买入 3融券卖出 4买券还券 5卖券还款 6现券还券
+	required int32 OrderType = 1;
+	//报价方式 0上海限价委托 深圳限价委托 1(市价委托)深圳对方最优价格  2(市价委托)深圳本方最优价格  3(市价委托)深圳即时成交剩余撤销  4(市价委托)上海五档即成剩撤 深圳五档即成剩撤 5(市价委托)深圳全额成交或撤销 6(市价委托)上海五档即成转限价
+	required int32 PriceType = 2;
+	//股东代码
+	required string Gddm = 3;
+	//证券代码
+	required string Zqdm = 4;
+	//委托价格
+	required float Price = 5;
+	//委托数量
+	required int32 Count = 6;
+}
+message TradeXCancelMessage
+{
+	//交易所ID， 上海1，深圳0(招商证券普通账户深圳是2)
+	required string ExchangeID = 1;
+	//要撤的目标委托的编号
+	required string CancelNo = 2;
+}
+message TradeXQuoteMessage
+{
+	//证券代码
+	required string Zqdm = 1;
+}
+message TradeXRepayMessage
+{
+	//还款金额
+	required string Amount = 1;
 }

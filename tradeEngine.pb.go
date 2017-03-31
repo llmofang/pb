@@ -10,26 +10,47 @@ It is generated from these files:
 
 It has these top-level messages:
 	TradeEngineMessage
+	TradeXQueryMessage
+	TradeXOrderMessage
+	TradeXCancelMessage
+	TradeXQuoteMessage
+	TradeXRepayMessage
 */
 package pb
 
-import proto "code.google.com/p/goprotobuf/proto"
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
 import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
+var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type TradeEngineMessage struct {
-	Type             *string `protobuf:"bytes,1,req,name=type" json:"type,omitempty"`
-	ResultCode       *int32  `protobuf:"varint,2,req,name=resultCode" json:"resultCode,omitempty"`
-	Data             []byte  `protobuf:"bytes,3,req,name=data" json:"data,omitempty"`
+	Qid              *string `protobuf:"bytes,1,opt,name=qid" json:"qid,omitempty"`
+	Type             *string `protobuf:"bytes,2,req,name=type" json:"type,omitempty"`
+	ResultCode       *int32  `protobuf:"varint,3,opt,name=resultCode" json:"resultCode,omitempty"`
+	Data             []byte  `protobuf:"bytes,4,req,name=data" json:"data,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *TradeEngineMessage) Reset()         { *m = TradeEngineMessage{} }
 func (m *TradeEngineMessage) String() string { return proto.CompactTextString(m) }
 func (*TradeEngineMessage) ProtoMessage()    {}
+
+func (m *TradeEngineMessage) GetQid() string {
+	if m != nil && m.Qid != nil {
+		return *m.Qid
+	}
+	return ""
+}
 
 func (m *TradeEngineMessage) GetType() string {
 	if m != nil && m.Type != nil {
@@ -52,5 +73,142 @@ func (m *TradeEngineMessage) GetData() []byte {
 	return nil
 }
 
-func init() {
+// ****tradex协议****
+type TradeXQueryMessage struct {
+	// 查询信息的种类，0资金 1股份 2当日委托 3当日成交 4可撤单 5股东代码 6融资余额 7融券余额 8可融证券
+	QueryType        *int32 `protobuf:"varint,1,req,name=QueryType" json:"QueryType,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
+}
+
+func (m *TradeXQueryMessage) Reset()         { *m = TradeXQueryMessage{} }
+func (m *TradeXQueryMessage) String() string { return proto.CompactTextString(m) }
+func (*TradeXQueryMessage) ProtoMessage()    {}
+
+func (m *TradeXQueryMessage) GetQueryType() int32 {
+	if m != nil && m.QueryType != nil {
+		return *m.QueryType
+	}
+	return 0
+}
+
+type TradeXOrderMessage struct {
+	// 委托的种类，0买入 1卖出 2融资买入 3融券卖出 4买券还券 5卖券还款 6现券还券
+	OrderType *int32 `protobuf:"varint,1,req,name=OrderType" json:"OrderType,omitempty"`
+	// 报价方式 0上海限价委托 深圳限价委托 1(市价委托)深圳对方最优价格  2(市价委托)深圳本方最优价格  3(市价委托)深圳即时成交剩余撤销  4(市价委托)上海五档即成剩撤 深圳五档即成剩撤 5(市价委托)深圳全额成交或撤销 6(市价委托)上海五档即成转限价
+	PriceType *int32 `protobuf:"varint,2,req,name=PriceType" json:"PriceType,omitempty"`
+	// 股东代码
+	Gddm *string `protobuf:"bytes,3,req,name=Gddm" json:"Gddm,omitempty"`
+	// 证券代码
+	Zqdm *string `protobuf:"bytes,4,req,name=Zqdm" json:"Zqdm,omitempty"`
+	// 委托价格
+	Price *float32 `protobuf:"fixed32,5,req,name=Price" json:"Price,omitempty"`
+	// 委托数量
+	Count            *int32 `protobuf:"varint,6,req,name=Count" json:"Count,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
+}
+
+func (m *TradeXOrderMessage) Reset()         { *m = TradeXOrderMessage{} }
+func (m *TradeXOrderMessage) String() string { return proto.CompactTextString(m) }
+func (*TradeXOrderMessage) ProtoMessage()    {}
+
+func (m *TradeXOrderMessage) GetOrderType() int32 {
+	if m != nil && m.OrderType != nil {
+		return *m.OrderType
+	}
+	return 0
+}
+
+func (m *TradeXOrderMessage) GetPriceType() int32 {
+	if m != nil && m.PriceType != nil {
+		return *m.PriceType
+	}
+	return 0
+}
+
+func (m *TradeXOrderMessage) GetGddm() string {
+	if m != nil && m.Gddm != nil {
+		return *m.Gddm
+	}
+	return ""
+}
+
+func (m *TradeXOrderMessage) GetZqdm() string {
+	if m != nil && m.Zqdm != nil {
+		return *m.Zqdm
+	}
+	return ""
+}
+
+func (m *TradeXOrderMessage) GetPrice() float32 {
+	if m != nil && m.Price != nil {
+		return *m.Price
+	}
+	return 0
+}
+
+func (m *TradeXOrderMessage) GetCount() int32 {
+	if m != nil && m.Count != nil {
+		return *m.Count
+	}
+	return 0
+}
+
+type TradeXCancelMessage struct {
+	// 交易所ID， 上海1，深圳0(招商证券普通账户深圳是2)
+	ExchangeID *string `protobuf:"bytes,1,req,name=ExchangeID" json:"ExchangeID,omitempty"`
+	// 要撤的目标委托的编号
+	CancelNo         *string `protobuf:"bytes,2,req,name=CancelNo" json:"CancelNo,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *TradeXCancelMessage) Reset()         { *m = TradeXCancelMessage{} }
+func (m *TradeXCancelMessage) String() string { return proto.CompactTextString(m) }
+func (*TradeXCancelMessage) ProtoMessage()    {}
+
+func (m *TradeXCancelMessage) GetExchangeID() string {
+	if m != nil && m.ExchangeID != nil {
+		return *m.ExchangeID
+	}
+	return ""
+}
+
+func (m *TradeXCancelMessage) GetCancelNo() string {
+	if m != nil && m.CancelNo != nil {
+		return *m.CancelNo
+	}
+	return ""
+}
+
+type TradeXQuoteMessage struct {
+	// 证券代码
+	Zqdm             *string `protobuf:"bytes,1,req,name=Zqdm" json:"Zqdm,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *TradeXQuoteMessage) Reset()         { *m = TradeXQuoteMessage{} }
+func (m *TradeXQuoteMessage) String() string { return proto.CompactTextString(m) }
+func (*TradeXQuoteMessage) ProtoMessage()    {}
+
+func (m *TradeXQuoteMessage) GetZqdm() string {
+	if m != nil && m.Zqdm != nil {
+		return *m.Zqdm
+	}
+	return ""
+}
+
+type TradeXRepayMessage struct {
+	// 还款金额
+	Amount           *string `protobuf:"bytes,1,req,name=Amount" json:"Amount,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *TradeXRepayMessage) Reset()         { *m = TradeXRepayMessage{} }
+func (m *TradeXRepayMessage) String() string { return proto.CompactTextString(m) }
+func (*TradeXRepayMessage) ProtoMessage()    {}
+
+func (m *TradeXRepayMessage) GetAmount() string {
+	if m != nil && m.Amount != nil {
+		return *m.Amount
+	}
+	return ""
 }
