@@ -1,0 +1,7 @@
+package pb;
+
+message PBtest
+{
+    required string test = 1;
+
+}
