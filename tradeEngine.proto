@@ -1,5 +1,126 @@
 package pb;
 
+//统一交易协议
+///查询返回协议
+message CommQueryInfo 
+{
+	repeated CommTradeFundInfo FundInfos = 1;
+	repeated CommTradeStockInfo StockInfos = 2;
+	repeated CommTradeDayOrderInfo DayOrderInfos = 3;
+	repeated CommTradeDayDealInfo DayDealInfos = 4;
+}
+///账户资金信息
+message CommTradeFundInfo
+{
+	//资金账号
+	required string FundAccount = 1;
+	//币种
+	required string Currency = 2;
+	//资金余额
+	required float FundBalance = 3;
+	//可用资金
+	required float FundAvailable = 4;
+	//总资产
+	required float TotalAssets = 5;
+}
+///股份信息
+message CommTradeStockInfo
+{
+	//资金账号
+	required string FundAccount = 1;
+	//证券代码
+	required string StockCode = 2;
+	//证券名称
+	required string StockName = 3;
+	//证券数量
+	required int32 StockCount = 4;
+	//可卖数量
+	required int32 AvailableQuantity = 5;
+	//成本价
+	required float CostPrice = 6;
+	//当前价
+	required float CurrentPrice = 7;
+	//证券市值
+	required float MarketCapitalization = 8;
+	//浮动盈亏
+	required float FloatingPL = 9;
+	//盈亏比例
+	required float RatioPL = 10;
+}
+///当日委托信息
+message CommTradeDayOrderInfo
+{
+	//资金账号
+	required string FundAccount = 1;
+	//委托时间
+	required string OrderTime = 2;
+	//证券代码
+	required string StockCode = 3;
+	//证券名称
+	required string StockName = 4;
+	//买卖标志
+	required string TradeMark = 5;
+	//委托类别
+	required string OrderType = 6;
+	//状态说明
+	required string State = 7;
+	//委托价格
+	required float OrderPrice = 8;
+	//委托数量
+	required int32 OrderCount = 9;
+	//委托编号
+	required int32 OrderId = 10;
+	//成交价格
+	required float DealPrice = 11;
+	//成交数量
+	required float DealCount = 12;
+	//委托方式
+	required float OrderMode = 13;
+	//报价方式
+	required float OfferMode = 14;
+}
+///当日成交信息
+message CommTradeDayDealInfo
+{
+	//资金账号
+	required string FundAccount = 1;
+	//成交时间
+	required string DealTime = 2;
+	//证券代码
+	required string StockCode = 3;
+	//证券名称
+	required string StockName = 4;
+	//买卖标志
+	required string TradeMark = 5;
+	//成交价格
+	required float DealPrice = 6;
+	//成交数量
+	required int32 DealCount = 7;
+	//成交金额
+	required float DealVolume = 8;
+	//成交编号
+	required float DealId = 9;
+	//委托编号
+	required float OrderId = 10;
+}
+///下单返回信息
+message CommTradeOrderResp
+{
+	//资金账号
+	required string FundAccount = 1;
+	//委托号
+	required string OrderId = 2;
+}
+///撤单返回信息
+message CommTradeCancelResp
+{
+	//资金账号
+	required string FundAccount = 1;
+	//撤单返回信息
+	required string CancelInfo = 2;
+}
+
+//交易引擎协议
 message TradeEngineMessage
 {
 	optional string qid = 1;
