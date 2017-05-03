@@ -51,7 +51,7 @@ message CommTradeStockInfo
 message CommTradeDayOrderInfo
 {
 	//资金账号
-	required string FundAccount = 1;
+	optional string FundAccount = 1;
 	//委托时间
 	required string OrderTime = 2;
 	//证券代码
@@ -61,7 +61,7 @@ message CommTradeDayOrderInfo
 	//买卖标志
 	required string TradeMark = 5;
 	//委托类别
-	required string OrderType = 6;
+	optional string OrderType = 6;
 	//状态说明
 	required string State = 7;
 	//委托价格
@@ -71,13 +71,15 @@ message CommTradeDayOrderInfo
 	//委托编号
 	required int32 OrderId = 10;
 	//成交价格
-	required float DealPrice = 11;
+	optional float DealPrice = 11;
 	//成交数量
 	required float DealCount = 12;
 	//委托方式
-	required float OrderMode = 13;
+	optional float OrderMode = 13;
 	//报价方式
-	required float OfferMode = 14;
+	optional float OfferMode = 14;
+	//撤单数量
+	optional float CancelCount = 15;
 }
 ///当日成交信息
 message CommTradeDayDealInfo
