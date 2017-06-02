@@ -1,0 +1,12 @@
+package pb;
+
+message AutoCloseSignal
+{
+	required string Sym=1;
+	required int32 Time=2;
+	required string Name=3;
+	required string Signaltype=4;
+	required float Signal=5;
+	required float Strength=6;
+	required string Note=7;
+}
