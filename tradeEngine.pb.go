@@ -25,20 +25,28 @@ It has these top-level messages:
 */
 package pb
 
-import proto "code.google.com/p/goprotobuf/proto"
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
 import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
+var _ = fmt.Errorf
 var _ = math.Inf
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // 统一交易协议
 // /查询返回协议
 type CommQueryInfo struct {
-	FundInfos        []*CommTradeFundInfo     `protobuf:"bytes,1,rep" json:"FundInfos,omitempty"`
-	StockInfos       []*CommTradeStockInfo    `protobuf:"bytes,2,rep" json:"StockInfos,omitempty"`
-	DayOrderInfos    []*CommTradeDayOrderInfo `protobuf:"bytes,3,rep" json:"DayOrderInfos,omitempty"`
-	DayDealInfos     []*CommTradeDayDealInfo  `protobuf:"bytes,4,rep" json:"DayDealInfos,omitempty"`
+	FundInfos        []*CommTradeFundInfo     `protobuf:"bytes,1,rep,name=FundInfos" json:"FundInfos,omitempty"`
+	StockInfos       []*CommTradeStockInfo    `protobuf:"bytes,2,rep,name=StockInfos" json:"StockInfos,omitempty"`
+	DayOrderInfos    []*CommTradeDayOrderInfo `protobuf:"bytes,3,rep,name=DayOrderInfos" json:"DayOrderInfos,omitempty"`
+	DayDealInfos     []*CommTradeDayDealInfo  `protobuf:"bytes,4,rep,name=DayDealInfos" json:"DayDealInfos,omitempty"`
 	XXX_unrecognized []byte                   `json:"-"`
 }
 
@@ -77,15 +85,15 @@ func (m *CommQueryInfo) GetDayDealInfos() []*CommTradeDayDealInfo {
 // /账户资金信息
 type CommTradeFundInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
 	// 币种
-	Currency *string `protobuf:"bytes,2,req" json:"Currency,omitempty"`
+	Currency *string `protobuf:"bytes,2,req,name=Currency" json:"Currency,omitempty"`
 	// 资金余额
-	FundBalance *float32 `protobuf:"fixed32,3,req" json:"FundBalance,omitempty"`
+	FundBalance *float32 `protobuf:"fixed32,3,req,name=FundBalance" json:"FundBalance,omitempty"`
 	// 可用资金
-	FundAvailable *float32 `protobuf:"fixed32,4,req" json:"FundAvailable,omitempty"`
+	FundAvailable *float32 `protobuf:"fixed32,4,req,name=FundAvailable" json:"FundAvailable,omitempty"`
 	// 总资产
-	TotalAssets      *float32 `protobuf:"fixed32,5,req" json:"TotalAssets,omitempty"`
+	TotalAssets      *float32 `protobuf:"fixed32,5,req,name=TotalAssets" json:"TotalAssets,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
@@ -131,25 +139,25 @@ func (m *CommTradeFundInfo) GetTotalAssets() float32 {
 // /股份信息
 type CommTradeStockInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,2,req" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,2,req,name=StockCode" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,3,req" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,3,req,name=StockName" json:"StockName,omitempty"`
 	// 证券数量
-	StockCount *int32 `protobuf:"varint,4,req" json:"StockCount,omitempty"`
+	StockCount *int32 `protobuf:"varint,4,req,name=StockCount" json:"StockCount,omitempty"`
 	// 可卖数量
-	AvailableQuantity *int32 `protobuf:"varint,5,req" json:"AvailableQuantity,omitempty"`
+	AvailableQuantity *int32 `protobuf:"varint,5,req,name=AvailableQuantity" json:"AvailableQuantity,omitempty"`
 	// 成本价
-	CostPrice *float32 `protobuf:"fixed32,6,req" json:"CostPrice,omitempty"`
+	CostPrice *float32 `protobuf:"fixed32,6,req,name=CostPrice" json:"CostPrice,omitempty"`
 	// 当前价
-	CurrentPrice *float32 `protobuf:"fixed32,7,req" json:"CurrentPrice,omitempty"`
+	CurrentPrice *float32 `protobuf:"fixed32,7,req,name=CurrentPrice" json:"CurrentPrice,omitempty"`
 	// 证券市值
-	MarketCapitalization *float32 `protobuf:"fixed32,8,req" json:"MarketCapitalization,omitempty"`
+	MarketCapitalization *float32 `protobuf:"fixed32,8,req,name=MarketCapitalization" json:"MarketCapitalization,omitempty"`
 	// 浮动盈亏
-	FloatingPL *float32 `protobuf:"fixed32,9,req" json:"FloatingPL,omitempty"`
+	FloatingPL *float32 `protobuf:"fixed32,9,req,name=FloatingPL" json:"FloatingPL,omitempty"`
 	// 盈亏比例
-	RatioPL          *float32 `protobuf:"fixed32,10,req" json:"RatioPL,omitempty"`
+	RatioPL          *float32 `protobuf:"fixed32,10,req,name=RatioPL" json:"RatioPL,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
@@ -230,33 +238,35 @@ func (m *CommTradeStockInfo) GetRatioPL() float32 {
 // /当日委托信息
 type CommTradeDayOrderInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,opt,name=FundAccount" json:"FundAccount,omitempty"`
 	// 委托时间
-	OrderTime *string `protobuf:"bytes,2,req" json:"OrderTime,omitempty"`
+	OrderTime *string `protobuf:"bytes,2,req,name=OrderTime" json:"OrderTime,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,3,req" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,3,req,name=StockCode" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,4,req" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,4,req,name=StockName" json:"StockName,omitempty"`
 	// 买卖标志
-	TradeMark *string `protobuf:"bytes,5,req" json:"TradeMark,omitempty"`
+	TradeMark *string `protobuf:"bytes,5,req,name=TradeMark" json:"TradeMark,omitempty"`
 	// 委托类别
-	OrderType *string `protobuf:"bytes,6,req" json:"OrderType,omitempty"`
+	OrderType *string `protobuf:"bytes,6,opt,name=OrderType" json:"OrderType,omitempty"`
 	// 状态说明
-	State *string `protobuf:"bytes,7,req" json:"State,omitempty"`
+	State *string `protobuf:"bytes,7,req,name=State" json:"State,omitempty"`
 	// 委托价格
-	OrderPrice *float32 `protobuf:"fixed32,8,req" json:"OrderPrice,omitempty"`
+	OrderPrice *float32 `protobuf:"fixed32,8,req,name=OrderPrice" json:"OrderPrice,omitempty"`
 	// 委托数量
-	OrderCount *int32 `protobuf:"varint,9,req" json:"OrderCount,omitempty"`
+	OrderCount *int32 `protobuf:"varint,9,req,name=OrderCount" json:"OrderCount,omitempty"`
 	// 委托编号
-	OrderId *int32 `protobuf:"varint,10,req" json:"OrderId,omitempty"`
+	OrderId *int32 `protobuf:"varint,10,req,name=OrderId" json:"OrderId,omitempty"`
 	// 成交价格
-	DealPrice *float32 `protobuf:"fixed32,11,req" json:"DealPrice,omitempty"`
+	DealPrice *float32 `protobuf:"fixed32,11,opt,name=DealPrice" json:"DealPrice,omitempty"`
 	// 成交数量
-	DealCount *float32 `protobuf:"fixed32,12,req" json:"DealCount,omitempty"`
+	DealCount *float32 `protobuf:"fixed32,12,req,name=DealCount" json:"DealCount,omitempty"`
 	// 委托方式
-	OrderMode *float32 `protobuf:"fixed32,13,req" json:"OrderMode,omitempty"`
+	OrderMode *float32 `protobuf:"fixed32,13,opt,name=OrderMode" json:"OrderMode,omitempty"`
 	// 报价方式
-	OfferMode        *float32 `protobuf:"fixed32,14,req" json:"OfferMode,omitempty"`
+	OfferMode *float32 `protobuf:"fixed32,14,opt,name=OfferMode" json:"OfferMode,omitempty"`
+	// 撤单数量
+	CancelCount      *float32 `protobuf:"fixed32,15,opt,name=CancelCount" json:"CancelCount,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
@@ -362,28 +372,35 @@ func (m *CommTradeDayOrderInfo) GetOfferMode() float32 {
 	return 0
 }
 
+func (m *CommTradeDayOrderInfo) GetCancelCount() float32 {
+	if m != nil && m.CancelCount != nil {
+		return *m.CancelCount
+	}
+	return 0
+}
+
 // /当日成交信息
 type CommTradeDayDealInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
 	// 成交时间
-	DealTime *string `protobuf:"bytes,2,req" json:"DealTime,omitempty"`
+	DealTime *string `protobuf:"bytes,2,req,name=DealTime" json:"DealTime,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,3,req" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,3,req,name=StockCode" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,4,req" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,4,req,name=StockName" json:"StockName,omitempty"`
 	// 买卖标志
-	TradeMark *string `protobuf:"bytes,5,req" json:"TradeMark,omitempty"`
+	TradeMark *string `protobuf:"bytes,5,req,name=TradeMark" json:"TradeMark,omitempty"`
 	// 成交价格
-	DealPrice *float32 `protobuf:"fixed32,6,req" json:"DealPrice,omitempty"`
+	DealPrice *float32 `protobuf:"fixed32,6,req,name=DealPrice" json:"DealPrice,omitempty"`
 	// 成交数量
-	DealCount *int32 `protobuf:"varint,7,req" json:"DealCount,omitempty"`
+	DealCount *int32 `protobuf:"varint,7,req,name=DealCount" json:"DealCount,omitempty"`
 	// 成交金额
-	DealVolume *float32 `protobuf:"fixed32,8,req" json:"DealVolume,omitempty"`
+	DealVolume *float32 `protobuf:"fixed32,8,req,name=DealVolume" json:"DealVolume,omitempty"`
 	// 成交编号
-	DealId *float32 `protobuf:"fixed32,9,req" json:"DealId,omitempty"`
+	DealId *float32 `protobuf:"fixed32,9,req,name=DealId" json:"DealId,omitempty"`
 	// 委托编号
-	OrderId          *float32 `protobuf:"fixed32,10,req" json:"OrderId,omitempty"`
+	OrderId          *float32 `protobuf:"fixed32,10,req,name=OrderId" json:"OrderId,omitempty"`
 	XXX_unrecognized []byte   `json:"-"`
 }
 
@@ -464,9 +481,9 @@ func (m *CommTradeDayDealInfo) GetOrderId() float32 {
 // /下单返回信息
 type CommTradeOrderResp struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
 	// 委托号
-	OrderId          *string `protobuf:"bytes,2,req" json:"OrderId,omitempty"`
+	OrderId          *string `protobuf:"bytes,2,req,name=OrderId" json:"OrderId,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -491,9 +508,9 @@ func (m *CommTradeOrderResp) GetOrderId() string {
 // /撤单返回信息
 type CommTradeCancelResp struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
 	// 撤单返回信息
-	CancelInfo       *string `protobuf:"bytes,2,req" json:"CancelInfo,omitempty"`
+	CancelInfo       *string `protobuf:"bytes,2,req,name=CancelInfo" json:"CancelInfo,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -559,7 +576,7 @@ func (m *TradeEngineMessage) GetData() []byte {
 // ****tradex协议****
 type TradeXQueryMessage struct {
 	// 查询信息的种类，0资金 1股份 2当日委托 3当日成交 4可撤单 5股东代码 6融资余额 7融券余额 8可融证券
-	QueryType        *int32 `protobuf:"varint,1,req" json:"QueryType,omitempty"`
+	QueryType        *int32 `protobuf:"varint,1,req,name=QueryType" json:"QueryType,omitempty"`
 	XXX_unrecognized []byte `json:"-"`
 }
 
@@ -576,17 +593,17 @@ func (m *TradeXQueryMessage) GetQueryType() int32 {
 
 type TradeXOrderMessage struct {
 	// 委托的种类，0买入 1卖出 2融资买入 3融券卖出 4买券还券 5卖券还款 6现券还券
-	OrderType *int32 `protobuf:"varint,1,req" json:"OrderType,omitempty"`
+	OrderType *int32 `protobuf:"varint,1,req,name=OrderType" json:"OrderType,omitempty"`
 	// 报价方式 0上海限价委托 深圳限价委托 1(市价委托)深圳对方最优价格  2(市价委托)深圳本方最优价格  3(市价委托)深圳即时成交剩余撤销  4(市价委托)上海五档即成剩撤 深圳五档即成剩撤 5(市价委托)深圳全额成交或撤销 6(市价委托)上海五档即成转限价
-	PriceType *int32 `protobuf:"varint,2,req" json:"PriceType,omitempty"`
+	PriceType *int32 `protobuf:"varint,2,req,name=PriceType" json:"PriceType,omitempty"`
 	// 股东代码
-	Gddm *string `protobuf:"bytes,3,req" json:"Gddm,omitempty"`
+	Gddm *string `protobuf:"bytes,3,req,name=Gddm" json:"Gddm,omitempty"`
 	// 证券代码
-	Zqdm *string `protobuf:"bytes,4,req" json:"Zqdm,omitempty"`
+	Zqdm *string `protobuf:"bytes,4,req,name=Zqdm" json:"Zqdm,omitempty"`
 	// 委托价格
-	Price *float32 `protobuf:"fixed32,5,req" json:"Price,omitempty"`
+	Price *float32 `protobuf:"fixed32,5,req,name=Price" json:"Price,omitempty"`
 	// 委托数量
-	Count            *int32 `protobuf:"varint,6,req" json:"Count,omitempty"`
+	Count            *int32 `protobuf:"varint,6,req,name=Count" json:"Count,omitempty"`
 	XXX_unrecognized []byte `json:"-"`
 }
 
@@ -638,9 +655,9 @@ func (m *TradeXOrderMessage) GetCount() int32 {
 
 type TradeXCancelMessage struct {
 	// 交易所ID， 上海1，深圳0(招商证券普通账户深圳是2)
-	ExchangeID *string `protobuf:"bytes,1,req" json:"ExchangeID,omitempty"`
+	ExchangeID *string `protobuf:"bytes,1,req,name=ExchangeID" json:"ExchangeID,omitempty"`
 	// 要撤的目标委托的编号
-	CancelNo         *string `protobuf:"bytes,2,req" json:"CancelNo,omitempty"`
+	CancelNo         *string `protobuf:"bytes,2,req,name=CancelNo" json:"CancelNo,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -664,7 +681,7 @@ func (m *TradeXCancelMessage) GetCancelNo() string {
 
 type TradeXQuoteMessage struct {
 	// 证券代码
-	Zqdm             *string `protobuf:"bytes,1,req" json:"Zqdm,omitempty"`
+	Zqdm             *string `protobuf:"bytes,1,req,name=Zqdm" json:"Zqdm,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -681,7 +698,7 @@ func (m *TradeXQuoteMessage) GetZqdm() string {
 
 type TradeXRepayMessage struct {
 	// 还款金额
-	Amount           *string `protobuf:"bytes,1,req" json:"Amount,omitempty"`
+	Amount           *string `protobuf:"bytes,1,req,name=Amount" json:"Amount,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -697,4 +714,17 @@ func (m *TradeXRepayMessage) GetAmount() string {
 }
 
 func init() {
+	proto.RegisterType((*CommQueryInfo)(nil), "pb.CommQueryInfo")
+	proto.RegisterType((*CommTradeFundInfo)(nil), "pb.CommTradeFundInfo")
+	proto.RegisterType((*CommTradeStockInfo)(nil), "pb.CommTradeStockInfo")
+	proto.RegisterType((*CommTradeDayOrderInfo)(nil), "pb.CommTradeDayOrderInfo")
+	proto.RegisterType((*CommTradeDayDealInfo)(nil), "pb.CommTradeDayDealInfo")
+	proto.RegisterType((*CommTradeOrderResp)(nil), "pb.CommTradeOrderResp")
+	proto.RegisterType((*CommTradeCancelResp)(nil), "pb.CommTradeCancelResp")
+	proto.RegisterType((*TradeEngineMessage)(nil), "pb.TradeEngineMessage")
+	proto.RegisterType((*TradeXQueryMessage)(nil), "pb.TradeXQueryMessage")
+	proto.RegisterType((*TradeXOrderMessage)(nil), "pb.TradeXOrderMessage")
+	proto.RegisterType((*TradeXCancelMessage)(nil), "pb.TradeXCancelMessage")
+	proto.RegisterType((*TradeXQuoteMessage)(nil), "pb.TradeXQuoteMessage")
+	proto.RegisterType((*TradeXRepayMessage)(nil), "pb.TradeXRepayMessage")
 }
