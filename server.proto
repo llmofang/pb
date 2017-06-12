@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package pb;
+
+//服务节点信息
+message SerEndpoint{
+	//ID
+	required string ID = 1;
+	//服务路径
+	required string SerPath = 2;
+	//接口信息
+	optional string Interface = 3 [default = ""];
+	//应用名称
+	optional string AppName = 4;
+	//负载情况
+	optional float Loading = 5 [default = 0.0];
+	//状态
+	optional int32 State = 6 [default = 1];
+	//其它信息以json描述
+	optional string Memo = 7;
+	//节点创建版本
+	required string CVersion   = 8;
+	//节点版本
+	required string Version   = 9;
+}
