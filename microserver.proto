@@ -1,0 +1,43 @@
+syntax = "proto3";
+package pb;
+
+message GetNameParams {}
+
+message GetKeysParams {
+	map<string, string> Values = 1;
+}
+
+message GetDataParams {
+	string UUID = 1;
+	string Url = 2;
+	map<string, string> Values = 3;
+}
+
+message PushDataParams {
+	bytes Data = 1;
+}
+
+message NameResponse {
+	string Name = 1;
+}
+
+message KeysResponse {
+	repeated string Keys = 1;
+}
+
+message DataResponse {
+	uint32 ErrCode = 1;
+	bytes Response = 2;
+}
+
+message PushResponse {
+	uint32 ErrCode = 1;
+	bytes Response = 2;
+}
+
+service MicroFrame {
+	rpc GetName(GetNameParams) returns (NameResponse){}
+	rpc GetKeys(GetKeysParams) returns (KeysResponse){}
+	rpc GetData(GetDataParams) returns (DataResponse){}
+	rpc GetResponse(PushDataParams) returns (PushResponse){}
+}
