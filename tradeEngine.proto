@@ -8,6 +8,9 @@ message CommQueryInfo
 	repeated CommTradeStockInfo StockInfos = 2;
 	repeated CommTradeDayOrderInfo DayOrderInfos = 3;
 	repeated CommTradeDayDealInfo DayDealInfos = 4;
+	repeated CommTradeUnitInfo UnitInfos = 5;
+	repeated CommTradeUnitCapitalInfo UnitCapitalInfos = 6;
+	repeated CommTradeSecuDeliInfo SecuDeliInfos = 7;
 }
 ///账户资金信息
 message CommTradeFundInfo
@@ -22,6 +25,130 @@ message CommTradeFundInfo
 	required float FundAvailable = 4;
 	//总资产
 	required float TotalAssets = 5;
+	//初始化日期
+	optional int32 init_date = 6;
+	//机构编号
+	optional int32 company_no = 7;
+	//产品编码
+	optional string product_code = 8;
+	//产品序号
+	optional string product_id = 9;
+	//产品名称
+	optional string product_name = 10;
+	//资产账户名称
+	optional string asset_account_name = 11;
+	//期初金额
+	optional string begin_amt = 12;
+	//冻结金额
+	optional string frozen_amt = 13;
+	//解冻金额
+	optional string unfrozen_amt = 14;
+	//指令占用金额
+	optional string command_capture_amt = 15;
+	//指令释放金额
+	optional string command_release_amt = 16;
+	//交易占用金额
+	optional string order_capture_amt = 17;
+	//交易释放金额
+	optional string order_release_amt = 18;
+	//成交占用金额
+	optional string execution_capture_amt = 19;
+	//成交释放金额
+	optional string execution_release_amt = 20;
+	//证券资产
+	optional string holding_asset = 21;
+}
+///账户资金信息
+message CommTradeUnitCapitalInfo
+{
+	//记录序号	
+	required int64 row_id = 1;
+	//初始化日期	
+	optional int32 init_date = 2;
+	//机构编号	
+	optional int32 company_no = 3;
+	//产品序号	
+	optional int64 product_id = 4;
+	//产品编码	
+	optional string product_code = 5;
+	//产品名称	
+	optional string product_name = 6;
+	//交易单元序号	
+	optional int64 unit_id = 7;
+	//交易单元名称	
+	optional string unit_name = 8;
+	//交易单元	
+	optional string unit_code = 9;
+	//本币币种	
+	optional string currency_type = 10;
+	//原始金额	
+	optional string original_amt = 11;
+	//产品已分配资金	
+	optional string product_distribute_amt = 12;
+	//单元已分配资金	
+	optional string unit_distribute_amt = 13;
+	//期初金额	
+	optional string begin_amt = 14;
+	//当前金额	
+	optional string current_amt = 15;
+	//买入待交割金额	
+	optional string buy_unsettle_amt = 16;
+	//卖出待交割金额	
+	optional string sell_unsettle_amt = 17;
+	//冻结金额	
+	optional string frozen_amt = 18;
+	//解冻金额	
+	optional string unfrozen_amt = 19;
+	//股票资产	
+	optional string equities_asset = 20;
+	//基金资产	
+	optional string fund_asset = 21;
+	//债券资产	
+	optional string fixedincome_asset = 22;
+	//期货资产	
+	optional string futuers_asset = 23;
+	//回购资产	
+	optional string repo_asset = 24;
+	//其他资产	
+	optional string other_asset = 25;
+	//累计应收额	
+	optional string accumulative_receivable = 26;
+	//累计应付额	
+	optional string accumulative_payable = 27;
+	//净资产	
+	optional string NAV = 28;
+	//当前份额	
+	optional string current_share = 29;
+	//可用金额	
+	optional string available_amt = 30;
+	//可划转金额	
+	optional string move_available_amt = 31;
+	//可分配金额	
+	optional string assign_available_amt = 32;
+}
+///可用交易单元查询
+message CommTradeUnitInfo
+{
+	//交易单元
+	required string unit_code = 1;
+	//产品编码
+	required string product_code = 2;
+	//交易单元名称
+	required string unit_name = 3;
+	//产品名称
+	required string product_name = 4;
+	//机构编号
+	required int32 company_no = 5;
+	//产品序号
+	required int32 product_id = 6;
+	//交易单元序号
+	required int32 unit_id = 7;
+	//操作权限
+	required int32 operate_type = 8;
+	//交易单元状态
+	required string unit_status = 9;
+	//可用资产账号
+	repeated string arrAssetAccount = 10;
 }
 ///股份信息
 message CommTradeStockInfo
@@ -46,6 +173,208 @@ message CommTradeStockInfo
 	required float FloatingPL = 9;
 	//盈亏比例
 	required float RatioPL = 10;
+	//记录序号	
+	optional int64 row_id = 11;
+	//初始化日期	
+	optional int32 init_date = 12;
+	//机构编号	
+	optional int32 company_no = 13;
+	//机构名称	
+	optional string company_name = 14;
+	//产品编码	
+	optional string product_code = 15;
+	//产品名称	
+	optional string product_name = 16;
+	//交易单元	
+	optional string unit_code = 17;
+	//产品序号	
+	optional int64 product_id = 18;
+	//交易单元序号	
+	optional int64 unit_id = 19;
+	//交易单元名称	
+	optional string unit_name = 20;
+	//市场编号	
+	optional int32 exchange_no = 21;
+	//证券类型	
+	optional int32 stock_type = 22;
+	//投资类型	
+	optional int32 invest_type = 23;
+	//期初数量	
+	optional string begin_qty = 24;
+	//冻结数量	
+	optional string frozen_qty = 25;
+	//解冻数量	
+	optional string unfrozen_qty = 26;
+	//指令占用数量	
+	optional string command_capture_qty = 27;
+	//指令释放数量	
+	optional string command_release_qty = 28;
+	//交易占用数量	
+	optional string order_capture_qty = 29;
+	//交易释放数量	
+	optional string order_release_qty = 30;
+	//成交占用数量	
+	optional string execution_capture_qty = 31;
+	//成交释放数量	
+	optional string execution_release_qty = 32;
+	//当前成本金额	
+	optional string current_cost_amt = 33;
+	//实现盈亏	
+	optional string realize_pandl = 34;
+	//利息成本金额	
+	optional string interest_cost_amt = 35;
+	//利息收益	
+	optional string interest_pandl = 36;
+	//交易端可用数量	
+	optional string order_available_qty = 37;
+	//指令端可用数量	
+	optional string command_available_qty = 38;
+	//可划转数量	
+	optional string move_available_qty = 39;
+	//昨收盘价	
+	optional string pre_close_price = 40;
+}
+///证券对账记录查询
+message CommTradeSecuDeliInfo
+{
+	//记录序号	
+	required int64 row_id = 1;
+	//操作员机构编号	
+	optional int32 operator_company_no = 2;
+	//操作员编号	
+	optional int32 operator_no = 3;
+	//操作站点	
+	optional string oper_station = 4;
+	//操作方式	
+	optional string oper_kind = 5;
+	//机器日期	
+	optional int32 machine_date = 6;
+	//初始化日期	
+	optional int32 init_date = 7;
+	//入账流水号	
+	optional int64 entry_jour_no = 8;
+	//成交日期	
+	optional int32 execution_date = 9;
+	//成交时间	
+	optional int32 execution_time = 10;
+	//成交编号	
+	optional int32 execution_no = 11;
+	//申报日期	
+	optional int32 report_date = 12;
+	//申报时间	
+	optional int32 report_time = 13;
+	//申报编号	
+	optional int32 report_no = 14;
+	//订单日期	
+	optional int32 order_date = 15;
+	//订单时间	
+	optional int32 order_time = 16;
+	//订单编号	
+	optional int32 order_no = 17;
+	//机构编号	
+	optional int32 company_no = 18;
+	//产品序号	
+	optional int64 product_id = 19;
+	//产品编码	
+	optional string product_code = 20;
+	//产品名称	
+	optional string product_name = 21;
+	//交易单元序号	
+	optional int64 unit_id = 22;
+	//交易单元	
+	optional string unit_code = 23;
+	//交易单元名称	
+	optional string unit_name = 24;
+	//资产账户	
+	optional string asset_account = 25;
+	//通道编号	
+	optional int32 channel_no = 26;
+	//资金账号	
+	optional string fund_account = 27;
+	//投资类型	
+	optional int32 invest_type = 28;
+	//本币币种	
+	optional string currency_type = 29;
+	//市场编号	
+	optional int32 exchange_no = 30;
+	//证券类型	
+	optional int32 stock_type = 31;
+	//证券代码	
+	optional string stock_code = 32;
+	//证券名称	
+	optional string stock_name = 33;
+	//订单方向	
+	optional int32 order_dir = 34;
+	//订单价格	
+	optional string order_price = 35;
+	//订单数量	
+	optional string order_qty = 36;
+	//成交价格	
+	optional string execution_price = 37;
+	//成交数量	
+	optional string execution_qty = 38;
+	//成交金额	
+	optional string execution_amt = 39;
+	//成交笔数	
+	optional int32 busi_num = 40;
+	//入账数量	
+	optional string accountstock_qty = 41;
+	//入账金额	
+	optional string accountcash_amt = 42;
+	//成本金额	
+	optional string cost_amt = 43;
+	//利息成本金额	
+	optional string interest_cost_amt = 44;
+	//实现盈亏	
+	optional string realize_pandl = 45;
+	//利息收益	
+	optional string interest_pandl = 46;
+	//全部费用	
+	optional string all_fare = 47;
+	//印花税	
+	optional string stamp_tax = 48;
+	//过户费	
+	optional string transfer_fare = 49;
+	//经手费	
+	optional string brokerage = 50;
+	//证管费	
+	optional string SEC_charges = 51;
+	//其他费用	
+	optional string other_fare = 52;
+	//交易佣金	
+	optional string brokerage_commission = 53;
+	//渠道佣金	
+	optional string channel_commission = 54;
+	//分成佣金	
+	optional string divide_commission = 55;
+	//其他佣金	
+	optional string other_commission = 56;
+	//外部全部费用	
+	optional string out_all_fare = 57;
+	//外部印花税	
+	optional string out_stamp_tax = 58;
+	//外部过户费	
+	optional string out_transfer_fare = 59;
+	//外部经手费	
+	optional string out_brokerage = 60;
+	//外部证管费	
+	optional string out_SEC_charges = 61;
+	//外部其他费用	
+	optional string out_other_fare = 62;
+	//外部交易佣金	
+	optional string out_brokerage_commission = 63;
+	//外部渠道佣金	
+	optional string out_channel_commission = 64;
+	//外部分成佣金	
+	optional string out_divide_commission = 65;
+	//外部其他佣金	
+	optional string out_other_commission = 66;
+	//业务标志	
+	optional int32 busi_flag = 67;
+	//对账状态	
+	optional string deli_status = 68;
+	//备注信息	
+	optional string remark_info = 69;
 }
 ///当日委托信息
 message CommTradeDayOrderInfo
@@ -80,6 +409,68 @@ message CommTradeDayOrderInfo
 	optional float OfferMode = 14;
 	//撤单数量
 	optional float CancelCount = 15;
+	//机构编号
+	optional int32 company_no = 16;
+	//产品编码
+	optional string product_code = 17;
+	//产品名称
+	optional string product_name = 18;
+	//操作员编号
+	optional int32 operator_no = 19;
+	//机器日期
+	optional int32 machine_date = 20;
+	//外部编号
+	optional int32 external_no = 21;
+	//订单批号
+	optional int32 batch_no = 22;
+	//交易单元
+	optional string unit_code = 23;
+	//指令序号
+	optional int64 command_id = 24;
+	//订单日期
+	optional int64 order_date = 25;
+	//订单时间
+	optional int64 order_time = 26;
+	//交易单元名称
+	optional string unit_name = 27;
+	//通道编号
+	optional int32 channel_no = 28;
+	//市场编号
+	optional int32 exchange_no = 29;
+	//资产类型
+	optional int32 asset_type = 30;
+	//证券类型
+	optional int32 stock_type = 31;
+	//本币币种
+	optional string currency_type = 32;
+	//操作方式
+	optional string oper_kind = 33;
+	//成交金额
+	optional string execution_amt = 34;
+	//操作站点
+	optional string oper_station = 35;
+	//全部费用
+	optional string all_fare = 36;
+	//渠道佣金
+	optional string channel_commission = 37;
+	//交易佣金
+	optional string brokerage_commission = 38;
+	//印花税
+	optional string stamp_tax = 39;
+	//过户费
+	optional string transfer_fare = 40;
+	//经手费
+	optional string brokerage = 41;
+	//证管费
+	optional string SEC_charges = 42;
+	//其他费用
+	optional string other_fare = 43;
+	//其他佣金
+	optional string other_commission = 44;
+	//记录序号
+	optional int64 row_id = 45;
+	//订单冻结金额
+	optional string order_frozen_amt = 46;
 }
 ///当日成交信息
 message CommTradeDayDealInfo
@@ -104,6 +495,42 @@ message CommTradeDayDealInfo
 	required float DealId = 9;
 	//委托编号
 	required float OrderId = 10;
+	//机构编号
+	optional int32 company_no = 11;
+	//产品编码
+	optional string product_code = 12;
+	//产品名称
+	optional string product_name = 13;
+	//交易单元
+	optional string unit_code = 14;
+	//交易单元名称
+	optional string unit_name = 15;
+	//申报日期
+	optional int32 report_date = 16;
+	//通道编号
+	optional int32 channel_no = 17;
+	//指令序号
+	optional int64 command_id = 18;
+	//订单日期
+	optional int32 order_date = 19;
+	//订单时间
+	optional int32 order_time = 20;
+	//申报编号
+	optional int32 report_no = 21;
+	//市场编号
+	optional int32 exchange_no = 22;
+	//证券类型
+	optional int32 stock_type = 23;
+	//本币币种
+	optional string currency_type = 24;
+	//成交时间
+	optional int32 execution_time = 25;
+	//全部费用
+	optional string all_fare = 26;
+	//记录序号
+	optional int64 row_id = 27;
+	//订单价格
+	optional string order_price = 28;
 }
 ///下单返回信息
 message CommTradeOrderResp
@@ -112,6 +539,36 @@ message CommTradeOrderResp
 	required string FundAccount = 1;
 	//委托号
 	required string OrderId = 2;
+	//机构编号
+	optional int32 company_no = 3;
+	//操作员编号
+	optional int32 operator_no = 4;
+	//订单日期
+	optional int32 order_date = 5;
+	//外部编号
+	optional int32 external_no = 6;
+	//产品编码
+	optional string product_code = 7;
+	//交易单元
+	optional string unit_code = 8;
+	//市场编号
+	optional int32 exchange_no = 9;
+	//证券类型
+	optional int32 stock_type = 10;
+	//证券代码
+	optional string stock_code = 11;
+	//订单方向
+	optional int32 order_dir = 12;
+	//订单数量
+	optional string order_qty = 13;
+	//订单价格
+	optional string order_price = 14;
+	//通道编号
+	optional int32 channel_no = 15;
+	//订单状态
+	optional string order_status = 16;
+	//合规触警序号
+	optional int64 compliance_trigger_id = 17;
 }
 ///撤单返回信息
 message CommTradeCancelResp
@@ -120,6 +577,26 @@ message CommTradeCancelResp
 	required string FundAccount = 1;
 	//撤单返回信息
 	required string CancelInfo = 2;
+	//外部编号
+	optional int32 external_no = 3;
+	//撤单状态
+	optional string cancel_status = 4;
+	//市场编号
+	optional int32 exchange_no = 5;
+	//证券代码
+	optional string stock_code = 6;
+	//订单编号
+	optional int32 order_no = 7;
+	//订单状态
+	optional string order_status = 8;
+	//撤单数量
+	optional string cancel_qty = 9;
+	//撤单编号
+	optional int32 cancel_no = 10;
+	//申报编号
+	optional int32 report_no = 11;
+	//通道编号
+	optional int32 channel_no = 12;
 }
 
 //交易引擎协议

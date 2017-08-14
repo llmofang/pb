@@ -11,7 +11,10 @@ It is generated from these files:
 It has these top-level messages:
 	CommQueryInfo
 	CommTradeFundInfo
+	CommTradeUnitCapitalInfo
+	CommTradeUnitInfo
 	CommTradeStockInfo
+	CommTradeSecuDeliInfo
 	CommTradeDayOrderInfo
 	CommTradeDayDealInfo
 	CommTradeOrderResp
@@ -25,29 +28,24 @@ It has these top-level messages:
 */
 package pb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
+import proto "code.google.com/p/goprotobuf/proto"
 import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
-var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // 统一交易协议
 // /查询返回协议
 type CommQueryInfo struct {
-	FundInfos        []*CommTradeFundInfo     `protobuf:"bytes,1,rep,name=FundInfos" json:"FundInfos,omitempty"`
-	StockInfos       []*CommTradeStockInfo    `protobuf:"bytes,2,rep,name=StockInfos" json:"StockInfos,omitempty"`
-	DayOrderInfos    []*CommTradeDayOrderInfo `protobuf:"bytes,3,rep,name=DayOrderInfos" json:"DayOrderInfos,omitempty"`
-	DayDealInfos     []*CommTradeDayDealInfo  `protobuf:"bytes,4,rep,name=DayDealInfos" json:"DayDealInfos,omitempty"`
-	XXX_unrecognized []byte                   `json:"-"`
+	FundInfos        []*CommTradeFundInfo        `protobuf:"bytes,1,rep" json:"FundInfos,omitempty"`
+	StockInfos       []*CommTradeStockInfo       `protobuf:"bytes,2,rep" json:"StockInfos,omitempty"`
+	DayOrderInfos    []*CommTradeDayOrderInfo    `protobuf:"bytes,3,rep" json:"DayOrderInfos,omitempty"`
+	DayDealInfos     []*CommTradeDayDealInfo     `protobuf:"bytes,4,rep" json:"DayDealInfos,omitempty"`
+	UnitInfos        []*CommTradeUnitInfo        `protobuf:"bytes,5,rep" json:"UnitInfos,omitempty"`
+	UnitCapitalInfos []*CommTradeUnitCapitalInfo `protobuf:"bytes,6,rep" json:"UnitCapitalInfos,omitempty"`
+	SecuDeliInfos    []*CommTradeSecuDeliInfo    `protobuf:"bytes,7,rep" json:"SecuDeliInfos,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *CommQueryInfo) Reset()         { *m = CommQueryInfo{} }
@@ -82,19 +80,72 @@ func (m *CommQueryInfo) GetDayDealInfos() []*CommTradeDayDealInfo {
 	return nil
 }
 
+func (m *CommQueryInfo) GetUnitInfos() []*CommTradeUnitInfo {
+	if m != nil {
+		return m.UnitInfos
+	}
+	return nil
+}
+
+func (m *CommQueryInfo) GetUnitCapitalInfos() []*CommTradeUnitCapitalInfo {
+	if m != nil {
+		return m.UnitCapitalInfos
+	}
+	return nil
+}
+
+func (m *CommQueryInfo) GetSecuDeliInfos() []*CommTradeSecuDeliInfo {
+	if m != nil {
+		return m.SecuDeliInfos
+	}
+	return nil
+}
+
 // /账户资金信息
 type CommTradeFundInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
 	// 币种
-	Currency *string `protobuf:"bytes,2,req,name=Currency" json:"Currency,omitempty"`
+	Currency *string `protobuf:"bytes,2,req" json:"Currency,omitempty"`
 	// 资金余额
-	FundBalance *float32 `protobuf:"fixed32,3,req,name=FundBalance" json:"FundBalance,omitempty"`
+	FundBalance *float32 `protobuf:"fixed32,3,req" json:"FundBalance,omitempty"`
 	// 可用资金
-	FundAvailable *float32 `protobuf:"fixed32,4,req,name=FundAvailable" json:"FundAvailable,omitempty"`
+	FundAvailable *float32 `protobuf:"fixed32,4,req" json:"FundAvailable,omitempty"`
 	// 总资产
-	TotalAssets      *float32 `protobuf:"fixed32,5,req,name=TotalAssets" json:"TotalAssets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	TotalAssets *float32 `protobuf:"fixed32,5,req" json:"TotalAssets,omitempty"`
+	// 初始化日期
+	InitDate *int32 `protobuf:"varint,6,opt,name=init_date" json:"init_date,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,7,opt,name=company_no" json:"company_no,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,8,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品序号
+	ProductId *string `protobuf:"bytes,9,opt,name=product_id" json:"product_id,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,10,opt,name=product_name" json:"product_name,omitempty"`
+	// 资产账户名称
+	AssetAccountName *string `protobuf:"bytes,11,opt,name=asset_account_name" json:"asset_account_name,omitempty"`
+	// 期初金额
+	BeginAmt *string `protobuf:"bytes,12,opt,name=begin_amt" json:"begin_amt,omitempty"`
+	// 冻结金额
+	FrozenAmt *string `protobuf:"bytes,13,opt,name=frozen_amt" json:"frozen_amt,omitempty"`
+	// 解冻金额
+	UnfrozenAmt *string `protobuf:"bytes,14,opt,name=unfrozen_amt" json:"unfrozen_amt,omitempty"`
+	// 指令占用金额
+	CommandCaptureAmt *string `protobuf:"bytes,15,opt,name=command_capture_amt" json:"command_capture_amt,omitempty"`
+	// 指令释放金额
+	CommandReleaseAmt *string `protobuf:"bytes,16,opt,name=command_release_amt" json:"command_release_amt,omitempty"`
+	// 交易占用金额
+	OrderCaptureAmt *string `protobuf:"bytes,17,opt,name=order_capture_amt" json:"order_capture_amt,omitempty"`
+	// 交易释放金额
+	OrderReleaseAmt *string `protobuf:"bytes,18,opt,name=order_release_amt" json:"order_release_amt,omitempty"`
+	// 成交占用金额
+	ExecutionCaptureAmt *string `protobuf:"bytes,19,opt,name=execution_capture_amt" json:"execution_capture_amt,omitempty"`
+	// 成交释放金额
+	ExecutionReleaseAmt *string `protobuf:"bytes,20,opt,name=execution_release_amt" json:"execution_release_amt,omitempty"`
+	// 证券资产
+	HoldingAsset     *string `protobuf:"bytes,21,opt,name=holding_asset" json:"holding_asset,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CommTradeFundInfo) Reset()         { *m = CommTradeFundInfo{} }
@@ -136,29 +187,597 @@ func (m *CommTradeFundInfo) GetTotalAssets() float32 {
 	return 0
 }
 
+func (m *CommTradeFundInfo) GetInitDate() int32 {
+	if m != nil && m.InitDate != nil {
+		return *m.InitDate
+	}
+	return 0
+}
+
+func (m *CommTradeFundInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeFundInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetProductId() string {
+	if m != nil && m.ProductId != nil {
+		return *m.ProductId
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetAssetAccountName() string {
+	if m != nil && m.AssetAccountName != nil {
+		return *m.AssetAccountName
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetBeginAmt() string {
+	if m != nil && m.BeginAmt != nil {
+		return *m.BeginAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetFrozenAmt() string {
+	if m != nil && m.FrozenAmt != nil {
+		return *m.FrozenAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetUnfrozenAmt() string {
+	if m != nil && m.UnfrozenAmt != nil {
+		return *m.UnfrozenAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetCommandCaptureAmt() string {
+	if m != nil && m.CommandCaptureAmt != nil {
+		return *m.CommandCaptureAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetCommandReleaseAmt() string {
+	if m != nil && m.CommandReleaseAmt != nil {
+		return *m.CommandReleaseAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetOrderCaptureAmt() string {
+	if m != nil && m.OrderCaptureAmt != nil {
+		return *m.OrderCaptureAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetOrderReleaseAmt() string {
+	if m != nil && m.OrderReleaseAmt != nil {
+		return *m.OrderReleaseAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetExecutionCaptureAmt() string {
+	if m != nil && m.ExecutionCaptureAmt != nil {
+		return *m.ExecutionCaptureAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetExecutionReleaseAmt() string {
+	if m != nil && m.ExecutionReleaseAmt != nil {
+		return *m.ExecutionReleaseAmt
+	}
+	return ""
+}
+
+func (m *CommTradeFundInfo) GetHoldingAsset() string {
+	if m != nil && m.HoldingAsset != nil {
+		return *m.HoldingAsset
+	}
+	return ""
+}
+
+// /账户资金信息
+type CommTradeUnitCapitalInfo struct {
+	// 记录序号
+	RowId *int64 `protobuf:"varint,1,req,name=row_id" json:"row_id,omitempty"`
+	// 初始化日期
+	InitDate *int32 `protobuf:"varint,2,opt,name=init_date" json:"init_date,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,3,opt,name=company_no" json:"company_no,omitempty"`
+	// 产品序号
+	ProductId *int64 `protobuf:"varint,4,opt,name=product_id" json:"product_id,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,5,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,6,opt,name=product_name" json:"product_name,omitempty"`
+	// 交易单元序号
+	UnitId *int64 `protobuf:"varint,7,opt,name=unit_id" json:"unit_id,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,8,opt,name=unit_name" json:"unit_name,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,9,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 本币币种
+	CurrencyType *string `protobuf:"bytes,10,opt,name=currency_type" json:"currency_type,omitempty"`
+	// 原始金额
+	OriginalAmt *string `protobuf:"bytes,11,opt,name=original_amt" json:"original_amt,omitempty"`
+	// 产品已分配资金
+	ProductDistributeAmt *string `protobuf:"bytes,12,opt,name=product_distribute_amt" json:"product_distribute_amt,omitempty"`
+	// 单元已分配资金
+	UnitDistributeAmt *string `protobuf:"bytes,13,opt,name=unit_distribute_amt" json:"unit_distribute_amt,omitempty"`
+	// 期初金额
+	BeginAmt *string `protobuf:"bytes,14,opt,name=begin_amt" json:"begin_amt,omitempty"`
+	// 当前金额
+	CurrentAmt *string `protobuf:"bytes,15,opt,name=current_amt" json:"current_amt,omitempty"`
+	// 买入待交割金额
+	BuyUnsettleAmt *string `protobuf:"bytes,16,opt,name=buy_unsettle_amt" json:"buy_unsettle_amt,omitempty"`
+	// 卖出待交割金额
+	SellUnsettleAmt *string `protobuf:"bytes,17,opt,name=sell_unsettle_amt" json:"sell_unsettle_amt,omitempty"`
+	// 冻结金额
+	FrozenAmt *string `protobuf:"bytes,18,opt,name=frozen_amt" json:"frozen_amt,omitempty"`
+	// 解冻金额
+	UnfrozenAmt *string `protobuf:"bytes,19,opt,name=unfrozen_amt" json:"unfrozen_amt,omitempty"`
+	// 股票资产
+	EquitiesAsset *string `protobuf:"bytes,20,opt,name=equities_asset" json:"equities_asset,omitempty"`
+	// 基金资产
+	FundAsset *string `protobuf:"bytes,21,opt,name=fund_asset" json:"fund_asset,omitempty"`
+	// 债券资产
+	FixedincomeAsset *string `protobuf:"bytes,22,opt,name=fixedincome_asset" json:"fixedincome_asset,omitempty"`
+	// 期货资产
+	FutuersAsset *string `protobuf:"bytes,23,opt,name=futuers_asset" json:"futuers_asset,omitempty"`
+	// 回购资产
+	RepoAsset *string `protobuf:"bytes,24,opt,name=repo_asset" json:"repo_asset,omitempty"`
+	// 其他资产
+	OtherAsset *string `protobuf:"bytes,25,opt,name=other_asset" json:"other_asset,omitempty"`
+	// 累计应收额
+	AccumulativeReceivable *string `protobuf:"bytes,26,opt,name=accumulative_receivable" json:"accumulative_receivable,omitempty"`
+	// 累计应付额
+	AccumulativePayable *string `protobuf:"bytes,27,opt,name=accumulative_payable" json:"accumulative_payable,omitempty"`
+	// 净资产
+	NAV *string `protobuf:"bytes,28,opt" json:"NAV,omitempty"`
+	// 当前份额
+	CurrentShare *string `protobuf:"bytes,29,opt,name=current_share" json:"current_share,omitempty"`
+	// 可用金额
+	AvailableAmt *string `protobuf:"bytes,30,opt,name=available_amt" json:"available_amt,omitempty"`
+	// 可划转金额
+	MoveAvailableAmt *string `protobuf:"bytes,31,opt,name=move_available_amt" json:"move_available_amt,omitempty"`
+	// 可分配金额
+	AssignAvailableAmt *string `protobuf:"bytes,32,opt,name=assign_available_amt" json:"assign_available_amt,omitempty"`
+	XXX_unrecognized   []byte  `json:"-"`
+}
+
+func (m *CommTradeUnitCapitalInfo) Reset()         { *m = CommTradeUnitCapitalInfo{} }
+func (m *CommTradeUnitCapitalInfo) String() string { return proto.CompactTextString(m) }
+func (*CommTradeUnitCapitalInfo) ProtoMessage()    {}
+
+func (m *CommTradeUnitCapitalInfo) GetRowId() int64 {
+	if m != nil && m.RowId != nil {
+		return *m.RowId
+	}
+	return 0
+}
+
+func (m *CommTradeUnitCapitalInfo) GetInitDate() int32 {
+	if m != nil && m.InitDate != nil {
+		return *m.InitDate
+	}
+	return 0
+}
+
+func (m *CommTradeUnitCapitalInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeUnitCapitalInfo) GetProductId() int64 {
+	if m != nil && m.ProductId != nil {
+		return *m.ProductId
+	}
+	return 0
+}
+
+func (m *CommTradeUnitCapitalInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetUnitId() int64 {
+	if m != nil && m.UnitId != nil {
+		return *m.UnitId
+	}
+	return 0
+}
+
+func (m *CommTradeUnitCapitalInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetCurrencyType() string {
+	if m != nil && m.CurrencyType != nil {
+		return *m.CurrencyType
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetOriginalAmt() string {
+	if m != nil && m.OriginalAmt != nil {
+		return *m.OriginalAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetProductDistributeAmt() string {
+	if m != nil && m.ProductDistributeAmt != nil {
+		return *m.ProductDistributeAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetUnitDistributeAmt() string {
+	if m != nil && m.UnitDistributeAmt != nil {
+		return *m.UnitDistributeAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetBeginAmt() string {
+	if m != nil && m.BeginAmt != nil {
+		return *m.BeginAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetCurrentAmt() string {
+	if m != nil && m.CurrentAmt != nil {
+		return *m.CurrentAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetBuyUnsettleAmt() string {
+	if m != nil && m.BuyUnsettleAmt != nil {
+		return *m.BuyUnsettleAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetSellUnsettleAmt() string {
+	if m != nil && m.SellUnsettleAmt != nil {
+		return *m.SellUnsettleAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetFrozenAmt() string {
+	if m != nil && m.FrozenAmt != nil {
+		return *m.FrozenAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetUnfrozenAmt() string {
+	if m != nil && m.UnfrozenAmt != nil {
+		return *m.UnfrozenAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetEquitiesAsset() string {
+	if m != nil && m.EquitiesAsset != nil {
+		return *m.EquitiesAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetFundAsset() string {
+	if m != nil && m.FundAsset != nil {
+		return *m.FundAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetFixedincomeAsset() string {
+	if m != nil && m.FixedincomeAsset != nil {
+		return *m.FixedincomeAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetFutuersAsset() string {
+	if m != nil && m.FutuersAsset != nil {
+		return *m.FutuersAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetRepoAsset() string {
+	if m != nil && m.RepoAsset != nil {
+		return *m.RepoAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetOtherAsset() string {
+	if m != nil && m.OtherAsset != nil {
+		return *m.OtherAsset
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetAccumulativeReceivable() string {
+	if m != nil && m.AccumulativeReceivable != nil {
+		return *m.AccumulativeReceivable
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetAccumulativePayable() string {
+	if m != nil && m.AccumulativePayable != nil {
+		return *m.AccumulativePayable
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetNAV() string {
+	if m != nil && m.NAV != nil {
+		return *m.NAV
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetCurrentShare() string {
+	if m != nil && m.CurrentShare != nil {
+		return *m.CurrentShare
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetAvailableAmt() string {
+	if m != nil && m.AvailableAmt != nil {
+		return *m.AvailableAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetMoveAvailableAmt() string {
+	if m != nil && m.MoveAvailableAmt != nil {
+		return *m.MoveAvailableAmt
+	}
+	return ""
+}
+
+func (m *CommTradeUnitCapitalInfo) GetAssignAvailableAmt() string {
+	if m != nil && m.AssignAvailableAmt != nil {
+		return *m.AssignAvailableAmt
+	}
+	return ""
+}
+
+// /可用交易单元查询
+type CommTradeUnitInfo struct {
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,1,req,name=unit_code" json:"unit_code,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,2,req,name=product_code" json:"product_code,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,3,req,name=unit_name" json:"unit_name,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,4,req,name=product_name" json:"product_name,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,5,req,name=company_no" json:"company_no,omitempty"`
+	// 产品序号
+	ProductId *int32 `protobuf:"varint,6,req,name=product_id" json:"product_id,omitempty"`
+	// 交易单元序号
+	UnitId *int32 `protobuf:"varint,7,req,name=unit_id" json:"unit_id,omitempty"`
+	// 操作权限
+	OperateType *int32 `protobuf:"varint,8,req,name=operate_type" json:"operate_type,omitempty"`
+	// 交易单元状态
+	UnitStatus *string `protobuf:"bytes,9,req,name=unit_status" json:"unit_status,omitempty"`
+	// 可用资产账号
+	ArrAssetAccount  []string `protobuf:"bytes,10,rep,name=arrAssetAccount" json:"arrAssetAccount,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
+}
+
+func (m *CommTradeUnitInfo) Reset()         { *m = CommTradeUnitInfo{} }
+func (m *CommTradeUnitInfo) String() string { return proto.CompactTextString(m) }
+func (*CommTradeUnitInfo) ProtoMessage()    {}
+
+func (m *CommTradeUnitInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeUnitInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeUnitInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeUnitInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeUnitInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeUnitInfo) GetProductId() int32 {
+	if m != nil && m.ProductId != nil {
+		return *m.ProductId
+	}
+	return 0
+}
+
+func (m *CommTradeUnitInfo) GetUnitId() int32 {
+	if m != nil && m.UnitId != nil {
+		return *m.UnitId
+	}
+	return 0
+}
+
+func (m *CommTradeUnitInfo) GetOperateType() int32 {
+	if m != nil && m.OperateType != nil {
+		return *m.OperateType
+	}
+	return 0
+}
+
+func (m *CommTradeUnitInfo) GetUnitStatus() string {
+	if m != nil && m.UnitStatus != nil {
+		return *m.UnitStatus
+	}
+	return ""
+}
+
+func (m *CommTradeUnitInfo) GetArrAssetAccount() []string {
+	if m != nil {
+		return m.ArrAssetAccount
+	}
+	return nil
+}
+
 // /股份信息
 type CommTradeStockInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,2,req,name=StockCode" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,2,req" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,3,req,name=StockName" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,3,req" json:"StockName,omitempty"`
 	// 证券数量
-	StockCount *int32 `protobuf:"varint,4,req,name=StockCount" json:"StockCount,omitempty"`
+	StockCount *int32 `protobuf:"varint,4,req" json:"StockCount,omitempty"`
 	// 可卖数量
-	AvailableQuantity *int32 `protobuf:"varint,5,req,name=AvailableQuantity" json:"AvailableQuantity,omitempty"`
+	AvailableQuantity *int32 `protobuf:"varint,5,req" json:"AvailableQuantity,omitempty"`
 	// 成本价
-	CostPrice *float32 `protobuf:"fixed32,6,req,name=CostPrice" json:"CostPrice,omitempty"`
+	CostPrice *float32 `protobuf:"fixed32,6,req" json:"CostPrice,omitempty"`
 	// 当前价
-	CurrentPrice *float32 `protobuf:"fixed32,7,req,name=CurrentPrice" json:"CurrentPrice,omitempty"`
+	CurrentPrice *float32 `protobuf:"fixed32,7,req" json:"CurrentPrice,omitempty"`
 	// 证券市值
-	MarketCapitalization *float32 `protobuf:"fixed32,8,req,name=MarketCapitalization" json:"MarketCapitalization,omitempty"`
+	MarketCapitalization *float32 `protobuf:"fixed32,8,req" json:"MarketCapitalization,omitempty"`
 	// 浮动盈亏
-	FloatingPL *float32 `protobuf:"fixed32,9,req,name=FloatingPL" json:"FloatingPL,omitempty"`
+	FloatingPL *float32 `protobuf:"fixed32,9,req" json:"FloatingPL,omitempty"`
 	// 盈亏比例
-	RatioPL          *float32 `protobuf:"fixed32,10,req,name=RatioPL" json:"RatioPL,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	RatioPL *float32 `protobuf:"fixed32,10,req" json:"RatioPL,omitempty"`
+	// 记录序号
+	RowId *int64 `protobuf:"varint,11,opt,name=row_id" json:"row_id,omitempty"`
+	// 初始化日期
+	InitDate *int32 `protobuf:"varint,12,opt,name=init_date" json:"init_date,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,13,opt,name=company_no" json:"company_no,omitempty"`
+	// 机构名称
+	CompanyName *string `protobuf:"bytes,14,opt,name=company_name" json:"company_name,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,15,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,16,opt,name=product_name" json:"product_name,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,17,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 产品序号
+	ProductId *int64 `protobuf:"varint,18,opt,name=product_id" json:"product_id,omitempty"`
+	// 交易单元序号
+	UnitId *int64 `protobuf:"varint,19,opt,name=unit_id" json:"unit_id,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,20,opt,name=unit_name" json:"unit_name,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,21,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 证券类型
+	StockType *int32 `protobuf:"varint,22,opt,name=stock_type" json:"stock_type,omitempty"`
+	// 投资类型
+	InvestType *int32 `protobuf:"varint,23,opt,name=invest_type" json:"invest_type,omitempty"`
+	// 期初数量
+	BeginQty *string `protobuf:"bytes,24,opt,name=begin_qty" json:"begin_qty,omitempty"`
+	// 冻结数量
+	FrozenQty *string `protobuf:"bytes,25,opt,name=frozen_qty" json:"frozen_qty,omitempty"`
+	// 解冻数量
+	UnfrozenQty *string `protobuf:"bytes,26,opt,name=unfrozen_qty" json:"unfrozen_qty,omitempty"`
+	// 指令占用数量
+	CommandCaptureQty *string `protobuf:"bytes,27,opt,name=command_capture_qty" json:"command_capture_qty,omitempty"`
+	// 指令释放数量
+	CommandReleaseQty *string `protobuf:"bytes,28,opt,name=command_release_qty" json:"command_release_qty,omitempty"`
+	// 交易占用数量
+	OrderCaptureQty *string `protobuf:"bytes,29,opt,name=order_capture_qty" json:"order_capture_qty,omitempty"`
+	// 交易释放数量
+	OrderReleaseQty *string `protobuf:"bytes,30,opt,name=order_release_qty" json:"order_release_qty,omitempty"`
+	// 成交占用数量
+	ExecutionCaptureQty *string `protobuf:"bytes,31,opt,name=execution_capture_qty" json:"execution_capture_qty,omitempty"`
+	// 成交释放数量
+	ExecutionReleaseQty *string `protobuf:"bytes,32,opt,name=execution_release_qty" json:"execution_release_qty,omitempty"`
+	// 当前成本金额
+	CurrentCostAmt *string `protobuf:"bytes,33,opt,name=current_cost_amt" json:"current_cost_amt,omitempty"`
+	// 实现盈亏
+	RealizePandl *string `protobuf:"bytes,34,opt,name=realize_pandl" json:"realize_pandl,omitempty"`
+	// 利息成本金额
+	InterestCostAmt *string `protobuf:"bytes,35,opt,name=interest_cost_amt" json:"interest_cost_amt,omitempty"`
+	// 利息收益
+	InterestPandl *string `protobuf:"bytes,36,opt,name=interest_pandl" json:"interest_pandl,omitempty"`
+	// 交易端可用数量
+	OrderAvailableQty *string `protobuf:"bytes,37,opt,name=order_available_qty" json:"order_available_qty,omitempty"`
+	// 指令端可用数量
+	CommandAvailableQty *string `protobuf:"bytes,38,opt,name=command_available_qty" json:"command_available_qty,omitempty"`
+	// 可划转数量
+	MoveAvailableQty *string `protobuf:"bytes,39,opt,name=move_available_qty" json:"move_available_qty,omitempty"`
+	// 昨收盘价
+	PreClosePrice    *string `protobuf:"bytes,40,opt,name=pre_close_price" json:"pre_close_price,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CommTradeStockInfo) Reset()         { *m = CommTradeStockInfo{} }
@@ -235,39 +854,941 @@ func (m *CommTradeStockInfo) GetRatioPL() float32 {
 	return 0
 }
 
+func (m *CommTradeStockInfo) GetRowId() int64 {
+	if m != nil && m.RowId != nil {
+		return *m.RowId
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetInitDate() int32 {
+	if m != nil && m.InitDate != nil {
+		return *m.InitDate
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetCompanyName() string {
+	if m != nil && m.CompanyName != nil {
+		return *m.CompanyName
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetProductId() int64 {
+	if m != nil && m.ProductId != nil {
+		return *m.ProductId
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetUnitId() int64 {
+	if m != nil && m.UnitId != nil {
+		return *m.UnitId
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetStockType() int32 {
+	if m != nil && m.StockType != nil {
+		return *m.StockType
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetInvestType() int32 {
+	if m != nil && m.InvestType != nil {
+		return *m.InvestType
+	}
+	return 0
+}
+
+func (m *CommTradeStockInfo) GetBeginQty() string {
+	if m != nil && m.BeginQty != nil {
+		return *m.BeginQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetFrozenQty() string {
+	if m != nil && m.FrozenQty != nil {
+		return *m.FrozenQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetUnfrozenQty() string {
+	if m != nil && m.UnfrozenQty != nil {
+		return *m.UnfrozenQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetCommandCaptureQty() string {
+	if m != nil && m.CommandCaptureQty != nil {
+		return *m.CommandCaptureQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetCommandReleaseQty() string {
+	if m != nil && m.CommandReleaseQty != nil {
+		return *m.CommandReleaseQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetOrderCaptureQty() string {
+	if m != nil && m.OrderCaptureQty != nil {
+		return *m.OrderCaptureQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetOrderReleaseQty() string {
+	if m != nil && m.OrderReleaseQty != nil {
+		return *m.OrderReleaseQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetExecutionCaptureQty() string {
+	if m != nil && m.ExecutionCaptureQty != nil {
+		return *m.ExecutionCaptureQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetExecutionReleaseQty() string {
+	if m != nil && m.ExecutionReleaseQty != nil {
+		return *m.ExecutionReleaseQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetCurrentCostAmt() string {
+	if m != nil && m.CurrentCostAmt != nil {
+		return *m.CurrentCostAmt
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetRealizePandl() string {
+	if m != nil && m.RealizePandl != nil {
+		return *m.RealizePandl
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetInterestCostAmt() string {
+	if m != nil && m.InterestCostAmt != nil {
+		return *m.InterestCostAmt
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetInterestPandl() string {
+	if m != nil && m.InterestPandl != nil {
+		return *m.InterestPandl
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetOrderAvailableQty() string {
+	if m != nil && m.OrderAvailableQty != nil {
+		return *m.OrderAvailableQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetCommandAvailableQty() string {
+	if m != nil && m.CommandAvailableQty != nil {
+		return *m.CommandAvailableQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetMoveAvailableQty() string {
+	if m != nil && m.MoveAvailableQty != nil {
+		return *m.MoveAvailableQty
+	}
+	return ""
+}
+
+func (m *CommTradeStockInfo) GetPreClosePrice() string {
+	if m != nil && m.PreClosePrice != nil {
+		return *m.PreClosePrice
+	}
+	return ""
+}
+
+// /证券对账记录查询
+type CommTradeSecuDeliInfo struct {
+	// 记录序号
+	RowId *int64 `protobuf:"varint,1,req,name=row_id" json:"row_id,omitempty"`
+	// 操作员机构编号
+	OperatorCompanyNo *int32 `protobuf:"varint,2,opt,name=operator_company_no" json:"operator_company_no,omitempty"`
+	// 操作员编号
+	OperatorNo *int32 `protobuf:"varint,3,opt,name=operator_no" json:"operator_no,omitempty"`
+	// 操作站点
+	OperStation *string `protobuf:"bytes,4,opt,name=oper_station" json:"oper_station,omitempty"`
+	// 操作方式
+	OperKind *string `protobuf:"bytes,5,opt,name=oper_kind" json:"oper_kind,omitempty"`
+	// 机器日期
+	MachineDate *int32 `protobuf:"varint,6,opt,name=machine_date" json:"machine_date,omitempty"`
+	// 初始化日期
+	InitDate *int32 `protobuf:"varint,7,opt,name=init_date" json:"init_date,omitempty"`
+	// 入账流水号
+	EntryJourNo *int64 `protobuf:"varint,8,opt,name=entry_jour_no" json:"entry_jour_no,omitempty"`
+	// 成交日期
+	ExecutionDate *int32 `protobuf:"varint,9,opt,name=execution_date" json:"execution_date,omitempty"`
+	// 成交时间
+	ExecutionTime *int32 `protobuf:"varint,10,opt,name=execution_time" json:"execution_time,omitempty"`
+	// 成交编号
+	ExecutionNo *int32 `protobuf:"varint,11,opt,name=execution_no" json:"execution_no,omitempty"`
+	// 申报日期
+	ReportDate *int32 `protobuf:"varint,12,opt,name=report_date" json:"report_date,omitempty"`
+	// 申报时间
+	ReportTime *int32 `protobuf:"varint,13,opt,name=report_time" json:"report_time,omitempty"`
+	// 申报编号
+	ReportNo *int32 `protobuf:"varint,14,opt,name=report_no" json:"report_no,omitempty"`
+	// 订单日期
+	OrderDate *int32 `protobuf:"varint,15,opt,name=order_date" json:"order_date,omitempty"`
+	// 订单时间
+	OrderTime *int32 `protobuf:"varint,16,opt,name=order_time" json:"order_time,omitempty"`
+	// 订单编号
+	OrderNo *int32 `protobuf:"varint,17,opt,name=order_no" json:"order_no,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,18,opt,name=company_no" json:"company_no,omitempty"`
+	// 产品序号
+	ProductId *int64 `protobuf:"varint,19,opt,name=product_id" json:"product_id,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,20,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,21,opt,name=product_name" json:"product_name,omitempty"`
+	// 交易单元序号
+	UnitId *int64 `protobuf:"varint,22,opt,name=unit_id" json:"unit_id,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,23,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,24,opt,name=unit_name" json:"unit_name,omitempty"`
+	// 资产账户
+	AssetAccount *string `protobuf:"bytes,25,opt,name=asset_account" json:"asset_account,omitempty"`
+	// 通道编号
+	ChannelNo *int32 `protobuf:"varint,26,opt,name=channel_no" json:"channel_no,omitempty"`
+	// 资金账号
+	FundAccount *string `protobuf:"bytes,27,opt,name=fund_account" json:"fund_account,omitempty"`
+	// 投资类型
+	InvestType *int32 `protobuf:"varint,28,opt,name=invest_type" json:"invest_type,omitempty"`
+	// 本币币种
+	CurrencyType *string `protobuf:"bytes,29,opt,name=currency_type" json:"currency_type,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,30,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 证券类型
+	StockType *int32 `protobuf:"varint,31,opt,name=stock_type" json:"stock_type,omitempty"`
+	// 证券代码
+	StockCode *string `protobuf:"bytes,32,opt,name=stock_code" json:"stock_code,omitempty"`
+	// 证券名称
+	StockName *string `protobuf:"bytes,33,opt,name=stock_name" json:"stock_name,omitempty"`
+	// 订单方向
+	OrderDir *int32 `protobuf:"varint,34,opt,name=order_dir" json:"order_dir,omitempty"`
+	// 订单价格
+	OrderPrice *string `protobuf:"bytes,35,opt,name=order_price" json:"order_price,omitempty"`
+	// 订单数量
+	OrderQty *string `protobuf:"bytes,36,opt,name=order_qty" json:"order_qty,omitempty"`
+	// 成交价格
+	ExecutionPrice *string `protobuf:"bytes,37,opt,name=execution_price" json:"execution_price,omitempty"`
+	// 成交数量
+	ExecutionQty *string `protobuf:"bytes,38,opt,name=execution_qty" json:"execution_qty,omitempty"`
+	// 成交金额
+	ExecutionAmt *string `protobuf:"bytes,39,opt,name=execution_amt" json:"execution_amt,omitempty"`
+	// 成交笔数
+	BusiNum *int32 `protobuf:"varint,40,opt,name=busi_num" json:"busi_num,omitempty"`
+	// 入账数量
+	AccountstockQty *string `protobuf:"bytes,41,opt,name=accountstock_qty" json:"accountstock_qty,omitempty"`
+	// 入账金额
+	AccountcashAmt *string `protobuf:"bytes,42,opt,name=accountcash_amt" json:"accountcash_amt,omitempty"`
+	// 成本金额
+	CostAmt *string `protobuf:"bytes,43,opt,name=cost_amt" json:"cost_amt,omitempty"`
+	// 利息成本金额
+	InterestCostAmt *string `protobuf:"bytes,44,opt,name=interest_cost_amt" json:"interest_cost_amt,omitempty"`
+	// 实现盈亏
+	RealizePandl *string `protobuf:"bytes,45,opt,name=realize_pandl" json:"realize_pandl,omitempty"`
+	// 利息收益
+	InterestPandl *string `protobuf:"bytes,46,opt,name=interest_pandl" json:"interest_pandl,omitempty"`
+	// 全部费用
+	AllFare *string `protobuf:"bytes,47,opt,name=all_fare" json:"all_fare,omitempty"`
+	// 印花税
+	StampTax *string `protobuf:"bytes,48,opt,name=stamp_tax" json:"stamp_tax,omitempty"`
+	// 过户费
+	TransferFare *string `protobuf:"bytes,49,opt,name=transfer_fare" json:"transfer_fare,omitempty"`
+	// 经手费
+	Brokerage *string `protobuf:"bytes,50,opt,name=brokerage" json:"brokerage,omitempty"`
+	// 证管费
+	SECCharges *string `protobuf:"bytes,51,opt,name=SEC_charges" json:"SEC_charges,omitempty"`
+	// 其他费用
+	OtherFare *string `protobuf:"bytes,52,opt,name=other_fare" json:"other_fare,omitempty"`
+	// 交易佣金
+	BrokerageCommission *string `protobuf:"bytes,53,opt,name=brokerage_commission" json:"brokerage_commission,omitempty"`
+	// 渠道佣金
+	ChannelCommission *string `protobuf:"bytes,54,opt,name=channel_commission" json:"channel_commission,omitempty"`
+	// 分成佣金
+	DivideCommission *string `protobuf:"bytes,55,opt,name=divide_commission" json:"divide_commission,omitempty"`
+	// 其他佣金
+	OtherCommission *string `protobuf:"bytes,56,opt,name=other_commission" json:"other_commission,omitempty"`
+	// 外部全部费用
+	OutAllFare *string `protobuf:"bytes,57,opt,name=out_all_fare" json:"out_all_fare,omitempty"`
+	// 外部印花税
+	OutStampTax *string `protobuf:"bytes,58,opt,name=out_stamp_tax" json:"out_stamp_tax,omitempty"`
+	// 外部过户费
+	OutTransferFare *string `protobuf:"bytes,59,opt,name=out_transfer_fare" json:"out_transfer_fare,omitempty"`
+	// 外部经手费
+	OutBrokerage *string `protobuf:"bytes,60,opt,name=out_brokerage" json:"out_brokerage,omitempty"`
+	// 外部证管费
+	Out_SECCharges *string `protobuf:"bytes,61,opt,name=out_SEC_charges" json:"out_SEC_charges,omitempty"`
+	// 外部其他费用
+	OutOtherFare *string `protobuf:"bytes,62,opt,name=out_other_fare" json:"out_other_fare,omitempty"`
+	// 外部交易佣金
+	OutBrokerageCommission *string `protobuf:"bytes,63,opt,name=out_brokerage_commission" json:"out_brokerage_commission,omitempty"`
+	// 外部渠道佣金
+	OutChannelCommission *string `protobuf:"bytes,64,opt,name=out_channel_commission" json:"out_channel_commission,omitempty"`
+	// 外部分成佣金
+	OutDivideCommission *string `protobuf:"bytes,65,opt,name=out_divide_commission" json:"out_divide_commission,omitempty"`
+	// 外部其他佣金
+	OutOtherCommission *string `protobuf:"bytes,66,opt,name=out_other_commission" json:"out_other_commission,omitempty"`
+	// 业务标志
+	BusiFlag *int32 `protobuf:"varint,67,opt,name=busi_flag" json:"busi_flag,omitempty"`
+	// 对账状态
+	DeliStatus *string `protobuf:"bytes,68,opt,name=deli_status" json:"deli_status,omitempty"`
+	// 备注信息
+	RemarkInfo       *string `protobuf:"bytes,69,opt,name=remark_info" json:"remark_info,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
+func (m *CommTradeSecuDeliInfo) Reset()         { *m = CommTradeSecuDeliInfo{} }
+func (m *CommTradeSecuDeliInfo) String() string { return proto.CompactTextString(m) }
+func (*CommTradeSecuDeliInfo) ProtoMessage()    {}
+
+func (m *CommTradeSecuDeliInfo) GetRowId() int64 {
+	if m != nil && m.RowId != nil {
+		return *m.RowId
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOperatorCompanyNo() int32 {
+	if m != nil && m.OperatorCompanyNo != nil {
+		return *m.OperatorCompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOperatorNo() int32 {
+	if m != nil && m.OperatorNo != nil {
+		return *m.OperatorNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOperStation() string {
+	if m != nil && m.OperStation != nil {
+		return *m.OperStation
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOperKind() string {
+	if m != nil && m.OperKind != nil {
+		return *m.OperKind
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetMachineDate() int32 {
+	if m != nil && m.MachineDate != nil {
+		return *m.MachineDate
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetInitDate() int32 {
+	if m != nil && m.InitDate != nil {
+		return *m.InitDate
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetEntryJourNo() int64 {
+	if m != nil && m.EntryJourNo != nil {
+		return *m.EntryJourNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionDate() int32 {
+	if m != nil && m.ExecutionDate != nil {
+		return *m.ExecutionDate
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionTime() int32 {
+	if m != nil && m.ExecutionTime != nil {
+		return *m.ExecutionTime
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionNo() int32 {
+	if m != nil && m.ExecutionNo != nil {
+		return *m.ExecutionNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetReportDate() int32 {
+	if m != nil && m.ReportDate != nil {
+		return *m.ReportDate
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetReportTime() int32 {
+	if m != nil && m.ReportTime != nil {
+		return *m.ReportTime
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetReportNo() int32 {
+	if m != nil && m.ReportNo != nil {
+		return *m.ReportNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderDate() int32 {
+	if m != nil && m.OrderDate != nil {
+		return *m.OrderDate
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderTime() int32 {
+	if m != nil && m.OrderTime != nil {
+		return *m.OrderTime
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderNo() int32 {
+	if m != nil && m.OrderNo != nil {
+		return *m.OrderNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetProductId() int64 {
+	if m != nil && m.ProductId != nil {
+		return *m.ProductId
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetUnitId() int64 {
+	if m != nil && m.UnitId != nil {
+		return *m.UnitId
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetAssetAccount() string {
+	if m != nil && m.AssetAccount != nil {
+		return *m.AssetAccount
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetChannelNo() int32 {
+	if m != nil && m.ChannelNo != nil {
+		return *m.ChannelNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetFundAccount() string {
+	if m != nil && m.FundAccount != nil {
+		return *m.FundAccount
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetInvestType() int32 {
+	if m != nil && m.InvestType != nil {
+		return *m.InvestType
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetCurrencyType() string {
+	if m != nil && m.CurrencyType != nil {
+		return *m.CurrencyType
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetStockType() int32 {
+	if m != nil && m.StockType != nil {
+		return *m.StockType
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetStockCode() string {
+	if m != nil && m.StockCode != nil {
+		return *m.StockCode
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetStockName() string {
+	if m != nil && m.StockName != nil {
+		return *m.StockName
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderDir() int32 {
+	if m != nil && m.OrderDir != nil {
+		return *m.OrderDir
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderPrice() string {
+	if m != nil && m.OrderPrice != nil {
+		return *m.OrderPrice
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOrderQty() string {
+	if m != nil && m.OrderQty != nil {
+		return *m.OrderQty
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionPrice() string {
+	if m != nil && m.ExecutionPrice != nil {
+		return *m.ExecutionPrice
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionQty() string {
+	if m != nil && m.ExecutionQty != nil {
+		return *m.ExecutionQty
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetExecutionAmt() string {
+	if m != nil && m.ExecutionAmt != nil {
+		return *m.ExecutionAmt
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetBusiNum() int32 {
+	if m != nil && m.BusiNum != nil {
+		return *m.BusiNum
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetAccountstockQty() string {
+	if m != nil && m.AccountstockQty != nil {
+		return *m.AccountstockQty
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetAccountcashAmt() string {
+	if m != nil && m.AccountcashAmt != nil {
+		return *m.AccountcashAmt
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetCostAmt() string {
+	if m != nil && m.CostAmt != nil {
+		return *m.CostAmt
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetInterestCostAmt() string {
+	if m != nil && m.InterestCostAmt != nil {
+		return *m.InterestCostAmt
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetRealizePandl() string {
+	if m != nil && m.RealizePandl != nil {
+		return *m.RealizePandl
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetInterestPandl() string {
+	if m != nil && m.InterestPandl != nil {
+		return *m.InterestPandl
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetAllFare() string {
+	if m != nil && m.AllFare != nil {
+		return *m.AllFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetStampTax() string {
+	if m != nil && m.StampTax != nil {
+		return *m.StampTax
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetTransferFare() string {
+	if m != nil && m.TransferFare != nil {
+		return *m.TransferFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetBrokerage() string {
+	if m != nil && m.Brokerage != nil {
+		return *m.Brokerage
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetSECCharges() string {
+	if m != nil && m.SECCharges != nil {
+		return *m.SECCharges
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOtherFare() string {
+	if m != nil && m.OtherFare != nil {
+		return *m.OtherFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetBrokerageCommission() string {
+	if m != nil && m.BrokerageCommission != nil {
+		return *m.BrokerageCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetChannelCommission() string {
+	if m != nil && m.ChannelCommission != nil {
+		return *m.ChannelCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetDivideCommission() string {
+	if m != nil && m.DivideCommission != nil {
+		return *m.DivideCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOtherCommission() string {
+	if m != nil && m.OtherCommission != nil {
+		return *m.OtherCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutAllFare() string {
+	if m != nil && m.OutAllFare != nil {
+		return *m.OutAllFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutStampTax() string {
+	if m != nil && m.OutStampTax != nil {
+		return *m.OutStampTax
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutTransferFare() string {
+	if m != nil && m.OutTransferFare != nil {
+		return *m.OutTransferFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutBrokerage() string {
+	if m != nil && m.OutBrokerage != nil {
+		return *m.OutBrokerage
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOut_SECCharges() string {
+	if m != nil && m.Out_SECCharges != nil {
+		return *m.Out_SECCharges
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutOtherFare() string {
+	if m != nil && m.OutOtherFare != nil {
+		return *m.OutOtherFare
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutBrokerageCommission() string {
+	if m != nil && m.OutBrokerageCommission != nil {
+		return *m.OutBrokerageCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutChannelCommission() string {
+	if m != nil && m.OutChannelCommission != nil {
+		return *m.OutChannelCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutDivideCommission() string {
+	if m != nil && m.OutDivideCommission != nil {
+		return *m.OutDivideCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetOutOtherCommission() string {
+	if m != nil && m.OutOtherCommission != nil {
+		return *m.OutOtherCommission
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetBusiFlag() int32 {
+	if m != nil && m.BusiFlag != nil {
+		return *m.BusiFlag
+	}
+	return 0
+}
+
+func (m *CommTradeSecuDeliInfo) GetDeliStatus() string {
+	if m != nil && m.DeliStatus != nil {
+		return *m.DeliStatus
+	}
+	return ""
+}
+
+func (m *CommTradeSecuDeliInfo) GetRemarkInfo() string {
+	if m != nil && m.RemarkInfo != nil {
+		return *m.RemarkInfo
+	}
+	return ""
+}
+
 // /当日委托信息
 type CommTradeDayOrderInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,opt,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,opt" json:"FundAccount,omitempty"`
 	// 委托时间
-	OrderTime *string `protobuf:"bytes,2,req,name=OrderTime" json:"OrderTime,omitempty"`
+	OrderTime *string `protobuf:"bytes,2,req" json:"OrderTime,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,3,req,name=StockCode" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,3,req" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,4,req,name=StockName" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,4,req" json:"StockName,omitempty"`
 	// 买卖标志
-	TradeMark *string `protobuf:"bytes,5,req,name=TradeMark" json:"TradeMark,omitempty"`
+	TradeMark *string `protobuf:"bytes,5,req" json:"TradeMark,omitempty"`
 	// 委托类别
-	OrderType *string `protobuf:"bytes,6,opt,name=OrderType" json:"OrderType,omitempty"`
+	OrderType *string `protobuf:"bytes,6,opt" json:"OrderType,omitempty"`
 	// 状态说明
-	State *string `protobuf:"bytes,7,req,name=State" json:"State,omitempty"`
+	State *string `protobuf:"bytes,7,req" json:"State,omitempty"`
 	// 委托价格
-	OrderPrice *float32 `protobuf:"fixed32,8,req,name=OrderPrice" json:"OrderPrice,omitempty"`
+	OrderPrice *float32 `protobuf:"fixed32,8,req" json:"OrderPrice,omitempty"`
 	// 委托数量
-	OrderCount *int32 `protobuf:"varint,9,req,name=OrderCount" json:"OrderCount,omitempty"`
+	OrderCount *int32 `protobuf:"varint,9,req" json:"OrderCount,omitempty"`
 	// 委托编号
-	OrderId *int32 `protobuf:"varint,10,req,name=OrderId" json:"OrderId,omitempty"`
+	OrderId *int32 `protobuf:"varint,10,req" json:"OrderId,omitempty"`
 	// 成交价格
-	DealPrice *float32 `protobuf:"fixed32,11,opt,name=DealPrice" json:"DealPrice,omitempty"`
+	DealPrice *float32 `protobuf:"fixed32,11,opt" json:"DealPrice,omitempty"`
 	// 成交数量
-	DealCount *float32 `protobuf:"fixed32,12,req,name=DealCount" json:"DealCount,omitempty"`
+	DealCount *float32 `protobuf:"fixed32,12,req" json:"DealCount,omitempty"`
 	// 委托方式
-	OrderMode *float32 `protobuf:"fixed32,13,opt,name=OrderMode" json:"OrderMode,omitempty"`
+	OrderMode *float32 `protobuf:"fixed32,13,opt" json:"OrderMode,omitempty"`
 	// 报价方式
-	OfferMode *float32 `protobuf:"fixed32,14,opt,name=OfferMode" json:"OfferMode,omitempty"`
+	OfferMode *float32 `protobuf:"fixed32,14,opt" json:"OfferMode,omitempty"`
 	// 撤单数量
-	CancelCount      *float32 `protobuf:"fixed32,15,opt,name=CancelCount" json:"CancelCount,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	CancelCount *float32 `protobuf:"fixed32,15,opt" json:"CancelCount,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,16,opt,name=company_no" json:"company_no,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,17,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,18,opt,name=product_name" json:"product_name,omitempty"`
+	// 操作员编号
+	OperatorNo *int32 `protobuf:"varint,19,opt,name=operator_no" json:"operator_no,omitempty"`
+	// 机器日期
+	MachineDate *int32 `protobuf:"varint,20,opt,name=machine_date" json:"machine_date,omitempty"`
+	// 外部编号
+	ExternalNo *int32 `protobuf:"varint,21,opt,name=external_no" json:"external_no,omitempty"`
+	// 订单批号
+	BatchNo *int32 `protobuf:"varint,22,opt,name=batch_no" json:"batch_no,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,23,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 指令序号
+	CommandId *int64 `protobuf:"varint,24,opt,name=command_id" json:"command_id,omitempty"`
+	// 订单日期
+	OrderDate *int64 `protobuf:"varint,25,opt,name=order_date" json:"order_date,omitempty"`
+	// 订单时间
+	OrderTime_ *int64 `protobuf:"varint,26,opt,name=order_time" json:"order_time,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,27,opt,name=unit_name" json:"unit_name,omitempty"`
+	// 通道编号
+	ChannelNo *int32 `protobuf:"varint,28,opt,name=channel_no" json:"channel_no,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,29,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 资产类型
+	AssetType *int32 `protobuf:"varint,30,opt,name=asset_type" json:"asset_type,omitempty"`
+	// 证券类型
+	StockType *int32 `protobuf:"varint,31,opt,name=stock_type" json:"stock_type,omitempty"`
+	// 本币币种
+	CurrencyType *string `protobuf:"bytes,32,opt,name=currency_type" json:"currency_type,omitempty"`
+	// 操作方式
+	OperKind *string `protobuf:"bytes,33,opt,name=oper_kind" json:"oper_kind,omitempty"`
+	// 成交金额
+	ExecutionAmt *string `protobuf:"bytes,34,opt,name=execution_amt" json:"execution_amt,omitempty"`
+	// 操作站点
+	OperStation *string `protobuf:"bytes,35,opt,name=oper_station" json:"oper_station,omitempty"`
+	// 全部费用
+	AllFare *string `protobuf:"bytes,36,opt,name=all_fare" json:"all_fare,omitempty"`
+	// 渠道佣金
+	ChannelCommission *string `protobuf:"bytes,37,opt,name=channel_commission" json:"channel_commission,omitempty"`
+	// 交易佣金
+	BrokerageCommission *string `protobuf:"bytes,38,opt,name=brokerage_commission" json:"brokerage_commission,omitempty"`
+	// 印花税
+	StampTax *string `protobuf:"bytes,39,opt,name=stamp_tax" json:"stamp_tax,omitempty"`
+	// 过户费
+	TransferFare *string `protobuf:"bytes,40,opt,name=transfer_fare" json:"transfer_fare,omitempty"`
+	// 经手费
+	Brokerage *string `protobuf:"bytes,41,opt,name=brokerage" json:"brokerage,omitempty"`
+	// 证管费
+	SECCharges *string `protobuf:"bytes,42,opt,name=SEC_charges" json:"SEC_charges,omitempty"`
+	// 其他费用
+	OtherFare *string `protobuf:"bytes,43,opt,name=other_fare" json:"other_fare,omitempty"`
+	// 其他佣金
+	OtherCommission *string `protobuf:"bytes,44,opt,name=other_commission" json:"other_commission,omitempty"`
+	// 记录序号
+	RowId *int64 `protobuf:"varint,45,opt,name=row_id" json:"row_id,omitempty"`
+	// 订单冻结金额
+	OrderFrozenAmt   *string `protobuf:"bytes,46,opt,name=order_frozen_amt" json:"order_frozen_amt,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CommTradeDayOrderInfo) Reset()         { *m = CommTradeDayOrderInfo{} }
@@ -379,29 +1900,282 @@ func (m *CommTradeDayOrderInfo) GetCancelCount() float32 {
 	return 0
 }
 
+func (m *CommTradeDayOrderInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetOperatorNo() int32 {
+	if m != nil && m.OperatorNo != nil {
+		return *m.OperatorNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetMachineDate() int32 {
+	if m != nil && m.MachineDate != nil {
+		return *m.MachineDate
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetExternalNo() int32 {
+	if m != nil && m.ExternalNo != nil {
+		return *m.ExternalNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetBatchNo() int32 {
+	if m != nil && m.BatchNo != nil {
+		return *m.BatchNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetCommandId() int64 {
+	if m != nil && m.CommandId != nil {
+		return *m.CommandId
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetOrderDate() int64 {
+	if m != nil && m.OrderDate != nil {
+		return *m.OrderDate
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetOrderTime_() int64 {
+	if m != nil && m.OrderTime_ != nil {
+		return *m.OrderTime_
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetChannelNo() int32 {
+	if m != nil && m.ChannelNo != nil {
+		return *m.ChannelNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetAssetType() int32 {
+	if m != nil && m.AssetType != nil {
+		return *m.AssetType
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetStockType() int32 {
+	if m != nil && m.StockType != nil {
+		return *m.StockType
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetCurrencyType() string {
+	if m != nil && m.CurrencyType != nil {
+		return *m.CurrencyType
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetOperKind() string {
+	if m != nil && m.OperKind != nil {
+		return *m.OperKind
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetExecutionAmt() string {
+	if m != nil && m.ExecutionAmt != nil {
+		return *m.ExecutionAmt
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetOperStation() string {
+	if m != nil && m.OperStation != nil {
+		return *m.OperStation
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetAllFare() string {
+	if m != nil && m.AllFare != nil {
+		return *m.AllFare
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetChannelCommission() string {
+	if m != nil && m.ChannelCommission != nil {
+		return *m.ChannelCommission
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetBrokerageCommission() string {
+	if m != nil && m.BrokerageCommission != nil {
+		return *m.BrokerageCommission
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetStampTax() string {
+	if m != nil && m.StampTax != nil {
+		return *m.StampTax
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetTransferFare() string {
+	if m != nil && m.TransferFare != nil {
+		return *m.TransferFare
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetBrokerage() string {
+	if m != nil && m.Brokerage != nil {
+		return *m.Brokerage
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetSECCharges() string {
+	if m != nil && m.SECCharges != nil {
+		return *m.SECCharges
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetOtherFare() string {
+	if m != nil && m.OtherFare != nil {
+		return *m.OtherFare
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetOtherCommission() string {
+	if m != nil && m.OtherCommission != nil {
+		return *m.OtherCommission
+	}
+	return ""
+}
+
+func (m *CommTradeDayOrderInfo) GetRowId() int64 {
+	if m != nil && m.RowId != nil {
+		return *m.RowId
+	}
+	return 0
+}
+
+func (m *CommTradeDayOrderInfo) GetOrderFrozenAmt() string {
+	if m != nil && m.OrderFrozenAmt != nil {
+		return *m.OrderFrozenAmt
+	}
+	return ""
+}
+
 // /当日成交信息
 type CommTradeDayDealInfo struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
 	// 成交时间
-	DealTime *string `protobuf:"bytes,2,req,name=DealTime" json:"DealTime,omitempty"`
+	DealTime *string `protobuf:"bytes,2,req" json:"DealTime,omitempty"`
 	// 证券代码
-	StockCode *string `protobuf:"bytes,3,req,name=StockCode" json:"StockCode,omitempty"`
+	StockCode *string `protobuf:"bytes,3,req" json:"StockCode,omitempty"`
 	// 证券名称
-	StockName *string `protobuf:"bytes,4,req,name=StockName" json:"StockName,omitempty"`
+	StockName *string `protobuf:"bytes,4,req" json:"StockName,omitempty"`
 	// 买卖标志
-	TradeMark *string `protobuf:"bytes,5,req,name=TradeMark" json:"TradeMark,omitempty"`
+	TradeMark *string `protobuf:"bytes,5,req" json:"TradeMark,omitempty"`
 	// 成交价格
-	DealPrice *float32 `protobuf:"fixed32,6,req,name=DealPrice" json:"DealPrice,omitempty"`
+	DealPrice *float32 `protobuf:"fixed32,6,req" json:"DealPrice,omitempty"`
 	// 成交数量
-	DealCount *int32 `protobuf:"varint,7,req,name=DealCount" json:"DealCount,omitempty"`
+	DealCount *int32 `protobuf:"varint,7,req" json:"DealCount,omitempty"`
 	// 成交金额
-	DealVolume *float32 `protobuf:"fixed32,8,req,name=DealVolume" json:"DealVolume,omitempty"`
+	DealVolume *float32 `protobuf:"fixed32,8,req" json:"DealVolume,omitempty"`
 	// 成交编号
-	DealId *float32 `protobuf:"fixed32,9,req,name=DealId" json:"DealId,omitempty"`
+	DealId *float32 `protobuf:"fixed32,9,req" json:"DealId,omitempty"`
 	// 委托编号
-	OrderId          *float32 `protobuf:"fixed32,10,req,name=OrderId" json:"OrderId,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	OrderId *float32 `protobuf:"fixed32,10,req" json:"OrderId,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,11,opt,name=company_no" json:"company_no,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,12,opt,name=product_code" json:"product_code,omitempty"`
+	// 产品名称
+	ProductName *string `protobuf:"bytes,13,opt,name=product_name" json:"product_name,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,14,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 交易单元名称
+	UnitName *string `protobuf:"bytes,15,opt,name=unit_name" json:"unit_name,omitempty"`
+	// 申报日期
+	ReportDate *int32 `protobuf:"varint,16,opt,name=report_date" json:"report_date,omitempty"`
+	// 通道编号
+	ChannelNo *int32 `protobuf:"varint,17,opt,name=channel_no" json:"channel_no,omitempty"`
+	// 指令序号
+	CommandId *int64 `protobuf:"varint,18,opt,name=command_id" json:"command_id,omitempty"`
+	// 订单日期
+	OrderDate *int32 `protobuf:"varint,19,opt,name=order_date" json:"order_date,omitempty"`
+	// 订单时间
+	OrderTime *int32 `protobuf:"varint,20,opt,name=order_time" json:"order_time,omitempty"`
+	// 申报编号
+	ReportNo *int32 `protobuf:"varint,21,opt,name=report_no" json:"report_no,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,22,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 证券类型
+	StockType *int32 `protobuf:"varint,23,opt,name=stock_type" json:"stock_type,omitempty"`
+	// 本币币种
+	CurrencyType *string `protobuf:"bytes,24,opt,name=currency_type" json:"currency_type,omitempty"`
+	// 成交时间
+	ExecutionTime *int32 `protobuf:"varint,25,opt,name=execution_time" json:"execution_time,omitempty"`
+	// 全部费用
+	AllFare *string `protobuf:"bytes,26,opt,name=all_fare" json:"all_fare,omitempty"`
+	// 记录序号
+	RowId *int64 `protobuf:"varint,27,opt,name=row_id" json:"row_id,omitempty"`
+	// 订单价格
+	OrderPrice       *string `protobuf:"bytes,28,opt,name=order_price" json:"order_price,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CommTradeDayDealInfo) Reset()         { *m = CommTradeDayDealInfo{} }
@@ -478,13 +2252,169 @@ func (m *CommTradeDayDealInfo) GetOrderId() float32 {
 	return 0
 }
 
+func (m *CommTradeDayDealInfo) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetProductName() string {
+	if m != nil && m.ProductName != nil {
+		return *m.ProductName
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetUnitName() string {
+	if m != nil && m.UnitName != nil {
+		return *m.UnitName
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetReportDate() int32 {
+	if m != nil && m.ReportDate != nil {
+		return *m.ReportDate
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetChannelNo() int32 {
+	if m != nil && m.ChannelNo != nil {
+		return *m.ChannelNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetCommandId() int64 {
+	if m != nil && m.CommandId != nil {
+		return *m.CommandId
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetOrderDate() int32 {
+	if m != nil && m.OrderDate != nil {
+		return *m.OrderDate
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetOrderTime() int32 {
+	if m != nil && m.OrderTime != nil {
+		return *m.OrderTime
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetReportNo() int32 {
+	if m != nil && m.ReportNo != nil {
+		return *m.ReportNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetStockType() int32 {
+	if m != nil && m.StockType != nil {
+		return *m.StockType
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetCurrencyType() string {
+	if m != nil && m.CurrencyType != nil {
+		return *m.CurrencyType
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetExecutionTime() int32 {
+	if m != nil && m.ExecutionTime != nil {
+		return *m.ExecutionTime
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetAllFare() string {
+	if m != nil && m.AllFare != nil {
+		return *m.AllFare
+	}
+	return ""
+}
+
+func (m *CommTradeDayDealInfo) GetRowId() int64 {
+	if m != nil && m.RowId != nil {
+		return *m.RowId
+	}
+	return 0
+}
+
+func (m *CommTradeDayDealInfo) GetOrderPrice() string {
+	if m != nil && m.OrderPrice != nil {
+		return *m.OrderPrice
+	}
+	return ""
+}
+
 // /下单返回信息
 type CommTradeOrderResp struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
 	// 委托号
-	OrderId          *string `protobuf:"bytes,2,req,name=OrderId" json:"OrderId,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	OrderId *string `protobuf:"bytes,2,req" json:"OrderId,omitempty"`
+	// 机构编号
+	CompanyNo *int32 `protobuf:"varint,3,opt,name=company_no" json:"company_no,omitempty"`
+	// 操作员编号
+	OperatorNo *int32 `protobuf:"varint,4,opt,name=operator_no" json:"operator_no,omitempty"`
+	// 订单日期
+	OrderDate *int32 `protobuf:"varint,5,opt,name=order_date" json:"order_date,omitempty"`
+	// 外部编号
+	ExternalNo *int32 `protobuf:"varint,6,opt,name=external_no" json:"external_no,omitempty"`
+	// 产品编码
+	ProductCode *string `protobuf:"bytes,7,opt,name=product_code" json:"product_code,omitempty"`
+	// 交易单元
+	UnitCode *string `protobuf:"bytes,8,opt,name=unit_code" json:"unit_code,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,9,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 证券类型
+	StockType *int32 `protobuf:"varint,10,opt,name=stock_type" json:"stock_type,omitempty"`
+	// 证券代码
+	StockCode *string `protobuf:"bytes,11,opt,name=stock_code" json:"stock_code,omitempty"`
+	// 订单方向
+	OrderDir *int32 `protobuf:"varint,12,opt,name=order_dir" json:"order_dir,omitempty"`
+	// 订单数量
+	OrderQty *string `protobuf:"bytes,13,opt,name=order_qty" json:"order_qty,omitempty"`
+	// 订单价格
+	OrderPrice *string `protobuf:"bytes,14,opt,name=order_price" json:"order_price,omitempty"`
+	// 通道编号
+	ChannelNo *int32 `protobuf:"varint,15,opt,name=channel_no" json:"channel_no,omitempty"`
+	// 订单状态
+	OrderStatus *string `protobuf:"bytes,16,opt,name=order_status" json:"order_status,omitempty"`
+	// 合规触警序号
+	ComplianceTriggerId *int64 `protobuf:"varint,17,opt,name=compliance_trigger_id" json:"compliance_trigger_id,omitempty"`
+	XXX_unrecognized    []byte `json:"-"`
 }
 
 func (m *CommTradeOrderResp) Reset()         { *m = CommTradeOrderResp{} }
@@ -505,13 +2435,138 @@ func (m *CommTradeOrderResp) GetOrderId() string {
 	return ""
 }
 
+func (m *CommTradeOrderResp) GetCompanyNo() int32 {
+	if m != nil && m.CompanyNo != nil {
+		return *m.CompanyNo
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetOperatorNo() int32 {
+	if m != nil && m.OperatorNo != nil {
+		return *m.OperatorNo
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetOrderDate() int32 {
+	if m != nil && m.OrderDate != nil {
+		return *m.OrderDate
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetExternalNo() int32 {
+	if m != nil && m.ExternalNo != nil {
+		return *m.ExternalNo
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetProductCode() string {
+	if m != nil && m.ProductCode != nil {
+		return *m.ProductCode
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetUnitCode() string {
+	if m != nil && m.UnitCode != nil {
+		return *m.UnitCode
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetStockType() int32 {
+	if m != nil && m.StockType != nil {
+		return *m.StockType
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetStockCode() string {
+	if m != nil && m.StockCode != nil {
+		return *m.StockCode
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetOrderDir() int32 {
+	if m != nil && m.OrderDir != nil {
+		return *m.OrderDir
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetOrderQty() string {
+	if m != nil && m.OrderQty != nil {
+		return *m.OrderQty
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetOrderPrice() string {
+	if m != nil && m.OrderPrice != nil {
+		return *m.OrderPrice
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetChannelNo() int32 {
+	if m != nil && m.ChannelNo != nil {
+		return *m.ChannelNo
+	}
+	return 0
+}
+
+func (m *CommTradeOrderResp) GetOrderStatus() string {
+	if m != nil && m.OrderStatus != nil {
+		return *m.OrderStatus
+	}
+	return ""
+}
+
+func (m *CommTradeOrderResp) GetComplianceTriggerId() int64 {
+	if m != nil && m.ComplianceTriggerId != nil {
+		return *m.ComplianceTriggerId
+	}
+	return 0
+}
+
 // /撤单返回信息
 type CommTradeCancelResp struct {
 	// 资金账号
-	FundAccount *string `protobuf:"bytes,1,req,name=FundAccount" json:"FundAccount,omitempty"`
+	FundAccount *string `protobuf:"bytes,1,req" json:"FundAccount,omitempty"`
 	// 撤单返回信息
-	CancelInfo       *string `protobuf:"bytes,2,req,name=CancelInfo" json:"CancelInfo,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	CancelInfo *string `protobuf:"bytes,2,req" json:"CancelInfo,omitempty"`
+	// 外部编号
+	ExternalNo *int32 `protobuf:"varint,3,opt,name=external_no" json:"external_no,omitempty"`
+	// 撤单状态
+	CancelStatus *string `protobuf:"bytes,4,opt,name=cancel_status" json:"cancel_status,omitempty"`
+	// 市场编号
+	ExchangeNo *int32 `protobuf:"varint,5,opt,name=exchange_no" json:"exchange_no,omitempty"`
+	// 证券代码
+	StockCode *string `protobuf:"bytes,6,opt,name=stock_code" json:"stock_code,omitempty"`
+	// 订单编号
+	OrderNo *int32 `protobuf:"varint,7,opt,name=order_no" json:"order_no,omitempty"`
+	// 订单状态
+	OrderStatus *string `protobuf:"bytes,8,opt,name=order_status" json:"order_status,omitempty"`
+	// 撤单数量
+	CancelQty *string `protobuf:"bytes,9,opt,name=cancel_qty" json:"cancel_qty,omitempty"`
+	// 撤单编号
+	CancelNo *int32 `protobuf:"varint,10,opt,name=cancel_no" json:"cancel_no,omitempty"`
+	// 申报编号
+	ReportNo *int32 `protobuf:"varint,11,opt,name=report_no" json:"report_no,omitempty"`
+	// 通道编号
+	ChannelNo        *int32 `protobuf:"varint,12,opt,name=channel_no" json:"channel_no,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *CommTradeCancelResp) Reset()         { *m = CommTradeCancelResp{} }
@@ -530,6 +2585,76 @@ func (m *CommTradeCancelResp) GetCancelInfo() string {
 		return *m.CancelInfo
 	}
 	return ""
+}
+
+func (m *CommTradeCancelResp) GetExternalNo() int32 {
+	if m != nil && m.ExternalNo != nil {
+		return *m.ExternalNo
+	}
+	return 0
+}
+
+func (m *CommTradeCancelResp) GetCancelStatus() string {
+	if m != nil && m.CancelStatus != nil {
+		return *m.CancelStatus
+	}
+	return ""
+}
+
+func (m *CommTradeCancelResp) GetExchangeNo() int32 {
+	if m != nil && m.ExchangeNo != nil {
+		return *m.ExchangeNo
+	}
+	return 0
+}
+
+func (m *CommTradeCancelResp) GetStockCode() string {
+	if m != nil && m.StockCode != nil {
+		return *m.StockCode
+	}
+	return ""
+}
+
+func (m *CommTradeCancelResp) GetOrderNo() int32 {
+	if m != nil && m.OrderNo != nil {
+		return *m.OrderNo
+	}
+	return 0
+}
+
+func (m *CommTradeCancelResp) GetOrderStatus() string {
+	if m != nil && m.OrderStatus != nil {
+		return *m.OrderStatus
+	}
+	return ""
+}
+
+func (m *CommTradeCancelResp) GetCancelQty() string {
+	if m != nil && m.CancelQty != nil {
+		return *m.CancelQty
+	}
+	return ""
+}
+
+func (m *CommTradeCancelResp) GetCancelNo() int32 {
+	if m != nil && m.CancelNo != nil {
+		return *m.CancelNo
+	}
+	return 0
+}
+
+func (m *CommTradeCancelResp) GetReportNo() int32 {
+	if m != nil && m.ReportNo != nil {
+		return *m.ReportNo
+	}
+	return 0
+}
+
+func (m *CommTradeCancelResp) GetChannelNo() int32 {
+	if m != nil && m.ChannelNo != nil {
+		return *m.ChannelNo
+	}
+	return 0
 }
 
 // 交易引擎协议
@@ -576,7 +2701,7 @@ func (m *TradeEngineMessage) GetData() []byte {
 // ****tradex协议****
 type TradeXQueryMessage struct {
 	// 查询信息的种类，0资金 1股份 2当日委托 3当日成交 4可撤单 5股东代码 6融资余额 7融券余额 8可融证券
-	QueryType        *int32 `protobuf:"varint,1,req,name=QueryType" json:"QueryType,omitempty"`
+	QueryType        *int32 `protobuf:"varint,1,req" json:"QueryType,omitempty"`
 	XXX_unrecognized []byte `json:"-"`
 }
 
@@ -593,17 +2718,17 @@ func (m *TradeXQueryMessage) GetQueryType() int32 {
 
 type TradeXOrderMessage struct {
 	// 委托的种类，0买入 1卖出 2融资买入 3融券卖出 4买券还券 5卖券还款 6现券还券
-	OrderType *int32 `protobuf:"varint,1,req,name=OrderType" json:"OrderType,omitempty"`
+	OrderType *int32 `protobuf:"varint,1,req" json:"OrderType,omitempty"`
 	// 报价方式 0上海限价委托 深圳限价委托 1(市价委托)深圳对方最优价格  2(市价委托)深圳本方最优价格  3(市价委托)深圳即时成交剩余撤销  4(市价委托)上海五档即成剩撤 深圳五档即成剩撤 5(市价委托)深圳全额成交或撤销 6(市价委托)上海五档即成转限价
-	PriceType *int32 `protobuf:"varint,2,req,name=PriceType" json:"PriceType,omitempty"`
+	PriceType *int32 `protobuf:"varint,2,req" json:"PriceType,omitempty"`
 	// 股东代码
-	Gddm *string `protobuf:"bytes,3,req,name=Gddm" json:"Gddm,omitempty"`
+	Gddm *string `protobuf:"bytes,3,req" json:"Gddm,omitempty"`
 	// 证券代码
-	Zqdm *string `protobuf:"bytes,4,req,name=Zqdm" json:"Zqdm,omitempty"`
+	Zqdm *string `protobuf:"bytes,4,req" json:"Zqdm,omitempty"`
 	// 委托价格
-	Price *float32 `protobuf:"fixed32,5,req,name=Price" json:"Price,omitempty"`
+	Price *float32 `protobuf:"fixed32,5,req" json:"Price,omitempty"`
 	// 委托数量
-	Count            *int32 `protobuf:"varint,6,req,name=Count" json:"Count,omitempty"`
+	Count            *int32 `protobuf:"varint,6,req" json:"Count,omitempty"`
 	XXX_unrecognized []byte `json:"-"`
 }
 
@@ -655,9 +2780,9 @@ func (m *TradeXOrderMessage) GetCount() int32 {
 
 type TradeXCancelMessage struct {
 	// 交易所ID， 上海1，深圳0(招商证券普通账户深圳是2)
-	ExchangeID *string `protobuf:"bytes,1,req,name=ExchangeID" json:"ExchangeID,omitempty"`
+	ExchangeID *string `protobuf:"bytes,1,req" json:"ExchangeID,omitempty"`
 	// 要撤的目标委托的编号
-	CancelNo         *string `protobuf:"bytes,2,req,name=CancelNo" json:"CancelNo,omitempty"`
+	CancelNo         *string `protobuf:"bytes,2,req" json:"CancelNo,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -681,7 +2806,7 @@ func (m *TradeXCancelMessage) GetCancelNo() string {
 
 type TradeXQuoteMessage struct {
 	// 证券代码
-	Zqdm             *string `protobuf:"bytes,1,req,name=Zqdm" json:"Zqdm,omitempty"`
+	Zqdm             *string `protobuf:"bytes,1,req" json:"Zqdm,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -698,7 +2823,7 @@ func (m *TradeXQuoteMessage) GetZqdm() string {
 
 type TradeXRepayMessage struct {
 	// 还款金额
-	Amount           *string `protobuf:"bytes,1,req,name=Amount" json:"Amount,omitempty"`
+	Amount           *string `protobuf:"bytes,1,req" json:"Amount,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -714,17 +2839,4 @@ func (m *TradeXRepayMessage) GetAmount() string {
 }
 
 func init() {
-	proto.RegisterType((*CommQueryInfo)(nil), "pb.CommQueryInfo")
-	proto.RegisterType((*CommTradeFundInfo)(nil), "pb.CommTradeFundInfo")
-	proto.RegisterType((*CommTradeStockInfo)(nil), "pb.CommTradeStockInfo")
-	proto.RegisterType((*CommTradeDayOrderInfo)(nil), "pb.CommTradeDayOrderInfo")
-	proto.RegisterType((*CommTradeDayDealInfo)(nil), "pb.CommTradeDayDealInfo")
-	proto.RegisterType((*CommTradeOrderResp)(nil), "pb.CommTradeOrderResp")
-	proto.RegisterType((*CommTradeCancelResp)(nil), "pb.CommTradeCancelResp")
-	proto.RegisterType((*TradeEngineMessage)(nil), "pb.TradeEngineMessage")
-	proto.RegisterType((*TradeXQueryMessage)(nil), "pb.TradeXQueryMessage")
-	proto.RegisterType((*TradeXOrderMessage)(nil), "pb.TradeXOrderMessage")
-	proto.RegisterType((*TradeXCancelMessage)(nil), "pb.TradeXCancelMessage")
-	proto.RegisterType((*TradeXQuoteMessage)(nil), "pb.TradeXQuoteMessage")
-	proto.RegisterType((*TradeXRepayMessage)(nil), "pb.TradeXRepayMessage")
 }
