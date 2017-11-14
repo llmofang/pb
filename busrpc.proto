@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package pb;
+
+// Interface exported by the server.
+service YunBusRouter {
+
+  rpc ProcRequest(stream YunBusRequest) returns (stream YunBusResponse) {}
+
+}
+
+message YunBusRequest {
+	string qid = 1;
+	uint64 timestamp = 2;
+	bytes data = 3;
+	string source = 4;
+}
+
+message YunBusResponse {
+	string qid = 1;
+	uint64 timestamp = 2;
+	int32 err = 3;
+	bytes data = 4;
+}
