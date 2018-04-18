@@ -1,0 +1,17 @@
+package comm;
+
+message IndexData
+{
+	required string WindCode = 1;
+    required string Code = 2;
+	required int32 ActionDay = 3;
+	required int32 TradingDay = 4;
+	required int32 Time = 5;
+	required int32 OpenIndex = 6;
+	required int32 HighIndex = 7;
+	required int32 LowIndex = 8;
+	required int32 LastIndex = 9;
+	required int64 TotalVolume = 10;
+	required int64 Turnover = 11;
+	required int32 PreCloseIndex = 12;
+}

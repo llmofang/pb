@@ -1,0 +1,14 @@
+package comm;
+
+message OrderData
+{
+	required string WindCode = 1;
+    required string Code = 2;
+	required int32 ActionDay = 3;
+	required int32 Time = 4;
+	required int32 Order = 5;
+	required int32 Price = 6;
+	required int32 Volume = 7;
+	required string OrderKind = 8;
+	required string FunctionCode = 9;
+}

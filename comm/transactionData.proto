@@ -1,0 +1,18 @@
+package comm;
+
+message TransactionData
+{
+	required string WindCode = 1;
+    required string Code = 2;
+	required int32 ActionDay = 3;
+	required int32 Time = 4;
+	required int32 Index = 5;
+	required int32 Price = 6;
+	required int32 Volume = 7;
+	required int32 Turnover = 8;
+	required int32 BSFlag = 9;
+	required string OrderKind = 10;
+	required string FunctionCode = 11;
+	required int32 AskOrder = 12;
+	required int32 BidOrder = 13;
+}

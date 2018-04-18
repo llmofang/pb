@@ -1,0 +1,6 @@
+package comm;
+
+message DynaData
+{
+	repeated bytes Data = 1;
+}

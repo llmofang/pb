@@ -1,0 +1,8 @@
+package comm;
+
+message Response
+{
+	required int64 Qid = 1;
+    required int64 errorno = 2;
+	repeated bytes data = 3;
+}

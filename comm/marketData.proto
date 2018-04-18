@@ -1,0 +1,35 @@
+package comm;
+
+message MarketData
+{
+	required string WindCode = 1;
+    required string Code = 2;
+	required int32 ActionDay = 3;
+	required int32 TradingDay = 4;
+	required int32 Time = 5;
+	required int32 Status = 6;
+	required uint32 PreClose = 7;
+	required uint32 Open = 8;
+	required uint32 High = 9;
+	required uint32 Low = 10;
+	required uint32 Match = 11;
+	repeated uint32 AskPrice = 12;
+	repeated uint32 AskVol = 13;
+	repeated uint32 BidPrice = 14;
+	repeated uint32 BidVol = 15;
+	required uint32 NumTrades = 16;
+	required int64 Volume = 17;
+	required int64 Turnover = 18;
+	required int64 TotalBidVol = 19;
+	required int64 TotalAskVol = 20;
+	required uint32 WeighteAvgBidPrice = 21;
+	required uint32 WeighteAvgAskPrice = 22;
+	required int32 IOPV = 23;
+	required int32 YieldToMaturity = 24;
+	required uint32 HighLimited = 25;
+	required uint32 LowLimited = 26;
+	required string Prefix = 27;
+	required int32 Syl1 = 28;
+	required int32 Syl2 = 29;
+	required int32 SD2 = 30;
+}

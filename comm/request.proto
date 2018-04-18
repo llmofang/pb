@@ -1,0 +1,11 @@
+package comm;
+
+message Request
+{
+  required int64 	Qid = 1;
+  required string 	Market = 2;
+  required string 	Obj = 3;
+  required int64 	StartTime = 4;
+  required int64  	EndTime = 5;
+  required int64  	DynaType = 6;
+}

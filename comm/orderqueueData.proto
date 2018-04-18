@@ -1,0 +1,14 @@
+package comm;
+
+message OrderQueueData
+{
+	required string WindCode = 1;
+    required string Code = 2;
+	required int32 ActionDay = 3;
+	required int32 Time = 4;
+	required int32 Side = 5;
+	required int32 Price = 6;
+	required int32 Orders = 7;
+	required int32 ABItems = 8;
+	repeated int32 ABVolume = 9;
+}
