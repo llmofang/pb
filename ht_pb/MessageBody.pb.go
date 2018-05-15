@@ -15,14 +15,6 @@ package com_htsc_mdc_insight_model
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import com_htsc_mdc_insight_model1 "."
-import com_htsc_mdc_insight_model4 "."
-import com_htsc_mdc_insight_model3 "."
-import com_htsc_mdc_insight_model7 "."
-import com_htsc_mdc_insight_model20 "."
-import com_htsc_mdc_insight_model2 "."
-import com_htsc_mdc_insight_model21 "."
-import com_htsc_mdc_insight_model22 "."
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -36,37 +28,36 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type MessageBody struct {
-	Type                     com_htsc_mdc_insight_model1.EMessageType              `protobuf:"varint,1,opt,name=type,enum=com.htsc.mdc.insight.model.EMessageType" json:"type,omitempty"`
-	InteractionId            int64                                                 `protobuf:"varint,2,opt,name=interactionId" json:"interactionId,omitempty"`
-	GeneralErrorMessage      *com_htsc_mdc_insight_model2.InsightErrorContext      `protobuf:"bytes,10,opt,name=generalErrorMessage" json:"generalErrorMessage,omitempty"`
-	LoginRequest             *com_htsc_mdc_insight_model4.LoginRequest             `protobuf:"bytes,11,opt,name=loginRequest" json:"loginRequest,omitempty"`
-	LoginResponse            *com_htsc_mdc_insight_model4.LoginResponse            `protobuf:"bytes,12,opt,name=loginResponse" json:"loginResponse,omitempty"`
-	ServiceDiscoveryRequest  *com_htsc_mdc_insight_model3.ServiceDiscoveryRequest  `protobuf:"bytes,13,opt,name=serviceDiscoveryRequest" json:"serviceDiscoveryRequest,omitempty"`
-	ServiceDiscoveryResponse *com_htsc_mdc_insight_model3.ServiceDiscoveryResponse `protobuf:"bytes,14,opt,name=serviceDiscoveryResponse" json:"serviceDiscoveryResponse,omitempty"`
-	MdSubscribeRequest       *com_htsc_mdc_insight_model7.MDSubscribeRequest       `protobuf:"bytes,15,opt,name=mdSubscribeRequest" json:"mdSubscribeRequest,omitempty"`
-	MdSubscribeResponse      *com_htsc_mdc_insight_model7.MDSubscribeResponse      `protobuf:"bytes,16,opt,name=mdSubscribeResponse" json:"mdSubscribeResponse,omitempty"`
-	PushMarketData           *com_htsc_mdc_insight_model20.MarketData              `protobuf:"bytes,20,opt,name=pushMarketData" json:"pushMarketData,omitempty"`
-	MdQueryRequest           *com_htsc_mdc_insight_model21.MDQueryRequest          `protobuf:"bytes,30,opt,name=mdQueryRequest" json:"mdQueryRequest,omitempty"`
-	MdQueryResponse          *com_htsc_mdc_insight_model21.MDQueryResponse         `protobuf:"bytes,31,opt,name=mdQueryResponse" json:"mdQueryResponse,omitempty"`
-	PlaybackRequest          *com_htsc_mdc_insight_model22.PlaybackRequest         `protobuf:"bytes,32,opt,name=playbackRequest" json:"playbackRequest,omitempty"`
-	PlaybackResponse         *com_htsc_mdc_insight_model22.PlaybackResponse        `protobuf:"bytes,33,opt,name=playbackResponse" json:"playbackResponse,omitempty"`
-	PlaybackControlRequest   *com_htsc_mdc_insight_model22.PlaybackControlRequest  `protobuf:"bytes,34,opt,name=playbackControlRequest" json:"playbackControlRequest,omitempty"`
-	PlaybackControlResponse  *com_htsc_mdc_insight_model22.PlaybackControlResponse `protobuf:"bytes,35,opt,name=playbackControlResponse" json:"playbackControlResponse,omitempty"`
-	PlaybackStatusRequest    *com_htsc_mdc_insight_model22.PlaybackStatusRequest   `protobuf:"bytes,36,opt,name=playbackStatusRequest" json:"playbackStatusRequest,omitempty"`
-	PlaybackStatus           *com_htsc_mdc_insight_model22.PlaybackStatus          `protobuf:"bytes,37,opt,name=playbackStatus" json:"playbackStatus,omitempty"`
-	PlaybackPayload          *com_htsc_mdc_insight_model22.PlaybackPayload         `protobuf:"bytes,38,opt,name=playbackPayload" json:"playbackPayload,omitempty"`
+	Type                     EMessageType              `protobuf:"varint,1,opt,name=type,enum=com.htsc.mdc.insight.model.EMessageType" json:"type,omitempty"`
+	InteractionId            int64                     `protobuf:"varint,2,opt,name=interactionId" json:"interactionId,omitempty"`
+	GeneralErrorMessage      *InsightErrorContext      `protobuf:"bytes,10,opt,name=generalErrorMessage" json:"generalErrorMessage,omitempty"`
+	LoginRequest             *LoginRequest             `protobuf:"bytes,11,opt,name=loginRequest" json:"loginRequest,omitempty"`
+	LoginResponse            *LoginResponse            `protobuf:"bytes,12,opt,name=loginResponse" json:"loginResponse,omitempty"`
+	ServiceDiscoveryRequest  *ServiceDiscoveryRequest  `protobuf:"bytes,13,opt,name=serviceDiscoveryRequest" json:"serviceDiscoveryRequest,omitempty"`
+	ServiceDiscoveryResponse *ServiceDiscoveryResponse `protobuf:"bytes,14,opt,name=serviceDiscoveryResponse" json:"serviceDiscoveryResponse,omitempty"`
+	MdSubscribeRequest       *MDSubscribeRequest       `protobuf:"bytes,15,opt,name=mdSubscribeRequest" json:"mdSubscribeRequest,omitempty"`
+	MdSubscribeResponse      *MDSubscribeResponse      `protobuf:"bytes,16,opt,name=mdSubscribeResponse" json:"mdSubscribeResponse,omitempty"`
+	PushMarketData           *MarketData               `protobuf:"bytes,20,opt,name=pushMarketData" json:"pushMarketData,omitempty"`
+	MdQueryRequest           *MDQueryRequest           `protobuf:"bytes,30,opt,name=mdQueryRequest" json:"mdQueryRequest,omitempty"`
+	MdQueryResponse          *MDQueryResponse          `protobuf:"bytes,31,opt,name=mdQueryResponse" json:"mdQueryResponse,omitempty"`
+	PlaybackRequest          *PlaybackRequest          `protobuf:"bytes,32,opt,name=playbackRequest" json:"playbackRequest,omitempty"`
+	PlaybackResponse         *PlaybackResponse         `protobuf:"bytes,33,opt,name=playbackResponse" json:"playbackResponse,omitempty"`
+	PlaybackControlRequest   *PlaybackControlRequest   `protobuf:"bytes,34,opt,name=playbackControlRequest" json:"playbackControlRequest,omitempty"`
+	PlaybackControlResponse  *PlaybackControlResponse  `protobuf:"bytes,35,opt,name=playbackControlResponse" json:"playbackControlResponse,omitempty"`
+	PlaybackStatusRequest    *PlaybackStatusRequest    `protobuf:"bytes,36,opt,name=playbackStatusRequest" json:"playbackStatusRequest,omitempty"`
+	PlaybackStatus           *PlaybackStatus           `protobuf:"bytes,37,opt,name=playbackStatus" json:"playbackStatus,omitempty"`
+	PlaybackPayload          *PlaybackPayload          `protobuf:"bytes,38,opt,name=playbackPayload" json:"playbackPayload,omitempty"`
 }
 
-func (m *MessageBody) Reset()                    { *m = MessageBody{} }
-func (m *MessageBody) String() string            { return proto.CompactTextString(m) }
-func (*MessageBody) ProtoMessage()               {}
-func (*MessageBody) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (m *MessageBody) Reset()         { *m = MessageBody{} }
+func (m *MessageBody) String() string { return proto.CompactTextString(m) }
+func (*MessageBody) ProtoMessage()    {}
 
-func (m *MessageBody) GetType() com_htsc_mdc_insight_model1.EMessageType {
+func (m *MessageBody) GetType() EMessageType {
 	if m != nil {
 		return m.Type
 	}
-	return com_htsc_mdc_insight_model1.EMessageType_UNKNOWN_MESSAGE_TYPE
+	return EMessageType_UNKNOWN_MESSAGE_TYPE
 }
 
 func (m *MessageBody) GetInteractionId() int64 {
@@ -76,119 +67,119 @@ func (m *MessageBody) GetInteractionId() int64 {
 	return 0
 }
 
-func (m *MessageBody) GetGeneralErrorMessage() *com_htsc_mdc_insight_model2.InsightErrorContext {
+func (m *MessageBody) GetGeneralErrorMessage() *InsightErrorContext {
 	if m != nil {
 		return m.GeneralErrorMessage
 	}
 	return nil
 }
 
-func (m *MessageBody) GetLoginRequest() *com_htsc_mdc_insight_model4.LoginRequest {
+func (m *MessageBody) GetLoginRequest() *LoginRequest {
 	if m != nil {
 		return m.LoginRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetLoginResponse() *com_htsc_mdc_insight_model4.LoginResponse {
+func (m *MessageBody) GetLoginResponse() *LoginResponse {
 	if m != nil {
 		return m.LoginResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetServiceDiscoveryRequest() *com_htsc_mdc_insight_model3.ServiceDiscoveryRequest {
+func (m *MessageBody) GetServiceDiscoveryRequest() *ServiceDiscoveryRequest {
 	if m != nil {
 		return m.ServiceDiscoveryRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetServiceDiscoveryResponse() *com_htsc_mdc_insight_model3.ServiceDiscoveryResponse {
+func (m *MessageBody) GetServiceDiscoveryResponse() *ServiceDiscoveryResponse {
 	if m != nil {
 		return m.ServiceDiscoveryResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetMdSubscribeRequest() *com_htsc_mdc_insight_model7.MDSubscribeRequest {
+func (m *MessageBody) GetMdSubscribeRequest() *MDSubscribeRequest {
 	if m != nil {
 		return m.MdSubscribeRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetMdSubscribeResponse() *com_htsc_mdc_insight_model7.MDSubscribeResponse {
+func (m *MessageBody) GetMdSubscribeResponse() *MDSubscribeResponse {
 	if m != nil {
 		return m.MdSubscribeResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPushMarketData() *com_htsc_mdc_insight_model20.MarketData {
+func (m *MessageBody) GetPushMarketData() *MarketData {
 	if m != nil {
 		return m.PushMarketData
 	}
 	return nil
 }
 
-func (m *MessageBody) GetMdQueryRequest() *com_htsc_mdc_insight_model21.MDQueryRequest {
+func (m *MessageBody) GetMdQueryRequest() *MDQueryRequest {
 	if m != nil {
 		return m.MdQueryRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetMdQueryResponse() *com_htsc_mdc_insight_model21.MDQueryResponse {
+func (m *MessageBody) GetMdQueryResponse() *MDQueryResponse {
 	if m != nil {
 		return m.MdQueryResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackRequest() *com_htsc_mdc_insight_model22.PlaybackRequest {
+func (m *MessageBody) GetPlaybackRequest() *PlaybackRequest {
 	if m != nil {
 		return m.PlaybackRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackResponse() *com_htsc_mdc_insight_model22.PlaybackResponse {
+func (m *MessageBody) GetPlaybackResponse() *PlaybackResponse {
 	if m != nil {
 		return m.PlaybackResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackControlRequest() *com_htsc_mdc_insight_model22.PlaybackControlRequest {
+func (m *MessageBody) GetPlaybackControlRequest() *PlaybackControlRequest {
 	if m != nil {
 		return m.PlaybackControlRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackControlResponse() *com_htsc_mdc_insight_model22.PlaybackControlResponse {
+func (m *MessageBody) GetPlaybackControlResponse() *PlaybackControlResponse {
 	if m != nil {
 		return m.PlaybackControlResponse
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackStatusRequest() *com_htsc_mdc_insight_model22.PlaybackStatusRequest {
+func (m *MessageBody) GetPlaybackStatusRequest() *PlaybackStatusRequest {
 	if m != nil {
 		return m.PlaybackStatusRequest
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackStatus() *com_htsc_mdc_insight_model22.PlaybackStatus {
+func (m *MessageBody) GetPlaybackStatus() *PlaybackStatus {
 	if m != nil {
 		return m.PlaybackStatus
 	}
 	return nil
 }
 
-func (m *MessageBody) GetPlaybackPayload() *com_htsc_mdc_insight_model22.PlaybackPayload {
+func (m *MessageBody) GetPlaybackPayload() *PlaybackPayload {
 	if m != nil {
 		return m.PlaybackPayload
 	}
@@ -197,47 +188,4 @@ func (m *MessageBody) GetPlaybackPayload() *com_htsc_mdc_insight_model22.Playbac
 
 func init() {
 	proto.RegisterType((*MessageBody)(nil), "com.htsc.mdc.insight.model.MessageBody")
-}
-
-func init() { proto.RegisterFile("MessageBody.proto", fileDescriptor0) }
-
-var fileDescriptor0 = []byte{
-	// 583 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x95, 0x4f, 0x6f, 0xd3, 0x30,
-	0x18, 0xc6, 0x15, 0x40, 0x1c, 0xdc, 0xb5, 0xeb, 0x0c, 0x8c, 0xd0, 0x03, 0x94, 0x31, 0xa6, 0xf2,
-	0x47, 0x41, 0xb4, 0x1c, 0x39, 0x95, 0x4e, 0x62, 0x52, 0x0b, 0xc1, 0x05, 0x89, 0x13, 0x92, 0x9b,
-	0x58, 0x69, 0x58, 0x12, 0x07, 0xdb, 0x99, 0xc8, 0xb7, 0xe1, 0x33, 0xf0, 0x09, 0x51, 0x5c, 0xbb,
-	0x4d, 0xd2, 0x24, 0x0d, 0xc7, 0xbe, 0xf6, 0xf3, 0x7b, 0xde, 0xc7, 0x7d, 0x1d, 0x83, 0x93, 0x05,
-	0xe1, 0x1c, 0x7b, 0x64, 0x4a, 0xdd, 0xd4, 0x8a, 0x19, 0x15, 0x14, 0x0e, 0x1c, 0x1a, 0x5a, 0x6b,
-	0xc1, 0x1d, 0x2b, 0x74, 0x1d, 0xcb, 0x8f, 0xb8, 0xef, 0xad, 0x85, 0x15, 0x52, 0x97, 0x04, 0x03,
-	0x78, 0xa9, 0xf6, 0x7f, 0x4d, 0x63, 0xb2, 0xd9, 0x3f, 0xe8, 0xcc, 0xa9, 0xe7, 0x47, 0xea, 0xc7,
-	0xe9, 0x92, 0xb0, 0x1b, 0xdf, 0x21, 0x33, 0x9f, 0x3b, 0xf4, 0x86, 0x30, 0x05, 0x1d, 0x9c, 0x2c,
-	0x66, 0xcb, 0x64, 0xc5, 0x1d, 0xe6, 0xaf, 0xb4, 0xae, 0xbf, 0xc0, 0xec, 0x9a, 0x88, 0x19, 0x16,
-	0x58, 0x55, 0x1e, 0x5d, 0x6d, 0xcc, 0x2e, 0x19, 0xa3, 0xec, 0x03, 0x8d, 0x04, 0xf9, 0x2d, 0xd4,
-	0x52, 0x77, 0x31, 0xfb, 0x92, 0xec, 0x70, 0xfd, 0xc5, 0xcc, 0x0e, 0x70, 0xba, 0xc2, 0xce, 0xf5,
-	0xa6, 0x72, 0xf6, 0xb7, 0x0b, 0x3a, 0xb9, 0x2c, 0xf0, 0x3d, 0xb8, 0x23, 0xd2, 0x98, 0x98, 0xc6,
-	0xd0, 0x18, 0xf5, 0xc6, 0x23, 0xab, 0x3e, 0x94, 0x95, 0xcf, 0x84, 0xa4, 0x0a, 0x9e, 0x83, 0xae,
-	0x1f, 0x09, 0xc2, 0xb0, 0x23, 0x7c, 0x1a, 0x5d, 0xb9, 0xe6, 0xad, 0xa1, 0x31, 0xba, 0x8d, 0x8a,
-	0x45, 0x88, 0xc1, 0x3d, 0x8f, 0x44, 0x84, 0xe1, 0x40, 0x76, 0xac, 0x30, 0x26, 0x18, 0x1a, 0xa3,
-	0xce, 0xf8, 0x4d, 0x93, 0x65, 0x45, 0x50, 0x54, 0xc5, 0x82, 0x73, 0x70, 0x14, 0x64, 0xc7, 0x8b,
-	0xc8, 0xaf, 0x84, 0x70, 0x61, 0x76, 0x24, 0xbb, 0x31, 0xce, 0x3c, 0xb7, 0x1f, 0x15, 0xd4, 0xf0,
-	0x33, 0xe8, 0xaa, 0xdf, 0x3c, 0xa6, 0x11, 0x27, 0xe6, 0x91, 0xc4, 0xbd, 0x68, 0x81, 0xdb, 0x08,
-	0x50, 0x51, 0x0f, 0x43, 0xf0, 0x90, 0x97, 0xfe, 0x70, 0xdd, 0x69, 0x57, 0xa2, 0x27, 0x4d, 0xe8,
-	0x65, 0xb5, 0x14, 0xd5, 0x31, 0x61, 0x0c, 0xcc, 0xfd, 0x25, 0x15, 0xa5, 0x27, 0xfd, 0xde, 0xfd,
-	0x9f, 0x9f, 0x4a, 0x55, 0x4b, 0x85, 0x3f, 0x00, 0x0c, 0xdd, 0xed, 0xe4, 0xea, 0x6c, 0xc7, 0xd2,
-	0xcb, 0x6a, 0xf2, 0xca, 0xcd, 0xbb, 0x8e, 0x55, 0x41, 0xca, 0x46, 0xa8, 0x50, 0x55, 0x61, 0xfa,
-	0x87, 0x47, 0xa8, 0x60, 0xa0, 0x72, 0x54, 0xb1, 0xe0, 0x27, 0xd0, 0x8b, 0x13, 0xbe, 0xde, 0xdd,
-	0x36, 0xf3, 0xbe, 0xa4, 0x5f, 0x34, 0xd2, 0xb7, 0xbb, 0x51, 0x49, 0x0d, 0x11, 0xe8, 0x85, 0xae,
-	0xbc, 0x8c, 0xfa, 0x38, 0x1e, 0x4b, 0xde, 0xcb, 0xe6, 0x6e, 0xf3, 0x0a, 0x54, 0x22, 0xc0, 0x6f,
-	0xe0, 0x78, 0x5b, 0x51, 0x47, 0xf0, 0x44, 0x42, 0x5f, 0xb5, 0x82, 0xaa, 0xf8, 0x65, 0x46, 0x86,
-	0x8d, 0xd5, 0x67, 0x42, 0xf7, 0x3a, 0x3c, 0x8c, 0xb5, 0x8b, 0x12, 0x54, 0x66, 0xc0, 0xef, 0xa0,
-	0xbf, 0x2b, 0xa9, 0x76, 0x9f, 0x4a, 0xee, 0xeb, 0x76, 0x5c, 0xd5, 0xef, 0x1e, 0x05, 0xfe, 0x04,
-	0xa7, 0xba, 0x96, 0x7d, 0x16, 0x18, 0x0d, 0x74, 0xdf, 0x67, 0x92, 0x3f, 0x6e, 0xc3, 0x2f, 0x2a,
-	0x51, 0x0d, 0x31, 0xbb, 0xbb, 0x7b, 0x2b, 0x2a, 0xcc, 0xb3, 0xc3, 0x77, 0xd7, 0xae, 0x96, 0xa2,
-	0x3a, 0x26, 0xf4, 0xc0, 0x03, 0xbd, 0xb4, 0x14, 0x58, 0x24, 0x5c, 0x27, 0x3b, 0x97, 0x66, 0x6f,
-	0xdb, 0x98, 0x15, 0x84, 0xa8, 0x9a, 0x97, 0xcd, 0x67, 0x71, 0xc1, 0x7c, 0x7e, 0x78, 0x3e, 0x4b,
-	0x0e, 0x25, 0x42, 0x7e, 0x90, 0x6c, 0x9c, 0x06, 0x14, 0xbb, 0xe6, 0x45, 0xfb, 0x41, 0x52, 0x12,
-	0x54, 0x66, 0x4c, 0x27, 0xa0, 0xe1, 0xb1, 0x9d, 0xf6, 0x73, 0xef, 0x99, 0x9d, 0x3d, 0x72, 0x1f,
-	0x8d, 0x3f, 0x86, 0xb1, 0xba, 0x2b, 0x1f, 0xbc, 0xc9, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff, 0xbe,
-	0x8f, 0xe5, 0xd8, 0xbb, 0x07, 0x00, 0x00,
 }

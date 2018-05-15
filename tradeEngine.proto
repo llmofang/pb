@@ -58,7 +58,7 @@ message CommTradeFundInfo
 	//证券资产
 	optional string holding_asset = 21;
 }
-///账户资金信息
+///交易单元资金查询
 message CommTradeUnitCapitalInfo
 {
 	//记录序号	
