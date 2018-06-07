@@ -1,0 +1,11 @@
+package pb;
+
+message Hbase {
+    optional string Result = 1;
+    optional string FirstRow = 2;
+    optional string LastRow = 3;
+}
+
+message HbaseResp {
+    repeated Hbase Resps = 1;
+}
