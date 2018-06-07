@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -27,6 +28,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_marketData_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_marketData_2eproto() {
   protobuf_AddDesc_marketData_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -67,45 +69,56 @@ void protobuf_AssignDesc_marketData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketData, sd2_),
   };
   MarketData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       MarketData_descriptor_,
-      MarketData::default_instance_,
+      MarketData::internal_default_instance(),
       MarketData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketData, _unknown_fields_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketData, _has_bits_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(MarketData));
+      -1,
+      sizeof(MarketData),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketData, _internal_metadata_));
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
+void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_marketData_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    MarketData_descriptor_, &MarketData::default_instance());
+      MarketData_descriptor_, MarketData::internal_default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_marketData_2eproto() {
-  delete MarketData::default_instance_;
+  MarketData_default_instance_.Shutdown();
   delete MarketData_reflection_;
 }
 
-void protobuf_AddDesc_marketData_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void protobuf_InitDefaults_marketData_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::GetEmptyString();
+  MarketData_default_instance_.DefaultConstruct();
+  MarketData_default_instance_.get_mutable()->InitAsDefaultInstance();
+}
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_marketData_2eproto_once_);
+void protobuf_InitDefaults_marketData_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_marketData_2eproto_once_,
+                 &protobuf_InitDefaults_marketData_2eproto_impl);
+}
+void protobuf_AddDesc_marketData_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_marketData_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020marketData.proto\022\004comm\"\237\004\n\nMarketData\022"
     "\020\n\010WindCode\030\001 \002(\t\022\014\n\004Code\030\002 \002(\t\022\021\n\tActio"
@@ -124,11 +137,14 @@ void protobuf_AddDesc_marketData_2eproto() {
     "\003SD2\030\036 \002(\005", 570);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "marketData.proto", &protobuf_RegisterTypes);
-  MarketData::default_instance_ = new MarketData();
-  MarketData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_marketData_2eproto);
 }
 
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_marketData_2eproto_once_);
+void protobuf_AddDesc_marketData_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_marketData_2eproto_once_,
+                 &protobuf_AddDesc_marketData_2eproto_impl);
+}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_marketData_2eproto {
   StaticDescriptorInitializer_marketData_2eproto() {
@@ -136,9 +152,19 @@ struct StaticDescriptorInitializer_marketData_2eproto {
   }
 } static_descriptor_initializer_marketData_2eproto_;
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
+
+
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MarketData::kWindCodeFieldNumber;
 const int MarketData::kCodeFieldNumber;
 const int MarketData::kActionDayFieldNumber;
@@ -169,10 +195,11 @@ const int MarketData::kPrefixFieldNumber;
 const int MarketData::kSyl1FieldNumber;
 const int MarketData::kSyl2FieldNumber;
 const int MarketData::kSD2FieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MarketData::MarketData()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_marketData_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:comm.MarketData)
 }
@@ -181,42 +208,20 @@ void MarketData::InitAsDefaultInstance() {
 }
 
 MarketData::MarketData(const MarketData& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:comm.MarketData)
 }
 
 void MarketData::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  windcode_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  code_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  actionday_ = 0;
-  tradingday_ = 0;
-  time_ = 0;
-  status_ = 0;
-  preclose_ = 0u;
-  open_ = 0u;
-  high_ = 0u;
-  low_ = 0u;
-  match_ = 0u;
-  numtrades_ = 0u;
-  volume_ = GOOGLE_LONGLONG(0);
-  turnover_ = GOOGLE_LONGLONG(0);
-  totalbidvol_ = GOOGLE_LONGLONG(0);
-  totalaskvol_ = GOOGLE_LONGLONG(0);
-  weighteavgbidprice_ = 0u;
-  weighteavgaskprice_ = 0u;
-  iopv_ = 0;
-  yieldtomaturity_ = 0;
-  highlimited_ = 0u;
-  lowlimited_ = 0u;
-  prefix_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  syl1_ = 0;
-  syl2_ = 0;
-  sd2_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  windcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  prefix_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&actionday_, 0, reinterpret_cast<char*>(&sd2_) -
+    reinterpret_cast<char*>(&actionday_) + sizeof(sd2_));
 }
 
 MarketData::~MarketData() {
@@ -225,17 +230,9 @@ MarketData::~MarketData() {
 }
 
 void MarketData::SharedDtor() {
-  if (windcode_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete windcode_;
-  }
-  if (code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete code_;
-  }
-  if (prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete prefix_;
-  }
-  if (this != default_instance_) {
-  }
+  windcode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  prefix_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MarketData::SetCachedSize(int size) const {
@@ -249,69 +246,72 @@ const ::google::protobuf::Descriptor* MarketData::descriptor() {
 }
 
 const MarketData& MarketData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_marketData_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_marketData_2eproto();
+  return *internal_default_instance();
 }
 
-MarketData* MarketData::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<MarketData> MarketData_default_instance_;
 
-MarketData* MarketData::New() const {
-  return new MarketData;
+MarketData* MarketData::New(::google::protobuf::Arena* arena) const {
+  MarketData* n = new MarketData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void MarketData::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<MarketData*>(16)->f) - \
-   reinterpret_cast<char*>(16))
+// @@protoc_insertion_point(message_clear_start:comm.MarketData)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(MarketData, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MarketData*>(16)->f)
+#endif
 
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
 
-  if (_has_bits_[0 / 32] & 255) {
+  if (_has_bits_[0 / 32] & 255u) {
     ZR_(actionday_, open_);
     if (has_windcode()) {
-      if (windcode_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        windcode_->clear();
-      }
+      windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_code()) {
-      if (code_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        code_->clear();
-      }
+      code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  ZR_(high_, low_);
-  ZR_(match_, numtrades_);
-  if (_has_bits_[16 / 32] & 16711680) {
-    ZR_(volume_, yieldtomaturity_);
-  }
-  if (_has_bits_[24 / 32] & 1056964608) {
-    ZR_(highlimited_, lowlimited_);
-    ZR_(syl1_, sd2_);
+  ZR_(high_, numtrades_);
+  ZR_(volume_, yieldtomaturity_);
+  if (_has_bits_[24 / 32] & 1056964608u) {
+    ZR_(highlimited_, sd2_);
     if (has_prefix()) {
-      if (prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        prefix_->clear();
-      }
+      prefix_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
-#undef OFFSET_OF_FIELD_
+#undef ZR_HELPER_
 #undef ZR_
 
   askprice_.Clear();
   askvol_.Clear();
   bidprice_.Clear();
   bidvol_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  _has_bits_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool MarketData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:comm.MarketData)
   for (;;) {
@@ -327,7 +327,7 @@ bool MarketData::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->windcode().data(), this->windcode().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "windcode");
+            "comm.MarketData.WindCode");
         } else {
           goto handle_unusual;
         }
@@ -344,7 +344,7 @@ bool MarketData::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->code().data(), this->code().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "code");
+            "comm.MarketData.Code");
         } else {
           goto handle_unusual;
         }
@@ -356,10 +356,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 3: {
         if (tag == 24) {
          parse_ActionDay:
+          set_has_actionday();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &actionday_)));
-          set_has_actionday();
         } else {
           goto handle_unusual;
         }
@@ -371,10 +371,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 4: {
         if (tag == 32) {
          parse_TradingDay:
+          set_has_tradingday();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &tradingday_)));
-          set_has_tradingday();
         } else {
           goto handle_unusual;
         }
@@ -386,10 +386,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 5: {
         if (tag == 40) {
          parse_Time:
+          set_has_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &time_)));
-          set_has_time();
         } else {
           goto handle_unusual;
         }
@@ -401,10 +401,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 6: {
         if (tag == 48) {
          parse_Status:
+          set_has_status();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &status_)));
-          set_has_status();
         } else {
           goto handle_unusual;
         }
@@ -416,10 +416,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 7: {
         if (tag == 56) {
          parse_PreClose:
+          set_has_preclose();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &preclose_)));
-          set_has_preclose();
         } else {
           goto handle_unusual;
         }
@@ -431,10 +431,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 8: {
         if (tag == 64) {
          parse_Open:
+          set_has_open();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &open_)));
-          set_has_open();
         } else {
           goto handle_unusual;
         }
@@ -446,10 +446,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 9: {
         if (tag == 72) {
          parse_High:
+          set_has_high();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &high_)));
-          set_has_high();
         } else {
           goto handle_unusual;
         }
@@ -461,10 +461,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 10: {
         if (tag == 80) {
          parse_Low:
+          set_has_low();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &low_)));
-          set_has_low();
         } else {
           goto handle_unusual;
         }
@@ -476,10 +476,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 11: {
         if (tag == 88) {
          parse_Match:
+          set_has_match();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &match_)));
-          set_has_match();
         } else {
           goto handle_unusual;
         }
@@ -567,10 +567,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 16: {
         if (tag == 128) {
          parse_NumTrades:
+          set_has_numtrades();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &numtrades_)));
-          set_has_numtrades();
         } else {
           goto handle_unusual;
         }
@@ -582,10 +582,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 17: {
         if (tag == 136) {
          parse_Volume:
+          set_has_volume();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &volume_)));
-          set_has_volume();
         } else {
           goto handle_unusual;
         }
@@ -597,10 +597,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 18: {
         if (tag == 144) {
          parse_Turnover:
+          set_has_turnover();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &turnover_)));
-          set_has_turnover();
         } else {
           goto handle_unusual;
         }
@@ -612,10 +612,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 19: {
         if (tag == 152) {
          parse_TotalBidVol:
+          set_has_totalbidvol();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &totalbidvol_)));
-          set_has_totalbidvol();
         } else {
           goto handle_unusual;
         }
@@ -627,10 +627,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 20: {
         if (tag == 160) {
          parse_TotalAskVol:
+          set_has_totalaskvol();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &totalaskvol_)));
-          set_has_totalaskvol();
         } else {
           goto handle_unusual;
         }
@@ -642,10 +642,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 21: {
         if (tag == 168) {
          parse_WeighteAvgBidPrice:
+          set_has_weighteavgbidprice();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &weighteavgbidprice_)));
-          set_has_weighteavgbidprice();
         } else {
           goto handle_unusual;
         }
@@ -657,10 +657,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 22: {
         if (tag == 176) {
          parse_WeighteAvgAskPrice:
+          set_has_weighteavgaskprice();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &weighteavgaskprice_)));
-          set_has_weighteavgaskprice();
         } else {
           goto handle_unusual;
         }
@@ -672,10 +672,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 23: {
         if (tag == 184) {
          parse_IOPV:
+          set_has_iopv();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &iopv_)));
-          set_has_iopv();
         } else {
           goto handle_unusual;
         }
@@ -687,10 +687,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 24: {
         if (tag == 192) {
          parse_YieldToMaturity:
+          set_has_yieldtomaturity();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &yieldtomaturity_)));
-          set_has_yieldtomaturity();
         } else {
           goto handle_unusual;
         }
@@ -702,10 +702,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 25: {
         if (tag == 200) {
          parse_HighLimited:
+          set_has_highlimited();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &highlimited_)));
-          set_has_highlimited();
         } else {
           goto handle_unusual;
         }
@@ -717,10 +717,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 26: {
         if (tag == 208) {
          parse_LowLimited:
+          set_has_lowlimited();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &lowlimited_)));
-          set_has_lowlimited();
         } else {
           goto handle_unusual;
         }
@@ -737,7 +737,7 @@ bool MarketData::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->prefix().data(), this->prefix().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "prefix");
+            "comm.MarketData.Prefix");
         } else {
           goto handle_unusual;
         }
@@ -749,10 +749,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 28: {
         if (tag == 224) {
          parse_Syl1:
+          set_has_syl1();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &syl1_)));
-          set_has_syl1();
         } else {
           goto handle_unusual;
         }
@@ -764,10 +764,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 29: {
         if (tag == 232) {
          parse_Syl2:
+          set_has_syl2();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &syl2_)));
-          set_has_syl2();
         } else {
           goto handle_unusual;
         }
@@ -779,10 +779,10 @@ bool MarketData::MergePartialFromCodedStream(
       case 30: {
         if (tag == 240) {
          parse_SD2:
+          set_has_sd2();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &sd2_)));
-          set_has_sd2();
         } else {
           goto handle_unusual;
         }
@@ -820,7 +820,7 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->windcode().data(), this->windcode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "windcode");
+      "comm.MarketData.WindCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->windcode(), output);
   }
@@ -830,7 +830,7 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->code().data(), this->code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "code");
+      "comm.MarketData.Code");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->code(), output);
   }
@@ -964,7 +964,7 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->prefix().data(), this->prefix().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prefix");
+      "comm.MarketData.Prefix");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       27, this->prefix(), output);
   }
@@ -984,22 +984,23 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->sd2(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:comm.MarketData)
 }
 
-::google::protobuf::uint8* MarketData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* MarketData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.MarketData)
   // required string WindCode = 1;
   if (has_windcode()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->windcode().data(), this->windcode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "windcode");
+      "comm.MarketData.WindCode");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->windcode(), target);
@@ -1010,7 +1011,7 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->code().data(), this->code().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "code");
+      "comm.MarketData.Code");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->code(), target);
@@ -1145,7 +1146,7 @@ void MarketData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->prefix().data(), this->prefix().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "prefix");
+      "comm.MarketData.Prefix");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         27, this->prefix(), target);
@@ -1166,7 +1167,7 @@ void MarketData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->sd2(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -1174,274 +1175,434 @@ void MarketData::SerializeWithCachedSizes(
   return target;
 }
 
-int MarketData::ByteSize() const {
-  int total_size = 0;
+size_t MarketData::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:comm.MarketData)
+  size_t total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_windcode()) {
     // required string WindCode = 1;
-    if (has_windcode()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->windcode());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->windcode());
+  }
+
+  if (has_code()) {
+    // required string Code = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->code());
+  }
+
+  if (has_actionday()) {
+    // required int32 ActionDay = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->actionday());
+  }
+
+  if (has_tradingday()) {
+    // required int32 TradingDay = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->tradingday());
+  }
+
+  if (has_time()) {
+    // required int32 Time = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->time());
+  }
+
+  if (has_status()) {
+    // required int32 Status = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
+  }
+
+  if (has_preclose()) {
+    // required uint32 PreClose = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->preclose());
+  }
+
+  if (has_open()) {
+    // required uint32 Open = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->open());
+  }
+
+  if (has_high()) {
+    // required uint32 High = 9;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->high());
+  }
+
+  if (has_low()) {
+    // required uint32 Low = 10;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->low());
+  }
+
+  if (has_match()) {
+    // required uint32 Match = 11;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->match());
+  }
+
+  if (has_numtrades()) {
+    // required uint32 NumTrades = 16;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->numtrades());
+  }
+
+  if (has_volume()) {
+    // required int64 Volume = 17;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->volume());
+  }
+
+  if (has_turnover()) {
+    // required int64 Turnover = 18;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->turnover());
+  }
+
+  if (has_totalbidvol()) {
+    // required int64 TotalBidVol = 19;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalbidvol());
+  }
+
+  if (has_totalaskvol()) {
+    // required int64 TotalAskVol = 20;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalaskvol());
+  }
+
+  if (has_weighteavgbidprice()) {
+    // required uint32 WeighteAvgBidPrice = 21;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->weighteavgbidprice());
+  }
+
+  if (has_weighteavgaskprice()) {
+    // required uint32 WeighteAvgAskPrice = 22;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->weighteavgaskprice());
+  }
+
+  if (has_iopv()) {
+    // required int32 IOPV = 23;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->iopv());
+  }
+
+  if (has_yieldtomaturity()) {
+    // required int32 YieldToMaturity = 24;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->yieldtomaturity());
+  }
+
+  if (has_highlimited()) {
+    // required uint32 HighLimited = 25;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->highlimited());
+  }
+
+  if (has_lowlimited()) {
+    // required uint32 LowLimited = 26;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->lowlimited());
+  }
+
+  if (has_prefix()) {
+    // required string Prefix = 27;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->prefix());
+  }
+
+  if (has_syl1()) {
+    // required int32 Syl1 = 28;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->syl1());
+  }
+
+  if (has_syl2()) {
+    // required int32 Syl2 = 29;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->syl2());
+  }
+
+  if (has_sd2()) {
+    // required int32 SD2 = 30;
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->sd2());
+  }
+
+  return total_size;
+}
+size_t MarketData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:comm.MarketData)
+  size_t total_size = 0;
+
+  if (((_has_bits_[0] & 0x3fff87ff) ^ 0x3fff87ff) == 0) {  // All required fields are present.
+    // required string WindCode = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->windcode());
 
     // required string Code = 2;
-    if (has_code()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->code());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->code());
 
     // required int32 ActionDay = 3;
-    if (has_actionday()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->actionday());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->actionday());
 
     // required int32 TradingDay = 4;
-    if (has_tradingday()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->tradingday());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->tradingday());
 
     // required int32 Time = 5;
-    if (has_time()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->time());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->time());
 
     // required int32 Status = 6;
-    if (has_status()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->status());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->status());
 
     // required uint32 PreClose = 7;
-    if (has_preclose()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->preclose());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->preclose());
 
     // required uint32 Open = 8;
-    if (has_open()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->open());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->open());
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     // required uint32 High = 9;
-    if (has_high()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->high());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->high());
 
     // required uint32 Low = 10;
-    if (has_low()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->low());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->low());
 
     // required uint32 Match = 11;
-    if (has_match()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->match());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->match());
 
     // required uint32 NumTrades = 16;
-    if (has_numtrades()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->numtrades());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->numtrades());
 
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     // required int64 Volume = 17;
-    if (has_volume()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->volume());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->volume());
 
     // required int64 Turnover = 18;
-    if (has_turnover()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->turnover());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->turnover());
 
     // required int64 TotalBidVol = 19;
-    if (has_totalbidvol()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->totalbidvol());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalbidvol());
 
     // required int64 TotalAskVol = 20;
-    if (has_totalaskvol()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->totalaskvol());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->totalaskvol());
 
     // required uint32 WeighteAvgBidPrice = 21;
-    if (has_weighteavgbidprice()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->weighteavgbidprice());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->weighteavgbidprice());
 
     // required uint32 WeighteAvgAskPrice = 22;
-    if (has_weighteavgaskprice()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->weighteavgaskprice());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->weighteavgaskprice());
 
     // required int32 IOPV = 23;
-    if (has_iopv()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->iopv());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->iopv());
 
     // required int32 YieldToMaturity = 24;
-    if (has_yieldtomaturity()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->yieldtomaturity());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->yieldtomaturity());
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // required uint32 HighLimited = 25;
-    if (has_highlimited()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->highlimited());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->highlimited());
 
     // required uint32 LowLimited = 26;
-    if (has_lowlimited()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->lowlimited());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->lowlimited());
 
     // required string Prefix = 27;
-    if (has_prefix()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->prefix());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->prefix());
 
     // required int32 Syl1 = 28;
-    if (has_syl1()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->syl1());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->syl1());
 
     // required int32 Syl2 = 29;
-    if (has_syl2()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->syl2());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->syl2());
 
     // required int32 SD2 = 30;
-    if (has_sd2()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->sd2());
-    }
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->sd2());
 
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   // repeated uint32 AskPrice = 12;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->askprice_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->askprice_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         UInt32Size(this->askprice(i));
     }
-    total_size += 1 * this->askprice_size() + data_size;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->askprice_size());
+    total_size += data_size;
   }
 
   // repeated uint32 AskVol = 13;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->askvol_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->askvol_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         UInt32Size(this->askvol(i));
     }
-    total_size += 1 * this->askvol_size() + data_size;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->askvol_size());
+    total_size += data_size;
   }
 
   // repeated uint32 BidPrice = 14;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->bidprice_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->bidprice_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         UInt32Size(this->bidprice(i));
     }
-    total_size += 1 * this->bidprice_size() + data_size;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->bidprice_size());
+    total_size += data_size;
   }
 
   // repeated uint32 BidVol = 15;
   {
-    int data_size = 0;
-    for (int i = 0; i < this->bidvol_size(); i++) {
+    size_t data_size = 0;
+    unsigned int count = this->bidvol_size();
+    for (unsigned int i = 0; i < count; i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         UInt32Size(this->bidvol(i));
     }
-    total_size += 1 * this->bidvol_size() + data_size;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->bidvol_size());
+    total_size += data_size;
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void MarketData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(generalized_merge_from_start:comm.MarketData)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const MarketData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const MarketData*>(
-      &from);
+      ::google::protobuf::internal::DynamicCastToGenerated<const MarketData>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:comm.MarketData)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-    MergeFrom(*source);
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:comm.MarketData)
+    UnsafeMergeFrom(*source);
   }
 }
 
 void MarketData::MergeFrom(const MarketData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  askprice_.MergeFrom(from.askprice_);
-  askvol_.MergeFrom(from.askvol_);
-  bidprice_.MergeFrom(from.bidprice_);
-  bidvol_.MergeFrom(from.bidvol_);
+// @@protoc_insertion_point(class_specific_merge_from_start:comm.MarketData)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void MarketData::UnsafeMergeFrom(const MarketData& from) {
+  GOOGLE_DCHECK(&from != this);
+  askprice_.UnsafeMergeFrom(from.askprice_);
+  askvol_.UnsafeMergeFrom(from.askvol_);
+  bidprice_.UnsafeMergeFrom(from.bidprice_);
+  bidvol_.UnsafeMergeFrom(from.bidvol_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_windcode()) {
-      set_windcode(from.windcode());
+      set_has_windcode();
+      windcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.windcode_);
     }
     if (from.has_code()) {
-      set_code(from.code());
+      set_has_code();
+      code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.code_);
     }
     if (from.has_actionday()) {
       set_actionday(from.actionday());
@@ -1510,7 +1671,8 @@ void MarketData::MergeFrom(const MarketData& from) {
       set_lowlimited(from.lowlimited());
     }
     if (from.has_prefix()) {
-      set_prefix(from.prefix());
+      set_has_prefix();
+      prefix_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.prefix_);
     }
     if (from.has_syl1()) {
       set_syl1(from.syl1());
@@ -1522,19 +1684,24 @@ void MarketData::MergeFrom(const MarketData& from) {
       set_sd2(from.sd2());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
+  }
 }
 
 void MarketData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:comm.MarketData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void MarketData::CopyFrom(const MarketData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:comm.MarketData)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool MarketData::IsInitialized() const {
@@ -1544,41 +1711,43 @@ bool MarketData::IsInitialized() const {
 }
 
 void MarketData::Swap(MarketData* other) {
-  if (other != this) {
-    std::swap(windcode_, other->windcode_);
-    std::swap(code_, other->code_);
-    std::swap(actionday_, other->actionday_);
-    std::swap(tradingday_, other->tradingday_);
-    std::swap(time_, other->time_);
-    std::swap(status_, other->status_);
-    std::swap(preclose_, other->preclose_);
-    std::swap(open_, other->open_);
-    std::swap(high_, other->high_);
-    std::swap(low_, other->low_);
-    std::swap(match_, other->match_);
-    askprice_.Swap(&other->askprice_);
-    askvol_.Swap(&other->askvol_);
-    bidprice_.Swap(&other->bidprice_);
-    bidvol_.Swap(&other->bidvol_);
-    std::swap(numtrades_, other->numtrades_);
-    std::swap(volume_, other->volume_);
-    std::swap(turnover_, other->turnover_);
-    std::swap(totalbidvol_, other->totalbidvol_);
-    std::swap(totalaskvol_, other->totalaskvol_);
-    std::swap(weighteavgbidprice_, other->weighteavgbidprice_);
-    std::swap(weighteavgaskprice_, other->weighteavgaskprice_);
-    std::swap(iopv_, other->iopv_);
-    std::swap(yieldtomaturity_, other->yieldtomaturity_);
-    std::swap(highlimited_, other->highlimited_);
-    std::swap(lowlimited_, other->lowlimited_);
-    std::swap(prefix_, other->prefix_);
-    std::swap(syl1_, other->syl1_);
-    std::swap(syl2_, other->syl2_);
-    std::swap(sd2_, other->sd2_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MarketData::InternalSwap(MarketData* other) {
+  windcode_.Swap(&other->windcode_);
+  code_.Swap(&other->code_);
+  std::swap(actionday_, other->actionday_);
+  std::swap(tradingday_, other->tradingday_);
+  std::swap(time_, other->time_);
+  std::swap(status_, other->status_);
+  std::swap(preclose_, other->preclose_);
+  std::swap(open_, other->open_);
+  std::swap(high_, other->high_);
+  std::swap(low_, other->low_);
+  std::swap(match_, other->match_);
+  askprice_.UnsafeArenaSwap(&other->askprice_);
+  askvol_.UnsafeArenaSwap(&other->askvol_);
+  bidprice_.UnsafeArenaSwap(&other->bidprice_);
+  bidvol_.UnsafeArenaSwap(&other->bidvol_);
+  std::swap(numtrades_, other->numtrades_);
+  std::swap(volume_, other->volume_);
+  std::swap(turnover_, other->turnover_);
+  std::swap(totalbidvol_, other->totalbidvol_);
+  std::swap(totalaskvol_, other->totalaskvol_);
+  std::swap(weighteavgbidprice_, other->weighteavgbidprice_);
+  std::swap(weighteavgaskprice_, other->weighteavgaskprice_);
+  std::swap(iopv_, other->iopv_);
+  std::swap(yieldtomaturity_, other->yieldtomaturity_);
+  std::swap(highlimited_, other->highlimited_);
+  std::swap(lowlimited_, other->lowlimited_);
+  prefix_.Swap(&other->prefix_);
+  std::swap(syl1_, other->syl1_);
+  std::swap(syl2_, other->syl2_);
+  std::swap(sd2_, other->sd2_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata MarketData::GetMetadata() const {
@@ -1589,6 +1758,847 @@ void MarketData::Swap(MarketData* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MarketData
+
+// required string WindCode = 1;
+bool MarketData::has_windcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void MarketData::set_has_windcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void MarketData::clear_has_windcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void MarketData::clear_windcode() {
+  windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_windcode();
+}
+const ::std::string& MarketData::windcode() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.WindCode)
+  return windcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_windcode(const ::std::string& value) {
+  set_has_windcode();
+  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.WindCode)
+}
+void MarketData::set_windcode(const char* value) {
+  set_has_windcode();
+  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.MarketData.WindCode)
+}
+void MarketData::set_windcode(const char* value, size_t size) {
+  set_has_windcode();
+  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.WindCode)
+}
+::std::string* MarketData::mutable_windcode() {
+  set_has_windcode();
+  // @@protoc_insertion_point(field_mutable:comm.MarketData.WindCode)
+  return windcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MarketData::release_windcode() {
+  // @@protoc_insertion_point(field_release:comm.MarketData.WindCode)
+  clear_has_windcode();
+  return windcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_allocated_windcode(::std::string* windcode) {
+  if (windcode != NULL) {
+    set_has_windcode();
+  } else {
+    clear_has_windcode();
+  }
+  windcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), windcode);
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.WindCode)
+}
+
+// required string Code = 2;
+bool MarketData::has_code() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void MarketData::set_has_code() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void MarketData::clear_has_code() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void MarketData::clear_code() {
+  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_code();
+}
+const ::std::string& MarketData::code() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Code)
+  return code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_code(const ::std::string& value) {
+  set_has_code();
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.Code)
+}
+void MarketData::set_code(const char* value) {
+  set_has_code();
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.MarketData.Code)
+}
+void MarketData::set_code(const char* value, size_t size) {
+  set_has_code();
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.Code)
+}
+::std::string* MarketData::mutable_code() {
+  set_has_code();
+  // @@protoc_insertion_point(field_mutable:comm.MarketData.Code)
+  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MarketData::release_code() {
+  // @@protoc_insertion_point(field_release:comm.MarketData.Code)
+  clear_has_code();
+  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_allocated_code(::std::string* code) {
+  if (code != NULL) {
+    set_has_code();
+  } else {
+    clear_has_code();
+  }
+  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.Code)
+}
+
+// required int32 ActionDay = 3;
+bool MarketData::has_actionday() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void MarketData::set_has_actionday() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void MarketData::clear_has_actionday() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void MarketData::clear_actionday() {
+  actionday_ = 0;
+  clear_has_actionday();
+}
+::google::protobuf::int32 MarketData::actionday() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.ActionDay)
+  return actionday_;
+}
+void MarketData::set_actionday(::google::protobuf::int32 value) {
+  set_has_actionday();
+  actionday_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.ActionDay)
+}
+
+// required int32 TradingDay = 4;
+bool MarketData::has_tradingday() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void MarketData::set_has_tradingday() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void MarketData::clear_has_tradingday() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void MarketData::clear_tradingday() {
+  tradingday_ = 0;
+  clear_has_tradingday();
+}
+::google::protobuf::int32 MarketData::tradingday() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.TradingDay)
+  return tradingday_;
+}
+void MarketData::set_tradingday(::google::protobuf::int32 value) {
+  set_has_tradingday();
+  tradingday_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.TradingDay)
+}
+
+// required int32 Time = 5;
+bool MarketData::has_time() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void MarketData::set_has_time() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void MarketData::clear_has_time() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void MarketData::clear_time() {
+  time_ = 0;
+  clear_has_time();
+}
+::google::protobuf::int32 MarketData::time() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Time)
+  return time_;
+}
+void MarketData::set_time(::google::protobuf::int32 value) {
+  set_has_time();
+  time_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Time)
+}
+
+// required int32 Status = 6;
+bool MarketData::has_status() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void MarketData::set_has_status() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void MarketData::clear_has_status() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void MarketData::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+::google::protobuf::int32 MarketData::status() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Status)
+  return status_;
+}
+void MarketData::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Status)
+}
+
+// required uint32 PreClose = 7;
+bool MarketData::has_preclose() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void MarketData::set_has_preclose() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void MarketData::clear_has_preclose() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void MarketData::clear_preclose() {
+  preclose_ = 0u;
+  clear_has_preclose();
+}
+::google::protobuf::uint32 MarketData::preclose() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.PreClose)
+  return preclose_;
+}
+void MarketData::set_preclose(::google::protobuf::uint32 value) {
+  set_has_preclose();
+  preclose_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.PreClose)
+}
+
+// required uint32 Open = 8;
+bool MarketData::has_open() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void MarketData::set_has_open() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void MarketData::clear_has_open() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void MarketData::clear_open() {
+  open_ = 0u;
+  clear_has_open();
+}
+::google::protobuf::uint32 MarketData::open() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Open)
+  return open_;
+}
+void MarketData::set_open(::google::protobuf::uint32 value) {
+  set_has_open();
+  open_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Open)
+}
+
+// required uint32 High = 9;
+bool MarketData::has_high() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void MarketData::set_has_high() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void MarketData::clear_has_high() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void MarketData::clear_high() {
+  high_ = 0u;
+  clear_has_high();
+}
+::google::protobuf::uint32 MarketData::high() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.High)
+  return high_;
+}
+void MarketData::set_high(::google::protobuf::uint32 value) {
+  set_has_high();
+  high_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.High)
+}
+
+// required uint32 Low = 10;
+bool MarketData::has_low() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+void MarketData::set_has_low() {
+  _has_bits_[0] |= 0x00000200u;
+}
+void MarketData::clear_has_low() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+void MarketData::clear_low() {
+  low_ = 0u;
+  clear_has_low();
+}
+::google::protobuf::uint32 MarketData::low() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Low)
+  return low_;
+}
+void MarketData::set_low(::google::protobuf::uint32 value) {
+  set_has_low();
+  low_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Low)
+}
+
+// required uint32 Match = 11;
+bool MarketData::has_match() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void MarketData::set_has_match() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void MarketData::clear_has_match() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void MarketData::clear_match() {
+  match_ = 0u;
+  clear_has_match();
+}
+::google::protobuf::uint32 MarketData::match() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Match)
+  return match_;
+}
+void MarketData::set_match(::google::protobuf::uint32 value) {
+  set_has_match();
+  match_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Match)
+}
+
+// repeated uint32 AskPrice = 12;
+int MarketData::askprice_size() const {
+  return askprice_.size();
+}
+void MarketData::clear_askprice() {
+  askprice_.Clear();
+}
+::google::protobuf::uint32 MarketData::askprice(int index) const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.AskPrice)
+  return askprice_.Get(index);
+}
+void MarketData::set_askprice(int index, ::google::protobuf::uint32 value) {
+  askprice_.Set(index, value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.AskPrice)
+}
+void MarketData::add_askprice(::google::protobuf::uint32 value) {
+  askprice_.Add(value);
+  // @@protoc_insertion_point(field_add:comm.MarketData.AskPrice)
+}
+const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+MarketData::askprice() const {
+  // @@protoc_insertion_point(field_list:comm.MarketData.AskPrice)
+  return askprice_;
+}
+::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+MarketData::mutable_askprice() {
+  // @@protoc_insertion_point(field_mutable_list:comm.MarketData.AskPrice)
+  return &askprice_;
+}
+
+// repeated uint32 AskVol = 13;
+int MarketData::askvol_size() const {
+  return askvol_.size();
+}
+void MarketData::clear_askvol() {
+  askvol_.Clear();
+}
+::google::protobuf::uint32 MarketData::askvol(int index) const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.AskVol)
+  return askvol_.Get(index);
+}
+void MarketData::set_askvol(int index, ::google::protobuf::uint32 value) {
+  askvol_.Set(index, value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.AskVol)
+}
+void MarketData::add_askvol(::google::protobuf::uint32 value) {
+  askvol_.Add(value);
+  // @@protoc_insertion_point(field_add:comm.MarketData.AskVol)
+}
+const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+MarketData::askvol() const {
+  // @@protoc_insertion_point(field_list:comm.MarketData.AskVol)
+  return askvol_;
+}
+::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+MarketData::mutable_askvol() {
+  // @@protoc_insertion_point(field_mutable_list:comm.MarketData.AskVol)
+  return &askvol_;
+}
+
+// repeated uint32 BidPrice = 14;
+int MarketData::bidprice_size() const {
+  return bidprice_.size();
+}
+void MarketData::clear_bidprice() {
+  bidprice_.Clear();
+}
+::google::protobuf::uint32 MarketData::bidprice(int index) const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.BidPrice)
+  return bidprice_.Get(index);
+}
+void MarketData::set_bidprice(int index, ::google::protobuf::uint32 value) {
+  bidprice_.Set(index, value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.BidPrice)
+}
+void MarketData::add_bidprice(::google::protobuf::uint32 value) {
+  bidprice_.Add(value);
+  // @@protoc_insertion_point(field_add:comm.MarketData.BidPrice)
+}
+const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+MarketData::bidprice() const {
+  // @@protoc_insertion_point(field_list:comm.MarketData.BidPrice)
+  return bidprice_;
+}
+::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+MarketData::mutable_bidprice() {
+  // @@protoc_insertion_point(field_mutable_list:comm.MarketData.BidPrice)
+  return &bidprice_;
+}
+
+// repeated uint32 BidVol = 15;
+int MarketData::bidvol_size() const {
+  return bidvol_.size();
+}
+void MarketData::clear_bidvol() {
+  bidvol_.Clear();
+}
+::google::protobuf::uint32 MarketData::bidvol(int index) const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.BidVol)
+  return bidvol_.Get(index);
+}
+void MarketData::set_bidvol(int index, ::google::protobuf::uint32 value) {
+  bidvol_.Set(index, value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.BidVol)
+}
+void MarketData::add_bidvol(::google::protobuf::uint32 value) {
+  bidvol_.Add(value);
+  // @@protoc_insertion_point(field_add:comm.MarketData.BidVol)
+}
+const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+MarketData::bidvol() const {
+  // @@protoc_insertion_point(field_list:comm.MarketData.BidVol)
+  return bidvol_;
+}
+::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+MarketData::mutable_bidvol() {
+  // @@protoc_insertion_point(field_mutable_list:comm.MarketData.BidVol)
+  return &bidvol_;
+}
+
+// required uint32 NumTrades = 16;
+bool MarketData::has_numtrades() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+void MarketData::set_has_numtrades() {
+  _has_bits_[0] |= 0x00008000u;
+}
+void MarketData::clear_has_numtrades() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+void MarketData::clear_numtrades() {
+  numtrades_ = 0u;
+  clear_has_numtrades();
+}
+::google::protobuf::uint32 MarketData::numtrades() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.NumTrades)
+  return numtrades_;
+}
+void MarketData::set_numtrades(::google::protobuf::uint32 value) {
+  set_has_numtrades();
+  numtrades_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.NumTrades)
+}
+
+// required int64 Volume = 17;
+bool MarketData::has_volume() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+void MarketData::set_has_volume() {
+  _has_bits_[0] |= 0x00010000u;
+}
+void MarketData::clear_has_volume() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+void MarketData::clear_volume() {
+  volume_ = GOOGLE_LONGLONG(0);
+  clear_has_volume();
+}
+::google::protobuf::int64 MarketData::volume() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Volume)
+  return volume_;
+}
+void MarketData::set_volume(::google::protobuf::int64 value) {
+  set_has_volume();
+  volume_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Volume)
+}
+
+// required int64 Turnover = 18;
+bool MarketData::has_turnover() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+void MarketData::set_has_turnover() {
+  _has_bits_[0] |= 0x00020000u;
+}
+void MarketData::clear_has_turnover() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+void MarketData::clear_turnover() {
+  turnover_ = GOOGLE_LONGLONG(0);
+  clear_has_turnover();
+}
+::google::protobuf::int64 MarketData::turnover() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Turnover)
+  return turnover_;
+}
+void MarketData::set_turnover(::google::protobuf::int64 value) {
+  set_has_turnover();
+  turnover_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Turnover)
+}
+
+// required int64 TotalBidVol = 19;
+bool MarketData::has_totalbidvol() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+void MarketData::set_has_totalbidvol() {
+  _has_bits_[0] |= 0x00040000u;
+}
+void MarketData::clear_has_totalbidvol() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+void MarketData::clear_totalbidvol() {
+  totalbidvol_ = GOOGLE_LONGLONG(0);
+  clear_has_totalbidvol();
+}
+::google::protobuf::int64 MarketData::totalbidvol() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.TotalBidVol)
+  return totalbidvol_;
+}
+void MarketData::set_totalbidvol(::google::protobuf::int64 value) {
+  set_has_totalbidvol();
+  totalbidvol_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.TotalBidVol)
+}
+
+// required int64 TotalAskVol = 20;
+bool MarketData::has_totalaskvol() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+void MarketData::set_has_totalaskvol() {
+  _has_bits_[0] |= 0x00080000u;
+}
+void MarketData::clear_has_totalaskvol() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+void MarketData::clear_totalaskvol() {
+  totalaskvol_ = GOOGLE_LONGLONG(0);
+  clear_has_totalaskvol();
+}
+::google::protobuf::int64 MarketData::totalaskvol() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.TotalAskVol)
+  return totalaskvol_;
+}
+void MarketData::set_totalaskvol(::google::protobuf::int64 value) {
+  set_has_totalaskvol();
+  totalaskvol_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.TotalAskVol)
+}
+
+// required uint32 WeighteAvgBidPrice = 21;
+bool MarketData::has_weighteavgbidprice() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+void MarketData::set_has_weighteavgbidprice() {
+  _has_bits_[0] |= 0x00100000u;
+}
+void MarketData::clear_has_weighteavgbidprice() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+void MarketData::clear_weighteavgbidprice() {
+  weighteavgbidprice_ = 0u;
+  clear_has_weighteavgbidprice();
+}
+::google::protobuf::uint32 MarketData::weighteavgbidprice() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.WeighteAvgBidPrice)
+  return weighteavgbidprice_;
+}
+void MarketData::set_weighteavgbidprice(::google::protobuf::uint32 value) {
+  set_has_weighteavgbidprice();
+  weighteavgbidprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.WeighteAvgBidPrice)
+}
+
+// required uint32 WeighteAvgAskPrice = 22;
+bool MarketData::has_weighteavgaskprice() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+void MarketData::set_has_weighteavgaskprice() {
+  _has_bits_[0] |= 0x00200000u;
+}
+void MarketData::clear_has_weighteavgaskprice() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+void MarketData::clear_weighteavgaskprice() {
+  weighteavgaskprice_ = 0u;
+  clear_has_weighteavgaskprice();
+}
+::google::protobuf::uint32 MarketData::weighteavgaskprice() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.WeighteAvgAskPrice)
+  return weighteavgaskprice_;
+}
+void MarketData::set_weighteavgaskprice(::google::protobuf::uint32 value) {
+  set_has_weighteavgaskprice();
+  weighteavgaskprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.WeighteAvgAskPrice)
+}
+
+// required int32 IOPV = 23;
+bool MarketData::has_iopv() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+void MarketData::set_has_iopv() {
+  _has_bits_[0] |= 0x00400000u;
+}
+void MarketData::clear_has_iopv() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+void MarketData::clear_iopv() {
+  iopv_ = 0;
+  clear_has_iopv();
+}
+::google::protobuf::int32 MarketData::iopv() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.IOPV)
+  return iopv_;
+}
+void MarketData::set_iopv(::google::protobuf::int32 value) {
+  set_has_iopv();
+  iopv_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.IOPV)
+}
+
+// required int32 YieldToMaturity = 24;
+bool MarketData::has_yieldtomaturity() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+void MarketData::set_has_yieldtomaturity() {
+  _has_bits_[0] |= 0x00800000u;
+}
+void MarketData::clear_has_yieldtomaturity() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+void MarketData::clear_yieldtomaturity() {
+  yieldtomaturity_ = 0;
+  clear_has_yieldtomaturity();
+}
+::google::protobuf::int32 MarketData::yieldtomaturity() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.YieldToMaturity)
+  return yieldtomaturity_;
+}
+void MarketData::set_yieldtomaturity(::google::protobuf::int32 value) {
+  set_has_yieldtomaturity();
+  yieldtomaturity_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.YieldToMaturity)
+}
+
+// required uint32 HighLimited = 25;
+bool MarketData::has_highlimited() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+void MarketData::set_has_highlimited() {
+  _has_bits_[0] |= 0x01000000u;
+}
+void MarketData::clear_has_highlimited() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+void MarketData::clear_highlimited() {
+  highlimited_ = 0u;
+  clear_has_highlimited();
+}
+::google::protobuf::uint32 MarketData::highlimited() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.HighLimited)
+  return highlimited_;
+}
+void MarketData::set_highlimited(::google::protobuf::uint32 value) {
+  set_has_highlimited();
+  highlimited_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.HighLimited)
+}
+
+// required uint32 LowLimited = 26;
+bool MarketData::has_lowlimited() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+void MarketData::set_has_lowlimited() {
+  _has_bits_[0] |= 0x02000000u;
+}
+void MarketData::clear_has_lowlimited() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+void MarketData::clear_lowlimited() {
+  lowlimited_ = 0u;
+  clear_has_lowlimited();
+}
+::google::protobuf::uint32 MarketData::lowlimited() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.LowLimited)
+  return lowlimited_;
+}
+void MarketData::set_lowlimited(::google::protobuf::uint32 value) {
+  set_has_lowlimited();
+  lowlimited_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.LowLimited)
+}
+
+// required string Prefix = 27;
+bool MarketData::has_prefix() const {
+  return (_has_bits_[0] & 0x04000000u) != 0;
+}
+void MarketData::set_has_prefix() {
+  _has_bits_[0] |= 0x04000000u;
+}
+void MarketData::clear_has_prefix() {
+  _has_bits_[0] &= ~0x04000000u;
+}
+void MarketData::clear_prefix() {
+  prefix_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_prefix();
+}
+const ::std::string& MarketData::prefix() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Prefix)
+  return prefix_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_prefix(const ::std::string& value) {
+  set_has_prefix();
+  prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.MarketData.Prefix)
+}
+void MarketData::set_prefix(const char* value) {
+  set_has_prefix();
+  prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.MarketData.Prefix)
+}
+void MarketData::set_prefix(const char* value, size_t size) {
+  set_has_prefix();
+  prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.Prefix)
+}
+::std::string* MarketData::mutable_prefix() {
+  set_has_prefix();
+  // @@protoc_insertion_point(field_mutable:comm.MarketData.Prefix)
+  return prefix_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* MarketData::release_prefix() {
+  // @@protoc_insertion_point(field_release:comm.MarketData.Prefix)
+  clear_has_prefix();
+  return prefix_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void MarketData::set_allocated_prefix(::std::string* prefix) {
+  if (prefix != NULL) {
+    set_has_prefix();
+  } else {
+    clear_has_prefix();
+  }
+  prefix_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), prefix);
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.Prefix)
+}
+
+// required int32 Syl1 = 28;
+bool MarketData::has_syl1() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+void MarketData::set_has_syl1() {
+  _has_bits_[0] |= 0x08000000u;
+}
+void MarketData::clear_has_syl1() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+void MarketData::clear_syl1() {
+  syl1_ = 0;
+  clear_has_syl1();
+}
+::google::protobuf::int32 MarketData::syl1() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Syl1)
+  return syl1_;
+}
+void MarketData::set_syl1(::google::protobuf::int32 value) {
+  set_has_syl1();
+  syl1_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Syl1)
+}
+
+// required int32 Syl2 = 29;
+bool MarketData::has_syl2() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+void MarketData::set_has_syl2() {
+  _has_bits_[0] |= 0x10000000u;
+}
+void MarketData::clear_has_syl2() {
+  _has_bits_[0] &= ~0x10000000u;
+}
+void MarketData::clear_syl2() {
+  syl2_ = 0;
+  clear_has_syl2();
+}
+::google::protobuf::int32 MarketData::syl2() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.Syl2)
+  return syl2_;
+}
+void MarketData::set_syl2(::google::protobuf::int32 value) {
+  set_has_syl2();
+  syl2_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.Syl2)
+}
+
+// required int32 SD2 = 30;
+bool MarketData::has_sd2() const {
+  return (_has_bits_[0] & 0x20000000u) != 0;
+}
+void MarketData::set_has_sd2() {
+  _has_bits_[0] |= 0x20000000u;
+}
+void MarketData::clear_has_sd2() {
+  _has_bits_[0] &= ~0x20000000u;
+}
+void MarketData::clear_sd2() {
+  sd2_ = 0;
+  clear_has_sd2();
+}
+::google::protobuf::int32 MarketData::sd2() const {
+  // @@protoc_insertion_point(field_get:comm.MarketData.SD2)
+  return sd2_;
+}
+void MarketData::set_sd2(::google::protobuf::int32 value) {
+  set_has_sd2();
+  sd2_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketData.SD2)
+}
+
+inline const MarketData* MarketData::internal_default_instance() {
+  return &MarketData_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
