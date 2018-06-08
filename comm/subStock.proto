@@ -1,0 +1,8 @@
+syntax="proto2";
+package comm;
+
+message SubStock
+{
+	required bytes stock_code = 1;
+	required bool sub_flag = 2;
+}
