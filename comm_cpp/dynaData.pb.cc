@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -27,6 +28,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_dynaData_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_dynaData_2eproto() {
   protobuf_AddDesc_dynaData_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -38,55 +40,69 @@ void protobuf_AssignDesc_dynaData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DynaData, data_),
   };
   DynaData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       DynaData_descriptor_,
-      DynaData::default_instance_,
+      DynaData::internal_default_instance(),
       DynaData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DynaData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DynaData, _unknown_fields_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DynaData, _has_bits_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(DynaData));
+      -1,
+      sizeof(DynaData),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DynaData, _internal_metadata_));
 }
 
 namespace {
 
 GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
-inline void protobuf_AssignDescriptorsOnce() {
+void protobuf_AssignDescriptorsOnce() {
   ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
                  &protobuf_AssignDesc_dynaData_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    DynaData_descriptor_, &DynaData::default_instance());
+      DynaData_descriptor_, DynaData::internal_default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_dynaData_2eproto() {
-  delete DynaData::default_instance_;
+  DynaData_default_instance_.Shutdown();
   delete DynaData_reflection_;
 }
 
-void protobuf_AddDesc_dynaData_2eproto() {
-  static bool already_here = false;
-  if (already_here) return;
-  already_here = true;
+void protobuf_InitDefaults_dynaData_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::internal::GetEmptyString();
+  DynaData_default_instance_.DefaultConstruct();
+  DynaData_default_instance_.get_mutable()->InitAsDefaultInstance();
+}
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_dynaData_2eproto_once_);
+void protobuf_InitDefaults_dynaData_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_dynaData_2eproto_once_,
+                 &protobuf_InitDefaults_dynaData_2eproto_impl);
+}
+void protobuf_AddDesc_dynaData_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_dynaData_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016dynaData.proto\022\004comm\"\030\n\010DynaData\022\014\n\004Da"
     "ta\030\001 \003(\014", 48);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dynaData.proto", &protobuf_RegisterTypes);
-  DynaData::default_instance_ = new DynaData();
-  DynaData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_dynaData_2eproto);
 }
 
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_dynaData_2eproto_once_);
+void protobuf_AddDesc_dynaData_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_dynaData_2eproto_once_,
+                 &protobuf_AddDesc_dynaData_2eproto_impl);
+}
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_dynaData_2eproto {
   StaticDescriptorInitializer_dynaData_2eproto() {
@@ -94,14 +110,25 @@ struct StaticDescriptorInitializer_dynaData_2eproto {
   }
 } static_descriptor_initializer_dynaData_2eproto_;
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
+
+
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int DynaData::kDataFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DynaData::DynaData()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_dynaData_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:comm.DynaData)
 }
@@ -110,16 +137,15 @@ void DynaData::InitAsDefaultInstance() {
 }
 
 DynaData::DynaData(const DynaData& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:comm.DynaData)
 }
 
 void DynaData::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 DynaData::~DynaData() {
@@ -128,8 +154,6 @@ DynaData::~DynaData() {
 }
 
 void DynaData::SharedDtor() {
-  if (this != default_instance_) {
-  }
 }
 
 void DynaData::SetCachedSize(int size) const {
@@ -143,25 +167,32 @@ const ::google::protobuf::Descriptor* DynaData::descriptor() {
 }
 
 const DynaData& DynaData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_dynaData_2eproto();
-  return *default_instance_;
+  protobuf_InitDefaults_dynaData_2eproto();
+  return *internal_default_instance();
 }
 
-DynaData* DynaData::default_instance_ = NULL;
+::google::protobuf::internal::ExplicitlyConstructed<DynaData> DynaData_default_instance_;
 
-DynaData* DynaData::New() const {
-  return new DynaData;
+DynaData* DynaData::New(::google::protobuf::Arena* arena) const {
+  DynaData* n = new DynaData;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void DynaData::Clear() {
+// @@protoc_insertion_point(message_clear_start:comm.DynaData)
   data_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  _has_bits_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool DynaData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:comm.DynaData)
   for (;;) {
@@ -214,15 +245,16 @@ void DynaData::SerializeWithCachedSizes(
       1, this->data(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:comm.DynaData)
 }
 
-::google::protobuf::uint8* DynaData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* DynaData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.DynaData)
   // repeated bytes Data = 1;
   for (int i = 0; i < this->data_size(); i++) {
@@ -230,7 +262,7 @@ void DynaData::SerializeWithCachedSizes(
       WriteBytesToArray(1, this->data(i), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -238,55 +270,75 @@ void DynaData::SerializeWithCachedSizes(
   return target;
 }
 
-int DynaData::ByteSize() const {
-  int total_size = 0;
+size_t DynaData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:comm.DynaData)
+  size_t total_size = 0;
 
   // repeated bytes Data = 1;
-  total_size += 1 * this->data_size();
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->data_size());
   for (int i = 0; i < this->data_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
       this->data(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
+  _cached_size_ = cached_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
 void DynaData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(generalized_merge_from_start:comm.DynaData)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const DynaData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const DynaData*>(
-      &from);
+      ::google::protobuf::internal::DynamicCastToGenerated<const DynaData>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:comm.DynaData)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-    MergeFrom(*source);
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:comm.DynaData)
+    UnsafeMergeFrom(*source);
   }
 }
 
 void DynaData::MergeFrom(const DynaData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  data_.MergeFrom(from.data_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+// @@protoc_insertion_point(class_specific_merge_from_start:comm.DynaData)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void DynaData::UnsafeMergeFrom(const DynaData& from) {
+  GOOGLE_DCHECK(&from != this);
+  data_.UnsafeMergeFrom(from.data_);
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
+  }
 }
 
 void DynaData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:comm.DynaData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void DynaData::CopyFrom(const DynaData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:comm.DynaData)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool DynaData::IsInitialized() const {
@@ -295,12 +347,14 @@ bool DynaData::IsInitialized() const {
 }
 
 void DynaData::Swap(DynaData* other) {
-  if (other != this) {
-    data_.Swap(&other->data_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DynaData::InternalSwap(DynaData* other) {
+  data_.UnsafeArenaSwap(&other->data_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata DynaData::GetMetadata() const {
@@ -311,6 +365,68 @@ void DynaData::Swap(DynaData* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// DynaData
+
+// repeated bytes Data = 1;
+int DynaData::data_size() const {
+  return data_.size();
+}
+void DynaData::clear_data() {
+  data_.Clear();
+}
+const ::std::string& DynaData::data(int index) const {
+  // @@protoc_insertion_point(field_get:comm.DynaData.Data)
+  return data_.Get(index);
+}
+::std::string* DynaData::mutable_data(int index) {
+  // @@protoc_insertion_point(field_mutable:comm.DynaData.Data)
+  return data_.Mutable(index);
+}
+void DynaData::set_data(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:comm.DynaData.Data)
+  data_.Mutable(index)->assign(value);
+}
+void DynaData::set_data(int index, const char* value) {
+  data_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:comm.DynaData.Data)
+}
+void DynaData::set_data(int index, const void* value, size_t size) {
+  data_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:comm.DynaData.Data)
+}
+::std::string* DynaData::add_data() {
+  // @@protoc_insertion_point(field_add_mutable:comm.DynaData.Data)
+  return data_.Add();
+}
+void DynaData::add_data(const ::std::string& value) {
+  data_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:comm.DynaData.Data)
+}
+void DynaData::add_data(const char* value) {
+  data_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:comm.DynaData.Data)
+}
+void DynaData::add_data(const void* value, size_t size) {
+  data_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:comm.DynaData.Data)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+DynaData::data() const {
+  // @@protoc_insertion_point(field_list:comm.DynaData.Data)
+  return data_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+DynaData::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_list:comm.DynaData.Data)
+  return &data_;
+}
+
+inline const DynaData* DynaData::internal_default_instance() {
+  return &DynaData_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

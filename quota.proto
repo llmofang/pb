@@ -1,0 +1,10 @@
+syntax = "proto2";
+package pb;
+
+
+message quota
+{
+    required int64 ID =1;
+    required int64 BuyVol =2;
+    required int64 SellVol=3;
+}

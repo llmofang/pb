@@ -1,3 +1,4 @@
+syntax="proto2";
 package comm;
 
 message Request
