@@ -15,11 +15,9 @@ package comm
 
 import proto "code.google.com/p/goprotobuf/proto"
 import math "math"
-import comm1 "marketData.pb"
-import comm2 "transactionData.pb"
-import comm3 "orderqueueData.pb"
-import comm4 "indexData.pb"
-import comm5 "futureData.pb"
+
+
+
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -27,11 +25,11 @@ var _ = math.Inf
 
 type MarketDataSet struct {
 	DataType         *int32                 `protobuf:"varint,1,req" json:"DataType,omitempty"`
-	Tick             *comm1.MarketData      `protobuf:"bytes,2,opt" json:"Tick,omitempty"`
-	Transaction      *comm2.TransactionData `protobuf:"bytes,3,opt" json:"Transaction,omitempty"`
-	OrderQueue       *comm3.OrderQueueData  `protobuf:"bytes,4,opt" json:"OrderQueue,omitempty"`
-	Index            *comm4.IndexData       `protobuf:"bytes,5,opt" json:"Index,omitempty"`
-	Future           *comm5.FutureData      `protobuf:"bytes,6,opt,name=future" json:"future,omitempty"`
+	Tick             *MarketData      `protobuf:"bytes,2,opt" json:"Tick,omitempty"`
+	Transaction      *TransactionData `protobuf:"bytes,3,opt" json:"Transaction,omitempty"`
+	OrderQueue       *OrderQueueData  `protobuf:"bytes,4,opt" json:"OrderQueue,omitempty"`
+	Index            *IndexData       `protobuf:"bytes,5,opt" json:"Index,omitempty"`
+	Future           *FutureData      `protobuf:"bytes,6,opt,name=future" json:"future,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
 }
 
@@ -46,35 +44,35 @@ func (m *MarketDataSet) GetDataType() int32 {
 	return 0
 }
 
-func (m *MarketDataSet) GetTick() *comm1.MarketData {
+func (m *MarketDataSet) GetTick() *MarketData {
 	if m != nil {
 		return m.Tick
 	}
 	return nil
 }
 
-func (m *MarketDataSet) GetTransaction() *comm2.TransactionData {
+func (m *MarketDataSet) GetTransaction() *TransactionData {
 	if m != nil {
 		return m.Transaction
 	}
 	return nil
 }
 
-func (m *MarketDataSet) GetOrderQueue() *comm3.OrderQueueData {
+func (m *MarketDataSet) GetOrderQueue() *OrderQueueData {
 	if m != nil {
 		return m.OrderQueue
 	}
 	return nil
 }
 
-func (m *MarketDataSet) GetIndex() *comm4.IndexData {
+func (m *MarketDataSet) GetIndex() *IndexData {
 	if m != nil {
 		return m.Index
 	}
 	return nil
 }
 
-func (m *MarketDataSet) GetFuture() *comm5.FutureData {
+func (m *MarketDataSet) GetFuture() *FutureData {
 	if m != nil {
 		return m.Future
 	}
