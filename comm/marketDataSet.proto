@@ -6,7 +6,7 @@ import "transactionData.proto";
 import "orderqueueData.proto";
 import "indexData.proto";
 import "futureData.proto";
-
+import "orderData.proto";
 
 message MarketDataSet{
     required int32 DataType=1;
@@ -15,4 +15,5 @@ message MarketDataSet{
     optional OrderQueueData OrderQueue=4;
     optional IndexData Index=5;
     optional FutureData future=6;
+    optional OrderData order=7;
 }

@@ -17,8 +17,6 @@ import proto "code.google.com/p/goprotobuf/proto"
 import math "math"
 
 
-
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = math.Inf
@@ -30,6 +28,7 @@ type MarketDataSet struct {
 	OrderQueue       *OrderQueueData  `protobuf:"bytes,4,opt" json:"OrderQueue,omitempty"`
 	Index            *IndexData       `protobuf:"bytes,5,opt" json:"Index,omitempty"`
 	Future           *FutureData      `protobuf:"bytes,6,opt,name=future" json:"future,omitempty"`
+	Order            *OrderData       `protobuf:"bytes,7,opt,name=order" json:"order,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
 }
 
@@ -75,6 +74,13 @@ func (m *MarketDataSet) GetIndex() *IndexData {
 func (m *MarketDataSet) GetFuture() *FutureData {
 	if m != nil {
 		return m.Future
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetOrder() *OrderData {
+	if m != nil {
+		return m.Order
 	}
 	return nil
 }

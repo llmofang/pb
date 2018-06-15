@@ -36,13 +36,14 @@ void protobuf_AssignDesc_marketDataSet_2eproto() {
       "marketDataSet.proto");
   GOOGLE_CHECK(file != NULL);
   MarketDataSet_descriptor_ = file->message_type(0);
-  static const int MarketDataSet_offsets_[6] = {
+  static const int MarketDataSet_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, datatype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, tick_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, transaction_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, orderqueue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, future_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, order_),
   };
   MarketDataSet_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -86,6 +87,7 @@ void protobuf_InitDefaults_marketDataSet_2eproto_impl() {
   ::comm::protobuf_InitDefaults_orderqueueData_2eproto();
   ::comm::protobuf_InitDefaults_indexData_2eproto();
   ::comm::protobuf_InitDefaults_futureData_2eproto();
+  ::comm::protobuf_InitDefaults_orderData_2eproto();
   MarketDataSet_default_instance_.DefaultConstruct();
   MarketDataSet_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
@@ -103,12 +105,13 @@ void protobuf_AddDesc_marketDataSet_2eproto_impl() {
     "\n\023marketDataSet.proto\022\004comm\032\020marketData."
     "proto\032\025transactionData.proto\032\024orderqueue"
     "Data.proto\032\017indexData.proto\032\020futureData."
-    "proto\"\331\001\n\rMarketDataSet\022\020\n\010DataType\030\001 \002("
-    "\005\022\036\n\004Tick\030\002 \001(\0132\020.comm.MarketData\022*\n\013Tra"
-    "nsaction\030\003 \001(\0132\025.comm.TransactionData\022(\n"
-    "\nOrderQueue\030\004 \001(\0132\024.comm.OrderQueueData\022"
-    "\036\n\005Index\030\005 \001(\0132\017.comm.IndexData\022 \n\006futur"
-    "e\030\006 \001(\0132\020.comm.FutureData", 345);
+    "proto\032\017orderData.proto\"\371\001\n\rMarketDataSet"
+    "\022\020\n\010DataType\030\001 \002(\005\022\036\n\004Tick\030\002 \001(\0132\020.comm."
+    "MarketData\022*\n\013Transaction\030\003 \001(\0132\025.comm.T"
+    "ransactionData\022(\n\nOrderQueue\030\004 \001(\0132\024.com"
+    "m.OrderQueueData\022\036\n\005Index\030\005 \001(\0132\017.comm.I"
+    "ndexData\022 \n\006future\030\006 \001(\0132\020.comm.FutureDa"
+    "ta\022\036\n\005order\030\007 \001(\0132\017.comm.OrderData", 394);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "marketDataSet.proto", &protobuf_RegisterTypes);
   ::comm::protobuf_AddDesc_marketData_2eproto();
@@ -116,6 +119,7 @@ void protobuf_AddDesc_marketDataSet_2eproto_impl() {
   ::comm::protobuf_AddDesc_orderqueueData_2eproto();
   ::comm::protobuf_AddDesc_indexData_2eproto();
   ::comm::protobuf_AddDesc_futureData_2eproto();
+  ::comm::protobuf_AddDesc_orderData_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_marketDataSet_2eproto);
 }
 
@@ -150,6 +154,7 @@ const int MarketDataSet::kTransactionFieldNumber;
 const int MarketDataSet::kOrderQueueFieldNumber;
 const int MarketDataSet::kIndexFieldNumber;
 const int MarketDataSet::kFutureFieldNumber;
+const int MarketDataSet::kOrderFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MarketDataSet::MarketDataSet()
@@ -170,6 +175,8 @@ void MarketDataSet::InitAsDefaultInstance() {
       ::comm::IndexData::internal_default_instance());
   future_ = const_cast< ::comm::FutureData*>(
       ::comm::FutureData::internal_default_instance());
+  order_ = const_cast< ::comm::OrderData*>(
+      ::comm::OrderData::internal_default_instance());
 }
 
 MarketDataSet::MarketDataSet(const MarketDataSet& from)
@@ -187,6 +194,7 @@ void MarketDataSet::SharedCtor() {
   orderqueue_ = NULL;
   index_ = NULL;
   future_ = NULL;
+  order_ = NULL;
   datatype_ = 0;
 }
 
@@ -202,6 +210,7 @@ void MarketDataSet::SharedDtor() {
     delete orderqueue_;
     delete index_;
     delete future_;
+    delete order_;
   }
 }
 
@@ -232,7 +241,7 @@ MarketDataSet* MarketDataSet::New(::google::protobuf::Arena* arena) const {
 
 void MarketDataSet::Clear() {
 // @@protoc_insertion_point(message_clear_start:comm.MarketDataSet)
-  if (_has_bits_[0 / 32] & 63u) {
+  if (_has_bits_[0 / 32] & 127u) {
     datatype_ = 0;
     if (has_tick()) {
       if (tick_ != NULL) tick_->::comm::MarketData::Clear();
@@ -248,6 +257,9 @@ void MarketDataSet::Clear() {
     }
     if (has_future()) {
       if (future_ != NULL) future_->::comm::FutureData::Clear();
+    }
+    if (has_order()) {
+      if (order_ != NULL) order_->::comm::OrderData::Clear();
     }
   }
   _has_bits_.Clear();
@@ -341,6 +353,19 @@ bool MarketDataSet::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(58)) goto parse_order;
+        break;
+      }
+
+      // optional .comm.OrderData order = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_order:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_order()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -405,6 +430,12 @@ void MarketDataSet::SerializeWithCachedSizes(
       6, *this->future_, output);
   }
 
+  // optional .comm.OrderData order = 7;
+  if (has_order()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, *this->order_, output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -456,6 +487,13 @@ void MarketDataSet::SerializeWithCachedSizes(
         6, *this->future_, false, target);
   }
 
+  // optional .comm.OrderData order = 7;
+  if (has_order()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        7, *this->order_, false, target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -474,7 +512,7 @@ size_t MarketDataSet::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->datatype());
   }
-  if (_has_bits_[1 / 32] & 62u) {
+  if (_has_bits_[1 / 32] & 126u) {
     // optional .comm.MarketData Tick = 2;
     if (has_tick()) {
       total_size += 1 +
@@ -508,6 +546,13 @@ size_t MarketDataSet::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->future_);
+    }
+
+    // optional .comm.OrderData order = 7;
+    if (has_order()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->order_);
     }
 
   }
@@ -568,6 +613,9 @@ void MarketDataSet::UnsafeMergeFrom(const MarketDataSet& from) {
     if (from.has_future()) {
       mutable_future()->::comm::FutureData::MergeFrom(from.future());
     }
+    if (from.has_order()) {
+      mutable_order()->::comm::OrderData::MergeFrom(from.order());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
@@ -607,6 +655,9 @@ bool MarketDataSet::IsInitialized() const {
   if (has_future()) {
     if (!this->future_->IsInitialized()) return false;
   }
+  if (has_order()) {
+    if (!this->order_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -621,6 +672,7 @@ void MarketDataSet::InternalSwap(MarketDataSet* other) {
   std::swap(orderqueue_, other->orderqueue_);
   std::swap(index_, other->index_);
   std::swap(future_, other->future_);
+  std::swap(order_, other->order_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -884,6 +936,51 @@ void MarketDataSet::set_allocated_future(::comm::FutureData* future) {
     clear_has_future();
   }
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.future)
+}
+
+// optional .comm.OrderData order = 7;
+bool MarketDataSet::has_order() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void MarketDataSet::set_has_order() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void MarketDataSet::clear_has_order() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void MarketDataSet::clear_order() {
+  if (order_ != NULL) order_->::comm::OrderData::Clear();
+  clear_has_order();
+}
+const ::comm::OrderData& MarketDataSet::order() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.order)
+  return order_ != NULL ? *order_
+                         : *::comm::OrderData::internal_default_instance();
+}
+::comm::OrderData* MarketDataSet::mutable_order() {
+  set_has_order();
+  if (order_ == NULL) {
+    order_ = new ::comm::OrderData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.order)
+  return order_;
+}
+::comm::OrderData* MarketDataSet::release_order() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.order)
+  clear_has_order();
+  ::comm::OrderData* temp = order_;
+  order_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
+  delete order_;
+  order_ = order;
+  if (order) {
+    set_has_order();
+  } else {
+    clear_has_order();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
 }
 
 inline const MarketDataSet* MarketDataSet::internal_default_instance() {

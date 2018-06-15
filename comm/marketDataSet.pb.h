@@ -32,6 +32,7 @@
 #include "orderqueueData.pb.h"
 #include "indexData.pb.h"
 #include "futureData.pb.h"
+#include "orderData.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace comm {
@@ -169,6 +170,15 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::comm::FutureData* release_future();
   void set_allocated_future(::comm::FutureData* future);
 
+  // optional .comm.OrderData order = 7;
+  bool has_order() const;
+  void clear_order();
+  static const int kOrderFieldNumber = 7;
+  const ::comm::OrderData& order() const;
+  ::comm::OrderData* mutable_order();
+  ::comm::OrderData* release_order();
+  void set_allocated_order(::comm::OrderData* order);
+
   // @@protoc_insertion_point(class_scope:comm.MarketDataSet)
  private:
   inline void set_has_datatype();
@@ -183,6 +193,8 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline void clear_has_index();
   inline void set_has_future();
   inline void clear_has_future();
+  inline void set_has_order();
+  inline void clear_has_order();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -192,6 +204,7 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::comm::OrderQueueData* orderqueue_;
   ::comm::IndexData* index_;
   ::comm::FutureData* future_;
+  ::comm::OrderData* order_;
   ::google::protobuf::int32 datatype_;
   friend void  protobuf_InitDefaults_marketDataSet_2eproto_impl();
   friend void  protobuf_AddDesc_marketDataSet_2eproto_impl();
@@ -457,6 +470,51 @@ inline void MarketDataSet::set_allocated_future(::comm::FutureData* future) {
     clear_has_future();
   }
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.future)
+}
+
+// optional .comm.OrderData order = 7;
+inline bool MarketDataSet::has_order() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MarketDataSet::set_has_order() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MarketDataSet::clear_has_order() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MarketDataSet::clear_order() {
+  if (order_ != NULL) order_->::comm::OrderData::Clear();
+  clear_has_order();
+}
+inline const ::comm::OrderData& MarketDataSet::order() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.order)
+  return order_ != NULL ? *order_
+                         : *::comm::OrderData::internal_default_instance();
+}
+inline ::comm::OrderData* MarketDataSet::mutable_order() {
+  set_has_order();
+  if (order_ == NULL) {
+    order_ = new ::comm::OrderData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.order)
+  return order_;
+}
+inline ::comm::OrderData* MarketDataSet::release_order() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.order)
+  clear_has_order();
+  ::comm::OrderData* temp = order_;
+  order_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
+  delete order_;
+  order_ = order;
+  if (order) {
+    set_has_order();
+  } else {
+    clear_has_order();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
 }
 
 inline const MarketDataSet* MarketDataSet::internal_default_instance() {
