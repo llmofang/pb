@@ -145,7 +145,7 @@ class KLineData : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::int64 timestamp() const;
   void set_timestamp(::google::protobuf::int64 value);
 
-  // required int32 Period = 5;
+  // optional int32 Period = 5;
   bool has_period() const;
   void clear_period();
   static const int kPeriodFieldNumber = 5;
@@ -201,21 +201,21 @@ class KLineData : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::int64 totalvaluetrade() const;
   void set_totalvaluetrade(::google::protobuf::int64 value);
 
-  // required int64 IOPV = 13;
+  // optional int64 IOPV = 13;
   bool has_iopv() const;
   void clear_iopv();
   static const int kIOPVFieldNumber = 13;
   ::google::protobuf::int64 iopv() const;
   void set_iopv(::google::protobuf::int64 value);
 
-  // required int64 OpenInterest = 14;
+  // optional int64 OpenInterest = 14;
   bool has_openinterest() const;
   void clear_openinterest();
   static const int kOpenInterestFieldNumber = 14;
   ::google::protobuf::int64 openinterest() const;
   void set_openinterest(::google::protobuf::int64 value);
 
-  // required int64 SettlePrice = 15;
+  // optional int64 SettlePrice = 15;
   bool has_settleprice() const;
   void clear_settleprice();
   static const int kSettlePriceFieldNumber = 15;
@@ -419,7 +419,7 @@ inline void KLineData::set_timestamp(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.Timestamp)
 }
 
-// required int32 Period = 5;
+// optional int32 Period = 5;
 inline bool KLineData::has_period() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -611,7 +611,7 @@ inline void KLineData::set_totalvaluetrade(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.TotalValueTrade)
 }
 
-// required int64 IOPV = 13;
+// optional int64 IOPV = 13;
 inline bool KLineData::has_iopv() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -635,7 +635,7 @@ inline void KLineData::set_iopv(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.IOPV)
 }
 
-// required int64 OpenInterest = 14;
+// optional int64 OpenInterest = 14;
 inline bool KLineData::has_openinterest() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -659,7 +659,7 @@ inline void KLineData::set_openinterest(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.OpenInterest)
 }
 
-// required int64 SettlePrice = 15;
+// optional int64 SettlePrice = 15;
 inline bool KLineData::has_settleprice() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }

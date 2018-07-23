@@ -107,12 +107,12 @@ void protobuf_AddDesc_kline_2eproto_impl() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013kline.proto\022\004comm\"\217\002\n\tKLineData\022\014\n\004Cod"
     "e\030\001 \002(\t\022\014\n\004Date\030\002 \002(\005\022\014\n\004Time\030\003 \002(\005\022\021\n\tT"
-    "imestamp\030\004 \002(\003\022\016\n\006Period\030\005 \002(\005\022\014\n\004Open\030\006"
+    "imestamp\030\004 \002(\003\022\016\n\006Period\030\005 \001(\005\022\014\n\004Open\030\006"
     " \002(\003\022\r\n\005Close\030\007 \002(\003\022\014\n\004High\030\010 \002(\003\022\013\n\003Low"
     "\030\t \002(\003\022\021\n\tNumTrades\030\n \002(\003\022\030\n\020TotalVolume"
     "Trade\030\013 \002(\003\022\027\n\017TotalValueTrade\030\014 \002(\003\022\014\n\004"
-    "IOPV\030\r \002(\003\022\024\n\014OpenInterest\030\016 \002(\003\022\023\n\013Sett"
-    "lePrice\030\017 \002(\003", 293);
+    "IOPV\030\r \001(\003\022\024\n\014OpenInterest\030\016 \001(\003\022\023\n\013Sett"
+    "lePrice\030\017 \001(\003", 293);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "kline.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_kline_2eproto);
@@ -326,7 +326,7 @@ bool KLineData::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 Period = 5;
+      // optional int32 Period = 5;
       case 5: {
         if (tag == 40) {
          parse_Period:
@@ -446,7 +446,7 @@ bool KLineData::MergePartialFromCodedStream(
         break;
       }
 
-      // required int64 IOPV = 13;
+      // optional int64 IOPV = 13;
       case 13: {
         if (tag == 104) {
          parse_IOPV:
@@ -461,7 +461,7 @@ bool KLineData::MergePartialFromCodedStream(
         break;
       }
 
-      // required int64 OpenInterest = 14;
+      // optional int64 OpenInterest = 14;
       case 14: {
         if (tag == 112) {
          parse_OpenInterest:
@@ -476,7 +476,7 @@ bool KLineData::MergePartialFromCodedStream(
         break;
       }
 
-      // required int64 SettlePrice = 15;
+      // optional int64 SettlePrice = 15;
       case 15: {
         if (tag == 120) {
          parse_SettlePrice:
@@ -541,7 +541,7 @@ void KLineData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->timestamp(), output);
   }
 
-  // required int32 Period = 5;
+  // optional int32 Period = 5;
   if (has_period()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->period(), output);
   }
@@ -581,17 +581,17 @@ void KLineData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->totalvaluetrade(), output);
   }
 
-  // required int64 IOPV = 13;
+  // optional int64 IOPV = 13;
   if (has_iopv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(13, this->iopv(), output);
   }
 
-  // required int64 OpenInterest = 14;
+  // optional int64 OpenInterest = 14;
   if (has_openinterest()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(14, this->openinterest(), output);
   }
 
-  // required int64 SettlePrice = 15;
+  // optional int64 SettlePrice = 15;
   if (has_settleprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->settleprice(), output);
   }
@@ -633,7 +633,7 @@ void KLineData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->timestamp(), target);
   }
 
-  // required int32 Period = 5;
+  // optional int32 Period = 5;
   if (has_period()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->period(), target);
   }
@@ -673,17 +673,17 @@ void KLineData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->totalvaluetrade(), target);
   }
 
-  // required int64 IOPV = 13;
+  // optional int64 IOPV = 13;
   if (has_iopv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(13, this->iopv(), target);
   }
 
-  // required int64 OpenInterest = 14;
+  // optional int64 OpenInterest = 14;
   if (has_openinterest()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(14, this->openinterest(), target);
   }
 
-  // required int64 SettlePrice = 15;
+  // optional int64 SettlePrice = 15;
   if (has_settleprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->settleprice(), target);
   }
@@ -728,13 +728,6 @@ size_t KLineData::RequiredFieldsByteSizeFallback() const {
         this->timestamp());
   }
 
-  if (has_period()) {
-    // required int32 Period = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->period());
-  }
-
   if (has_open()) {
     // required int64 Open = 6;
     total_size += 1 +
@@ -784,34 +777,13 @@ size_t KLineData::RequiredFieldsByteSizeFallback() const {
         this->totalvaluetrade());
   }
 
-  if (has_iopv()) {
-    // required int64 IOPV = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->iopv());
-  }
-
-  if (has_openinterest()) {
-    // required int64 OpenInterest = 14;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->openinterest());
-  }
-
-  if (has_settleprice()) {
-    // required int64 SettlePrice = 15;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->settleprice());
-  }
-
   return total_size;
 }
 size_t KLineData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:comm.KLineData)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00007fff) ^ 0x00007fff) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00000fef) ^ 0x00000fef) == 0) {  // All required fields are present.
     // required string Code = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -831,11 +803,6 @@ size_t KLineData::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->timestamp());
-
-    // required int32 Period = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->period());
 
     // required int64 Open = 6;
     total_size += 1 +
@@ -872,23 +839,38 @@ size_t KLineData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->totalvaluetrade());
 
-    // required int64 IOPV = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->iopv());
-
-    // required int64 OpenInterest = 14;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->openinterest());
-
-    // required int64 SettlePrice = 15;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->settleprice());
-
   } else {
     total_size += RequiredFieldsByteSizeFallback();
+  }
+  // optional int32 Period = 5;
+  if (has_period()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->period());
+  }
+
+  if (_has_bits_[12 / 32] & 28672u) {
+    // optional int64 IOPV = 13;
+    if (has_iopv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->iopv());
+    }
+
+    // optional int64 OpenInterest = 14;
+    if (has_openinterest()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->openinterest());
+    }
+
+    // optional int64 SettlePrice = 15;
+    if (has_settleprice()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->settleprice());
+    }
+
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -999,7 +981,7 @@ void KLineData::CopyFrom(const KLineData& from) {
 }
 
 bool KLineData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00007fff) != 0x00007fff) return false;
+  if ((_has_bits_[0] & 0x00000fef) != 0x00000fef) return false;
 
   return true;
 }
@@ -1166,7 +1148,7 @@ void KLineData::set_timestamp(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.Timestamp)
 }
 
-// required int32 Period = 5;
+// optional int32 Period = 5;
 bool KLineData::has_period() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1358,7 +1340,7 @@ void KLineData::set_totalvaluetrade(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.TotalValueTrade)
 }
 
-// required int64 IOPV = 13;
+// optional int64 IOPV = 13;
 bool KLineData::has_iopv() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1382,7 +1364,7 @@ void KLineData::set_iopv(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.IOPV)
 }
 
-// required int64 OpenInterest = 14;
+// optional int64 OpenInterest = 14;
 bool KLineData::has_openinterest() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1406,7 +1388,7 @@ void KLineData::set_openinterest(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.KLineData.OpenInterest)
 }
 
-// required int64 SettlePrice = 15;
+// optional int64 SettlePrice = 15;
 bool KLineData::has_settleprice() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }

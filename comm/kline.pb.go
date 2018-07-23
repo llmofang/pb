@@ -25,7 +25,7 @@ type KLineData struct {
 	Date             *int32  `protobuf:"varint,2,req" json:"Date,omitempty"`
 	Time             *int32  `protobuf:"varint,3,req" json:"Time,omitempty"`
 	Timestamp        *int64  `protobuf:"varint,4,req" json:"Timestamp,omitempty"`
-	Period           *int32  `protobuf:"varint,5,req" json:"Period,omitempty"`
+	Period           *int32  `protobuf:"varint,5,opt" json:"Period,omitempty"`
 	Open             *int64  `protobuf:"varint,6,req" json:"Open,omitempty"`
 	Close            *int64  `protobuf:"varint,7,req" json:"Close,omitempty"`
 	High             *int64  `protobuf:"varint,8,req" json:"High,omitempty"`
@@ -33,9 +33,9 @@ type KLineData struct {
 	NumTrades        *int64  `protobuf:"varint,10,req" json:"NumTrades,omitempty"`
 	TotalVolumeTrade *int64  `protobuf:"varint,11,req" json:"TotalVolumeTrade,omitempty"`
 	TotalValueTrade  *int64  `protobuf:"varint,12,req" json:"TotalValueTrade,omitempty"`
-	IOPV             *int64  `protobuf:"varint,13,req" json:"IOPV,omitempty"`
-	OpenInterest     *int64  `protobuf:"varint,14,req" json:"OpenInterest,omitempty"`
-	SettlePrice      *int64  `protobuf:"varint,15,req" json:"SettlePrice,omitempty"`
+	IOPV             *int64  `protobuf:"varint,13,opt" json:"IOPV,omitempty"`
+	OpenInterest     *int64  `protobuf:"varint,14,opt" json:"OpenInterest,omitempty"`
+	SettlePrice      *int64  `protobuf:"varint,15,opt" json:"SettlePrice,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
