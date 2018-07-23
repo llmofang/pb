@@ -7,6 +7,7 @@ import "orderqueueData.proto";
 import "indexData.proto";
 import "futureData.proto";
 import "orderData.proto";
+import "kline.proto";
 
 message MarketDataSet{
     required int32 DataType=1;
@@ -16,4 +17,10 @@ message MarketDataSet{
     optional IndexData Index=5;
     optional FutureData future=6;
     optional OrderData order=7;
+    optional KLineData Kline1min=8;
+    optional KLineData Kline5min=9;
+    optional KLineData Kline15min=10;
+    optional KLineData Kline30min=11;
+    optional KLineData Kline60min=12;
+    optional KLineData Kline1d=13;
 }

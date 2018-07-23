@@ -36,7 +36,7 @@ void protobuf_AssignDesc_marketDataSet_2eproto() {
       "marketDataSet.proto");
   GOOGLE_CHECK(file != NULL);
   MarketDataSet_descriptor_ = file->message_type(0);
-  static const int MarketDataSet_offsets_[7] = {
+  static const int MarketDataSet_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, datatype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, tick_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, transaction_),
@@ -44,6 +44,12 @@ void protobuf_AssignDesc_marketDataSet_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, future_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, order_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline1min_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline5min_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline15min_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline30min_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline60min_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, kline1d_),
   };
   MarketDataSet_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -88,6 +94,7 @@ void protobuf_InitDefaults_marketDataSet_2eproto_impl() {
   ::comm::protobuf_InitDefaults_indexData_2eproto();
   ::comm::protobuf_InitDefaults_futureData_2eproto();
   ::comm::protobuf_InitDefaults_orderData_2eproto();
+  ::comm::protobuf_InitDefaults_kline_2eproto();
   MarketDataSet_default_instance_.DefaultConstruct();
   MarketDataSet_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
@@ -105,13 +112,19 @@ void protobuf_AddDesc_marketDataSet_2eproto_impl() {
     "\n\023marketDataSet.proto\022\004comm\032\020marketData."
     "proto\032\025transactionData.proto\032\024orderqueue"
     "Data.proto\032\017indexData.proto\032\020futureData."
-    "proto\032\017orderData.proto\"\371\001\n\rMarketDataSet"
-    "\022\020\n\010DataType\030\001 \002(\005\022\036\n\004Tick\030\002 \001(\0132\020.comm."
-    "MarketData\022*\n\013Transaction\030\003 \001(\0132\025.comm.T"
-    "ransactionData\022(\n\nOrderQueue\030\004 \001(\0132\024.com"
-    "m.OrderQueueData\022\036\n\005Index\030\005 \001(\0132\017.comm.I"
-    "ndexData\022 \n\006future\030\006 \001(\0132\020.comm.FutureDa"
-    "ta\022\036\n\005order\030\007 \001(\0132\017.comm.OrderData", 394);
+    "proto\032\017orderData.proto\032\013kline.proto\"\322\003\n\r"
+    "MarketDataSet\022\020\n\010DataType\030\001 \002(\005\022\036\n\004Tick\030"
+    "\002 \001(\0132\020.comm.MarketData\022*\n\013Transaction\030\003"
+    " \001(\0132\025.comm.TransactionData\022(\n\nOrderQueu"
+    "e\030\004 \001(\0132\024.comm.OrderQueueData\022\036\n\005Index\030\005"
+    " \001(\0132\017.comm.IndexData\022 \n\006future\030\006 \001(\0132\020."
+    "comm.FutureData\022\036\n\005order\030\007 \001(\0132\017.comm.Or"
+    "derData\022\"\n\tKline1min\030\010 \001(\0132\017.comm.KLineD"
+    "ata\022\"\n\tKline5min\030\t \001(\0132\017.comm.KLineData\022"
+    "#\n\nKline15min\030\n \001(\0132\017.comm.KLineData\022#\n\n"
+    "Kline30min\030\013 \001(\0132\017.comm.KLineData\022#\n\nKli"
+    "ne60min\030\014 \001(\0132\017.comm.KLineData\022 \n\007Kline1"
+    "d\030\r \001(\0132\017.comm.KLineData", 624);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "marketDataSet.proto", &protobuf_RegisterTypes);
   ::comm::protobuf_AddDesc_marketData_2eproto();
@@ -120,6 +133,7 @@ void protobuf_AddDesc_marketDataSet_2eproto_impl() {
   ::comm::protobuf_AddDesc_indexData_2eproto();
   ::comm::protobuf_AddDesc_futureData_2eproto();
   ::comm::protobuf_AddDesc_orderData_2eproto();
+  ::comm::protobuf_AddDesc_kline_2eproto();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_marketDataSet_2eproto);
 }
 
@@ -155,6 +169,12 @@ const int MarketDataSet::kOrderQueueFieldNumber;
 const int MarketDataSet::kIndexFieldNumber;
 const int MarketDataSet::kFutureFieldNumber;
 const int MarketDataSet::kOrderFieldNumber;
+const int MarketDataSet::kKline1MinFieldNumber;
+const int MarketDataSet::kKline5MinFieldNumber;
+const int MarketDataSet::kKline15MinFieldNumber;
+const int MarketDataSet::kKline30MinFieldNumber;
+const int MarketDataSet::kKline60MinFieldNumber;
+const int MarketDataSet::kKline1DFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MarketDataSet::MarketDataSet()
@@ -177,6 +197,18 @@ void MarketDataSet::InitAsDefaultInstance() {
       ::comm::FutureData::internal_default_instance());
   order_ = const_cast< ::comm::OrderData*>(
       ::comm::OrderData::internal_default_instance());
+  kline1min_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
+  kline5min_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
+  kline15min_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
+  kline30min_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
+  kline60min_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
+  kline1d_ = const_cast< ::comm::KLineData*>(
+      ::comm::KLineData::internal_default_instance());
 }
 
 MarketDataSet::MarketDataSet(const MarketDataSet& from)
@@ -195,6 +227,12 @@ void MarketDataSet::SharedCtor() {
   index_ = NULL;
   future_ = NULL;
   order_ = NULL;
+  kline1min_ = NULL;
+  kline5min_ = NULL;
+  kline15min_ = NULL;
+  kline30min_ = NULL;
+  kline60min_ = NULL;
+  kline1d_ = NULL;
   datatype_ = 0;
 }
 
@@ -211,6 +249,12 @@ void MarketDataSet::SharedDtor() {
     delete index_;
     delete future_;
     delete order_;
+    delete kline1min_;
+    delete kline5min_;
+    delete kline15min_;
+    delete kline30min_;
+    delete kline60min_;
+    delete kline1d_;
   }
 }
 
@@ -241,7 +285,7 @@ MarketDataSet* MarketDataSet::New(::google::protobuf::Arena* arena) const {
 
 void MarketDataSet::Clear() {
 // @@protoc_insertion_point(message_clear_start:comm.MarketDataSet)
-  if (_has_bits_[0 / 32] & 127u) {
+  if (_has_bits_[0 / 32] & 255u) {
     datatype_ = 0;
     if (has_tick()) {
       if (tick_ != NULL) tick_->::comm::MarketData::Clear();
@@ -260,6 +304,26 @@ void MarketDataSet::Clear() {
     }
     if (has_order()) {
       if (order_ != NULL) order_->::comm::OrderData::Clear();
+    }
+    if (has_kline1min()) {
+      if (kline1min_ != NULL) kline1min_->::comm::KLineData::Clear();
+    }
+  }
+  if (_has_bits_[8 / 32] & 7936u) {
+    if (has_kline5min()) {
+      if (kline5min_ != NULL) kline5min_->::comm::KLineData::Clear();
+    }
+    if (has_kline15min()) {
+      if (kline15min_ != NULL) kline15min_->::comm::KLineData::Clear();
+    }
+    if (has_kline30min()) {
+      if (kline30min_ != NULL) kline30min_->::comm::KLineData::Clear();
+    }
+    if (has_kline60min()) {
+      if (kline60min_ != NULL) kline60min_->::comm::KLineData::Clear();
+    }
+    if (has_kline1d()) {
+      if (kline1d_ != NULL) kline1d_->::comm::KLineData::Clear();
     }
   }
   _has_bits_.Clear();
@@ -366,6 +430,84 @@ bool MarketDataSet::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_Kline1min;
+        break;
+      }
+
+      // optional .comm.KLineData Kline1min = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_Kline1min:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline1min()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(74)) goto parse_Kline5min;
+        break;
+      }
+
+      // optional .comm.KLineData Kline5min = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_Kline5min:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline5min()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(82)) goto parse_Kline15min;
+        break;
+      }
+
+      // optional .comm.KLineData Kline15min = 10;
+      case 10: {
+        if (tag == 82) {
+         parse_Kline15min:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline15min()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(90)) goto parse_Kline30min;
+        break;
+      }
+
+      // optional .comm.KLineData Kline30min = 11;
+      case 11: {
+        if (tag == 90) {
+         parse_Kline30min:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline30min()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(98)) goto parse_Kline60min;
+        break;
+      }
+
+      // optional .comm.KLineData Kline60min = 12;
+      case 12: {
+        if (tag == 98) {
+         parse_Kline60min:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline60min()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(106)) goto parse_Kline1d;
+        break;
+      }
+
+      // optional .comm.KLineData Kline1d = 13;
+      case 13: {
+        if (tag == 106) {
+         parse_Kline1d:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kline1d()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -436,6 +578,42 @@ void MarketDataSet::SerializeWithCachedSizes(
       7, *this->order_, output);
   }
 
+  // optional .comm.KLineData Kline1min = 8;
+  if (has_kline1min()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, *this->kline1min_, output);
+  }
+
+  // optional .comm.KLineData Kline5min = 9;
+  if (has_kline5min()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, *this->kline5min_, output);
+  }
+
+  // optional .comm.KLineData Kline15min = 10;
+  if (has_kline15min()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, *this->kline15min_, output);
+  }
+
+  // optional .comm.KLineData Kline30min = 11;
+  if (has_kline30min()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, *this->kline30min_, output);
+  }
+
+  // optional .comm.KLineData Kline60min = 12;
+  if (has_kline60min()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, *this->kline60min_, output);
+  }
+
+  // optional .comm.KLineData Kline1d = 13;
+  if (has_kline1d()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      13, *this->kline1d_, output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -494,6 +672,48 @@ void MarketDataSet::SerializeWithCachedSizes(
         7, *this->order_, false, target);
   }
 
+  // optional .comm.KLineData Kline1min = 8;
+  if (has_kline1min()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        8, *this->kline1min_, false, target);
+  }
+
+  // optional .comm.KLineData Kline5min = 9;
+  if (has_kline5min()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        9, *this->kline5min_, false, target);
+  }
+
+  // optional .comm.KLineData Kline15min = 10;
+  if (has_kline15min()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        10, *this->kline15min_, false, target);
+  }
+
+  // optional .comm.KLineData Kline30min = 11;
+  if (has_kline30min()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        11, *this->kline30min_, false, target);
+  }
+
+  // optional .comm.KLineData Kline60min = 12;
+  if (has_kline60min()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        12, *this->kline60min_, false, target);
+  }
+
+  // optional .comm.KLineData Kline1d = 13;
+  if (has_kline1d()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        13, *this->kline1d_, false, target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -512,7 +732,7 @@ size_t MarketDataSet::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->datatype());
   }
-  if (_has_bits_[1 / 32] & 126u) {
+  if (_has_bits_[1 / 32] & 254u) {
     // optional .comm.MarketData Tick = 2;
     if (has_tick()) {
       total_size += 1 +
@@ -553,6 +773,50 @@ size_t MarketDataSet::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->order_);
+    }
+
+    // optional .comm.KLineData Kline1min = 8;
+    if (has_kline1min()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline1min_);
+    }
+
+  }
+  if (_has_bits_[8 / 32] & 7936u) {
+    // optional .comm.KLineData Kline5min = 9;
+    if (has_kline5min()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline5min_);
+    }
+
+    // optional .comm.KLineData Kline15min = 10;
+    if (has_kline15min()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline15min_);
+    }
+
+    // optional .comm.KLineData Kline30min = 11;
+    if (has_kline30min()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline30min_);
+    }
+
+    // optional .comm.KLineData Kline60min = 12;
+    if (has_kline60min()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline60min_);
+    }
+
+    // optional .comm.KLineData Kline1d = 13;
+    if (has_kline1d()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *this->kline1d_);
     }
 
   }
@@ -616,6 +880,26 @@ void MarketDataSet::UnsafeMergeFrom(const MarketDataSet& from) {
     if (from.has_order()) {
       mutable_order()->::comm::OrderData::MergeFrom(from.order());
     }
+    if (from.has_kline1min()) {
+      mutable_kline1min()->::comm::KLineData::MergeFrom(from.kline1min());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_kline5min()) {
+      mutable_kline5min()->::comm::KLineData::MergeFrom(from.kline5min());
+    }
+    if (from.has_kline15min()) {
+      mutable_kline15min()->::comm::KLineData::MergeFrom(from.kline15min());
+    }
+    if (from.has_kline30min()) {
+      mutable_kline30min()->::comm::KLineData::MergeFrom(from.kline30min());
+    }
+    if (from.has_kline60min()) {
+      mutable_kline60min()->::comm::KLineData::MergeFrom(from.kline60min());
+    }
+    if (from.has_kline1d()) {
+      mutable_kline1d()->::comm::KLineData::MergeFrom(from.kline1d());
+    }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
@@ -658,6 +942,24 @@ bool MarketDataSet::IsInitialized() const {
   if (has_order()) {
     if (!this->order_->IsInitialized()) return false;
   }
+  if (has_kline1min()) {
+    if (!this->kline1min_->IsInitialized()) return false;
+  }
+  if (has_kline5min()) {
+    if (!this->kline5min_->IsInitialized()) return false;
+  }
+  if (has_kline15min()) {
+    if (!this->kline15min_->IsInitialized()) return false;
+  }
+  if (has_kline30min()) {
+    if (!this->kline30min_->IsInitialized()) return false;
+  }
+  if (has_kline60min()) {
+    if (!this->kline60min_->IsInitialized()) return false;
+  }
+  if (has_kline1d()) {
+    if (!this->kline1d_->IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -673,6 +975,12 @@ void MarketDataSet::InternalSwap(MarketDataSet* other) {
   std::swap(index_, other->index_);
   std::swap(future_, other->future_);
   std::swap(order_, other->order_);
+  std::swap(kline1min_, other->kline1min_);
+  std::swap(kline5min_, other->kline5min_);
+  std::swap(kline15min_, other->kline15min_);
+  std::swap(kline30min_, other->kline30min_);
+  std::swap(kline60min_, other->kline60min_);
+  std::swap(kline1d_, other->kline1d_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -981,6 +1289,276 @@ void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
     clear_has_order();
   }
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
+}
+
+// optional .comm.KLineData Kline1min = 8;
+bool MarketDataSet::has_kline1min() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void MarketDataSet::set_has_kline1min() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void MarketDataSet::clear_has_kline1min() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void MarketDataSet::clear_kline1min() {
+  if (kline1min_ != NULL) kline1min_->::comm::KLineData::Clear();
+  clear_has_kline1min();
+}
+const ::comm::KLineData& MarketDataSet::kline1min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline1min)
+  return kline1min_ != NULL ? *kline1min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline1min() {
+  set_has_kline1min();
+  if (kline1min_ == NULL) {
+    kline1min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline1min)
+  return kline1min_;
+}
+::comm::KLineData* MarketDataSet::release_kline1min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline1min)
+  clear_has_kline1min();
+  ::comm::KLineData* temp = kline1min_;
+  kline1min_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline1min(::comm::KLineData* kline1min) {
+  delete kline1min_;
+  kline1min_ = kline1min;
+  if (kline1min) {
+    set_has_kline1min();
+  } else {
+    clear_has_kline1min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline1min)
+}
+
+// optional .comm.KLineData Kline5min = 9;
+bool MarketDataSet::has_kline5min() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void MarketDataSet::set_has_kline5min() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void MarketDataSet::clear_has_kline5min() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void MarketDataSet::clear_kline5min() {
+  if (kline5min_ != NULL) kline5min_->::comm::KLineData::Clear();
+  clear_has_kline5min();
+}
+const ::comm::KLineData& MarketDataSet::kline5min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline5min)
+  return kline5min_ != NULL ? *kline5min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline5min() {
+  set_has_kline5min();
+  if (kline5min_ == NULL) {
+    kline5min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline5min)
+  return kline5min_;
+}
+::comm::KLineData* MarketDataSet::release_kline5min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline5min)
+  clear_has_kline5min();
+  ::comm::KLineData* temp = kline5min_;
+  kline5min_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline5min(::comm::KLineData* kline5min) {
+  delete kline5min_;
+  kline5min_ = kline5min;
+  if (kline5min) {
+    set_has_kline5min();
+  } else {
+    clear_has_kline5min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline5min)
+}
+
+// optional .comm.KLineData Kline15min = 10;
+bool MarketDataSet::has_kline15min() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+void MarketDataSet::set_has_kline15min() {
+  _has_bits_[0] |= 0x00000200u;
+}
+void MarketDataSet::clear_has_kline15min() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+void MarketDataSet::clear_kline15min() {
+  if (kline15min_ != NULL) kline15min_->::comm::KLineData::Clear();
+  clear_has_kline15min();
+}
+const ::comm::KLineData& MarketDataSet::kline15min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline15min)
+  return kline15min_ != NULL ? *kline15min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline15min() {
+  set_has_kline15min();
+  if (kline15min_ == NULL) {
+    kline15min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline15min)
+  return kline15min_;
+}
+::comm::KLineData* MarketDataSet::release_kline15min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline15min)
+  clear_has_kline15min();
+  ::comm::KLineData* temp = kline15min_;
+  kline15min_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline15min(::comm::KLineData* kline15min) {
+  delete kline15min_;
+  kline15min_ = kline15min;
+  if (kline15min) {
+    set_has_kline15min();
+  } else {
+    clear_has_kline15min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline15min)
+}
+
+// optional .comm.KLineData Kline30min = 11;
+bool MarketDataSet::has_kline30min() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void MarketDataSet::set_has_kline30min() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void MarketDataSet::clear_has_kline30min() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void MarketDataSet::clear_kline30min() {
+  if (kline30min_ != NULL) kline30min_->::comm::KLineData::Clear();
+  clear_has_kline30min();
+}
+const ::comm::KLineData& MarketDataSet::kline30min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline30min)
+  return kline30min_ != NULL ? *kline30min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline30min() {
+  set_has_kline30min();
+  if (kline30min_ == NULL) {
+    kline30min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline30min)
+  return kline30min_;
+}
+::comm::KLineData* MarketDataSet::release_kline30min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline30min)
+  clear_has_kline30min();
+  ::comm::KLineData* temp = kline30min_;
+  kline30min_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline30min(::comm::KLineData* kline30min) {
+  delete kline30min_;
+  kline30min_ = kline30min;
+  if (kline30min) {
+    set_has_kline30min();
+  } else {
+    clear_has_kline30min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline30min)
+}
+
+// optional .comm.KLineData Kline60min = 12;
+bool MarketDataSet::has_kline60min() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void MarketDataSet::set_has_kline60min() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void MarketDataSet::clear_has_kline60min() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void MarketDataSet::clear_kline60min() {
+  if (kline60min_ != NULL) kline60min_->::comm::KLineData::Clear();
+  clear_has_kline60min();
+}
+const ::comm::KLineData& MarketDataSet::kline60min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline60min)
+  return kline60min_ != NULL ? *kline60min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline60min() {
+  set_has_kline60min();
+  if (kline60min_ == NULL) {
+    kline60min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline60min)
+  return kline60min_;
+}
+::comm::KLineData* MarketDataSet::release_kline60min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline60min)
+  clear_has_kline60min();
+  ::comm::KLineData* temp = kline60min_;
+  kline60min_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline60min(::comm::KLineData* kline60min) {
+  delete kline60min_;
+  kline60min_ = kline60min;
+  if (kline60min) {
+    set_has_kline60min();
+  } else {
+    clear_has_kline60min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline60min)
+}
+
+// optional .comm.KLineData Kline1d = 13;
+bool MarketDataSet::has_kline1d() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+void MarketDataSet::set_has_kline1d() {
+  _has_bits_[0] |= 0x00001000u;
+}
+void MarketDataSet::clear_has_kline1d() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+void MarketDataSet::clear_kline1d() {
+  if (kline1d_ != NULL) kline1d_->::comm::KLineData::Clear();
+  clear_has_kline1d();
+}
+const ::comm::KLineData& MarketDataSet::kline1d() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline1d)
+  return kline1d_ != NULL ? *kline1d_
+                         : *::comm::KLineData::internal_default_instance();
+}
+::comm::KLineData* MarketDataSet::mutable_kline1d() {
+  set_has_kline1d();
+  if (kline1d_ == NULL) {
+    kline1d_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline1d)
+  return kline1d_;
+}
+::comm::KLineData* MarketDataSet::release_kline1d() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline1d)
+  clear_has_kline1d();
+  ::comm::KLineData* temp = kline1d_;
+  kline1d_ = NULL;
+  return temp;
+}
+void MarketDataSet::set_allocated_kline1d(::comm::KLineData* kline1d) {
+  delete kline1d_;
+  kline1d_ = kline1d;
+  if (kline1d) {
+    set_has_kline1d();
+  } else {
+    clear_has_kline1d();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline1d)
 }
 
 inline const MarketDataSet* MarketDataSet::internal_default_instance() {

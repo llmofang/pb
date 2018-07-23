@@ -16,6 +16,10 @@ package comm
 import proto "code.google.com/p/goprotobuf/proto"
 import math "math"
 
+import (
+	comm7 "kline.pb"
+	"github.com/llmofang/pb/comm"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -29,6 +33,12 @@ type MarketDataSet struct {
 	Index            *IndexData       `protobuf:"bytes,5,opt" json:"Index,omitempty"`
 	Future           *FutureData      `protobuf:"bytes,6,opt,name=future" json:"future,omitempty"`
 	Order            *OrderData       `protobuf:"bytes,7,opt,name=order" json:"order,omitempty"`
+	Kline1Min        *KLineData       `protobuf:"bytes,8,opt,name=Kline1min" json:"Kline1min,omitempty"`
+	Kline5Min        *KLineData       `protobuf:"bytes,9,opt,name=Kline5min" json:"Kline5min,omitempty"`
+	Kline15Min       *KLineData       `protobuf:"bytes,10,opt,name=Kline15min" json:"Kline15min,omitempty"`
+	Kline30Min       *KLineData       `protobuf:"bytes,11,opt,name=Kline30min" json:"Kline30min,omitempty"`
+	Kline60Min       *KLineData       `protobuf:"bytes,12,opt,name=Kline60min" json:"Kline60min,omitempty"`
+	Kline1D          *KLineData       `protobuf:"bytes,13,opt,name=Kline1d" json:"Kline1d,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
 }
 
@@ -81,6 +91,48 @@ func (m *MarketDataSet) GetFuture() *FutureData {
 func (m *MarketDataSet) GetOrder() *OrderData {
 	if m != nil {
 		return m.Order
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline1Min() *KLineData {
+	if m != nil {
+		return m.Kline1Min
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline5Min() *KLineData {
+	if m != nil {
+		return m.Kline5Min
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline15Min() *KLineData {
+	if m != nil {
+		return m.Kline15Min
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline30Min() *KLineData {
+	if m != nil {
+		return m.Kline30Min
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline60Min() *KLineData {
+	if m != nil {
+		return m.Kline60Min
+	}
+	return nil
+}
+
+func (m *MarketDataSet) GetKline1D() *KLineData {
+	if m != nil {
+		return m.Kline1D
 	}
 	return nil
 }

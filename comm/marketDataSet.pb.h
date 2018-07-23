@@ -33,6 +33,7 @@
 #include "indexData.pb.h"
 #include "futureData.pb.h"
 #include "orderData.pb.h"
+#include "kline.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace comm {
@@ -179,6 +180,60 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::comm::OrderData* release_order();
   void set_allocated_order(::comm::OrderData* order);
 
+  // optional .comm.KLineData Kline1min = 8;
+  bool has_kline1min() const;
+  void clear_kline1min();
+  static const int kKline1MinFieldNumber = 8;
+  const ::comm::KLineData& kline1min() const;
+  ::comm::KLineData* mutable_kline1min();
+  ::comm::KLineData* release_kline1min();
+  void set_allocated_kline1min(::comm::KLineData* kline1min);
+
+  // optional .comm.KLineData Kline5min = 9;
+  bool has_kline5min() const;
+  void clear_kline5min();
+  static const int kKline5MinFieldNumber = 9;
+  const ::comm::KLineData& kline5min() const;
+  ::comm::KLineData* mutable_kline5min();
+  ::comm::KLineData* release_kline5min();
+  void set_allocated_kline5min(::comm::KLineData* kline5min);
+
+  // optional .comm.KLineData Kline15min = 10;
+  bool has_kline15min() const;
+  void clear_kline15min();
+  static const int kKline15MinFieldNumber = 10;
+  const ::comm::KLineData& kline15min() const;
+  ::comm::KLineData* mutable_kline15min();
+  ::comm::KLineData* release_kline15min();
+  void set_allocated_kline15min(::comm::KLineData* kline15min);
+
+  // optional .comm.KLineData Kline30min = 11;
+  bool has_kline30min() const;
+  void clear_kline30min();
+  static const int kKline30MinFieldNumber = 11;
+  const ::comm::KLineData& kline30min() const;
+  ::comm::KLineData* mutable_kline30min();
+  ::comm::KLineData* release_kline30min();
+  void set_allocated_kline30min(::comm::KLineData* kline30min);
+
+  // optional .comm.KLineData Kline60min = 12;
+  bool has_kline60min() const;
+  void clear_kline60min();
+  static const int kKline60MinFieldNumber = 12;
+  const ::comm::KLineData& kline60min() const;
+  ::comm::KLineData* mutable_kline60min();
+  ::comm::KLineData* release_kline60min();
+  void set_allocated_kline60min(::comm::KLineData* kline60min);
+
+  // optional .comm.KLineData Kline1d = 13;
+  bool has_kline1d() const;
+  void clear_kline1d();
+  static const int kKline1DFieldNumber = 13;
+  const ::comm::KLineData& kline1d() const;
+  ::comm::KLineData* mutable_kline1d();
+  ::comm::KLineData* release_kline1d();
+  void set_allocated_kline1d(::comm::KLineData* kline1d);
+
   // @@protoc_insertion_point(class_scope:comm.MarketDataSet)
  private:
   inline void set_has_datatype();
@@ -195,6 +250,18 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline void clear_has_future();
   inline void set_has_order();
   inline void clear_has_order();
+  inline void set_has_kline1min();
+  inline void clear_has_kline1min();
+  inline void set_has_kline5min();
+  inline void clear_has_kline5min();
+  inline void set_has_kline15min();
+  inline void clear_has_kline15min();
+  inline void set_has_kline30min();
+  inline void clear_has_kline30min();
+  inline void set_has_kline60min();
+  inline void clear_has_kline60min();
+  inline void set_has_kline1d();
+  inline void clear_has_kline1d();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -205,6 +272,12 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::comm::IndexData* index_;
   ::comm::FutureData* future_;
   ::comm::OrderData* order_;
+  ::comm::KLineData* kline1min_;
+  ::comm::KLineData* kline5min_;
+  ::comm::KLineData* kline15min_;
+  ::comm::KLineData* kline30min_;
+  ::comm::KLineData* kline60min_;
+  ::comm::KLineData* kline1d_;
   ::google::protobuf::int32 datatype_;
   friend void  protobuf_InitDefaults_marketDataSet_2eproto_impl();
   friend void  protobuf_AddDesc_marketDataSet_2eproto_impl();
@@ -515,6 +588,276 @@ inline void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
     clear_has_order();
   }
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
+}
+
+// optional .comm.KLineData Kline1min = 8;
+inline bool MarketDataSet::has_kline1min() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void MarketDataSet::set_has_kline1min() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void MarketDataSet::clear_has_kline1min() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void MarketDataSet::clear_kline1min() {
+  if (kline1min_ != NULL) kline1min_->::comm::KLineData::Clear();
+  clear_has_kline1min();
+}
+inline const ::comm::KLineData& MarketDataSet::kline1min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline1min)
+  return kline1min_ != NULL ? *kline1min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline1min() {
+  set_has_kline1min();
+  if (kline1min_ == NULL) {
+    kline1min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline1min)
+  return kline1min_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline1min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline1min)
+  clear_has_kline1min();
+  ::comm::KLineData* temp = kline1min_;
+  kline1min_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline1min(::comm::KLineData* kline1min) {
+  delete kline1min_;
+  kline1min_ = kline1min;
+  if (kline1min) {
+    set_has_kline1min();
+  } else {
+    clear_has_kline1min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline1min)
+}
+
+// optional .comm.KLineData Kline5min = 9;
+inline bool MarketDataSet::has_kline5min() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MarketDataSet::set_has_kline5min() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MarketDataSet::clear_has_kline5min() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MarketDataSet::clear_kline5min() {
+  if (kline5min_ != NULL) kline5min_->::comm::KLineData::Clear();
+  clear_has_kline5min();
+}
+inline const ::comm::KLineData& MarketDataSet::kline5min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline5min)
+  return kline5min_ != NULL ? *kline5min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline5min() {
+  set_has_kline5min();
+  if (kline5min_ == NULL) {
+    kline5min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline5min)
+  return kline5min_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline5min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline5min)
+  clear_has_kline5min();
+  ::comm::KLineData* temp = kline5min_;
+  kline5min_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline5min(::comm::KLineData* kline5min) {
+  delete kline5min_;
+  kline5min_ = kline5min;
+  if (kline5min) {
+    set_has_kline5min();
+  } else {
+    clear_has_kline5min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline5min)
+}
+
+// optional .comm.KLineData Kline15min = 10;
+inline bool MarketDataSet::has_kline15min() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void MarketDataSet::set_has_kline15min() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void MarketDataSet::clear_has_kline15min() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void MarketDataSet::clear_kline15min() {
+  if (kline15min_ != NULL) kline15min_->::comm::KLineData::Clear();
+  clear_has_kline15min();
+}
+inline const ::comm::KLineData& MarketDataSet::kline15min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline15min)
+  return kline15min_ != NULL ? *kline15min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline15min() {
+  set_has_kline15min();
+  if (kline15min_ == NULL) {
+    kline15min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline15min)
+  return kline15min_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline15min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline15min)
+  clear_has_kline15min();
+  ::comm::KLineData* temp = kline15min_;
+  kline15min_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline15min(::comm::KLineData* kline15min) {
+  delete kline15min_;
+  kline15min_ = kline15min;
+  if (kline15min) {
+    set_has_kline15min();
+  } else {
+    clear_has_kline15min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline15min)
+}
+
+// optional .comm.KLineData Kline30min = 11;
+inline bool MarketDataSet::has_kline30min() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MarketDataSet::set_has_kline30min() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MarketDataSet::clear_has_kline30min() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MarketDataSet::clear_kline30min() {
+  if (kline30min_ != NULL) kline30min_->::comm::KLineData::Clear();
+  clear_has_kline30min();
+}
+inline const ::comm::KLineData& MarketDataSet::kline30min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline30min)
+  return kline30min_ != NULL ? *kline30min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline30min() {
+  set_has_kline30min();
+  if (kline30min_ == NULL) {
+    kline30min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline30min)
+  return kline30min_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline30min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline30min)
+  clear_has_kline30min();
+  ::comm::KLineData* temp = kline30min_;
+  kline30min_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline30min(::comm::KLineData* kline30min) {
+  delete kline30min_;
+  kline30min_ = kline30min;
+  if (kline30min) {
+    set_has_kline30min();
+  } else {
+    clear_has_kline30min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline30min)
+}
+
+// optional .comm.KLineData Kline60min = 12;
+inline bool MarketDataSet::has_kline60min() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void MarketDataSet::set_has_kline60min() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void MarketDataSet::clear_has_kline60min() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void MarketDataSet::clear_kline60min() {
+  if (kline60min_ != NULL) kline60min_->::comm::KLineData::Clear();
+  clear_has_kline60min();
+}
+inline const ::comm::KLineData& MarketDataSet::kline60min() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline60min)
+  return kline60min_ != NULL ? *kline60min_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline60min() {
+  set_has_kline60min();
+  if (kline60min_ == NULL) {
+    kline60min_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline60min)
+  return kline60min_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline60min() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline60min)
+  clear_has_kline60min();
+  ::comm::KLineData* temp = kline60min_;
+  kline60min_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline60min(::comm::KLineData* kline60min) {
+  delete kline60min_;
+  kline60min_ = kline60min;
+  if (kline60min) {
+    set_has_kline60min();
+  } else {
+    clear_has_kline60min();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline60min)
+}
+
+// optional .comm.KLineData Kline1d = 13;
+inline bool MarketDataSet::has_kline1d() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void MarketDataSet::set_has_kline1d() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void MarketDataSet::clear_has_kline1d() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void MarketDataSet::clear_kline1d() {
+  if (kline1d_ != NULL) kline1d_->::comm::KLineData::Clear();
+  clear_has_kline1d();
+}
+inline const ::comm::KLineData& MarketDataSet::kline1d() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.Kline1d)
+  return kline1d_ != NULL ? *kline1d_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline1d() {
+  set_has_kline1d();
+  if (kline1d_ == NULL) {
+    kline1d_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.Kline1d)
+  return kline1d_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline1d() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.Kline1d)
+  clear_has_kline1d();
+  ::comm::KLineData* temp = kline1d_;
+  kline1d_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline1d(::comm::KLineData* kline1d) {
+  delete kline1d_;
+  kline1d_ = kline1d;
+  if (kline1d) {
+    set_has_kline1d();
+  } else {
+    clear_has_kline1d();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Kline1d)
 }
 
 inline const MarketDataSet* MarketDataSet::internal_default_instance() {
