@@ -16,11 +16,6 @@ package comm
 import proto "code.google.com/p/goprotobuf/proto"
 import math "math"
 
-import (
-	comm7 "kline.pb"
-	"github.com/llmofang/pb/comm"
-)
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = math.Inf
