@@ -11,11 +11,12 @@ import "kline.proto";
 
 message MarketDataSet{
     required int32 DataType=1;
-    optional MarketData Tick=2;
-    optional TransactionData Transaction=3;
-    optional OrderQueueData OrderQueue=4;
-    optional IndexData Index=5;
-    optional FutureData future=6;
-    optional OrderData order=7;
-    optional KLineData kline=8;
+    required int32 SecurityType=2;
+    optional MarketData Tick=3;
+    optional TransactionData Transaction=4;
+    optional OrderQueueData OrderQueue=5;
+    optional IndexData Index=6;
+    optional FutureData future=7;
+    optional OrderData order=8;
+    optional KLineData kline=9;
 }

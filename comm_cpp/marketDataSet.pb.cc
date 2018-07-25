@@ -36,8 +36,9 @@ void protobuf_AssignDesc_marketDataSet_2eproto() {
       "marketDataSet.proto");
   GOOGLE_CHECK(file != NULL);
   MarketDataSet_descriptor_ = file->message_type(0);
-  static const int MarketDataSet_offsets_[8] = {
+  static const int MarketDataSet_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, datatype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, securitytype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, tick_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, transaction_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDataSet, orderqueue_),
@@ -107,14 +108,15 @@ void protobuf_AddDesc_marketDataSet_2eproto_impl() {
     "\n\023marketDataSet.proto\022\004comm\032\020marketData."
     "proto\032\025transactionData.proto\032\024orderqueue"
     "Data.proto\032\017indexData.proto\032\020futureData."
-    "proto\032\017orderData.proto\032\013kline.proto\"\231\002\n\r"
-    "MarketDataSet\022\020\n\010DataType\030\001 \002(\005\022\036\n\004Tick\030"
-    "\002 \001(\0132\020.comm.MarketData\022*\n\013Transaction\030\003"
-    " \001(\0132\025.comm.TransactionData\022(\n\nOrderQueu"
-    "e\030\004 \001(\0132\024.comm.OrderQueueData\022\036\n\005Index\030\005"
-    " \001(\0132\017.comm.IndexData\022 \n\006future\030\006 \001(\0132\020."
-    "comm.FutureData\022\036\n\005order\030\007 \001(\0132\017.comm.Or"
-    "derData\022\036\n\005kline\030\010 \001(\0132\017.comm.KLineData", 439);
+    "proto\032\017orderData.proto\032\013kline.proto\"\257\002\n\r"
+    "MarketDataSet\022\020\n\010DataType\030\001 \002(\005\022\024\n\014Secur"
+    "ityType\030\002 \002(\005\022\036\n\004Tick\030\003 \001(\0132\020.comm.Marke"
+    "tData\022*\n\013Transaction\030\004 \001(\0132\025.comm.Transa"
+    "ctionData\022(\n\nOrderQueue\030\005 \001(\0132\024.comm.Ord"
+    "erQueueData\022\036\n\005Index\030\006 \001(\0132\017.comm.IndexD"
+    "ata\022 \n\006future\030\007 \001(\0132\020.comm.FutureData\022\036\n"
+    "\005order\030\010 \001(\0132\017.comm.OrderData\022\036\n\005kline\030\t"
+    " \001(\0132\017.comm.KLineData", 461);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "marketDataSet.proto", &protobuf_RegisterTypes);
   ::comm::protobuf_AddDesc_marketData_2eproto();
@@ -153,6 +155,7 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MarketDataSet::kDataTypeFieldNumber;
+const int MarketDataSet::kSecurityTypeFieldNumber;
 const int MarketDataSet::kTickFieldNumber;
 const int MarketDataSet::kTransactionFieldNumber;
 const int MarketDataSet::kOrderQueueFieldNumber;
@@ -203,7 +206,8 @@ void MarketDataSet::SharedCtor() {
   future_ = NULL;
   order_ = NULL;
   kline_ = NULL;
-  datatype_ = 0;
+  ::memset(&datatype_, 0, reinterpret_cast<char*>(&securitytype_) -
+    reinterpret_cast<char*>(&datatype_) + sizeof(securitytype_));
 }
 
 MarketDataSet::~MarketDataSet() {
@@ -250,8 +254,24 @@ MarketDataSet* MarketDataSet::New(::google::protobuf::Arena* arena) const {
 
 void MarketDataSet::Clear() {
 // @@protoc_insertion_point(message_clear_start:comm.MarketDataSet)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(MarketDataSet, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<MarketDataSet*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
   if (_has_bits_[0 / 32] & 255u) {
-    datatype_ = 0;
+    ZR_(datatype_, securitytype_);
     if (has_tick()) {
       if (tick_ != NULL) tick_->::comm::MarketData::Clear();
     }
@@ -270,10 +290,14 @@ void MarketDataSet::Clear() {
     if (has_order()) {
       if (order_ != NULL) order_->::comm::OrderData::Clear();
     }
-    if (has_kline()) {
-      if (kline_ != NULL) kline_->::comm::KLineData::Clear();
-    }
   }
+  if (has_kline()) {
+    if (kline_ != NULL) kline_->::comm::KLineData::Clear();
+  }
+
+#undef ZR_HELPER_
+#undef ZR_
+
   _has_bits_.Clear();
   if (_internal_metadata_.have_unknown_fields()) {
     mutable_unknown_fields()->Clear();
@@ -300,91 +324,106 @@ bool MarketDataSet::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_Tick;
+        if (input->ExpectTag(16)) goto parse_SecurityType;
         break;
       }
 
-      // optional .comm.MarketData Tick = 2;
+      // required int32 SecurityType = 2;
       case 2: {
-        if (tag == 18) {
+        if (tag == 16) {
+         parse_SecurityType:
+          set_has_securitytype();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &securitytype_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_Tick;
+        break;
+      }
+
+      // optional .comm.MarketData Tick = 3;
+      case 3: {
+        if (tag == 26) {
          parse_Tick:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_tick()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_Transaction;
+        if (input->ExpectTag(34)) goto parse_Transaction;
         break;
       }
 
-      // optional .comm.TransactionData Transaction = 3;
-      case 3: {
-        if (tag == 26) {
+      // optional .comm.TransactionData Transaction = 4;
+      case 4: {
+        if (tag == 34) {
          parse_Transaction:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_transaction()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_OrderQueue;
+        if (input->ExpectTag(42)) goto parse_OrderQueue;
         break;
       }
 
-      // optional .comm.OrderQueueData OrderQueue = 4;
-      case 4: {
-        if (tag == 34) {
+      // optional .comm.OrderQueueData OrderQueue = 5;
+      case 5: {
+        if (tag == 42) {
          parse_OrderQueue:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_orderqueue()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_Index;
+        if (input->ExpectTag(50)) goto parse_Index;
         break;
       }
 
-      // optional .comm.IndexData Index = 5;
-      case 5: {
-        if (tag == 42) {
+      // optional .comm.IndexData Index = 6;
+      case 6: {
+        if (tag == 50) {
          parse_Index:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_index()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_future;
+        if (input->ExpectTag(58)) goto parse_future;
         break;
       }
 
-      // optional .comm.FutureData future = 6;
-      case 6: {
-        if (tag == 50) {
+      // optional .comm.FutureData future = 7;
+      case 7: {
+        if (tag == 58) {
          parse_future:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_future()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(58)) goto parse_order;
+        if (input->ExpectTag(66)) goto parse_order;
         break;
       }
 
-      // optional .comm.OrderData order = 7;
-      case 7: {
-        if (tag == 58) {
+      // optional .comm.OrderData order = 8;
+      case 8: {
+        if (tag == 66) {
          parse_order:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_order()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_kline;
+        if (input->ExpectTag(74)) goto parse_kline;
         break;
       }
 
-      // optional .comm.KLineData kline = 8;
-      case 8: {
-        if (tag == 66) {
+      // optional .comm.KLineData kline = 9;
+      case 9: {
+        if (tag == 74) {
          parse_kline:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_kline()));
@@ -425,46 +464,51 @@ void MarketDataSet::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->datatype(), output);
   }
 
-  // optional .comm.MarketData Tick = 2;
+  // required int32 SecurityType = 2;
+  if (has_securitytype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->securitytype(), output);
+  }
+
+  // optional .comm.MarketData Tick = 3;
   if (has_tick()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->tick_, output);
+      3, *this->tick_, output);
   }
 
-  // optional .comm.TransactionData Transaction = 3;
+  // optional .comm.TransactionData Transaction = 4;
   if (has_transaction()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->transaction_, output);
+      4, *this->transaction_, output);
   }
 
-  // optional .comm.OrderQueueData OrderQueue = 4;
+  // optional .comm.OrderQueueData OrderQueue = 5;
   if (has_orderqueue()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->orderqueue_, output);
+      5, *this->orderqueue_, output);
   }
 
-  // optional .comm.IndexData Index = 5;
+  // optional .comm.IndexData Index = 6;
   if (has_index()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *this->index_, output);
+      6, *this->index_, output);
   }
 
-  // optional .comm.FutureData future = 6;
+  // optional .comm.FutureData future = 7;
   if (has_future()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->future_, output);
+      7, *this->future_, output);
   }
 
-  // optional .comm.OrderData order = 7;
+  // optional .comm.OrderData order = 8;
   if (has_order()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, *this->order_, output);
+      8, *this->order_, output);
   }
 
-  // optional .comm.KLineData kline = 8;
+  // optional .comm.KLineData kline = 9;
   if (has_kline()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, *this->kline_, output);
+      9, *this->kline_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -483,53 +527,58 @@ void MarketDataSet::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->datatype(), target);
   }
 
-  // optional .comm.MarketData Tick = 2;
+  // required int32 SecurityType = 2;
+  if (has_securitytype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->securitytype(), target);
+  }
+
+  // optional .comm.MarketData Tick = 3;
   if (has_tick()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->tick_, false, target);
+        3, *this->tick_, false, target);
   }
 
-  // optional .comm.TransactionData Transaction = 3;
+  // optional .comm.TransactionData Transaction = 4;
   if (has_transaction()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, *this->transaction_, false, target);
+        4, *this->transaction_, false, target);
   }
 
-  // optional .comm.OrderQueueData OrderQueue = 4;
+  // optional .comm.OrderQueueData OrderQueue = 5;
   if (has_orderqueue()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        4, *this->orderqueue_, false, target);
+        5, *this->orderqueue_, false, target);
   }
 
-  // optional .comm.IndexData Index = 5;
+  // optional .comm.IndexData Index = 6;
   if (has_index()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        5, *this->index_, false, target);
+        6, *this->index_, false, target);
   }
 
-  // optional .comm.FutureData future = 6;
+  // optional .comm.FutureData future = 7;
   if (has_future()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        6, *this->future_, false, target);
+        7, *this->future_, false, target);
   }
 
-  // optional .comm.OrderData order = 7;
+  // optional .comm.OrderData order = 8;
   if (has_order()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        7, *this->order_, false, target);
+        8, *this->order_, false, target);
   }
 
-  // optional .comm.KLineData kline = 8;
+  // optional .comm.KLineData kline = 9;
   if (has_kline()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        8, *this->kline_, false, target);
+        9, *this->kline_, false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -540,67 +589,95 @@ void MarketDataSet::SerializeWithCachedSizes(
   return target;
 }
 
-size_t MarketDataSet::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:comm.MarketDataSet)
+size_t MarketDataSet::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:comm.MarketDataSet)
   size_t total_size = 0;
 
-  // required int32 DataType = 1;
   if (has_datatype()) {
+    // required int32 DataType = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->datatype());
   }
-  if (_has_bits_[1 / 32] & 254u) {
-    // optional .comm.MarketData Tick = 2;
+
+  if (has_securitytype()) {
+    // required int32 SecurityType = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securitytype());
+  }
+
+  return total_size;
+}
+size_t MarketDataSet::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:comm.MarketDataSet)
+  size_t total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 DataType = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->datatype());
+
+    // required int32 SecurityType = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securitytype());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[2 / 32] & 252u) {
+    // optional .comm.MarketData Tick = 3;
     if (has_tick()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->tick_);
     }
 
-    // optional .comm.TransactionData Transaction = 3;
+    // optional .comm.TransactionData Transaction = 4;
     if (has_transaction()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->transaction_);
     }
 
-    // optional .comm.OrderQueueData OrderQueue = 4;
+    // optional .comm.OrderQueueData OrderQueue = 5;
     if (has_orderqueue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->orderqueue_);
     }
 
-    // optional .comm.IndexData Index = 5;
+    // optional .comm.IndexData Index = 6;
     if (has_index()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->index_);
     }
 
-    // optional .comm.FutureData future = 6;
+    // optional .comm.FutureData future = 7;
     if (has_future()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->future_);
     }
 
-    // optional .comm.OrderData order = 7;
+    // optional .comm.OrderData order = 8;
     if (has_order()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *this->order_);
     }
 
-    // optional .comm.KLineData kline = 8;
-    if (has_kline()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->kline_);
-    }
-
   }
+  // optional .comm.KLineData kline = 9;
+  if (has_kline()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->kline_);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -643,6 +720,9 @@ void MarketDataSet::UnsafeMergeFrom(const MarketDataSet& from) {
     if (from.has_datatype()) {
       set_datatype(from.datatype());
     }
+    if (from.has_securitytype()) {
+      set_securitytype(from.securitytype());
+    }
     if (from.has_tick()) {
       mutable_tick()->::comm::MarketData::MergeFrom(from.tick());
     }
@@ -661,6 +741,8 @@ void MarketDataSet::UnsafeMergeFrom(const MarketDataSet& from) {
     if (from.has_order()) {
       mutable_order()->::comm::OrderData::MergeFrom(from.order());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_kline()) {
       mutable_kline()->::comm::KLineData::MergeFrom(from.kline());
     }
@@ -686,7 +768,7 @@ void MarketDataSet::CopyFrom(const MarketDataSet& from) {
 }
 
 bool MarketDataSet::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_tick()) {
     if (!this->tick_->IsInitialized()) return false;
@@ -718,6 +800,7 @@ void MarketDataSet::Swap(MarketDataSet* other) {
 }
 void MarketDataSet::InternalSwap(MarketDataSet* other) {
   std::swap(datatype_, other->datatype_);
+  std::swap(securitytype_, other->securitytype_);
   std::swap(tick_, other->tick_);
   std::swap(transaction_, other->transaction_);
   std::swap(orderqueue_, other->orderqueue_);
@@ -765,15 +848,39 @@ void MarketDataSet::set_datatype(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:comm.MarketDataSet.DataType)
 }
 
-// optional .comm.MarketData Tick = 2;
-bool MarketDataSet::has_tick() const {
+// required int32 SecurityType = 2;
+bool MarketDataSet::has_securitytype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void MarketDataSet::set_has_tick() {
+void MarketDataSet::set_has_securitytype() {
   _has_bits_[0] |= 0x00000002u;
 }
-void MarketDataSet::clear_has_tick() {
+void MarketDataSet::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000002u;
+}
+void MarketDataSet::clear_securitytype() {
+  securitytype_ = 0;
+  clear_has_securitytype();
+}
+::google::protobuf::int32 MarketDataSet::securitytype() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.SecurityType)
+  return securitytype_;
+}
+void MarketDataSet::set_securitytype(::google::protobuf::int32 value) {
+  set_has_securitytype();
+  securitytype_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketDataSet.SecurityType)
+}
+
+// optional .comm.MarketData Tick = 3;
+bool MarketDataSet::has_tick() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void MarketDataSet::set_has_tick() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void MarketDataSet::clear_has_tick() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 void MarketDataSet::clear_tick() {
   if (tick_ != NULL) tick_->::comm::MarketData::Clear();
@@ -810,15 +917,15 @@ void MarketDataSet::set_allocated_tick(::comm::MarketData* tick) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Tick)
 }
 
-// optional .comm.TransactionData Transaction = 3;
+// optional .comm.TransactionData Transaction = 4;
 bool MarketDataSet::has_transaction() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void MarketDataSet::set_has_transaction() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void MarketDataSet::clear_has_transaction() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void MarketDataSet::clear_transaction() {
   if (transaction_ != NULL) transaction_->::comm::TransactionData::Clear();
@@ -855,15 +962,15 @@ void MarketDataSet::set_allocated_transaction(::comm::TransactionData* transacti
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Transaction)
 }
 
-// optional .comm.OrderQueueData OrderQueue = 4;
+// optional .comm.OrderQueueData OrderQueue = 5;
 bool MarketDataSet::has_orderqueue() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 void MarketDataSet::set_has_orderqueue() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 void MarketDataSet::clear_has_orderqueue() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 void MarketDataSet::clear_orderqueue() {
   if (orderqueue_ != NULL) orderqueue_->::comm::OrderQueueData::Clear();
@@ -900,15 +1007,15 @@ void MarketDataSet::set_allocated_orderqueue(::comm::OrderQueueData* orderqueue)
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.OrderQueue)
 }
 
-// optional .comm.IndexData Index = 5;
+// optional .comm.IndexData Index = 6;
 bool MarketDataSet::has_index() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void MarketDataSet::set_has_index() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void MarketDataSet::clear_has_index() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void MarketDataSet::clear_index() {
   if (index_ != NULL) index_->::comm::IndexData::Clear();
@@ -945,15 +1052,15 @@ void MarketDataSet::set_allocated_index(::comm::IndexData* index) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Index)
 }
 
-// optional .comm.FutureData future = 6;
+// optional .comm.FutureData future = 7;
 bool MarketDataSet::has_future() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void MarketDataSet::set_has_future() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void MarketDataSet::clear_has_future() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void MarketDataSet::clear_future() {
   if (future_ != NULL) future_->::comm::FutureData::Clear();
@@ -990,15 +1097,15 @@ void MarketDataSet::set_allocated_future(::comm::FutureData* future) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.future)
 }
 
-// optional .comm.OrderData order = 7;
+// optional .comm.OrderData order = 8;
 bool MarketDataSet::has_order() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void MarketDataSet::set_has_order() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void MarketDataSet::clear_has_order() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void MarketDataSet::clear_order() {
   if (order_ != NULL) order_->::comm::OrderData::Clear();
@@ -1035,15 +1142,15 @@ void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
 }
 
-// optional .comm.KLineData kline = 8;
+// optional .comm.KLineData kline = 9;
 bool MarketDataSet::has_kline() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void MarketDataSet::set_has_kline() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void MarketDataSet::clear_has_kline() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void MarketDataSet::clear_kline() {
   if (kline_ != NULL) kline_->::comm::KLineData::Clear();

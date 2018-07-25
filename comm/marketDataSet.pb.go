@@ -23,13 +23,14 @@ var _ = math.Inf
 
 type MarketDataSet struct {
 	DataType         *int32                 `protobuf:"varint,1,req" json:"DataType,omitempty"`
-	Tick             *MarketData      `protobuf:"bytes,2,opt" json:"Tick,omitempty"`
-	Transaction      *TransactionData `protobuf:"bytes,3,opt" json:"Transaction,omitempty"`
-	OrderQueue       *OrderQueueData  `protobuf:"bytes,4,opt" json:"OrderQueue,omitempty"`
-	Index            *IndexData       `protobuf:"bytes,5,opt" json:"Index,omitempty"`
-	Future           *FutureData      `protobuf:"bytes,6,opt,name=future" json:"future,omitempty"`
-	Order            *OrderData       `protobuf:"bytes,7,opt,name=order" json:"order,omitempty"`
-	Kline            *KLineData       `protobuf:"bytes,8,opt,name=kline" json:"kline,omitempty"`
+	SecurityType     *int32                 `protobuf:"varint,2,req" json:"SecurityType,omitempty"`
+	Tick             *MarketData      `protobuf:"bytes,3,opt" json:"Tick,omitempty"`
+	Transaction      *TransactionData `protobuf:"bytes,4,opt" json:"Transaction,omitempty"`
+	OrderQueue       *OrderQueueData  `protobuf:"bytes,5,opt" json:"OrderQueue,omitempty"`
+	Index            *IndexData       `protobuf:"bytes,6,opt" json:"Index,omitempty"`
+	Future           *FutureData      `protobuf:"bytes,7,opt,name=future" json:"future,omitempty"`
+	Order            *OrderData       `protobuf:"bytes,8,opt,name=order" json:"order,omitempty"`
+	Kline            *KLineData       `protobuf:"bytes,9,opt,name=kline" json:"kline,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
 }
 
@@ -40,6 +41,13 @@ func (*MarketDataSet) ProtoMessage()    {}
 func (m *MarketDataSet) GetDataType() int32 {
 	if m != nil && m.DataType != nil {
 		return *m.DataType
+	}
+	return 0
+}
+
+func (m *MarketDataSet) GetSecurityType() int32 {
+	if m != nil && m.SecurityType != nil {
+		return *m.SecurityType
 	}
 	return 0
 }
