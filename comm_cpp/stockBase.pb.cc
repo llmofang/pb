@@ -18,171 +18,155 @@
 // @@protoc_insertion_point(includes)
 
 namespace comm {
-class StockBaseListDefaultTypeInternal {
-public:
- ::google::protobuf::internal::ExplicitlyConstructed<StockBaseList>
-     _instance;
-} _StockBaseList_default_instance_;
-class StockBaseDefaultTypeInternal {
-public:
- ::google::protobuf::internal::ExplicitlyConstructed<StockBase>
-     _instance;
-} _StockBase_default_instance_;
-
-namespace protobuf_stockBase_2eproto {
-
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[2];
+const ::google::protobuf::Descriptor* StockBaseList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  StockBaseList_reflection_ = NULL;
+const ::google::protobuf::Descriptor* StockBase_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  StockBase_reflection_ = NULL;
 
 }  // namespace
 
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
-};
 
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  ::google::protobuf::internal::AuxillaryParseTableField(),
-};
-PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
-  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
-};
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, infolist_),
-  ~0u,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, htcode_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securityid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, symbol_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, chispelling_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, englishname_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securityidsource_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securitytype_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securitysubtype_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, listdate_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, currency_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, outstandingshare_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, publicfloatsharequantity_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, mddate_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, tradingphasecode_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, preclosepx_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, maxpx_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, minpx_),
-  0,
-  1,
-  2,
-  3,
-  4,
-  9,
-  10,
-  5,
-  6,
-  7,
-  11,
-  12,
-  16,
-  8,
-  13,
-  14,
-  15,
-};
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 6, sizeof(StockBaseList)},
-  { 7, 29, sizeof(StockBase)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&_StockBaseList_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_StockBase_default_instance_),
-};
+void protobuf_AssignDesc_stockBase_2eproto() GOOGLE_ATTRIBUTE_COLD;
+void protobuf_AssignDesc_stockBase_2eproto() {
+  protobuf_AddDesc_stockBase_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "stockBase.proto");
+  GOOGLE_CHECK(file != NULL);
+  StockBaseList_descriptor_ = file->message_type(0);
+  static const int StockBaseList_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, infolist_),
+  };
+  StockBaseList_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      StockBaseList_descriptor_,
+      StockBaseList::internal_default_instance(),
+      StockBaseList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, _has_bits_),
+      -1,
+      -1,
+      sizeof(StockBaseList),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBaseList, _internal_metadata_));
+  StockBase_descriptor_ = file->message_type(1);
+  static const int StockBase_offsets_[17] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, htcode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securityid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, symbol_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, chispelling_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, englishname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securityidsource_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securitytype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, securitysubtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, listdate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, currency_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, outstandingshare_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, publicfloatsharequantity_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, mddate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, tradingphasecode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, preclosepx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, maxpx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, minpx_),
+  };
+  StockBase_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      StockBase_descriptor_,
+      StockBase::internal_default_instance(),
+      StockBase_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, _has_bits_),
+      -1,
+      -1,
+      sizeof(StockBase),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StockBase, _internal_metadata_));
+}
 
 namespace {
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "stockBase.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
-}
-
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
 void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_stockBase_2eproto);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      StockBaseList_descriptor_, StockBaseList::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      StockBase_descriptor_, StockBase::internal_default_instance());
 }
 
 }  // namespace
-void TableStruct::InitDefaultsImpl() {
+
+void protobuf_ShutdownFile_stockBase_2eproto() {
+  StockBaseList_default_instance_.Shutdown();
+  delete StockBaseList_reflection_;
+  StockBase_default_instance_.Shutdown();
+  delete StockBase_reflection_;
+}
+
+void protobuf_InitDefaults_stockBase_2eproto_impl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::internal::InitProtobufDefaults();
-  _StockBaseList_default_instance_._instance.DefaultConstruct();
-  ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_StockBaseList_default_instance_);_StockBase_default_instance_._instance.DefaultConstruct();
-  ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_StockBase_default_instance_);}
-
-void InitDefaults() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
+  StockBaseList_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::GetEmptyString();
+  StockBase_default_instance_.DefaultConstruct();
+  StockBaseList_default_instance_.get_mutable()->InitAsDefaultInstance();
+  StockBase_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
-namespace {
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\017stockBase.proto\022\004comm\"2\n\rStockBaseList"
-      "\022!\n\010InfoList\030\001 \003(\0132\017.comm.StockBase\"\356\002\n\t"
-      "StockBase\022\016\n\006HTCode\030\001 \002(\t\022\022\n\nSecurityID\030"
-      "\002 \002(\t\022\016\n\006Symbol\030\003 \002(\t\022\023\n\013ChiSpelling\030\004 \002"
-      "(\t\022\023\n\013EnglishName\030\005 \002(\t\022\030\n\020SecurityIDSou"
-      "rce\030\006 \002(\005\022\024\n\014SecurityType\030\007 \002(\005\022\027\n\017Secur"
-      "itySubType\030\010 \002(\t\022\020\n\010ListDate\030\t \002(\t\022\020\n\010Cu"
-      "rrency\030\n \002(\t\022\030\n\020OutstandingShare\030\013 \002(\003\022 "
-      "\n\030PublicFloatShareQuantity\030\014 \002(\003\022\016\n\006MDDa"
-      "te\030\r \002(\005\022\030\n\020TradingPhaseCode\030\016 \002(\t\022\022\n\nPr"
-      "eClosePx\030\017 \002(\003\022\r\n\005MaxPx\030\020 \002(\003\022\r\n\005MinPx\030\021"
-      " \002(\003"
-  };
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_stockBase_2eproto_once_);
+void protobuf_InitDefaults_stockBase_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_stockBase_2eproto_once_,
+                 &protobuf_InitDefaults_stockBase_2eproto_impl);
+}
+void protobuf_AddDesc_stockBase_2eproto_impl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  protobuf_InitDefaults_stockBase_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 444);
+    "\n\017stockBase.proto\022\004comm\"2\n\rStockBaseList"
+    "\022!\n\010InfoList\030\001 \003(\0132\017.comm.StockBase\"\356\002\n\t"
+    "StockBase\022\016\n\006HTCode\030\001 \002(\t\022\022\n\nSecurityID\030"
+    "\002 \002(\t\022\016\n\006Symbol\030\003 \002(\t\022\023\n\013ChiSpelling\030\004 \002"
+    "(\t\022\023\n\013EnglishName\030\005 \002(\t\022\030\n\020SecurityIDSou"
+    "rce\030\006 \002(\005\022\024\n\014SecurityType\030\007 \002(\005\022\027\n\017Secur"
+    "itySubType\030\010 \002(\t\022\020\n\010ListDate\030\t \002(\t\022\020\n\010Cu"
+    "rrency\030\n \002(\t\022\030\n\020OutstandingShare\030\013 \002(\003\022 "
+    "\n\030PublicFloatShareQuantity\030\014 \002(\003\022\016\n\006MDDa"
+    "te\030\r \002(\005\022\030\n\020TradingPhaseCode\030\016 \002(\t\022\022\n\nPr"
+    "eClosePx\030\017 \002(\003\022\r\n\005MaxPx\030\020 \002(\003\022\r\n\005MinPx\030\021"
+    " \002(\003", 444);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "stockBase.proto", &protobuf_RegisterTypes);
+  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_stockBase_2eproto);
 }
-} // anonymous namespace
 
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_stockBase_2eproto_once_);
+void protobuf_AddDesc_stockBase_2eproto() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_stockBase_2eproto_once_,
+                 &protobuf_AddDesc_stockBase_2eproto_impl);
 }
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
+// Force AddDescriptors() to be called at static initialization time.
+struct StaticDescriptorInitializer_stockBase_2eproto {
+  StaticDescriptorInitializer_stockBase_2eproto() {
+    protobuf_AddDesc_stockBase_2eproto();
   }
-} static_descriptor_initializer;
+} static_descriptor_initializer_stockBase_2eproto_;
 
-}  // namespace protobuf_stockBase_2eproto
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
+static void MergeFromFail(int line) {
+  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
+}
+
+}  // namespace
 
 
 // ===================================================================
@@ -193,19 +177,19 @@ const int StockBaseList::kInfoListFieldNumber;
 
 StockBaseList::StockBaseList()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    protobuf_stockBase_2eproto::InitDefaults();
-  }
+  if (this != internal_default_instance()) protobuf_InitDefaults_stockBase_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:comm.StockBaseList)
 }
+
+void StockBaseList::InitAsDefaultInstance() {
+}
+
 StockBaseList::StockBaseList(const StockBaseList& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
-      _cached_size_(0),
-      infolist_(from.infolist_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:comm.StockBaseList)
 }
 
@@ -227,14 +211,16 @@ void StockBaseList::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* StockBaseList::descriptor() {
-  protobuf_stockBase_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_stockBase_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+  protobuf_AssignDescriptorsOnce();
+  return StockBaseList_descriptor_;
 }
 
 const StockBaseList& StockBaseList::default_instance() {
-  protobuf_stockBase_2eproto::InitDefaults();
+  protobuf_InitDefaults_stockBase_2eproto();
   return *internal_default_instance();
 }
+
+::google::protobuf::internal::ExplicitlyConstructed<StockBaseList> StockBaseList_default_instance_;
 
 StockBaseList* StockBaseList::New(::google::protobuf::Arena* arena) const {
   StockBaseList* n = new StockBaseList;
@@ -246,13 +232,11 @@ StockBaseList* StockBaseList::New(::google::protobuf::Arena* arena) const {
 
 void StockBaseList::Clear() {
 // @@protoc_insertion_point(message_clear_start:comm.StockBaseList)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
   infolist_.Clear();
   _has_bits_.Clear();
-  _internal_metadata_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool StockBaseList::MergePartialFromCodedStream(
@@ -261,29 +245,35 @@ bool StockBaseList::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:comm.StockBaseList)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // repeated .comm.StockBase InfoList = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+        if (tag == 10) {
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_InfoList:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_infolist()));
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(10)) goto parse_loop_InfoList;
+        input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
       default: {
       handle_unusual:
-        if (tag == 0) {
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -300,19 +290,15 @@ failure:
 void StockBaseList::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:comm.StockBaseList)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
   // repeated .comm.StockBase InfoList = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->infolist_size()); i < n; i++) {
+  for (unsigned int i = 0, n = this->infolist_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->infolist(static_cast<int>(i)), output);
+      1, this->infolist(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:comm.StockBaseList)
 }
@@ -321,20 +307,16 @@ void StockBaseList::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.StockBaseList)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
   // repeated .comm.StockBase InfoList = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->infolist_size()); i < n; i++) {
+  for (unsigned int i = 0, n = this->infolist_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        1, this->infolist(static_cast<int>(i)), deterministic, target);
+        1, this->infolist(i), false, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:comm.StockBaseList)
   return target;
@@ -344,22 +326,22 @@ size_t StockBaseList::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:comm.StockBaseList)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
   // repeated .comm.StockBase InfoList = 1;
   {
-    unsigned int count = static_cast<unsigned int>(this->infolist_size());
+    unsigned int count = this->infolist_size();
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->infolist(static_cast<int>(i)));
+          this->infolist(i));
     }
   }
 
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -369,7 +351,7 @@ size_t StockBaseList::ByteSizeLong() const {
 
 void StockBaseList::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:comm.StockBaseList)
-  GOOGLE_DCHECK_NE(&from, this);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const StockBaseList* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const StockBaseList>(
           &from);
@@ -378,18 +360,26 @@ void StockBaseList::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:comm.StockBaseList)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void StockBaseList::MergeFrom(const StockBaseList& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:comm.StockBaseList)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
 
+void StockBaseList::UnsafeMergeFrom(const StockBaseList& from) {
+  GOOGLE_DCHECK(&from != this);
   infolist_.MergeFrom(from.infolist_);
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
+  }
 }
 
 void StockBaseList::CopyFrom(const ::google::protobuf::Message& from) {
@@ -403,10 +393,11 @@ void StockBaseList::CopyFrom(const StockBaseList& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:comm.StockBaseList)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool StockBaseList::IsInitialized() const {
+
   if (!::google::protobuf::internal::AllAreInitialized(this->infolist())) return false;
   return true;
 }
@@ -416,16 +407,18 @@ void StockBaseList::Swap(StockBaseList* other) {
   InternalSwap(other);
 }
 void StockBaseList::InternalSwap(StockBaseList* other) {
-  using std::swap;
-  infolist_.InternalSwap(&other->infolist_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
+  infolist_.UnsafeArenaSwap(&other->infolist_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata StockBaseList::GetMetadata() const {
-  protobuf_stockBase_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_stockBase_2eproto::file_level_metadata[kIndexInFileMessages];
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = StockBaseList_descriptor_;
+  metadata.reflection = StockBaseList_reflection_;
+  return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -461,6 +454,9 @@ StockBaseList::infolist() const {
   return infolist_;
 }
 
+inline const StockBaseList* StockBaseList::internal_default_instance() {
+  return &StockBaseList_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -487,57 +483,19 @@ const int StockBase::kMinPxFieldNumber;
 
 StockBase::StockBase()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    protobuf_stockBase_2eproto::InitDefaults();
-  }
+  if (this != internal_default_instance()) protobuf_InitDefaults_stockBase_2eproto();
   SharedCtor();
   // @@protoc_insertion_point(constructor:comm.StockBase)
 }
+
+void StockBase::InitAsDefaultInstance() {
+}
+
 StockBase::StockBase(const StockBase& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  htcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_htcode()) {
-    htcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.htcode_);
-  }
-  securityid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_securityid()) {
-    securityid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securityid_);
-  }
-  symbol_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_symbol()) {
-    symbol_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.symbol_);
-  }
-  chispelling_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_chispelling()) {
-    chispelling_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.chispelling_);
-  }
-  englishname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_englishname()) {
-    englishname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.englishname_);
-  }
-  securitysubtype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_securitysubtype()) {
-    securitysubtype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securitysubtype_);
-  }
-  listdate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_listdate()) {
-    listdate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.listdate_);
-  }
-  currency_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_currency()) {
-    currency_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.currency_);
-  }
-  tradingphasecode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_tradingphasecode()) {
-    tradingphasecode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tradingphasecode_);
-  }
-  ::memcpy(&securityidsource_, &from.securityidsource_,
-    static_cast<size_t>(reinterpret_cast<char*>(&mddate_) -
-    reinterpret_cast<char*>(&securityidsource_)) + sizeof(mddate_));
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:comm.StockBase)
 }
 
@@ -552,9 +510,8 @@ void StockBase::SharedCtor() {
   listdate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   currency_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tradingphasecode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&securityidsource_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&mddate_) -
-      reinterpret_cast<char*>(&securityidsource_)) + sizeof(mddate_));
+  ::memset(&securityidsource_, 0, reinterpret_cast<char*>(&mddate_) -
+    reinterpret_cast<char*>(&securityidsource_) + sizeof(mddate_));
 }
 
 StockBase::~StockBase() {
@@ -580,14 +537,16 @@ void StockBase::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* StockBase::descriptor() {
-  protobuf_stockBase_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_stockBase_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+  protobuf_AssignDescriptorsOnce();
+  return StockBase_descriptor_;
 }
 
 const StockBase& StockBase::default_instance() {
-  protobuf_stockBase_2eproto::InitDefaults();
+  protobuf_InitDefaults_stockBase_2eproto();
   return *internal_default_instance();
 }
+
+::google::protobuf::internal::ExplicitlyConstructed<StockBase> StockBase_default_instance_;
 
 StockBase* StockBase::New(::google::protobuf::Arena* arena) const {
   StockBase* n = new StockBase;
@@ -599,57 +558,65 @@ StockBase* StockBase::New(::google::protobuf::Arena* arena) const {
 
 void StockBase::Clear() {
 // @@protoc_insertion_point(message_clear_start:comm.StockBase)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(StockBase, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<StockBase*>(16)->f)
+#endif
 
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    if (cached_has_bits & 0x00000001u) {
-      GOOGLE_DCHECK(!htcode_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*htcode_.UnsafeRawStringPointer())->clear();
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 255u) {
+    ZR_(securityidsource_, securitytype_);
+    if (has_htcode()) {
+      htcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (cached_has_bits & 0x00000002u) {
-      GOOGLE_DCHECK(!securityid_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*securityid_.UnsafeRawStringPointer())->clear();
+    if (has_securityid()) {
+      securityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (cached_has_bits & 0x00000004u) {
-      GOOGLE_DCHECK(!symbol_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*symbol_.UnsafeRawStringPointer())->clear();
+    if (has_symbol()) {
+      symbol_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (cached_has_bits & 0x00000008u) {
-      GOOGLE_DCHECK(!chispelling_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*chispelling_.UnsafeRawStringPointer())->clear();
+    if (has_chispelling()) {
+      chispelling_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (cached_has_bits & 0x00000010u) {
-      GOOGLE_DCHECK(!englishname_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*englishname_.UnsafeRawStringPointer())->clear();
+    if (has_englishname()) {
+      englishname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    if (cached_has_bits & 0x00000020u) {
-      GOOGLE_DCHECK(!securitysubtype_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*securitysubtype_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000040u) {
-      GOOGLE_DCHECK(!listdate_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*listdate_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000080u) {
-      GOOGLE_DCHECK(!currency_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*currency_.UnsafeRawStringPointer())->clear();
+    if (has_securitysubtype()) {
+      securitysubtype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  if (cached_has_bits & 0x00000100u) {
-    GOOGLE_DCHECK(!tradingphasecode_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*tradingphasecode_.UnsafeRawStringPointer())->clear();
+  if (_has_bits_[8 / 32] & 65280u) {
+    ZR_(outstandingshare_, maxpx_);
+    if (has_listdate()) {
+      listdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    if (has_currency()) {
+      currency_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
+    mddate_ = 0;
+    if (has_tradingphasecode()) {
+      tradingphasecode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    }
   }
-  if (cached_has_bits & 65024u) {
-    ::memset(&securityidsource_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&minpx_) -
-        reinterpret_cast<char*>(&securityidsource_)) + sizeof(minpx_));
-  }
-  mddate_ = 0;
+  minpx_ = GOOGLE_LONGLONG(0);
+
+#undef ZR_HELPER_
+#undef ZR_
+
   _has_bits_.Clear();
-  _internal_metadata_.Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool StockBase::MergePartialFromCodedStream(
@@ -658,94 +625,98 @@ bool StockBase::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:comm.StockBase)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // required string HTCode = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+        if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_htcode()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->htcode().data(), static_cast<int>(this->htcode().length()),
+            this->htcode().data(), this->htcode().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.HTCode");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(18)) goto parse_SecurityID;
         break;
       }
 
       // required string SecurityID = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+        if (tag == 18) {
+         parse_SecurityID:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_securityid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->securityid().data(), static_cast<int>(this->securityid().length()),
+            this->securityid().data(), this->securityid().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.SecurityID");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(26)) goto parse_Symbol;
         break;
       }
 
       // required string Symbol = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+        if (tag == 26) {
+         parse_Symbol:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_symbol()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->symbol().data(), static_cast<int>(this->symbol().length()),
+            this->symbol().data(), this->symbol().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.Symbol");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_ChiSpelling;
         break;
       }
 
       // required string ChiSpelling = 4;
       case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+        if (tag == 34) {
+         parse_ChiSpelling:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_chispelling()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->chispelling().data(), static_cast<int>(this->chispelling().length()),
+            this->chispelling().data(), this->chispelling().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.ChiSpelling");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_EnglishName;
         break;
       }
 
       // required string EnglishName = 5;
       case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+        if (tag == 42) {
+         parse_EnglishName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_englishname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->englishname().data(), static_cast<int>(this->englishname().length()),
+            this->englishname().data(), this->englishname().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.EnglishName");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(48)) goto parse_SecurityIDSource;
         break;
       }
 
       // required int32 SecurityIDSource = 6;
       case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+        if (tag == 48) {
+         parse_SecurityIDSource:
           set_has_securityidsource();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -753,13 +724,14 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(56)) goto parse_SecurityType;
         break;
       }
 
       // required int32 SecurityType = 7;
       case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+        if (tag == 56) {
+         parse_SecurityType:
           set_has_securitytype();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -767,61 +739,65 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_SecuritySubType;
         break;
       }
 
       // required string SecuritySubType = 8;
       case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+        if (tag == 66) {
+         parse_SecuritySubType:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_securitysubtype()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->securitysubtype().data(), static_cast<int>(this->securitysubtype().length()),
+            this->securitysubtype().data(), this->securitysubtype().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.SecuritySubType");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(74)) goto parse_ListDate;
         break;
       }
 
       // required string ListDate = 9;
       case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
+        if (tag == 74) {
+         parse_ListDate:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_listdate()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->listdate().data(), static_cast<int>(this->listdate().length()),
+            this->listdate().data(), this->listdate().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.ListDate");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(82)) goto parse_Currency;
         break;
       }
 
       // required string Currency = 10;
       case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
+        if (tag == 82) {
+         parse_Currency:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_currency()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->currency().data(), static_cast<int>(this->currency().length()),
+            this->currency().data(), this->currency().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.Currency");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(88)) goto parse_OutstandingShare;
         break;
       }
 
       // required int64 OutstandingShare = 11;
       case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+        if (tag == 88) {
+         parse_OutstandingShare:
           set_has_outstandingshare();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -829,13 +805,14 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(96)) goto parse_PublicFloatShareQuantity;
         break;
       }
 
       // required int64 PublicFloatShareQuantity = 12;
       case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
+        if (tag == 96) {
+         parse_PublicFloatShareQuantity:
           set_has_publicfloatsharequantity();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -843,13 +820,14 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(104)) goto parse_MDDate;
         break;
       }
 
       // required int32 MDDate = 13;
       case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
+        if (tag == 104) {
+         parse_MDDate:
           set_has_mddate();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -857,29 +835,31 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(114)) goto parse_TradingPhaseCode;
         break;
       }
 
       // required string TradingPhaseCode = 14;
       case 14: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(114u /* 114 & 0xFF */)) {
+        if (tag == 114) {
+         parse_TradingPhaseCode:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_tradingphasecode()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->tradingphasecode().data(), static_cast<int>(this->tradingphasecode().length()),
+            this->tradingphasecode().data(), this->tradingphasecode().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "comm.StockBase.TradingPhaseCode");
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(120)) goto parse_PreClosePx;
         break;
       }
 
       // required int64 PreClosePx = 15;
       case 15: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(120u /* 120 & 0xFF */)) {
+        if (tag == 120) {
+         parse_PreClosePx:
           set_has_preclosepx();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -887,13 +867,14 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(128)) goto parse_MaxPx;
         break;
       }
 
       // required int64 MaxPx = 16;
       case 16: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(128u /* 128 & 0xFF */)) {
+        if (tag == 128) {
+         parse_MaxPx:
           set_has_maxpx();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -901,13 +882,14 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(136)) goto parse_MinPx;
         break;
       }
 
       // required int64 MinPx = 17;
       case 17: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(136u /* 136 & 0xFF */)) {
+        if (tag == 136) {
+         parse_MinPx:
           set_has_minpx();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -915,16 +897,19 @@ bool StockBase::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
       default: {
       handle_unusual:
-        if (tag == 0) {
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -941,14 +926,10 @@ failure:
 void StockBase::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:comm.StockBase)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
   // required string HTCode = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (has_htcode()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->htcode().data(), static_cast<int>(this->htcode().length()),
+      this->htcode().data(), this->htcode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.HTCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -956,9 +937,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string SecurityID = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (has_securityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securityid().data(), static_cast<int>(this->securityid().length()),
+      this->securityid().data(), this->securityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.SecurityID");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -966,9 +947,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string Symbol = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (has_symbol()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->symbol().data(), static_cast<int>(this->symbol().length()),
+      this->symbol().data(), this->symbol().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.Symbol");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -976,9 +957,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string ChiSpelling = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (has_chispelling()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->chispelling().data(), static_cast<int>(this->chispelling().length()),
+      this->chispelling().data(), this->chispelling().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.ChiSpelling");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -986,9 +967,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string EnglishName = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (has_englishname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->englishname().data(), static_cast<int>(this->englishname().length()),
+      this->englishname().data(), this->englishname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.EnglishName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -996,19 +977,19 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int32 SecurityIDSource = 6;
-  if (cached_has_bits & 0x00000200u) {
+  if (has_securityidsource()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->securityidsource(), output);
   }
 
   // required int32 SecurityType = 7;
-  if (cached_has_bits & 0x00000400u) {
+  if (has_securitytype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->securitytype(), output);
   }
 
   // required string SecuritySubType = 8;
-  if (cached_has_bits & 0x00000020u) {
+  if (has_securitysubtype()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securitysubtype().data(), static_cast<int>(this->securitysubtype().length()),
+      this->securitysubtype().data(), this->securitysubtype().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.SecuritySubType");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -1016,9 +997,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string ListDate = 9;
-  if (cached_has_bits & 0x00000040u) {
+  if (has_listdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->listdate().data(), static_cast<int>(this->listdate().length()),
+      this->listdate().data(), this->listdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.ListDate");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -1026,9 +1007,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string Currency = 10;
-  if (cached_has_bits & 0x00000080u) {
+  if (has_currency()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->currency().data(), static_cast<int>(this->currency().length()),
+      this->currency().data(), this->currency().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.Currency");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -1036,24 +1017,24 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int64 OutstandingShare = 11;
-  if (cached_has_bits & 0x00000800u) {
+  if (has_outstandingshare()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->outstandingshare(), output);
   }
 
   // required int64 PublicFloatShareQuantity = 12;
-  if (cached_has_bits & 0x00001000u) {
+  if (has_publicfloatsharequantity()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->publicfloatsharequantity(), output);
   }
 
   // required int32 MDDate = 13;
-  if (cached_has_bits & 0x00010000u) {
+  if (has_mddate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->mddate(), output);
   }
 
   // required string TradingPhaseCode = 14;
-  if (cached_has_bits & 0x00000100u) {
+  if (has_tradingphasecode()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->tradingphasecode().data(), static_cast<int>(this->tradingphasecode().length()),
+      this->tradingphasecode().data(), this->tradingphasecode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.TradingPhaseCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -1061,23 +1042,23 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int64 PreClosePx = 15;
-  if (cached_has_bits & 0x00002000u) {
+  if (has_preclosepx()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->preclosepx(), output);
   }
 
   // required int64 MaxPx = 16;
-  if (cached_has_bits & 0x00004000u) {
+  if (has_maxpx()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(16, this->maxpx(), output);
   }
 
   // required int64 MinPx = 17;
-  if (cached_has_bits & 0x00008000u) {
+  if (has_minpx()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(17, this->minpx(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:comm.StockBase)
 }
@@ -1086,14 +1067,10 @@ void StockBase::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.StockBase)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
   // required string HTCode = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (has_htcode()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->htcode().data(), static_cast<int>(this->htcode().length()),
+      this->htcode().data(), this->htcode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.HTCode");
     target =
@@ -1102,9 +1079,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string SecurityID = 2;
-  if (cached_has_bits & 0x00000002u) {
+  if (has_securityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securityid().data(), static_cast<int>(this->securityid().length()),
+      this->securityid().data(), this->securityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.SecurityID");
     target =
@@ -1113,9 +1090,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string Symbol = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (has_symbol()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->symbol().data(), static_cast<int>(this->symbol().length()),
+      this->symbol().data(), this->symbol().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.Symbol");
     target =
@@ -1124,9 +1101,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string ChiSpelling = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (has_chispelling()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->chispelling().data(), static_cast<int>(this->chispelling().length()),
+      this->chispelling().data(), this->chispelling().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.ChiSpelling");
     target =
@@ -1135,9 +1112,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string EnglishName = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (has_englishname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->englishname().data(), static_cast<int>(this->englishname().length()),
+      this->englishname().data(), this->englishname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.EnglishName");
     target =
@@ -1146,19 +1123,19 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int32 SecurityIDSource = 6;
-  if (cached_has_bits & 0x00000200u) {
+  if (has_securityidsource()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->securityidsource(), target);
   }
 
   // required int32 SecurityType = 7;
-  if (cached_has_bits & 0x00000400u) {
+  if (has_securitytype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->securitytype(), target);
   }
 
   // required string SecuritySubType = 8;
-  if (cached_has_bits & 0x00000020u) {
+  if (has_securitysubtype()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securitysubtype().data(), static_cast<int>(this->securitysubtype().length()),
+      this->securitysubtype().data(), this->securitysubtype().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.SecuritySubType");
     target =
@@ -1167,9 +1144,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string ListDate = 9;
-  if (cached_has_bits & 0x00000040u) {
+  if (has_listdate()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->listdate().data(), static_cast<int>(this->listdate().length()),
+      this->listdate().data(), this->listdate().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.ListDate");
     target =
@@ -1178,9 +1155,9 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required string Currency = 10;
-  if (cached_has_bits & 0x00000080u) {
+  if (has_currency()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->currency().data(), static_cast<int>(this->currency().length()),
+      this->currency().data(), this->currency().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.Currency");
     target =
@@ -1189,24 +1166,24 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int64 OutstandingShare = 11;
-  if (cached_has_bits & 0x00000800u) {
+  if (has_outstandingshare()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->outstandingshare(), target);
   }
 
   // required int64 PublicFloatShareQuantity = 12;
-  if (cached_has_bits & 0x00001000u) {
+  if (has_publicfloatsharequantity()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->publicfloatsharequantity(), target);
   }
 
   // required int32 MDDate = 13;
-  if (cached_has_bits & 0x00010000u) {
+  if (has_mddate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->mddate(), target);
   }
 
   // required string TradingPhaseCode = 14;
-  if (cached_has_bits & 0x00000100u) {
+  if (has_tradingphasecode()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->tradingphasecode().data(), static_cast<int>(this->tradingphasecode().length()),
+      this->tradingphasecode().data(), this->tradingphasecode().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "comm.StockBase.TradingPhaseCode");
     target =
@@ -1215,23 +1192,23 @@ void StockBase::SerializeWithCachedSizes(
   }
 
   // required int64 PreClosePx = 15;
-  if (cached_has_bits & 0x00002000u) {
+  if (has_preclosepx()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->preclosepx(), target);
   }
 
   // required int64 MaxPx = 16;
-  if (cached_has_bits & 0x00004000u) {
+  if (has_maxpx()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(16, this->maxpx(), target);
   }
 
   // required int64 MinPx = 17;
-  if (cached_has_bits & 0x00008000u) {
+  if (has_minpx()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(17, this->minpx(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:comm.StockBase)
   return target;
@@ -1276,6 +1253,20 @@ size_t StockBase::RequiredFieldsByteSizeFallback() const {
         this->englishname());
   }
 
+  if (has_securityidsource()) {
+    // required int32 SecurityIDSource = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securityidsource());
+  }
+
+  if (has_securitytype()) {
+    // required int32 SecurityType = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securitytype());
+  }
+
   if (has_securitysubtype()) {
     // required string SecuritySubType = 8;
     total_size += 1 +
@@ -1297,27 +1288,6 @@ size_t StockBase::RequiredFieldsByteSizeFallback() const {
         this->currency());
   }
 
-  if (has_tradingphasecode()) {
-    // required string TradingPhaseCode = 14;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->tradingphasecode());
-  }
-
-  if (has_securityidsource()) {
-    // required int32 SecurityIDSource = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->securityidsource());
-  }
-
-  if (has_securitytype()) {
-    // required int32 SecurityType = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->securitytype());
-  }
-
   if (has_outstandingshare()) {
     // required int64 OutstandingShare = 11;
     total_size += 1 +
@@ -1330,6 +1300,20 @@ size_t StockBase::RequiredFieldsByteSizeFallback() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->publicfloatsharequantity());
+  }
+
+  if (has_mddate()) {
+    // required int32 MDDate = 13;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->mddate());
+  }
+
+  if (has_tradingphasecode()) {
+    // required string TradingPhaseCode = 14;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->tradingphasecode());
   }
 
   if (has_preclosepx()) {
@@ -1353,24 +1337,12 @@ size_t StockBase::RequiredFieldsByteSizeFallback() const {
         this->minpx());
   }
 
-  if (has_mddate()) {
-    // required int32 MDDate = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->mddate());
-  }
-
   return total_size;
 }
 size_t StockBase::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:comm.StockBase)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
   if (((_has_bits_[0] & 0x0001ffff) ^ 0x0001ffff) == 0) {  // All required fields are present.
     // required string HTCode = 1;
     total_size += 1 +
@@ -1397,6 +1369,16 @@ size_t StockBase::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->englishname());
 
+    // required int32 SecurityIDSource = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securityidsource());
+
+    // required int32 SecurityType = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->securitytype());
+
     // required string SecuritySubType = 8;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1412,21 +1394,6 @@ size_t StockBase::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->currency());
 
-    // required string TradingPhaseCode = 14;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->tradingphasecode());
-
-    // required int32 SecurityIDSource = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->securityidsource());
-
-    // required int32 SecurityType = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->securitytype());
-
     // required int64 OutstandingShare = 11;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1436,6 +1403,16 @@ size_t StockBase::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->publicfloatsharequantity());
+
+    // required int32 MDDate = 13;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->mddate());
+
+    // required string TradingPhaseCode = 14;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->tradingphasecode());
 
     // required int64 PreClosePx = 15;
     total_size += 1 +
@@ -1452,13 +1429,13 @@ size_t StockBase::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->minpx());
 
-    // required int32 MDDate = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->mddate());
-
   } else {
     total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1469,7 +1446,7 @@ size_t StockBase::ByteSizeLong() const {
 
 void StockBase::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:comm.StockBase)
-  GOOGLE_DCHECK_NE(&from, this);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const StockBase* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const StockBase>(
           &from);
@@ -1478,82 +1455,90 @@ void StockBase::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:comm.StockBase)
-    MergeFrom(*source);
+    UnsafeMergeFrom(*source);
   }
 }
 
 void StockBase::MergeFrom(const StockBase& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:comm.StockBase)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
 
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 255u) {
-    if (cached_has_bits & 0x00000001u) {
+void StockBase::UnsafeMergeFrom(const StockBase& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_htcode()) {
       set_has_htcode();
       htcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.htcode_);
     }
-    if (cached_has_bits & 0x00000002u) {
+    if (from.has_securityid()) {
       set_has_securityid();
       securityid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securityid_);
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (from.has_symbol()) {
       set_has_symbol();
       symbol_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.symbol_);
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (from.has_chispelling()) {
       set_has_chispelling();
       chispelling_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.chispelling_);
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (from.has_englishname()) {
       set_has_englishname();
       englishname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.englishname_);
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (from.has_securityidsource()) {
+      set_securityidsource(from.securityidsource());
+    }
+    if (from.has_securitytype()) {
+      set_securitytype(from.securitytype());
+    }
+    if (from.has_securitysubtype()) {
       set_has_securitysubtype();
       securitysubtype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securitysubtype_);
     }
-    if (cached_has_bits & 0x00000040u) {
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_listdate()) {
       set_has_listdate();
       listdate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.listdate_);
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (from.has_currency()) {
       set_has_currency();
       currency_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.currency_);
     }
-  }
-  if (cached_has_bits & 65280u) {
-    if (cached_has_bits & 0x00000100u) {
+    if (from.has_outstandingshare()) {
+      set_outstandingshare(from.outstandingshare());
+    }
+    if (from.has_publicfloatsharequantity()) {
+      set_publicfloatsharequantity(from.publicfloatsharequantity());
+    }
+    if (from.has_mddate()) {
+      set_mddate(from.mddate());
+    }
+    if (from.has_tradingphasecode()) {
       set_has_tradingphasecode();
       tradingphasecode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tradingphasecode_);
     }
-    if (cached_has_bits & 0x00000200u) {
-      securityidsource_ = from.securityidsource_;
+    if (from.has_preclosepx()) {
+      set_preclosepx(from.preclosepx());
     }
-    if (cached_has_bits & 0x00000400u) {
-      securitytype_ = from.securitytype_;
+    if (from.has_maxpx()) {
+      set_maxpx(from.maxpx());
     }
-    if (cached_has_bits & 0x00000800u) {
-      outstandingshare_ = from.outstandingshare_;
-    }
-    if (cached_has_bits & 0x00001000u) {
-      publicfloatsharequantity_ = from.publicfloatsharequantity_;
-    }
-    if (cached_has_bits & 0x00002000u) {
-      preclosepx_ = from.preclosepx_;
-    }
-    if (cached_has_bits & 0x00004000u) {
-      maxpx_ = from.maxpx_;
-    }
-    if (cached_has_bits & 0x00008000u) {
-      minpx_ = from.minpx_;
-    }
-    _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00010000u) {
-    set_mddate(from.mddate());
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_minpx()) {
+      set_minpx(from.minpx());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
+      from.unknown_fields(), &_internal_metadata_);
   }
 }
 
@@ -1568,11 +1553,12 @@ void StockBase::CopyFrom(const StockBase& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:comm.StockBase)
   if (&from == this) return;
   Clear();
-  MergeFrom(from);
+  UnsafeMergeFrom(from);
 }
 
 bool StockBase::IsInitialized() const {
   if ((_has_bits_[0] & 0x0001ffff) != 0x0001ffff) return false;
+
   return true;
 }
 
@@ -1581,32 +1567,34 @@ void StockBase::Swap(StockBase* other) {
   InternalSwap(other);
 }
 void StockBase::InternalSwap(StockBase* other) {
-  using std::swap;
   htcode_.Swap(&other->htcode_);
   securityid_.Swap(&other->securityid_);
   symbol_.Swap(&other->symbol_);
   chispelling_.Swap(&other->chispelling_);
   englishname_.Swap(&other->englishname_);
+  std::swap(securityidsource_, other->securityidsource_);
+  std::swap(securitytype_, other->securitytype_);
   securitysubtype_.Swap(&other->securitysubtype_);
   listdate_.Swap(&other->listdate_);
   currency_.Swap(&other->currency_);
+  std::swap(outstandingshare_, other->outstandingshare_);
+  std::swap(publicfloatsharequantity_, other->publicfloatsharequantity_);
+  std::swap(mddate_, other->mddate_);
   tradingphasecode_.Swap(&other->tradingphasecode_);
-  swap(securityidsource_, other->securityidsource_);
-  swap(securitytype_, other->securitytype_);
-  swap(outstandingshare_, other->outstandingshare_);
-  swap(publicfloatsharequantity_, other->publicfloatsharequantity_);
-  swap(preclosepx_, other->preclosepx_);
-  swap(maxpx_, other->maxpx_);
-  swap(minpx_, other->minpx_);
-  swap(mddate_, other->mddate_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
+  std::swap(preclosepx_, other->preclosepx_);
+  std::swap(maxpx_, other->maxpx_);
+  std::swap(minpx_, other->minpx_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata StockBase::GetMetadata() const {
-  protobuf_stockBase_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_stockBase_2eproto::file_level_metadata[kIndexInFileMessages];
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = StockBase_descriptor_;
+  metadata.reflection = StockBase_reflection_;
+  return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1628,23 +1616,14 @@ void StockBase::clear_htcode() {
 }
 const ::std::string& StockBase::htcode() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.HTCode)
-  return htcode_.GetNoArena();
+  return htcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_htcode(const ::std::string& value) {
   set_has_htcode();
   htcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.HTCode)
 }
-#if LANG_CXX11
-void StockBase::set_htcode(::std::string&& value) {
-  set_has_htcode();
-  htcode_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.HTCode)
-}
-#endif
 void StockBase::set_htcode(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_htcode();
   htcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.HTCode)
@@ -1691,23 +1670,14 @@ void StockBase::clear_securityid() {
 }
 const ::std::string& StockBase::securityid() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.SecurityID)
-  return securityid_.GetNoArena();
+  return securityid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_securityid(const ::std::string& value) {
   set_has_securityid();
   securityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.SecurityID)
 }
-#if LANG_CXX11
-void StockBase::set_securityid(::std::string&& value) {
-  set_has_securityid();
-  securityid_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.SecurityID)
-}
-#endif
 void StockBase::set_securityid(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_securityid();
   securityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.SecurityID)
@@ -1754,23 +1724,14 @@ void StockBase::clear_symbol() {
 }
 const ::std::string& StockBase::symbol() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.Symbol)
-  return symbol_.GetNoArena();
+  return symbol_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_symbol(const ::std::string& value) {
   set_has_symbol();
   symbol_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.Symbol)
 }
-#if LANG_CXX11
-void StockBase::set_symbol(::std::string&& value) {
-  set_has_symbol();
-  symbol_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.Symbol)
-}
-#endif
 void StockBase::set_symbol(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_symbol();
   symbol_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.Symbol)
@@ -1817,23 +1778,14 @@ void StockBase::clear_chispelling() {
 }
 const ::std::string& StockBase::chispelling() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.ChiSpelling)
-  return chispelling_.GetNoArena();
+  return chispelling_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_chispelling(const ::std::string& value) {
   set_has_chispelling();
   chispelling_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.ChiSpelling)
 }
-#if LANG_CXX11
-void StockBase::set_chispelling(::std::string&& value) {
-  set_has_chispelling();
-  chispelling_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.ChiSpelling)
-}
-#endif
 void StockBase::set_chispelling(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_chispelling();
   chispelling_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.ChiSpelling)
@@ -1880,23 +1832,14 @@ void StockBase::clear_englishname() {
 }
 const ::std::string& StockBase::englishname() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.EnglishName)
-  return englishname_.GetNoArena();
+  return englishname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_englishname(const ::std::string& value) {
   set_has_englishname();
   englishname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.EnglishName)
 }
-#if LANG_CXX11
-void StockBase::set_englishname(::std::string&& value) {
-  set_has_englishname();
-  englishname_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.EnglishName)
-}
-#endif
 void StockBase::set_englishname(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_englishname();
   englishname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.EnglishName)
@@ -1929,13 +1872,13 @@ void StockBase::set_allocated_englishname(::std::string* englishname) {
 
 // required int32 SecurityIDSource = 6;
 bool StockBase::has_securityidsource() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 void StockBase::set_has_securityidsource() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000020u;
 }
 void StockBase::clear_has_securityidsource() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 void StockBase::clear_securityidsource() {
   securityidsource_ = 0;
@@ -1953,13 +1896,13 @@ void StockBase::set_securityidsource(::google::protobuf::int32 value) {
 
 // required int32 SecurityType = 7;
 bool StockBase::has_securitytype() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 void StockBase::set_has_securitytype() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000040u;
 }
 void StockBase::clear_has_securitytype() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 void StockBase::clear_securitytype() {
   securitytype_ = 0;
@@ -1977,13 +1920,13 @@ void StockBase::set_securitytype(::google::protobuf::int32 value) {
 
 // required string SecuritySubType = 8;
 bool StockBase::has_securitysubtype() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 void StockBase::set_has_securitysubtype() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 void StockBase::clear_has_securitysubtype() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 void StockBase::clear_securitysubtype() {
   securitysubtype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1991,23 +1934,14 @@ void StockBase::clear_securitysubtype() {
 }
 const ::std::string& StockBase::securitysubtype() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.SecuritySubType)
-  return securitysubtype_.GetNoArena();
+  return securitysubtype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_securitysubtype(const ::std::string& value) {
   set_has_securitysubtype();
   securitysubtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.SecuritySubType)
 }
-#if LANG_CXX11
-void StockBase::set_securitysubtype(::std::string&& value) {
-  set_has_securitysubtype();
-  securitysubtype_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.SecuritySubType)
-}
-#endif
 void StockBase::set_securitysubtype(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_securitysubtype();
   securitysubtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.SecuritySubType)
@@ -2040,13 +1974,13 @@ void StockBase::set_allocated_securitysubtype(::std::string* securitysubtype) {
 
 // required string ListDate = 9;
 bool StockBase::has_listdate() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 void StockBase::set_has_listdate() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 void StockBase::clear_has_listdate() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 void StockBase::clear_listdate() {
   listdate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2054,23 +1988,14 @@ void StockBase::clear_listdate() {
 }
 const ::std::string& StockBase::listdate() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.ListDate)
-  return listdate_.GetNoArena();
+  return listdate_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_listdate(const ::std::string& value) {
   set_has_listdate();
   listdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.ListDate)
 }
-#if LANG_CXX11
-void StockBase::set_listdate(::std::string&& value) {
-  set_has_listdate();
-  listdate_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.ListDate)
-}
-#endif
 void StockBase::set_listdate(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_listdate();
   listdate_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.ListDate)
@@ -2103,13 +2028,13 @@ void StockBase::set_allocated_listdate(::std::string* listdate) {
 
 // required string Currency = 10;
 bool StockBase::has_currency() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 void StockBase::set_has_currency() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
 }
 void StockBase::clear_has_currency() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 void StockBase::clear_currency() {
   currency_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2117,23 +2042,14 @@ void StockBase::clear_currency() {
 }
 const ::std::string& StockBase::currency() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.Currency)
-  return currency_.GetNoArena();
+  return currency_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_currency(const ::std::string& value) {
   set_has_currency();
   currency_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.Currency)
 }
-#if LANG_CXX11
-void StockBase::set_currency(::std::string&& value) {
-  set_has_currency();
-  currency_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.Currency)
-}
-#endif
 void StockBase::set_currency(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_currency();
   currency_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.Currency)
@@ -2166,13 +2082,13 @@ void StockBase::set_allocated_currency(::std::string* currency) {
 
 // required int64 OutstandingShare = 11;
 bool StockBase::has_outstandingshare() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 void StockBase::set_has_outstandingshare() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000400u;
 }
 void StockBase::clear_has_outstandingshare() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 void StockBase::clear_outstandingshare() {
   outstandingshare_ = GOOGLE_LONGLONG(0);
@@ -2190,13 +2106,13 @@ void StockBase::set_outstandingshare(::google::protobuf::int64 value) {
 
 // required int64 PublicFloatShareQuantity = 12;
 bool StockBase::has_publicfloatsharequantity() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 void StockBase::set_has_publicfloatsharequantity() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000800u;
 }
 void StockBase::clear_has_publicfloatsharequantity() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 void StockBase::clear_publicfloatsharequantity() {
   publicfloatsharequantity_ = GOOGLE_LONGLONG(0);
@@ -2214,13 +2130,13 @@ void StockBase::set_publicfloatsharequantity(::google::protobuf::int64 value) {
 
 // required int32 MDDate = 13;
 bool StockBase::has_mddate() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 void StockBase::set_has_mddate() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00001000u;
 }
 void StockBase::clear_has_mddate() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 void StockBase::clear_mddate() {
   mddate_ = 0;
@@ -2238,13 +2154,13 @@ void StockBase::set_mddate(::google::protobuf::int32 value) {
 
 // required string TradingPhaseCode = 14;
 bool StockBase::has_tradingphasecode() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 void StockBase::set_has_tradingphasecode() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00002000u;
 }
 void StockBase::clear_has_tradingphasecode() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 void StockBase::clear_tradingphasecode() {
   tradingphasecode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2252,23 +2168,14 @@ void StockBase::clear_tradingphasecode() {
 }
 const ::std::string& StockBase::tradingphasecode() const {
   // @@protoc_insertion_point(field_get:comm.StockBase.TradingPhaseCode)
-  return tradingphasecode_.GetNoArena();
+  return tradingphasecode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 void StockBase::set_tradingphasecode(const ::std::string& value) {
   set_has_tradingphasecode();
   tradingphasecode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:comm.StockBase.TradingPhaseCode)
 }
-#if LANG_CXX11
-void StockBase::set_tradingphasecode(::std::string&& value) {
-  set_has_tradingphasecode();
-  tradingphasecode_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:comm.StockBase.TradingPhaseCode)
-}
-#endif
 void StockBase::set_tradingphasecode(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
   set_has_tradingphasecode();
   tradingphasecode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:comm.StockBase.TradingPhaseCode)
@@ -2301,13 +2208,13 @@ void StockBase::set_allocated_tradingphasecode(::std::string* tradingphasecode) 
 
 // required int64 PreClosePx = 15;
 bool StockBase::has_preclosepx() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 void StockBase::set_has_preclosepx() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 void StockBase::clear_has_preclosepx() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 void StockBase::clear_preclosepx() {
   preclosepx_ = GOOGLE_LONGLONG(0);
@@ -2325,13 +2232,13 @@ void StockBase::set_preclosepx(::google::protobuf::int64 value) {
 
 // required int64 MaxPx = 16;
 bool StockBase::has_maxpx() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 void StockBase::set_has_maxpx() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 void StockBase::clear_has_maxpx() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 void StockBase::clear_maxpx() {
   maxpx_ = GOOGLE_LONGLONG(0);
@@ -2349,13 +2256,13 @@ void StockBase::set_maxpx(::google::protobuf::int64 value) {
 
 // required int64 MinPx = 17;
 bool StockBase::has_minpx() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 void StockBase::set_has_minpx() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 void StockBase::clear_has_minpx() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 void StockBase::clear_minpx() {
   minpx_ = GOOGLE_LONGLONG(0);
@@ -2371,6 +2278,9 @@ void StockBase::set_minpx(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:comm.StockBase.MinPx)
 }
 
+inline const StockBase* StockBase::internal_default_instance() {
+  return &StockBase_default_instance_.get();
+}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
