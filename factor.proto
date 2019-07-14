@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package pb;
+
+message FactorResult {
+    required string ResultKey = 1;
+    required double ResultValue = 2;
+}
+
+message FactorResults {
+    repeated FactorResult Result = 1;
+}
+
+message FactorResp {
+    repeated FactorResults Results = 1;
+}
