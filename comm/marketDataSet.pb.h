@@ -33,6 +33,7 @@
 #include "indexData.pb.h"
 #include "futureData.pb.h"
 #include "orderData.pb.h"
+#include "kline.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace comm {
@@ -125,64 +126,82 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::int32 datatype() const;
   void set_datatype(::google::protobuf::int32 value);
 
-  // optional .comm.MarketData Tick = 2;
+  // required int32 SecurityType = 2;
+  bool has_securitytype() const;
+  void clear_securitytype();
+  static const int kSecurityTypeFieldNumber = 2;
+  ::google::protobuf::int32 securitytype() const;
+  void set_securitytype(::google::protobuf::int32 value);
+
+  // optional .comm.MarketData Tick = 3;
   bool has_tick() const;
   void clear_tick();
-  static const int kTickFieldNumber = 2;
+  static const int kTickFieldNumber = 3;
   const ::comm::MarketData& tick() const;
   ::comm::MarketData* mutable_tick();
   ::comm::MarketData* release_tick();
   void set_allocated_tick(::comm::MarketData* tick);
 
-  // optional .comm.TransactionData Transaction = 3;
+  // optional .comm.TransactionData Transaction = 4;
   bool has_transaction() const;
   void clear_transaction();
-  static const int kTransactionFieldNumber = 3;
+  static const int kTransactionFieldNumber = 4;
   const ::comm::TransactionData& transaction() const;
   ::comm::TransactionData* mutable_transaction();
   ::comm::TransactionData* release_transaction();
   void set_allocated_transaction(::comm::TransactionData* transaction);
 
-  // optional .comm.OrderQueueData OrderQueue = 4;
+  // optional .comm.OrderQueueData OrderQueue = 5;
   bool has_orderqueue() const;
   void clear_orderqueue();
-  static const int kOrderQueueFieldNumber = 4;
+  static const int kOrderQueueFieldNumber = 5;
   const ::comm::OrderQueueData& orderqueue() const;
   ::comm::OrderQueueData* mutable_orderqueue();
   ::comm::OrderQueueData* release_orderqueue();
   void set_allocated_orderqueue(::comm::OrderQueueData* orderqueue);
 
-  // optional .comm.IndexData Index = 5;
+  // optional .comm.IndexData Index = 6;
   bool has_index() const;
   void clear_index();
-  static const int kIndexFieldNumber = 5;
+  static const int kIndexFieldNumber = 6;
   const ::comm::IndexData& index() const;
   ::comm::IndexData* mutable_index();
   ::comm::IndexData* release_index();
   void set_allocated_index(::comm::IndexData* index);
 
-  // optional .comm.FutureData future = 6;
+  // optional .comm.FutureData future = 7;
   bool has_future() const;
   void clear_future();
-  static const int kFutureFieldNumber = 6;
+  static const int kFutureFieldNumber = 7;
   const ::comm::FutureData& future() const;
   ::comm::FutureData* mutable_future();
   ::comm::FutureData* release_future();
   void set_allocated_future(::comm::FutureData* future);
 
-  // optional .comm.OrderData order = 7;
+  // optional .comm.OrderData order = 8;
   bool has_order() const;
   void clear_order();
-  static const int kOrderFieldNumber = 7;
+  static const int kOrderFieldNumber = 8;
   const ::comm::OrderData& order() const;
   ::comm::OrderData* mutable_order();
   ::comm::OrderData* release_order();
   void set_allocated_order(::comm::OrderData* order);
 
+  // optional .comm.KLineData kline = 9;
+  bool has_kline() const;
+  void clear_kline();
+  static const int kKlineFieldNumber = 9;
+  const ::comm::KLineData& kline() const;
+  ::comm::KLineData* mutable_kline();
+  ::comm::KLineData* release_kline();
+  void set_allocated_kline(::comm::KLineData* kline);
+
   // @@protoc_insertion_point(class_scope:comm.MarketDataSet)
  private:
   inline void set_has_datatype();
   inline void clear_has_datatype();
+  inline void set_has_securitytype();
+  inline void clear_has_securitytype();
   inline void set_has_tick();
   inline void clear_has_tick();
   inline void set_has_transaction();
@@ -195,6 +214,11 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   inline void clear_has_future();
   inline void set_has_order();
   inline void clear_has_order();
+  inline void set_has_kline();
+  inline void clear_has_kline();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -205,7 +229,9 @@ class MarketDataSet : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::comm::IndexData* index_;
   ::comm::FutureData* future_;
   ::comm::OrderData* order_;
+  ::comm::KLineData* kline_;
   ::google::protobuf::int32 datatype_;
+  ::google::protobuf::int32 securitytype_;
   friend void  protobuf_InitDefaults_marketDataSet_2eproto_impl();
   friend void  protobuf_AddDesc_marketDataSet_2eproto_impl();
   friend void protobuf_AssignDesc_marketDataSet_2eproto();
@@ -247,15 +273,39 @@ inline void MarketDataSet::set_datatype(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:comm.MarketDataSet.DataType)
 }
 
-// optional .comm.MarketData Tick = 2;
-inline bool MarketDataSet::has_tick() const {
+// required int32 SecurityType = 2;
+inline bool MarketDataSet::has_securitytype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void MarketDataSet::set_has_tick() {
+inline void MarketDataSet::set_has_securitytype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void MarketDataSet::clear_has_tick() {
+inline void MarketDataSet::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void MarketDataSet::clear_securitytype() {
+  securitytype_ = 0;
+  clear_has_securitytype();
+}
+inline ::google::protobuf::int32 MarketDataSet::securitytype() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.SecurityType)
+  return securitytype_;
+}
+inline void MarketDataSet::set_securitytype(::google::protobuf::int32 value) {
+  set_has_securitytype();
+  securitytype_ = value;
+  // @@protoc_insertion_point(field_set:comm.MarketDataSet.SecurityType)
+}
+
+// optional .comm.MarketData Tick = 3;
+inline bool MarketDataSet::has_tick() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MarketDataSet::set_has_tick() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MarketDataSet::clear_has_tick() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void MarketDataSet::clear_tick() {
   if (tick_ != NULL) tick_->::comm::MarketData::Clear();
@@ -292,15 +342,15 @@ inline void MarketDataSet::set_allocated_tick(::comm::MarketData* tick) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Tick)
 }
 
-// optional .comm.TransactionData Transaction = 3;
+// optional .comm.TransactionData Transaction = 4;
 inline bool MarketDataSet::has_transaction() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void MarketDataSet::set_has_transaction() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void MarketDataSet::clear_has_transaction() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void MarketDataSet::clear_transaction() {
   if (transaction_ != NULL) transaction_->::comm::TransactionData::Clear();
@@ -337,15 +387,15 @@ inline void MarketDataSet::set_allocated_transaction(::comm::TransactionData* tr
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Transaction)
 }
 
-// optional .comm.OrderQueueData OrderQueue = 4;
+// optional .comm.OrderQueueData OrderQueue = 5;
 inline bool MarketDataSet::has_orderqueue() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void MarketDataSet::set_has_orderqueue() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void MarketDataSet::clear_has_orderqueue() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MarketDataSet::clear_orderqueue() {
   if (orderqueue_ != NULL) orderqueue_->::comm::OrderQueueData::Clear();
@@ -382,15 +432,15 @@ inline void MarketDataSet::set_allocated_orderqueue(::comm::OrderQueueData* orde
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.OrderQueue)
 }
 
-// optional .comm.IndexData Index = 5;
+// optional .comm.IndexData Index = 6;
 inline bool MarketDataSet::has_index() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void MarketDataSet::set_has_index() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void MarketDataSet::clear_has_index() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void MarketDataSet::clear_index() {
   if (index_ != NULL) index_->::comm::IndexData::Clear();
@@ -427,15 +477,15 @@ inline void MarketDataSet::set_allocated_index(::comm::IndexData* index) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.Index)
 }
 
-// optional .comm.FutureData future = 6;
+// optional .comm.FutureData future = 7;
 inline bool MarketDataSet::has_future() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void MarketDataSet::set_has_future() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void MarketDataSet::clear_has_future() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void MarketDataSet::clear_future() {
   if (future_ != NULL) future_->::comm::FutureData::Clear();
@@ -472,15 +522,15 @@ inline void MarketDataSet::set_allocated_future(::comm::FutureData* future) {
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.future)
 }
 
-// optional .comm.OrderData order = 7;
+// optional .comm.OrderData order = 8;
 inline bool MarketDataSet::has_order() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void MarketDataSet::set_has_order() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void MarketDataSet::clear_has_order() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void MarketDataSet::clear_order() {
   if (order_ != NULL) order_->::comm::OrderData::Clear();
@@ -515,6 +565,51 @@ inline void MarketDataSet::set_allocated_order(::comm::OrderData* order) {
     clear_has_order();
   }
   // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.order)
+}
+
+// optional .comm.KLineData kline = 9;
+inline bool MarketDataSet::has_kline() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MarketDataSet::set_has_kline() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MarketDataSet::clear_has_kline() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MarketDataSet::clear_kline() {
+  if (kline_ != NULL) kline_->::comm::KLineData::Clear();
+  clear_has_kline();
+}
+inline const ::comm::KLineData& MarketDataSet::kline() const {
+  // @@protoc_insertion_point(field_get:comm.MarketDataSet.kline)
+  return kline_ != NULL ? *kline_
+                         : *::comm::KLineData::internal_default_instance();
+}
+inline ::comm::KLineData* MarketDataSet::mutable_kline() {
+  set_has_kline();
+  if (kline_ == NULL) {
+    kline_ = new ::comm::KLineData;
+  }
+  // @@protoc_insertion_point(field_mutable:comm.MarketDataSet.kline)
+  return kline_;
+}
+inline ::comm::KLineData* MarketDataSet::release_kline() {
+  // @@protoc_insertion_point(field_release:comm.MarketDataSet.kline)
+  clear_has_kline();
+  ::comm::KLineData* temp = kline_;
+  kline_ = NULL;
+  return temp;
+}
+inline void MarketDataSet::set_allocated_kline(::comm::KLineData* kline) {
+  delete kline_;
+  kline_ = kline;
+  if (kline) {
+    set_has_kline();
+  } else {
+    clear_has_kline();
+  }
+  // @@protoc_insertion_point(field_set_allocated:comm.MarketDataSet.kline)
 }
 
 inline const MarketDataSet* MarketDataSet::internal_default_instance() {

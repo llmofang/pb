@@ -1,0 +1,28 @@
+syntax="proto2";
+package comm;
+
+message StockBaseList
+{
+	repeated StockBase InfoList = 1;
+}
+
+message StockBase
+{
+	required string HTCode = 1;
+	required string SecurityID = 2;
+	required string Symbol = 3;
+	required string ChiSpelling = 4;
+	required string EnglishName = 5;
+	required int32 SecurityIDSource = 6;
+	required int32 SecurityType = 7;
+	required string SecuritySubType = 8;
+	required string ListDate = 9;
+	required string Currency = 10;
+	required int64 OutstandingShare = 11;
+	required int64 PublicFloatShareQuantity = 12;
+	required int32 MDDate = 13;
+	required string TradingPhaseCode = 14;
+	required int64 PreClosePx = 15;
+	required int64 MaxPx = 16;
+	required int64 MinPx = 17;
+}
