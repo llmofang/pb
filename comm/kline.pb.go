@@ -10,6 +10,7 @@ It is generated from these files:
 
 It has these top-level messages:
 	KLineData
+	KLineDataList
 */
 package comm
 
@@ -36,6 +37,7 @@ type KLineData struct {
 	IOPV             *int64  `protobuf:"varint,13,opt" json:"IOPV,omitempty"`
 	OpenInterest     *int64  `protobuf:"varint,14,opt" json:"OpenInterest,omitempty"`
 	SettlePrice      *int64  `protobuf:"varint,15,opt" json:"SettlePrice,omitempty"`
+	PreClose         *int64  `protobuf:"varint,16,opt" json:"PreClose,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
@@ -146,6 +148,29 @@ func (m *KLineData) GetSettlePrice() int64 {
 		return *m.SettlePrice
 	}
 	return 0
+}
+
+func (m *KLineData) GetPreClose() int64 {
+	if m != nil && m.PreClose != nil {
+		return *m.PreClose
+	}
+	return 0
+}
+
+type KLineDataList struct {
+	Klinedata        []*KLineData `protobuf:"bytes,1,rep,name=klinedata" json:"klinedata,omitempty"`
+	XXX_unrecognized []byte       `json:"-"`
+}
+
+func (m *KLineDataList) Reset()         { *m = KLineDataList{} }
+func (m *KLineDataList) String() string { return proto.CompactTextString(m) }
+func (*KLineDataList) ProtoMessage()    {}
+
+func (m *KLineDataList) GetKlinedata() []*KLineData {
+	if m != nil {
+		return m.Klinedata
+	}
+	return nil
 }
 
 func init() {

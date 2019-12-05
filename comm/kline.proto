@@ -1,9 +1,7 @@
 syntax="proto2";
 package comm;
-
-message KLineData
-{
-	required string Code = 1;
+message KLineData{
+    required string Code=1;
 	required int32 Date=2;
 	required int32 Time=3;
 	required int64 Timestamp=4;
@@ -12,10 +10,16 @@ message KLineData
 	required int64 Close=7;
 	required int64 High=8;
 	required int64 Low=9;
-	required int64 NumTrades  =10;
-    required int64 TotalVolumeTrade  =11;
-    required int64 TotalValueTrade  =12;
-    optional int64 IOPV =13;
-    optional int64 OpenInterest  =14;
-    optional int64 SettlePrice  =15;
+	required int64 NumTrades=10;
+	required int64 TotalVolumeTrade=11;
+	required int64 TotalValueTrade=12;
+	optional int64 IOPV=13;
+	optional int64 OpenInterest =14;
+	optional int64 SettlePrice=15;
+	optional int64 PreClose=16;
+}
+
+message KLineDataList{
+    repeated KLineData klinedata=1;
+
 }

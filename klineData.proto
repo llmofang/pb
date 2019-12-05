@@ -1,0 +1,23 @@
+package pb;
+
+message KlineData
+{
+
+	required string Code = 1;
+    required int32 Date=2;
+    required int32 Time=3;
+    required int64 Timestamp=4;
+    optional int32 Period=5;
+    required int64 Open=6;
+    required int64 Close=7;
+    required int64 High=8;
+    required int64 Low=9;
+    required int64 NumTrades  =10;
+    required int64 TotalVolumeTrade  =11;
+    required int64 TotalValueTrade  =12;
+    optional int64 IOPV =13;
+    optional int64 OpenInterest  =14;
+    optional int64 SettlePrice  =15;
+    optional int64 Preclose=16;
+    optional float32 Ret=17;
+}
