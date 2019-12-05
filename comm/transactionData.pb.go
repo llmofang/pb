@@ -13,33 +13,42 @@ It has these top-level messages:
 */
 package comm
 
-import proto "code.google.com/p/goprotobuf/proto"
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
 import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
+var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type TransactionData struct {
-	WindCode         *string `protobuf:"bytes,1,req" json:"WindCode,omitempty"`
-	Code             *string `protobuf:"bytes,2,req" json:"Code,omitempty"`
-	ActionDay        *int32  `protobuf:"varint,3,req" json:"ActionDay,omitempty"`
-	Time             *int32  `protobuf:"varint,4,req" json:"Time,omitempty"`
-	Index            *int32  `protobuf:"varint,5,req" json:"Index,omitempty"`
-	Price            *int32  `protobuf:"varint,6,req" json:"Price,omitempty"`
-	Volume           *int32  `protobuf:"varint,7,req" json:"Volume,omitempty"`
-	Turnover         *int32  `protobuf:"varint,8,req" json:"Turnover,omitempty"`
-	BSFlag           *int32  `protobuf:"varint,9,req" json:"BSFlag,omitempty"`
-	OrderKind        *string `protobuf:"bytes,10,req" json:"OrderKind,omitempty"`
-	FunctionCode     *string `protobuf:"bytes,11,req" json:"FunctionCode,omitempty"`
-	AskOrder         *int32  `protobuf:"varint,12,req" json:"AskOrder,omitempty"`
-	BidOrder         *int32  `protobuf:"varint,13,req" json:"BidOrder,omitempty"`
+	WindCode         *string `protobuf:"bytes,1,req,name=WindCode" json:"WindCode,omitempty"`
+	Code             *string `protobuf:"bytes,2,req,name=Code" json:"Code,omitempty"`
+	ActionDay        *int32  `protobuf:"varint,3,req,name=ActionDay" json:"ActionDay,omitempty"`
+	Time             *int32  `protobuf:"varint,4,req,name=Time" json:"Time,omitempty"`
+	Index            *int32  `protobuf:"varint,5,req,name=Index" json:"Index,omitempty"`
+	Price            *int32  `protobuf:"varint,6,req,name=Price" json:"Price,omitempty"`
+	Volume           *int32  `protobuf:"varint,7,req,name=Volume" json:"Volume,omitempty"`
+	Turnover         *int64  `protobuf:"varint,8,req,name=Turnover" json:"Turnover,omitempty"`
+	BSFlag           *int32  `protobuf:"varint,9,req,name=BSFlag" json:"BSFlag,omitempty"`
+	OrderKind        *string `protobuf:"bytes,10,req,name=OrderKind" json:"OrderKind,omitempty"`
+	FunctionCode     *string `protobuf:"bytes,11,req,name=FunctionCode" json:"FunctionCode,omitempty"`
+	AskOrder         *int32  `protobuf:"varint,12,req,name=AskOrder" json:"AskOrder,omitempty"`
+	BidOrder         *int32  `protobuf:"varint,13,req,name=BidOrder" json:"BidOrder,omitempty"`
 	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *TransactionData) Reset()         { *m = TransactionData{} }
-func (m *TransactionData) String() string { return proto.CompactTextString(m) }
-func (*TransactionData) ProtoMessage()    {}
+func (m *TransactionData) Reset()                    { *m = TransactionData{} }
+func (m *TransactionData) String() string            { return proto.CompactTextString(m) }
+func (*TransactionData) ProtoMessage()               {}
+func (*TransactionData) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
 func (m *TransactionData) GetWindCode() string {
 	if m != nil && m.WindCode != nil {
@@ -90,7 +99,7 @@ func (m *TransactionData) GetVolume() int32 {
 	return 0
 }
 
-func (m *TransactionData) GetTurnover() int32 {
+func (m *TransactionData) GetTurnover() int64 {
 	if m != nil && m.Turnover != nil {
 		return *m.Turnover
 	}
@@ -133,4 +142,27 @@ func (m *TransactionData) GetBidOrder() int32 {
 }
 
 func init() {
+	proto.RegisterType((*TransactionData)(nil), "comm.TransactionData")
+}
+
+func init() { proto.RegisterFile("transactionData.proto", fileDescriptor0) }
+
+var fileDescriptor0 = []byte{
+	// 245 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x8f, 0xc1, 0x4a, 0x03, 0x31,
+	0x10, 0x86, 0x31, 0xdd, 0xad, 0xdd, 0xb1, 0x22, 0x0c, 0x2a, 0x83, 0x78, 0x58, 0x7a, 0xda, 0x93,
+	0xef, 0xd0, 0x2a, 0x05, 0xf1, 0xa0, 0xac, 0x8b, 0x9e, 0xc3, 0x26, 0x48, 0xb0, 0x49, 0x24, 0xcd,
+	0x8a, 0x3e, 0xb0, 0xef, 0x21, 0x99, 0xb4, 0x5b, 0x7a, 0x9b, 0xef, 0xfb, 0xf7, 0xdf, 0xcc, 0xc0,
+	0x55, 0x0c, 0xd2, 0x6d, 0x65, 0x1f, 0x8d, 0x77, 0x0f, 0x32, 0xca, 0xbb, 0xaf, 0xe0, 0xa3, 0xc7,
+	0xa2, 0xf7, 0xd6, 0x2e, 0xfe, 0x04, 0x5c, 0x74, 0xc7, 0x39, 0xde, 0xc0, 0xec, 0xdd, 0x38, 0x75,
+	0xef, 0x95, 0xa6, 0x93, 0x5a, 0x34, 0x55, 0x3b, 0x32, 0x22, 0x14, 0xec, 0x05, 0x7b, 0x9e, 0xf1,
+	0x16, 0xaa, 0xe5, 0xae, 0xfd, 0x4b, 0x93, 0x5a, 0x34, 0x65, 0x7b, 0x10, 0xa9, 0xd1, 0x19, 0xab,
+	0xa9, 0xe0, 0x80, 0x67, 0xbc, 0x84, 0xf2, 0xd1, 0x29, 0xfd, 0x43, 0x25, 0xcb, 0x0c, 0xc9, 0xbe,
+	0x04, 0xd3, 0x6b, 0x9a, 0x66, 0xcb, 0x80, 0xd7, 0x30, 0x7d, 0xf3, 0x9b, 0xc1, 0x6a, 0x3a, 0x65,
+	0xbd, 0xa3, 0xb4, 0x65, 0x37, 0x04, 0xe7, 0xbf, 0x75, 0xa0, 0x59, 0x2d, 0x9a, 0x49, 0x3b, 0x72,
+	0xea, 0xac, 0x5e, 0xd7, 0x1b, 0xf9, 0x41, 0x55, 0xee, 0x64, 0x4a, 0x9b, 0x3e, 0x07, 0xa5, 0xc3,
+	0x93, 0x71, 0x8a, 0x80, 0x4f, 0x38, 0x08, 0x5c, 0xc0, 0x7c, 0x3d, 0x38, 0x5e, 0x9c, 0x6f, 0x3c,
+	0xe3, 0x0f, 0x8e, 0x5c, 0x7a, 0x75, 0xb9, 0xfd, 0xe4, 0x0e, 0xcd, 0xf9, 0xdf, 0x23, 0xa7, 0x6c,
+	0x65, 0x54, 0xce, 0xce, 0x73, 0xb6, 0xe7, 0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0x2a, 0x22, 0x5c,
+	0x6d, 0x85, 0x01, 0x00, 0x00,
 }

@@ -107,7 +107,7 @@ void protobuf_AddDesc_transactionData_2eproto_impl() {
     "ctionData\022\020\n\010WindCode\030\001 \002(\t\022\014\n\004Code\030\002 \002("
     "\t\022\021\n\tActionDay\030\003 \002(\005\022\014\n\004Time\030\004 \002(\005\022\r\n\005In"
     "dex\030\005 \002(\005\022\r\n\005Price\030\006 \002(\005\022\016\n\006Volume\030\007 \002(\005"
-    "\022\020\n\010Turnover\030\010 \002(\005\022\016\n\006BSFlag\030\t \002(\005\022\021\n\tOr"
+    "\022\020\n\010Turnover\030\010 \002(\003\022\016\n\006BSFlag\030\t \002(\005\022\021\n\tOr"
     "derKind\030\n \002(\t\022\024\n\014FunctionCode\030\013 \002(\t\022\020\n\010A"
     "skOrder\030\014 \002(\005\022\020\n\010BidOrder\030\r \002(\005", 271);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
@@ -239,7 +239,7 @@ void TransactionData::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 255u) {
-    ZR_(actionday_, turnover_);
+    ZR_(actionday_, volume_);
     if (has_windcode()) {
       windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
@@ -384,13 +384,13 @@ bool TransactionData::MergePartialFromCodedStream(
         break;
       }
 
-      // required int32 Turnover = 8;
+      // required int64 Turnover = 8;
       case 8: {
         if (tag == 64) {
          parse_Turnover:
           set_has_turnover();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &turnover_)));
         } else {
           goto handle_unusual;
@@ -548,9 +548,9 @@ void TransactionData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->volume(), output);
   }
 
-  // required int32 Turnover = 8;
+  // required int64 Turnover = 8;
   if (has_turnover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->turnover(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->turnover(), output);
   }
 
   // required int32 BSFlag = 9;
@@ -646,9 +646,9 @@ void TransactionData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->volume(), target);
   }
 
-  // required int32 Turnover = 8;
+  // required int64 Turnover = 8;
   if (has_turnover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->turnover(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->turnover(), target);
   }
 
   // required int32 BSFlag = 9;
@@ -750,9 +750,9 @@ size_t TransactionData::RequiredFieldsByteSizeFallback() const {
   }
 
   if (has_turnover()) {
-    // required int32 Turnover = 8;
+    // required int64 Turnover = 8;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->turnover());
   }
 
@@ -833,9 +833,9 @@ size_t TransactionData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->volume());
 
-    // required int32 Turnover = 8;
+    // required int64 Turnover = 8;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->turnover());
 
     // required int32 BSFlag = 9;
@@ -1239,7 +1239,7 @@ void TransactionData::set_volume(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:comm.TransactionData.Volume)
 }
 
-// required int32 Turnover = 8;
+// required int64 Turnover = 8;
 bool TransactionData::has_turnover() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1250,14 +1250,14 @@ void TransactionData::clear_has_turnover() {
   _has_bits_[0] &= ~0x00000080u;
 }
 void TransactionData::clear_turnover() {
-  turnover_ = 0;
+  turnover_ = GOOGLE_LONGLONG(0);
   clear_has_turnover();
 }
-::google::protobuf::int32 TransactionData::turnover() const {
+::google::protobuf::int64 TransactionData::turnover() const {
   // @@protoc_insertion_point(field_get:comm.TransactionData.Turnover)
   return turnover_;
 }
-void TransactionData::set_turnover(::google::protobuf::int32 value) {
+void TransactionData::set_turnover(::google::protobuf::int64 value) {
   set_has_turnover();
   turnover_ = value;
   // @@protoc_insertion_point(field_set:comm.TransactionData.Turnover)

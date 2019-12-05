@@ -171,12 +171,12 @@ class TransactionData : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::int32 volume() const;
   void set_volume(::google::protobuf::int32 value);
 
-  // required int32 Turnover = 8;
+  // required int64 Turnover = 8;
   bool has_turnover() const;
   void clear_turnover();
   static const int kTurnoverFieldNumber = 8;
-  ::google::protobuf::int32 turnover() const;
-  void set_turnover(::google::protobuf::int32 value);
+  ::google::protobuf::int64 turnover() const;
+  void set_turnover(::google::protobuf::int64 value);
 
   // required int32 BSFlag = 9;
   bool has_bsflag() const;
@@ -266,8 +266,8 @@ class TransactionData : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::int32 time_;
   ::google::protobuf::int32 index_;
   ::google::protobuf::int32 price_;
+  ::google::protobuf::int64 turnover_;
   ::google::protobuf::int32 volume_;
-  ::google::protobuf::int32 turnover_;
   ::google::protobuf::int32 bsflag_;
   ::google::protobuf::int32 askorder_;
   ::google::protobuf::int32 bidorder_;
@@ -516,7 +516,7 @@ inline void TransactionData::set_volume(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:comm.TransactionData.Volume)
 }
 
-// required int32 Turnover = 8;
+// required int64 Turnover = 8;
 inline bool TransactionData::has_turnover() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -527,14 +527,14 @@ inline void TransactionData::clear_has_turnover() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void TransactionData::clear_turnover() {
-  turnover_ = 0;
+  turnover_ = GOOGLE_LONGLONG(0);
   clear_has_turnover();
 }
-inline ::google::protobuf::int32 TransactionData::turnover() const {
+inline ::google::protobuf::int64 TransactionData::turnover() const {
   // @@protoc_insertion_point(field_get:comm.TransactionData.Turnover)
   return turnover_;
 }
-inline void TransactionData::set_turnover(::google::protobuf::int32 value) {
+inline void TransactionData::set_turnover(::google::protobuf::int64 value) {
   set_has_turnover();
   turnover_ = value;
   // @@protoc_insertion_point(field_set:comm.TransactionData.Turnover)
