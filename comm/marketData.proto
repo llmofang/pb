@@ -44,7 +44,7 @@ message MarketData
 	optional int64  ReferencePx = 39;
 	optional int64  ComplexEventStartTime = 40;
 	optional int64  ComplexEventEndTime = 41;
-	optional int32  ExchangeDate = 41;
+	optional int32  ExchangeDate = 42;
 	optional int32  ExchangeTime = 43;
 	optional int64  AfterHoursNumTrades = 44;
 	optional int64  AfterHoursTotalVolumeTrade = 45;
