@@ -7,8 +7,8 @@ message MarketData
 	required int32 MDDate = 2;
 	required int32 MDTime = 3;
 	optional string TradingPhaseCode = 4;
-    optional string securityIDSource = 5;
-    optional string securityType = 6;
+    optional int64 securityIDSource = 5;
+    optional int64 securityType = 6;
     optional int64 MaxPx = 7;
     optional int64 MinPx = 8;
     optional int64 PreClosePx = 9;

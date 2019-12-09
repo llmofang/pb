@@ -150,29 +150,19 @@ class MarketData : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_tradingphasecode();
   void set_allocated_tradingphasecode(::std::string* tradingphasecode);
 
-  // optional string securityIDSource = 5;
+  // optional int64 securityIDSource = 5;
   bool has_securityidsource() const;
   void clear_securityidsource();
   static const int kSecurityIDSourceFieldNumber = 5;
-  const ::std::string& securityidsource() const;
-  void set_securityidsource(const ::std::string& value);
-  void set_securityidsource(const char* value);
-  void set_securityidsource(const char* value, size_t size);
-  ::std::string* mutable_securityidsource();
-  ::std::string* release_securityidsource();
-  void set_allocated_securityidsource(::std::string* securityidsource);
+  ::google::protobuf::int64 securityidsource() const;
+  void set_securityidsource(::google::protobuf::int64 value);
 
-  // optional string securityType = 6;
+  // optional int64 securityType = 6;
   bool has_securitytype() const;
   void clear_securitytype();
   static const int kSecurityTypeFieldNumber = 6;
-  const ::std::string& securitytype() const;
-  void set_securitytype(const ::std::string& value);
-  void set_securitytype(const char* value);
-  void set_securitytype(const char* value, size_t size);
-  ::std::string* mutable_securitytype();
-  ::std::string* release_securitytype();
-  void set_allocated_securitytype(::std::string* securitytype);
+  ::google::protobuf::int64 securitytype() const;
+  void set_securitytype(::google::protobuf::int64 value);
 
   // optional int64 MaxPx = 7;
   bool has_maxpx() const;
@@ -669,10 +659,10 @@ class MarketData : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > sellnumordersqueue_;
   ::google::protobuf::internal::ArenaStringPtr htscsecurityid_;
   ::google::protobuf::internal::ArenaStringPtr tradingphasecode_;
-  ::google::protobuf::internal::ArenaStringPtr securityidsource_;
-  ::google::protobuf::internal::ArenaStringPtr securitytype_;
   ::google::protobuf::int32 mddate_;
   ::google::protobuf::int32 mdtime_;
+  ::google::protobuf::int64 securityidsource_;
+  ::google::protobuf::int64 securitytype_;
   ::google::protobuf::int64 maxpx_;
   ::google::protobuf::int64 minpx_;
   ::google::protobuf::int64 preclosepx_;
@@ -888,7 +878,7 @@ inline void MarketData::set_allocated_tradingphasecode(::std::string* tradingpha
   // @@protoc_insertion_point(field_set_allocated:comm.MarketData.TradingPhaseCode)
 }
 
-// optional string securityIDSource = 5;
+// optional int64 securityIDSource = 5;
 inline bool MarketData::has_securityidsource() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -899,50 +889,20 @@ inline void MarketData::clear_has_securityidsource() {
   _has_bits_[0] &= ~0x00000010u;
 }
 inline void MarketData::clear_securityidsource() {
-  securityidsource_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  securityidsource_ = GOOGLE_LONGLONG(0);
   clear_has_securityidsource();
 }
-inline const ::std::string& MarketData::securityidsource() const {
+inline ::google::protobuf::int64 MarketData::securityidsource() const {
   // @@protoc_insertion_point(field_get:comm.MarketData.securityIDSource)
-  return securityidsource_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return securityidsource_;
 }
-inline void MarketData::set_securityidsource(const ::std::string& value) {
+inline void MarketData::set_securityidsource(::google::protobuf::int64 value) {
   set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  securityidsource_ = value;
   // @@protoc_insertion_point(field_set:comm.MarketData.securityIDSource)
 }
-inline void MarketData::set_securityidsource(const char* value) {
-  set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.MarketData.securityIDSource)
-}
-inline void MarketData::set_securityidsource(const char* value, size_t size) {
-  set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.securityIDSource)
-}
-inline ::std::string* MarketData::mutable_securityidsource() {
-  set_has_securityidsource();
-  // @@protoc_insertion_point(field_mutable:comm.MarketData.securityIDSource)
-  return securityidsource_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* MarketData::release_securityidsource() {
-  // @@protoc_insertion_point(field_release:comm.MarketData.securityIDSource)
-  clear_has_securityidsource();
-  return securityidsource_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MarketData::set_allocated_securityidsource(::std::string* securityidsource) {
-  if (securityidsource != NULL) {
-    set_has_securityidsource();
-  } else {
-    clear_has_securityidsource();
-  }
-  securityidsource_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), securityidsource);
-  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.securityIDSource)
-}
 
-// optional string securityType = 6;
+// optional int64 securityType = 6;
 inline bool MarketData::has_securitytype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -953,47 +913,17 @@ inline void MarketData::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000020u;
 }
 inline void MarketData::clear_securitytype() {
-  securitytype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  securitytype_ = GOOGLE_LONGLONG(0);
   clear_has_securitytype();
 }
-inline const ::std::string& MarketData::securitytype() const {
+inline ::google::protobuf::int64 MarketData::securitytype() const {
   // @@protoc_insertion_point(field_get:comm.MarketData.securityType)
-  return securitytype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return securitytype_;
 }
-inline void MarketData::set_securitytype(const ::std::string& value) {
+inline void MarketData::set_securitytype(::google::protobuf::int64 value) {
   set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  securitytype_ = value;
   // @@protoc_insertion_point(field_set:comm.MarketData.securityType)
-}
-inline void MarketData::set_securitytype(const char* value) {
-  set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.MarketData.securityType)
-}
-inline void MarketData::set_securitytype(const char* value, size_t size) {
-  set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.securityType)
-}
-inline ::std::string* MarketData::mutable_securitytype() {
-  set_has_securitytype();
-  // @@protoc_insertion_point(field_mutable:comm.MarketData.securityType)
-  return securitytype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* MarketData::release_securitytype() {
-  // @@protoc_insertion_point(field_release:comm.MarketData.securityType)
-  clear_has_securitytype();
-  return securitytype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void MarketData::set_allocated_securitytype(::std::string* securitytype) {
-  if (securitytype != NULL) {
-    set_has_securitytype();
-  } else {
-    clear_has_securitytype();
-  }
-  securitytype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), securitytype);
-  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.securityType)
 }
 
 // optional int64 MaxPx = 7;
