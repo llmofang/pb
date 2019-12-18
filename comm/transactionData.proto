@@ -3,17 +3,25 @@ package comm;
 
 message TransactionData
 {
-	required string WindCode = 1;
-    required string Code = 2;
-	required int32 ActionDay = 3;
-	required int32 Time = 4;
-	required int32 Index = 5;
-	required int32 Price = 6;
-	required int32 Volume = 7;
-	required int32 Turnover = 8;
-	required int32 BSFlag = 9;
-	required string OrderKind = 10;
-	required string FunctionCode = 11;
-	required int32 AskOrder = 12;
-	required int32 BidOrder = 13;
+	required string HTSCSecurityID = 1;
+	required int32 MDDate = 2;
+	required int32 MDTime = 3;
+	optional int64 securityIDSource = 4;
+	optional int64 securityType = 5;
+	optional int64 TradeIndex = 6;
+	optional int64 TradeBuyNo = 7;
+	optional int64 TradeSellNo = 8;
+	optional int32 TradeType = 9;
+	optional int32 TradeBSFlag = 10;
+	optional int64 TradePrice = 11;
+	optional int64 TradeQty = 12;
+	optional int64 TradeMoney = 13;
+	optional int32 ChannelNo = 14;
+	optional int32 ExchangeDate = 15;
+	optional int32 ExchangeTime = 16;
+	optional int64 TradeCleanPrice = 17;
+	optional int64 AccruedInterestAmt = 18;
+	optional int64 TradeDirtyPrice = 19;
+	optional int64 MaturityYield = 20;
+	optional string FITradingMethod = 21;
 }

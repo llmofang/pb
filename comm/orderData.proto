@@ -3,13 +3,17 @@ package comm;
 
 message OrderData
 {
-	required string WindCode = 1;
-    required string Code = 2;
-	required int32 ActionDay = 3;
-	required int32 Time = 4;
-	required int32 Order = 5;
-	required int32 Price = 6;
-	required int32 Volume = 7;
-	required string OrderKind = 8;
-	required string FunctionCode = 9;
+	required string HTSCSecurityID = 1;
+	required int32 MDDate = 2;
+	required int32 MDTime = 3;
+	optional int64 securityIDSource = 4;
+	optional int64 securityType = 5;
+	optional int64 OrderIndex = 6;
+	optional int32 OrderType = 7;
+	optional int64 OrderPrice = 8;
+	optional int64 OrderQty = 9;
+	optional int32 OrderBSFlag = 10;
+	optional int32 ChannelNo = 11;
+	optional int32 ExchangeDate = 12;
+	optional int32 ExchangeTime = 13;
 }
