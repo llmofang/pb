@@ -36,20 +36,28 @@ void protobuf_AssignDesc_transactionData_2eproto() {
       "transactionData.proto");
   GOOGLE_CHECK(file != NULL);
   TransactionData_descriptor_ = file->message_type(0);
-  static const int TransactionData_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, windcode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, actionday_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, time_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, index_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, price_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, volume_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, turnover_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, bsflag_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, orderkind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, functioncode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, askorder_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, bidorder_),
+  static const int TransactionData_offsets_[21] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, htscsecurityid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, mddate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, mdtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, securityidsource_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, securitytype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradeindex_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradebuyno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradesellno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradebsflag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradeprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradeqty_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, trademoney_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, channelno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, exchangedate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, exchangetime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradecleanprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, accruedinterestamt_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, tradedirtyprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, maturityyield_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionData, fitradingmethod_),
   };
   TransactionData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -103,13 +111,19 @@ void protobuf_AddDesc_transactionData_2eproto_impl() {
 
   protobuf_InitDefaults_transactionData_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025transactionData.proto\022\004comm\"\357\001\n\017Transa"
-    "ctionData\022\020\n\010WindCode\030\001 \002(\t\022\014\n\004Code\030\002 \002("
-    "\t\022\021\n\tActionDay\030\003 \002(\005\022\014\n\004Time\030\004 \002(\005\022\r\n\005In"
-    "dex\030\005 \002(\005\022\r\n\005Price\030\006 \002(\005\022\016\n\006Volume\030\007 \002(\005"
-    "\022\020\n\010Turnover\030\010 \002(\005\022\016\n\006BSFlag\030\t \002(\005\022\021\n\tOr"
-    "derKind\030\n \002(\t\022\024\n\014FunctionCode\030\013 \002(\t\022\020\n\010A"
-    "skOrder\030\014 \002(\005\022\020\n\010BidOrder\030\r \002(\005", 271);
+    "\n\025transactionData.proto\022\004comm\"\325\003\n\017Transa"
+    "ctionData\022\026\n\016HTSCSecurityID\030\001 \002(\t\022\016\n\006MDD"
+    "ate\030\002 \002(\005\022\016\n\006MDTime\030\003 \002(\005\022\030\n\020securityIDS"
+    "ource\030\004 \001(\003\022\024\n\014securityType\030\005 \001(\003\022\022\n\nTra"
+    "deIndex\030\006 \001(\003\022\022\n\nTradeBuyNo\030\007 \001(\003\022\023\n\013Tra"
+    "deSellNo\030\010 \001(\003\022\021\n\tTradeType\030\t \001(\005\022\023\n\013Tra"
+    "deBSFlag\030\n \001(\005\022\022\n\nTradePrice\030\013 \001(\003\022\020\n\010Tr"
+    "adeQty\030\014 \001(\003\022\022\n\nTradeMoney\030\r \001(\003\022\021\n\tChan"
+    "nelNo\030\016 \001(\005\022\024\n\014ExchangeDate\030\017 \001(\005\022\024\n\014Exc"
+    "hangeTime\030\020 \001(\005\022\027\n\017TradeCleanPrice\030\021 \001(\003"
+    "\022\032\n\022AccruedInterestAmt\030\022 \001(\003\022\027\n\017TradeDir"
+    "tyPrice\030\023 \001(\003\022\025\n\rMaturityYield\030\024 \001(\003\022\027\n\017"
+    "FITradingMethod\030\025 \001(\t", 501);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "transactionData.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_transactionData_2eproto);
@@ -140,19 +154,27 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int TransactionData::kWindCodeFieldNumber;
-const int TransactionData::kCodeFieldNumber;
-const int TransactionData::kActionDayFieldNumber;
-const int TransactionData::kTimeFieldNumber;
-const int TransactionData::kIndexFieldNumber;
-const int TransactionData::kPriceFieldNumber;
-const int TransactionData::kVolumeFieldNumber;
-const int TransactionData::kTurnoverFieldNumber;
-const int TransactionData::kBSFlagFieldNumber;
-const int TransactionData::kOrderKindFieldNumber;
-const int TransactionData::kFunctionCodeFieldNumber;
-const int TransactionData::kAskOrderFieldNumber;
-const int TransactionData::kBidOrderFieldNumber;
+const int TransactionData::kHTSCSecurityIDFieldNumber;
+const int TransactionData::kMDDateFieldNumber;
+const int TransactionData::kMDTimeFieldNumber;
+const int TransactionData::kSecurityIDSourceFieldNumber;
+const int TransactionData::kSecurityTypeFieldNumber;
+const int TransactionData::kTradeIndexFieldNumber;
+const int TransactionData::kTradeBuyNoFieldNumber;
+const int TransactionData::kTradeSellNoFieldNumber;
+const int TransactionData::kTradeTypeFieldNumber;
+const int TransactionData::kTradeBSFlagFieldNumber;
+const int TransactionData::kTradePriceFieldNumber;
+const int TransactionData::kTradeQtyFieldNumber;
+const int TransactionData::kTradeMoneyFieldNumber;
+const int TransactionData::kChannelNoFieldNumber;
+const int TransactionData::kExchangeDateFieldNumber;
+const int TransactionData::kExchangeTimeFieldNumber;
+const int TransactionData::kTradeCleanPriceFieldNumber;
+const int TransactionData::kAccruedInterestAmtFieldNumber;
+const int TransactionData::kTradeDirtyPriceFieldNumber;
+const int TransactionData::kMaturityYieldFieldNumber;
+const int TransactionData::kFITradingMethodFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 TransactionData::TransactionData()
@@ -175,12 +197,10 @@ TransactionData::TransactionData(const TransactionData& from)
 
 void TransactionData::SharedCtor() {
   _cached_size_ = 0;
-  windcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  orderkind_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  functioncode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&actionday_, 0, reinterpret_cast<char*>(&bidorder_) -
-    reinterpret_cast<char*>(&actionday_) + sizeof(bidorder_));
+  htscsecurityid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fitradingmethod_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&mddate_, 0, reinterpret_cast<char*>(&exchangetime_) -
+    reinterpret_cast<char*>(&mddate_) + sizeof(exchangetime_));
 }
 
 TransactionData::~TransactionData() {
@@ -189,10 +209,8 @@ TransactionData::~TransactionData() {
 }
 
 void TransactionData::SharedDtor() {
-  windcode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  orderkind_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  functioncode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  htscsecurityid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fitradingmethod_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void TransactionData::SetCachedSize(int size) const {
@@ -239,21 +257,19 @@ void TransactionData::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 255u) {
-    ZR_(actionday_, turnover_);
-    if (has_windcode()) {
-      windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_code()) {
-      code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    ZR_(mddate_, tradesellno_);
+    if (has_htscsecurityid()) {
+      htscsecurityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  if (_has_bits_[8 / 32] & 7936u) {
-    ZR_(bsflag_, bidorder_);
-    if (has_orderkind()) {
-      orderkind_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_functioncode()) {
-      functioncode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (_has_bits_[8 / 32] & 65280u) {
+    ZR_(tradetype_, exchangedate_);
+    exchangetime_ = 0;
+  }
+  if (_has_bits_[16 / 32] & 2031616u) {
+    ZR_(tradecleanprice_, maturityyield_);
+    if (has_fitradingmethod()) {
+      fitradingmethod_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
 
@@ -272,205 +288,321 @@ bool TransactionData::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:comm.TransactionData)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string WindCode = 1;
+      // required string HTSCSecurityID = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_windcode()));
+                input, this->mutable_htscsecurityid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->windcode().data(), this->windcode().length(),
+            this->htscsecurityid().data(), this->htscsecurityid().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.TransactionData.WindCode");
+            "comm.TransactionData.HTSCSecurityID");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_Code;
+        if (input->ExpectTag(16)) goto parse_MDDate;
         break;
       }
 
-      // required string Code = 2;
+      // required int32 MDDate = 2;
       case 2: {
-        if (tag == 18) {
-         parse_Code:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_code()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->code().data(), this->code().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.TransactionData.Code");
+        if (tag == 16) {
+         parse_MDDate:
+          set_has_mddate();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mddate_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_ActionDay;
+        if (input->ExpectTag(24)) goto parse_MDTime;
         break;
       }
 
-      // required int32 ActionDay = 3;
+      // required int32 MDTime = 3;
       case 3: {
         if (tag == 24) {
-         parse_ActionDay:
-          set_has_actionday();
+         parse_MDTime:
+          set_has_mdtime();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &actionday_)));
+                 input, &mdtime_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_Time;
+        if (input->ExpectTag(32)) goto parse_securityIDSource;
         break;
       }
 
-      // required int32 Time = 4;
+      // optional int64 securityIDSource = 4;
       case 4: {
         if (tag == 32) {
-         parse_Time:
-          set_has_time();
+         parse_securityIDSource:
+          set_has_securityidsource();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &time_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securityidsource_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_Index;
+        if (input->ExpectTag(40)) goto parse_securityType;
         break;
       }
 
-      // required int32 Index = 5;
+      // optional int64 securityType = 5;
       case 5: {
         if (tag == 40) {
-         parse_Index:
-          set_has_index();
+         parse_securityType:
+          set_has_securitytype();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &index_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securitytype_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_Price;
+        if (input->ExpectTag(48)) goto parse_TradeIndex;
         break;
       }
 
-      // required int32 Price = 6;
+      // optional int64 TradeIndex = 6;
       case 6: {
         if (tag == 48) {
-         parse_Price:
-          set_has_price();
+         parse_TradeIndex:
+          set_has_tradeindex();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &price_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradeindex_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_Volume;
+        if (input->ExpectTag(56)) goto parse_TradeBuyNo;
         break;
       }
 
-      // required int32 Volume = 7;
+      // optional int64 TradeBuyNo = 7;
       case 7: {
         if (tag == 56) {
-         parse_Volume:
-          set_has_volume();
+         parse_TradeBuyNo:
+          set_has_tradebuyno();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &volume_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradebuyno_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(64)) goto parse_Turnover;
+        if (input->ExpectTag(64)) goto parse_TradeSellNo;
         break;
       }
 
-      // required int32 Turnover = 8;
+      // optional int64 TradeSellNo = 8;
       case 8: {
         if (tag == 64) {
-         parse_Turnover:
-          set_has_turnover();
+         parse_TradeSellNo:
+          set_has_tradesellno();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &turnover_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradesellno_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(72)) goto parse_BSFlag;
+        if (input->ExpectTag(72)) goto parse_TradeType;
         break;
       }
 
-      // required int32 BSFlag = 9;
+      // optional int32 TradeType = 9;
       case 9: {
         if (tag == 72) {
-         parse_BSFlag:
-          set_has_bsflag();
+         parse_TradeType:
+          set_has_tradetype();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bsflag_)));
+                 input, &tradetype_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_OrderKind;
+        if (input->ExpectTag(80)) goto parse_TradeBSFlag;
         break;
       }
 
-      // required string OrderKind = 10;
+      // optional int32 TradeBSFlag = 10;
       case 10: {
-        if (tag == 82) {
-         parse_OrderKind:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_orderkind()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->orderkind().data(), this->orderkind().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.TransactionData.OrderKind");
+        if (tag == 80) {
+         parse_TradeBSFlag:
+          set_has_tradebsflag();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &tradebsflag_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_FunctionCode;
+        if (input->ExpectTag(88)) goto parse_TradePrice;
         break;
       }
 
-      // required string FunctionCode = 11;
+      // optional int64 TradePrice = 11;
       case 11: {
-        if (tag == 90) {
-         parse_FunctionCode:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_functioncode()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->functioncode().data(), this->functioncode().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.TransactionData.FunctionCode");
+        if (tag == 88) {
+         parse_TradePrice:
+          set_has_tradeprice();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradeprice_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(96)) goto parse_AskOrder;
+        if (input->ExpectTag(96)) goto parse_TradeQty;
         break;
       }
 
-      // required int32 AskOrder = 12;
+      // optional int64 TradeQty = 12;
       case 12: {
         if (tag == 96) {
-         parse_AskOrder:
-          set_has_askorder();
+         parse_TradeQty:
+          set_has_tradeqty();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &askorder_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradeqty_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(104)) goto parse_BidOrder;
+        if (input->ExpectTag(104)) goto parse_TradeMoney;
         break;
       }
 
-      // required int32 BidOrder = 13;
+      // optional int64 TradeMoney = 13;
       case 13: {
         if (tag == 104) {
-         parse_BidOrder:
-          set_has_bidorder();
+         parse_TradeMoney:
+          set_has_trademoney();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &trademoney_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(112)) goto parse_ChannelNo;
+        break;
+      }
+
+      // optional int32 ChannelNo = 14;
+      case 14: {
+        if (tag == 112) {
+         parse_ChannelNo:
+          set_has_channelno();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bidorder_)));
+                 input, &channelno_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(120)) goto parse_ExchangeDate;
+        break;
+      }
+
+      // optional int32 ExchangeDate = 15;
+      case 15: {
+        if (tag == 120) {
+         parse_ExchangeDate:
+          set_has_exchangedate();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exchangedate_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(128)) goto parse_ExchangeTime;
+        break;
+      }
+
+      // optional int32 ExchangeTime = 16;
+      case 16: {
+        if (tag == 128) {
+         parse_ExchangeTime:
+          set_has_exchangetime();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exchangetime_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(136)) goto parse_TradeCleanPrice;
+        break;
+      }
+
+      // optional int64 TradeCleanPrice = 17;
+      case 17: {
+        if (tag == 136) {
+         parse_TradeCleanPrice:
+          set_has_tradecleanprice();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradecleanprice_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(144)) goto parse_AccruedInterestAmt;
+        break;
+      }
+
+      // optional int64 AccruedInterestAmt = 18;
+      case 18: {
+        if (tag == 144) {
+         parse_AccruedInterestAmt:
+          set_has_accruedinterestamt();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &accruedinterestamt_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(152)) goto parse_TradeDirtyPrice;
+        break;
+      }
+
+      // optional int64 TradeDirtyPrice = 19;
+      case 19: {
+        if (tag == 152) {
+         parse_TradeDirtyPrice:
+          set_has_tradedirtyprice();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &tradedirtyprice_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(160)) goto parse_MaturityYield;
+        break;
+      }
+
+      // optional int64 MaturityYield = 20;
+      case 20: {
+        if (tag == 160) {
+         parse_MaturityYield:
+          set_has_maturityyield();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &maturityyield_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(170)) goto parse_FITradingMethod;
+        break;
+      }
+
+      // optional string FITradingMethod = 21;
+      case 21: {
+        if (tag == 170) {
+         parse_FITradingMethod:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fitradingmethod()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->fitradingmethod().data(), this->fitradingmethod().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "comm.TransactionData.FITradingMethod");
         } else {
           goto handle_unusual;
         }
@@ -503,89 +635,119 @@ failure:
 void TransactionData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:comm.TransactionData)
-  // required string WindCode = 1;
-  if (has_windcode()) {
+  // required string HTSCSecurityID = 1;
+  if (has_htscsecurityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->windcode().data(), this->windcode().length(),
+      this->htscsecurityid().data(), this->htscsecurityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.WindCode");
+      "comm.TransactionData.HTSCSecurityID");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->windcode(), output);
+      1, this->htscsecurityid(), output);
   }
 
-  // required string Code = 2;
-  if (has_code()) {
+  // required int32 MDDate = 2;
+  if (has_mddate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->mddate(), output);
+  }
+
+  // required int32 MDTime = 3;
+  if (has_mdtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->mdtime(), output);
+  }
+
+  // optional int64 securityIDSource = 4;
+  if (has_securityidsource()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->securityidsource(), output);
+  }
+
+  // optional int64 securityType = 5;
+  if (has_securitytype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->securitytype(), output);
+  }
+
+  // optional int64 TradeIndex = 6;
+  if (has_tradeindex()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->tradeindex(), output);
+  }
+
+  // optional int64 TradeBuyNo = 7;
+  if (has_tradebuyno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->tradebuyno(), output);
+  }
+
+  // optional int64 TradeSellNo = 8;
+  if (has_tradesellno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->tradesellno(), output);
+  }
+
+  // optional int32 TradeType = 9;
+  if (has_tradetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->tradetype(), output);
+  }
+
+  // optional int32 TradeBSFlag = 10;
+  if (has_tradebsflag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->tradebsflag(), output);
+  }
+
+  // optional int64 TradePrice = 11;
+  if (has_tradeprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->tradeprice(), output);
+  }
+
+  // optional int64 TradeQty = 12;
+  if (has_tradeqty()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->tradeqty(), output);
+  }
+
+  // optional int64 TradeMoney = 13;
+  if (has_trademoney()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(13, this->trademoney(), output);
+  }
+
+  // optional int32 ChannelNo = 14;
+  if (has_channelno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->channelno(), output);
+  }
+
+  // optional int32 ExchangeDate = 15;
+  if (has_exchangedate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->exchangedate(), output);
+  }
+
+  // optional int32 ExchangeTime = 16;
+  if (has_exchangetime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->exchangetime(), output);
+  }
+
+  // optional int64 TradeCleanPrice = 17;
+  if (has_tradecleanprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(17, this->tradecleanprice(), output);
+  }
+
+  // optional int64 AccruedInterestAmt = 18;
+  if (has_accruedinterestamt()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->accruedinterestamt(), output);
+  }
+
+  // optional int64 TradeDirtyPrice = 19;
+  if (has_tradedirtyprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(19, this->tradedirtyprice(), output);
+  }
+
+  // optional int64 MaturityYield = 20;
+  if (has_maturityyield()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(20, this->maturityyield(), output);
+  }
+
+  // optional string FITradingMethod = 21;
+  if (has_fitradingmethod()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->code().data(), this->code().length(),
+      this->fitradingmethod().data(), this->fitradingmethod().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.Code");
+      "comm.TransactionData.FITradingMethod");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->code(), output);
-  }
-
-  // required int32 ActionDay = 3;
-  if (has_actionday()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->actionday(), output);
-  }
-
-  // required int32 Time = 4;
-  if (has_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->time(), output);
-  }
-
-  // required int32 Index = 5;
-  if (has_index()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->index(), output);
-  }
-
-  // required int32 Price = 6;
-  if (has_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->price(), output);
-  }
-
-  // required int32 Volume = 7;
-  if (has_volume()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->volume(), output);
-  }
-
-  // required int32 Turnover = 8;
-  if (has_turnover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->turnover(), output);
-  }
-
-  // required int32 BSFlag = 9;
-  if (has_bsflag()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->bsflag(), output);
-  }
-
-  // required string OrderKind = 10;
-  if (has_orderkind()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->orderkind().data(), this->orderkind().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.OrderKind");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      10, this->orderkind(), output);
-  }
-
-  // required string FunctionCode = 11;
-  if (has_functioncode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->functioncode().data(), this->functioncode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.FunctionCode");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      11, this->functioncode(), output);
-  }
-
-  // required int32 AskOrder = 12;
-  if (has_askorder()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->askorder(), output);
-  }
-
-  // required int32 BidOrder = 13;
-  if (has_bidorder()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->bidorder(), output);
+      21, this->fitradingmethod(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -599,93 +761,121 @@ void TransactionData::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.TransactionData)
-  // required string WindCode = 1;
-  if (has_windcode()) {
+  // required string HTSCSecurityID = 1;
+  if (has_htscsecurityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->windcode().data(), this->windcode().length(),
+      this->htscsecurityid().data(), this->htscsecurityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.WindCode");
+      "comm.TransactionData.HTSCSecurityID");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->windcode(), target);
+        1, this->htscsecurityid(), target);
   }
 
-  // required string Code = 2;
-  if (has_code()) {
+  // required int32 MDDate = 2;
+  if (has_mddate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->mddate(), target);
+  }
+
+  // required int32 MDTime = 3;
+  if (has_mdtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->mdtime(), target);
+  }
+
+  // optional int64 securityIDSource = 4;
+  if (has_securityidsource()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->securityidsource(), target);
+  }
+
+  // optional int64 securityType = 5;
+  if (has_securitytype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->securitytype(), target);
+  }
+
+  // optional int64 TradeIndex = 6;
+  if (has_tradeindex()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->tradeindex(), target);
+  }
+
+  // optional int64 TradeBuyNo = 7;
+  if (has_tradebuyno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->tradebuyno(), target);
+  }
+
+  // optional int64 TradeSellNo = 8;
+  if (has_tradesellno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->tradesellno(), target);
+  }
+
+  // optional int32 TradeType = 9;
+  if (has_tradetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->tradetype(), target);
+  }
+
+  // optional int32 TradeBSFlag = 10;
+  if (has_tradebsflag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->tradebsflag(), target);
+  }
+
+  // optional int64 TradePrice = 11;
+  if (has_tradeprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->tradeprice(), target);
+  }
+
+  // optional int64 TradeQty = 12;
+  if (has_tradeqty()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->tradeqty(), target);
+  }
+
+  // optional int64 TradeMoney = 13;
+  if (has_trademoney()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(13, this->trademoney(), target);
+  }
+
+  // optional int32 ChannelNo = 14;
+  if (has_channelno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->channelno(), target);
+  }
+
+  // optional int32 ExchangeDate = 15;
+  if (has_exchangedate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->exchangedate(), target);
+  }
+
+  // optional int32 ExchangeTime = 16;
+  if (has_exchangetime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->exchangetime(), target);
+  }
+
+  // optional int64 TradeCleanPrice = 17;
+  if (has_tradecleanprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(17, this->tradecleanprice(), target);
+  }
+
+  // optional int64 AccruedInterestAmt = 18;
+  if (has_accruedinterestamt()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->accruedinterestamt(), target);
+  }
+
+  // optional int64 TradeDirtyPrice = 19;
+  if (has_tradedirtyprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(19, this->tradedirtyprice(), target);
+  }
+
+  // optional int64 MaturityYield = 20;
+  if (has_maturityyield()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->maturityyield(), target);
+  }
+
+  // optional string FITradingMethod = 21;
+  if (has_fitradingmethod()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->code().data(), this->code().length(),
+      this->fitradingmethod().data(), this->fitradingmethod().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.Code");
+      "comm.TransactionData.FITradingMethod");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->code(), target);
-  }
-
-  // required int32 ActionDay = 3;
-  if (has_actionday()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->actionday(), target);
-  }
-
-  // required int32 Time = 4;
-  if (has_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->time(), target);
-  }
-
-  // required int32 Index = 5;
-  if (has_index()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->index(), target);
-  }
-
-  // required int32 Price = 6;
-  if (has_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->price(), target);
-  }
-
-  // required int32 Volume = 7;
-  if (has_volume()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->volume(), target);
-  }
-
-  // required int32 Turnover = 8;
-  if (has_turnover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->turnover(), target);
-  }
-
-  // required int32 BSFlag = 9;
-  if (has_bsflag()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->bsflag(), target);
-  }
-
-  // required string OrderKind = 10;
-  if (has_orderkind()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->orderkind().data(), this->orderkind().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.OrderKind");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        10, this->orderkind(), target);
-  }
-
-  // required string FunctionCode = 11;
-  if (has_functioncode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->functioncode().data(), this->functioncode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.TransactionData.FunctionCode");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        11, this->functioncode(), target);
-  }
-
-  // required int32 AskOrder = 12;
-  if (has_askorder()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->askorder(), target);
-  }
-
-  // required int32 BidOrder = 13;
-  if (has_bidorder()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->bidorder(), target);
+        21, this->fitradingmethod(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -700,95 +890,25 @@ size_t TransactionData::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:comm.TransactionData)
   size_t total_size = 0;
 
-  if (has_windcode()) {
-    // required string WindCode = 1;
+  if (has_htscsecurityid()) {
+    // required string HTSCSecurityID = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->windcode());
+        this->htscsecurityid());
   }
 
-  if (has_code()) {
-    // required string Code = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->code());
-  }
-
-  if (has_actionday()) {
-    // required int32 ActionDay = 3;
+  if (has_mddate()) {
+    // required int32 MDDate = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->actionday());
+        this->mddate());
   }
 
-  if (has_time()) {
-    // required int32 Time = 4;
+  if (has_mdtime()) {
+    // required int32 MDTime = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->time());
-  }
-
-  if (has_index()) {
-    // required int32 Index = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->index());
-  }
-
-  if (has_price()) {
-    // required int32 Price = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->price());
-  }
-
-  if (has_volume()) {
-    // required int32 Volume = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->volume());
-  }
-
-  if (has_turnover()) {
-    // required int32 Turnover = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->turnover());
-  }
-
-  if (has_bsflag()) {
-    // required int32 BSFlag = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->bsflag());
-  }
-
-  if (has_orderkind()) {
-    // required string OrderKind = 10;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->orderkind());
-  }
-
-  if (has_functioncode()) {
-    // required string FunctionCode = 11;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->functioncode());
-  }
-
-  if (has_askorder()) {
-    // required int32 AskOrder = 12;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->askorder());
-  }
-
-  if (has_bidorder()) {
-    // required int32 BidOrder = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->bidorder());
+        this->mdtime());
   }
 
   return total_size;
@@ -797,74 +917,156 @@ size_t TransactionData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:comm.TransactionData)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00001fff) ^ 0x00001fff) == 0) {  // All required fields are present.
-    // required string WindCode = 1;
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required string HTSCSecurityID = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->windcode());
+        this->htscsecurityid());
 
-    // required string Code = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->code());
-
-    // required int32 ActionDay = 3;
+    // required int32 MDDate = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->actionday());
+        this->mddate());
 
-    // required int32 Time = 4;
+    // required int32 MDTime = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->time());
-
-    // required int32 Index = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->index());
-
-    // required int32 Price = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->price());
-
-    // required int32 Volume = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->volume());
-
-    // required int32 Turnover = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->turnover());
-
-    // required int32 BSFlag = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->bsflag());
-
-    // required string OrderKind = 10;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->orderkind());
-
-    // required string FunctionCode = 11;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->functioncode());
-
-    // required int32 AskOrder = 12;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->askorder());
-
-    // required int32 BidOrder = 13;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->bidorder());
+        this->mdtime());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[3 / 32] & 248u) {
+    // optional int64 securityIDSource = 4;
+    if (has_securityidsource()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->securityidsource());
+    }
+
+    // optional int64 securityType = 5;
+    if (has_securitytype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->securitytype());
+    }
+
+    // optional int64 TradeIndex = 6;
+    if (has_tradeindex()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradeindex());
+    }
+
+    // optional int64 TradeBuyNo = 7;
+    if (has_tradebuyno()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradebuyno());
+    }
+
+    // optional int64 TradeSellNo = 8;
+    if (has_tradesellno()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradesellno());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & 65280u) {
+    // optional int32 TradeType = 9;
+    if (has_tradetype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->tradetype());
+    }
+
+    // optional int32 TradeBSFlag = 10;
+    if (has_tradebsflag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->tradebsflag());
+    }
+
+    // optional int64 TradePrice = 11;
+    if (has_tradeprice()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradeprice());
+    }
+
+    // optional int64 TradeQty = 12;
+    if (has_tradeqty()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradeqty());
+    }
+
+    // optional int64 TradeMoney = 13;
+    if (has_trademoney()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->trademoney());
+    }
+
+    // optional int32 ChannelNo = 14;
+    if (has_channelno()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->channelno());
+    }
+
+    // optional int32 ExchangeDate = 15;
+    if (has_exchangedate()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exchangedate());
+    }
+
+    // optional int32 ExchangeTime = 16;
+    if (has_exchangetime()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exchangetime());
+    }
+
+  }
+  if (_has_bits_[16 / 32] & 2031616u) {
+    // optional int64 TradeCleanPrice = 17;
+    if (has_tradecleanprice()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradecleanprice());
+    }
+
+    // optional int64 AccruedInterestAmt = 18;
+    if (has_accruedinterestamt()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->accruedinterestamt());
+    }
+
+    // optional int64 TradeDirtyPrice = 19;
+    if (has_tradedirtyprice()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->tradedirtyprice());
+    }
+
+    // optional int64 MaturityYield = 20;
+    if (has_maturityyield()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->maturityyield());
+    }
+
+    // optional string FITradingMethod = 21;
+    if (has_fitradingmethod()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->fitradingmethod());
+    }
+
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -905,50 +1107,74 @@ void TransactionData::MergeFrom(const TransactionData& from) {
 void TransactionData::UnsafeMergeFrom(const TransactionData& from) {
   GOOGLE_DCHECK(&from != this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_windcode()) {
-      set_has_windcode();
-      windcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.windcode_);
+    if (from.has_htscsecurityid()) {
+      set_has_htscsecurityid();
+      htscsecurityid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.htscsecurityid_);
     }
-    if (from.has_code()) {
-      set_has_code();
-      code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.code_);
+    if (from.has_mddate()) {
+      set_mddate(from.mddate());
     }
-    if (from.has_actionday()) {
-      set_actionday(from.actionday());
+    if (from.has_mdtime()) {
+      set_mdtime(from.mdtime());
     }
-    if (from.has_time()) {
-      set_time(from.time());
+    if (from.has_securityidsource()) {
+      set_securityidsource(from.securityidsource());
     }
-    if (from.has_index()) {
-      set_index(from.index());
+    if (from.has_securitytype()) {
+      set_securitytype(from.securitytype());
     }
-    if (from.has_price()) {
-      set_price(from.price());
+    if (from.has_tradeindex()) {
+      set_tradeindex(from.tradeindex());
     }
-    if (from.has_volume()) {
-      set_volume(from.volume());
+    if (from.has_tradebuyno()) {
+      set_tradebuyno(from.tradebuyno());
     }
-    if (from.has_turnover()) {
-      set_turnover(from.turnover());
+    if (from.has_tradesellno()) {
+      set_tradesellno(from.tradesellno());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_bsflag()) {
-      set_bsflag(from.bsflag());
+    if (from.has_tradetype()) {
+      set_tradetype(from.tradetype());
     }
-    if (from.has_orderkind()) {
-      set_has_orderkind();
-      orderkind_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.orderkind_);
+    if (from.has_tradebsflag()) {
+      set_tradebsflag(from.tradebsflag());
     }
-    if (from.has_functioncode()) {
-      set_has_functioncode();
-      functioncode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.functioncode_);
+    if (from.has_tradeprice()) {
+      set_tradeprice(from.tradeprice());
     }
-    if (from.has_askorder()) {
-      set_askorder(from.askorder());
+    if (from.has_tradeqty()) {
+      set_tradeqty(from.tradeqty());
     }
-    if (from.has_bidorder()) {
-      set_bidorder(from.bidorder());
+    if (from.has_trademoney()) {
+      set_trademoney(from.trademoney());
+    }
+    if (from.has_channelno()) {
+      set_channelno(from.channelno());
+    }
+    if (from.has_exchangedate()) {
+      set_exchangedate(from.exchangedate());
+    }
+    if (from.has_exchangetime()) {
+      set_exchangetime(from.exchangetime());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_tradecleanprice()) {
+      set_tradecleanprice(from.tradecleanprice());
+    }
+    if (from.has_accruedinterestamt()) {
+      set_accruedinterestamt(from.accruedinterestamt());
+    }
+    if (from.has_tradedirtyprice()) {
+      set_tradedirtyprice(from.tradedirtyprice());
+    }
+    if (from.has_maturityyield()) {
+      set_maturityyield(from.maturityyield());
+    }
+    if (from.has_fitradingmethod()) {
+      set_has_fitradingmethod();
+      fitradingmethod_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fitradingmethod_);
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -972,7 +1198,7 @@ void TransactionData::CopyFrom(const TransactionData& from) {
 }
 
 bool TransactionData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00001fff) != 0x00001fff) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -982,19 +1208,27 @@ void TransactionData::Swap(TransactionData* other) {
   InternalSwap(other);
 }
 void TransactionData::InternalSwap(TransactionData* other) {
-  windcode_.Swap(&other->windcode_);
-  code_.Swap(&other->code_);
-  std::swap(actionday_, other->actionday_);
-  std::swap(time_, other->time_);
-  std::swap(index_, other->index_);
-  std::swap(price_, other->price_);
-  std::swap(volume_, other->volume_);
-  std::swap(turnover_, other->turnover_);
-  std::swap(bsflag_, other->bsflag_);
-  orderkind_.Swap(&other->orderkind_);
-  functioncode_.Swap(&other->functioncode_);
-  std::swap(askorder_, other->askorder_);
-  std::swap(bidorder_, other->bidorder_);
+  htscsecurityid_.Swap(&other->htscsecurityid_);
+  std::swap(mddate_, other->mddate_);
+  std::swap(mdtime_, other->mdtime_);
+  std::swap(securityidsource_, other->securityidsource_);
+  std::swap(securitytype_, other->securitytype_);
+  std::swap(tradeindex_, other->tradeindex_);
+  std::swap(tradebuyno_, other->tradebuyno_);
+  std::swap(tradesellno_, other->tradesellno_);
+  std::swap(tradetype_, other->tradetype_);
+  std::swap(tradebsflag_, other->tradebsflag_);
+  std::swap(tradeprice_, other->tradeprice_);
+  std::swap(tradeqty_, other->tradeqty_);
+  std::swap(trademoney_, other->trademoney_);
+  std::swap(channelno_, other->channelno_);
+  std::swap(exchangedate_, other->exchangedate_);
+  std::swap(exchangetime_, other->exchangetime_);
+  std::swap(tradecleanprice_, other->tradecleanprice_);
+  std::swap(accruedinterestamt_, other->accruedinterestamt_);
+  std::swap(tradedirtyprice_, other->tradedirtyprice_);
+  std::swap(maturityyield_, other->maturityyield_);
+  fitradingmethod_.Swap(&other->fitradingmethod_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -1011,436 +1245,568 @@ void TransactionData::InternalSwap(TransactionData* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // TransactionData
 
-// required string WindCode = 1;
-bool TransactionData::has_windcode() const {
+// required string HTSCSecurityID = 1;
+bool TransactionData::has_htscsecurityid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void TransactionData::set_has_windcode() {
+void TransactionData::set_has_htscsecurityid() {
   _has_bits_[0] |= 0x00000001u;
 }
-void TransactionData::clear_has_windcode() {
+void TransactionData::clear_has_htscsecurityid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void TransactionData::clear_windcode() {
-  windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_windcode();
+void TransactionData::clear_htscsecurityid() {
+  htscsecurityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_htscsecurityid();
 }
-const ::std::string& TransactionData::windcode() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.WindCode)
-  return windcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& TransactionData::htscsecurityid() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.HTSCSecurityID)
+  return htscsecurityid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void TransactionData::set_windcode(const ::std::string& value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.WindCode)
+void TransactionData::set_htscsecurityid(const ::std::string& value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.TransactionData.HTSCSecurityID)
 }
-void TransactionData::set_windcode(const char* value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.WindCode)
+void TransactionData::set_htscsecurityid(const char* value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.TransactionData.HTSCSecurityID)
 }
-void TransactionData::set_windcode(const char* value, size_t size) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void TransactionData::set_htscsecurityid(const char* value, size_t size) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.WindCode)
+  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.HTSCSecurityID)
 }
-::std::string* TransactionData::mutable_windcode() {
-  set_has_windcode();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.WindCode)
-  return windcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* TransactionData::mutable_htscsecurityid() {
+  set_has_htscsecurityid();
+  // @@protoc_insertion_point(field_mutable:comm.TransactionData.HTSCSecurityID)
+  return htscsecurityid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* TransactionData::release_windcode() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.WindCode)
-  clear_has_windcode();
-  return windcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* TransactionData::release_htscsecurityid() {
+  // @@protoc_insertion_point(field_release:comm.TransactionData.HTSCSecurityID)
+  clear_has_htscsecurityid();
+  return htscsecurityid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void TransactionData::set_allocated_windcode(::std::string* windcode) {
-  if (windcode != NULL) {
-    set_has_windcode();
+void TransactionData::set_allocated_htscsecurityid(::std::string* htscsecurityid) {
+  if (htscsecurityid != NULL) {
+    set_has_htscsecurityid();
   } else {
-    clear_has_windcode();
+    clear_has_htscsecurityid();
   }
-  windcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), windcode);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.WindCode)
+  htscsecurityid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), htscsecurityid);
+  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.HTSCSecurityID)
 }
 
-// required string Code = 2;
-bool TransactionData::has_code() const {
+// required int32 MDDate = 2;
+bool TransactionData::has_mddate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void TransactionData::set_has_code() {
+void TransactionData::set_has_mddate() {
   _has_bits_[0] |= 0x00000002u;
 }
-void TransactionData::clear_has_code() {
+void TransactionData::clear_has_mddate() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void TransactionData::clear_code() {
-  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_code();
+void TransactionData::clear_mddate() {
+  mddate_ = 0;
+  clear_has_mddate();
 }
-const ::std::string& TransactionData::code() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Code)
-  return code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int32 TransactionData::mddate() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MDDate)
+  return mddate_;
 }
-void TransactionData::set_code(const ::std::string& value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Code)
-}
-void TransactionData::set_code(const char* value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.Code)
-}
-void TransactionData::set_code(const char* value, size_t size) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.Code)
-}
-::std::string* TransactionData::mutable_code() {
-  set_has_code();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.Code)
-  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* TransactionData::release_code() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.Code)
-  clear_has_code();
-  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void TransactionData::set_allocated_code(::std::string* code) {
-  if (code != NULL) {
-    set_has_code();
-  } else {
-    clear_has_code();
-  }
-  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.Code)
+void TransactionData::set_mddate(::google::protobuf::int32 value) {
+  set_has_mddate();
+  mddate_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MDDate)
 }
 
-// required int32 ActionDay = 3;
-bool TransactionData::has_actionday() const {
+// required int32 MDTime = 3;
+bool TransactionData::has_mdtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void TransactionData::set_has_actionday() {
+void TransactionData::set_has_mdtime() {
   _has_bits_[0] |= 0x00000004u;
 }
-void TransactionData::clear_has_actionday() {
+void TransactionData::clear_has_mdtime() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void TransactionData::clear_actionday() {
-  actionday_ = 0;
-  clear_has_actionday();
+void TransactionData::clear_mdtime() {
+  mdtime_ = 0;
+  clear_has_mdtime();
 }
-::google::protobuf::int32 TransactionData::actionday() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.ActionDay)
-  return actionday_;
+::google::protobuf::int32 TransactionData::mdtime() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MDTime)
+  return mdtime_;
 }
-void TransactionData::set_actionday(::google::protobuf::int32 value) {
-  set_has_actionday();
-  actionday_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.ActionDay)
+void TransactionData::set_mdtime(::google::protobuf::int32 value) {
+  set_has_mdtime();
+  mdtime_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MDTime)
 }
 
-// required int32 Time = 4;
-bool TransactionData::has_time() const {
+// optional int64 securityIDSource = 4;
+bool TransactionData::has_securityidsource() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void TransactionData::set_has_time() {
+void TransactionData::set_has_securityidsource() {
   _has_bits_[0] |= 0x00000008u;
 }
-void TransactionData::clear_has_time() {
+void TransactionData::clear_has_securityidsource() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void TransactionData::clear_time() {
-  time_ = 0;
-  clear_has_time();
+void TransactionData::clear_securityidsource() {
+  securityidsource_ = GOOGLE_LONGLONG(0);
+  clear_has_securityidsource();
 }
-::google::protobuf::int32 TransactionData::time() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Time)
-  return time_;
+::google::protobuf::int64 TransactionData::securityidsource() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.securityIDSource)
+  return securityidsource_;
 }
-void TransactionData::set_time(::google::protobuf::int32 value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Time)
+void TransactionData::set_securityidsource(::google::protobuf::int64 value) {
+  set_has_securityidsource();
+  securityidsource_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.securityIDSource)
 }
 
-// required int32 Index = 5;
-bool TransactionData::has_index() const {
+// optional int64 securityType = 5;
+bool TransactionData::has_securitytype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void TransactionData::set_has_index() {
+void TransactionData::set_has_securitytype() {
   _has_bits_[0] |= 0x00000010u;
 }
-void TransactionData::clear_has_index() {
+void TransactionData::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void TransactionData::clear_index() {
-  index_ = 0;
-  clear_has_index();
+void TransactionData::clear_securitytype() {
+  securitytype_ = GOOGLE_LONGLONG(0);
+  clear_has_securitytype();
 }
-::google::protobuf::int32 TransactionData::index() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Index)
-  return index_;
+::google::protobuf::int64 TransactionData::securitytype() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.securityType)
+  return securitytype_;
 }
-void TransactionData::set_index(::google::protobuf::int32 value) {
-  set_has_index();
-  index_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Index)
+void TransactionData::set_securitytype(::google::protobuf::int64 value) {
+  set_has_securitytype();
+  securitytype_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.securityType)
 }
 
-// required int32 Price = 6;
-bool TransactionData::has_price() const {
+// optional int64 TradeIndex = 6;
+bool TransactionData::has_tradeindex() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void TransactionData::set_has_price() {
+void TransactionData::set_has_tradeindex() {
   _has_bits_[0] |= 0x00000020u;
 }
-void TransactionData::clear_has_price() {
+void TransactionData::clear_has_tradeindex() {
   _has_bits_[0] &= ~0x00000020u;
 }
-void TransactionData::clear_price() {
-  price_ = 0;
-  clear_has_price();
+void TransactionData::clear_tradeindex() {
+  tradeindex_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeindex();
 }
-::google::protobuf::int32 TransactionData::price() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Price)
-  return price_;
+::google::protobuf::int64 TransactionData::tradeindex() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeIndex)
+  return tradeindex_;
 }
-void TransactionData::set_price(::google::protobuf::int32 value) {
-  set_has_price();
-  price_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Price)
+void TransactionData::set_tradeindex(::google::protobuf::int64 value) {
+  set_has_tradeindex();
+  tradeindex_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeIndex)
 }
 
-// required int32 Volume = 7;
-bool TransactionData::has_volume() const {
+// optional int64 TradeBuyNo = 7;
+bool TransactionData::has_tradebuyno() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-void TransactionData::set_has_volume() {
+void TransactionData::set_has_tradebuyno() {
   _has_bits_[0] |= 0x00000040u;
 }
-void TransactionData::clear_has_volume() {
+void TransactionData::clear_has_tradebuyno() {
   _has_bits_[0] &= ~0x00000040u;
 }
-void TransactionData::clear_volume() {
-  volume_ = 0;
-  clear_has_volume();
+void TransactionData::clear_tradebuyno() {
+  tradebuyno_ = GOOGLE_LONGLONG(0);
+  clear_has_tradebuyno();
 }
-::google::protobuf::int32 TransactionData::volume() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Volume)
-  return volume_;
+::google::protobuf::int64 TransactionData::tradebuyno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeBuyNo)
+  return tradebuyno_;
 }
-void TransactionData::set_volume(::google::protobuf::int32 value) {
-  set_has_volume();
-  volume_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Volume)
+void TransactionData::set_tradebuyno(::google::protobuf::int64 value) {
+  set_has_tradebuyno();
+  tradebuyno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeBuyNo)
 }
 
-// required int32 Turnover = 8;
-bool TransactionData::has_turnover() const {
+// optional int64 TradeSellNo = 8;
+bool TransactionData::has_tradesellno() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-void TransactionData::set_has_turnover() {
+void TransactionData::set_has_tradesellno() {
   _has_bits_[0] |= 0x00000080u;
 }
-void TransactionData::clear_has_turnover() {
+void TransactionData::clear_has_tradesellno() {
   _has_bits_[0] &= ~0x00000080u;
 }
-void TransactionData::clear_turnover() {
-  turnover_ = 0;
-  clear_has_turnover();
+void TransactionData::clear_tradesellno() {
+  tradesellno_ = GOOGLE_LONGLONG(0);
+  clear_has_tradesellno();
 }
-::google::protobuf::int32 TransactionData::turnover() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Turnover)
-  return turnover_;
+::google::protobuf::int64 TransactionData::tradesellno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeSellNo)
+  return tradesellno_;
 }
-void TransactionData::set_turnover(::google::protobuf::int32 value) {
-  set_has_turnover();
-  turnover_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Turnover)
+void TransactionData::set_tradesellno(::google::protobuf::int64 value) {
+  set_has_tradesellno();
+  tradesellno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeSellNo)
 }
 
-// required int32 BSFlag = 9;
-bool TransactionData::has_bsflag() const {
+// optional int32 TradeType = 9;
+bool TransactionData::has_tradetype() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-void TransactionData::set_has_bsflag() {
+void TransactionData::set_has_tradetype() {
   _has_bits_[0] |= 0x00000100u;
 }
-void TransactionData::clear_has_bsflag() {
+void TransactionData::clear_has_tradetype() {
   _has_bits_[0] &= ~0x00000100u;
 }
-void TransactionData::clear_bsflag() {
-  bsflag_ = 0;
-  clear_has_bsflag();
+void TransactionData::clear_tradetype() {
+  tradetype_ = 0;
+  clear_has_tradetype();
 }
-::google::protobuf::int32 TransactionData::bsflag() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.BSFlag)
-  return bsflag_;
+::google::protobuf::int32 TransactionData::tradetype() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeType)
+  return tradetype_;
 }
-void TransactionData::set_bsflag(::google::protobuf::int32 value) {
-  set_has_bsflag();
-  bsflag_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.BSFlag)
+void TransactionData::set_tradetype(::google::protobuf::int32 value) {
+  set_has_tradetype();
+  tradetype_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeType)
 }
 
-// required string OrderKind = 10;
-bool TransactionData::has_orderkind() const {
+// optional int32 TradeBSFlag = 10;
+bool TransactionData::has_tradebsflag() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-void TransactionData::set_has_orderkind() {
+void TransactionData::set_has_tradebsflag() {
   _has_bits_[0] |= 0x00000200u;
 }
-void TransactionData::clear_has_orderkind() {
+void TransactionData::clear_has_tradebsflag() {
   _has_bits_[0] &= ~0x00000200u;
 }
-void TransactionData::clear_orderkind() {
-  orderkind_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_orderkind();
+void TransactionData::clear_tradebsflag() {
+  tradebsflag_ = 0;
+  clear_has_tradebsflag();
 }
-const ::std::string& TransactionData::orderkind() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.OrderKind)
-  return orderkind_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int32 TransactionData::tradebsflag() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeBSFlag)
+  return tradebsflag_;
 }
-void TransactionData::set_orderkind(const ::std::string& value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.OrderKind)
-}
-void TransactionData::set_orderkind(const char* value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.OrderKind)
-}
-void TransactionData::set_orderkind(const char* value, size_t size) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.OrderKind)
-}
-::std::string* TransactionData::mutable_orderkind() {
-  set_has_orderkind();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.OrderKind)
-  return orderkind_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* TransactionData::release_orderkind() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.OrderKind)
-  clear_has_orderkind();
-  return orderkind_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void TransactionData::set_allocated_orderkind(::std::string* orderkind) {
-  if (orderkind != NULL) {
-    set_has_orderkind();
-  } else {
-    clear_has_orderkind();
-  }
-  orderkind_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), orderkind);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.OrderKind)
+void TransactionData::set_tradebsflag(::google::protobuf::int32 value) {
+  set_has_tradebsflag();
+  tradebsflag_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeBSFlag)
 }
 
-// required string FunctionCode = 11;
-bool TransactionData::has_functioncode() const {
+// optional int64 TradePrice = 11;
+bool TransactionData::has_tradeprice() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-void TransactionData::set_has_functioncode() {
+void TransactionData::set_has_tradeprice() {
   _has_bits_[0] |= 0x00000400u;
 }
-void TransactionData::clear_has_functioncode() {
+void TransactionData::clear_has_tradeprice() {
   _has_bits_[0] &= ~0x00000400u;
 }
-void TransactionData::clear_functioncode() {
-  functioncode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_functioncode();
+void TransactionData::clear_tradeprice() {
+  tradeprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeprice();
 }
-const ::std::string& TransactionData::functioncode() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.FunctionCode)
-  return functioncode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int64 TransactionData::tradeprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradePrice)
+  return tradeprice_;
 }
-void TransactionData::set_functioncode(const ::std::string& value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.FunctionCode)
-}
-void TransactionData::set_functioncode(const char* value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.FunctionCode)
-}
-void TransactionData::set_functioncode(const char* value, size_t size) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.FunctionCode)
-}
-::std::string* TransactionData::mutable_functioncode() {
-  set_has_functioncode();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.FunctionCode)
-  return functioncode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* TransactionData::release_functioncode() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.FunctionCode)
-  clear_has_functioncode();
-  return functioncode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void TransactionData::set_allocated_functioncode(::std::string* functioncode) {
-  if (functioncode != NULL) {
-    set_has_functioncode();
-  } else {
-    clear_has_functioncode();
-  }
-  functioncode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), functioncode);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.FunctionCode)
+void TransactionData::set_tradeprice(::google::protobuf::int64 value) {
+  set_has_tradeprice();
+  tradeprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradePrice)
 }
 
-// required int32 AskOrder = 12;
-bool TransactionData::has_askorder() const {
+// optional int64 TradeQty = 12;
+bool TransactionData::has_tradeqty() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-void TransactionData::set_has_askorder() {
+void TransactionData::set_has_tradeqty() {
   _has_bits_[0] |= 0x00000800u;
 }
-void TransactionData::clear_has_askorder() {
+void TransactionData::clear_has_tradeqty() {
   _has_bits_[0] &= ~0x00000800u;
 }
-void TransactionData::clear_askorder() {
-  askorder_ = 0;
-  clear_has_askorder();
+void TransactionData::clear_tradeqty() {
+  tradeqty_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeqty();
 }
-::google::protobuf::int32 TransactionData::askorder() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.AskOrder)
-  return askorder_;
+::google::protobuf::int64 TransactionData::tradeqty() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeQty)
+  return tradeqty_;
 }
-void TransactionData::set_askorder(::google::protobuf::int32 value) {
-  set_has_askorder();
-  askorder_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.AskOrder)
+void TransactionData::set_tradeqty(::google::protobuf::int64 value) {
+  set_has_tradeqty();
+  tradeqty_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeQty)
 }
 
-// required int32 BidOrder = 13;
-bool TransactionData::has_bidorder() const {
+// optional int64 TradeMoney = 13;
+bool TransactionData::has_trademoney() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-void TransactionData::set_has_bidorder() {
+void TransactionData::set_has_trademoney() {
   _has_bits_[0] |= 0x00001000u;
 }
-void TransactionData::clear_has_bidorder() {
+void TransactionData::clear_has_trademoney() {
   _has_bits_[0] &= ~0x00001000u;
 }
-void TransactionData::clear_bidorder() {
-  bidorder_ = 0;
-  clear_has_bidorder();
+void TransactionData::clear_trademoney() {
+  trademoney_ = GOOGLE_LONGLONG(0);
+  clear_has_trademoney();
 }
-::google::protobuf::int32 TransactionData::bidorder() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.BidOrder)
-  return bidorder_;
+::google::protobuf::int64 TransactionData::trademoney() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeMoney)
+  return trademoney_;
 }
-void TransactionData::set_bidorder(::google::protobuf::int32 value) {
-  set_has_bidorder();
-  bidorder_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.BidOrder)
+void TransactionData::set_trademoney(::google::protobuf::int64 value) {
+  set_has_trademoney();
+  trademoney_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeMoney)
+}
+
+// optional int32 ChannelNo = 14;
+bool TransactionData::has_channelno() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+void TransactionData::set_has_channelno() {
+  _has_bits_[0] |= 0x00002000u;
+}
+void TransactionData::clear_has_channelno() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+void TransactionData::clear_channelno() {
+  channelno_ = 0;
+  clear_has_channelno();
+}
+::google::protobuf::int32 TransactionData::channelno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ChannelNo)
+  return channelno_;
+}
+void TransactionData::set_channelno(::google::protobuf::int32 value) {
+  set_has_channelno();
+  channelno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ChannelNo)
+}
+
+// optional int32 ExchangeDate = 15;
+bool TransactionData::has_exchangedate() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+void TransactionData::set_has_exchangedate() {
+  _has_bits_[0] |= 0x00004000u;
+}
+void TransactionData::clear_has_exchangedate() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+void TransactionData::clear_exchangedate() {
+  exchangedate_ = 0;
+  clear_has_exchangedate();
+}
+::google::protobuf::int32 TransactionData::exchangedate() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ExchangeDate)
+  return exchangedate_;
+}
+void TransactionData::set_exchangedate(::google::protobuf::int32 value) {
+  set_has_exchangedate();
+  exchangedate_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ExchangeDate)
+}
+
+// optional int32 ExchangeTime = 16;
+bool TransactionData::has_exchangetime() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+void TransactionData::set_has_exchangetime() {
+  _has_bits_[0] |= 0x00008000u;
+}
+void TransactionData::clear_has_exchangetime() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+void TransactionData::clear_exchangetime() {
+  exchangetime_ = 0;
+  clear_has_exchangetime();
+}
+::google::protobuf::int32 TransactionData::exchangetime() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ExchangeTime)
+  return exchangetime_;
+}
+void TransactionData::set_exchangetime(::google::protobuf::int32 value) {
+  set_has_exchangetime();
+  exchangetime_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ExchangeTime)
+}
+
+// optional int64 TradeCleanPrice = 17;
+bool TransactionData::has_tradecleanprice() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+void TransactionData::set_has_tradecleanprice() {
+  _has_bits_[0] |= 0x00010000u;
+}
+void TransactionData::clear_has_tradecleanprice() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+void TransactionData::clear_tradecleanprice() {
+  tradecleanprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradecleanprice();
+}
+::google::protobuf::int64 TransactionData::tradecleanprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeCleanPrice)
+  return tradecleanprice_;
+}
+void TransactionData::set_tradecleanprice(::google::protobuf::int64 value) {
+  set_has_tradecleanprice();
+  tradecleanprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeCleanPrice)
+}
+
+// optional int64 AccruedInterestAmt = 18;
+bool TransactionData::has_accruedinterestamt() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+void TransactionData::set_has_accruedinterestamt() {
+  _has_bits_[0] |= 0x00020000u;
+}
+void TransactionData::clear_has_accruedinterestamt() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+void TransactionData::clear_accruedinterestamt() {
+  accruedinterestamt_ = GOOGLE_LONGLONG(0);
+  clear_has_accruedinterestamt();
+}
+::google::protobuf::int64 TransactionData::accruedinterestamt() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.AccruedInterestAmt)
+  return accruedinterestamt_;
+}
+void TransactionData::set_accruedinterestamt(::google::protobuf::int64 value) {
+  set_has_accruedinterestamt();
+  accruedinterestamt_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.AccruedInterestAmt)
+}
+
+// optional int64 TradeDirtyPrice = 19;
+bool TransactionData::has_tradedirtyprice() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+void TransactionData::set_has_tradedirtyprice() {
+  _has_bits_[0] |= 0x00040000u;
+}
+void TransactionData::clear_has_tradedirtyprice() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+void TransactionData::clear_tradedirtyprice() {
+  tradedirtyprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradedirtyprice();
+}
+::google::protobuf::int64 TransactionData::tradedirtyprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeDirtyPrice)
+  return tradedirtyprice_;
+}
+void TransactionData::set_tradedirtyprice(::google::protobuf::int64 value) {
+  set_has_tradedirtyprice();
+  tradedirtyprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeDirtyPrice)
+}
+
+// optional int64 MaturityYield = 20;
+bool TransactionData::has_maturityyield() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+void TransactionData::set_has_maturityyield() {
+  _has_bits_[0] |= 0x00080000u;
+}
+void TransactionData::clear_has_maturityyield() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+void TransactionData::clear_maturityyield() {
+  maturityyield_ = GOOGLE_LONGLONG(0);
+  clear_has_maturityyield();
+}
+::google::protobuf::int64 TransactionData::maturityyield() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MaturityYield)
+  return maturityyield_;
+}
+void TransactionData::set_maturityyield(::google::protobuf::int64 value) {
+  set_has_maturityyield();
+  maturityyield_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MaturityYield)
+}
+
+// optional string FITradingMethod = 21;
+bool TransactionData::has_fitradingmethod() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+void TransactionData::set_has_fitradingmethod() {
+  _has_bits_[0] |= 0x00100000u;
+}
+void TransactionData::clear_has_fitradingmethod() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+void TransactionData::clear_fitradingmethod() {
+  fitradingmethod_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fitradingmethod();
+}
+const ::std::string& TransactionData::fitradingmethod() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.FITradingMethod)
+  return fitradingmethod_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void TransactionData::set_fitradingmethod(const ::std::string& value) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.TransactionData.FITradingMethod)
+}
+void TransactionData::set_fitradingmethod(const char* value) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.TransactionData.FITradingMethod)
+}
+void TransactionData::set_fitradingmethod(const char* value, size_t size) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.FITradingMethod)
+}
+::std::string* TransactionData::mutable_fitradingmethod() {
+  set_has_fitradingmethod();
+  // @@protoc_insertion_point(field_mutable:comm.TransactionData.FITradingMethod)
+  return fitradingmethod_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* TransactionData::release_fitradingmethod() {
+  // @@protoc_insertion_point(field_release:comm.TransactionData.FITradingMethod)
+  clear_has_fitradingmethod();
+  return fitradingmethod_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void TransactionData::set_allocated_fitradingmethod(::std::string* fitradingmethod) {
+  if (fitradingmethod != NULL) {
+    set_has_fitradingmethod();
+  } else {
+    clear_has_fitradingmethod();
+  }
+  fitradingmethod_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fitradingmethod);
+  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.FITradingMethod)
 }
 
 inline const TransactionData* TransactionData::internal_default_instance() {

@@ -36,16 +36,20 @@ void protobuf_AssignDesc_orderData_2eproto() {
       "orderData.proto");
   GOOGLE_CHECK(file != NULL);
   OrderData_descriptor_ = file->message_type(0);
-  static const int OrderData_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, windcode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, actionday_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, time_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, order_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, price_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, volume_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, orderkind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, functioncode_),
+  static const int OrderData_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, htscsecurityid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, mddate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, mdtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, securityidsource_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, securitytype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, orderindex_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, ordertype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, orderprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, orderqty_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, orderbsflag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, channelno_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, exchangedate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OrderData, exchangetime_),
   };
   OrderData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -99,11 +103,14 @@ void protobuf_AddDesc_orderData_2eproto_impl() {
 
   protobuf_InitDefaults_orderData_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017orderData.proto\022\004comm\"\243\001\n\tOrderData\022\020\n"
-    "\010WindCode\030\001 \002(\t\022\014\n\004Code\030\002 \002(\t\022\021\n\tActionD"
-    "ay\030\003 \002(\005\022\014\n\004Time\030\004 \002(\005\022\r\n\005Order\030\005 \002(\005\022\r\n"
-    "\005Price\030\006 \002(\005\022\016\n\006Volume\030\007 \002(\005\022\021\n\tOrderKin"
-    "d\030\010 \002(\t\022\024\n\014FunctionCode\030\t \002(\t", 189);
+    "\n\017orderData.proto\022\004comm\"\224\002\n\tOrderData\022\026\n"
+    "\016HTSCSecurityID\030\001 \002(\t\022\016\n\006MDDate\030\002 \002(\005\022\016\n"
+    "\006MDTime\030\003 \002(\005\022\030\n\020securityIDSource\030\004 \001(\003\022"
+    "\024\n\014securityType\030\005 \001(\003\022\022\n\nOrderIndex\030\006 \001("
+    "\003\022\021\n\tOrderType\030\007 \001(\005\022\022\n\nOrderPrice\030\010 \001(\003"
+    "\022\020\n\010OrderQty\030\t \001(\003\022\023\n\013OrderBSFlag\030\n \001(\005\022"
+    "\021\n\tChannelNo\030\013 \001(\005\022\024\n\014ExchangeDate\030\014 \001(\005"
+    "\022\024\n\014ExchangeTime\030\r \001(\005", 302);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "orderData.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_orderData_2eproto);
@@ -134,15 +141,19 @@ static void MergeFromFail(int line) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int OrderData::kWindCodeFieldNumber;
-const int OrderData::kCodeFieldNumber;
-const int OrderData::kActionDayFieldNumber;
-const int OrderData::kTimeFieldNumber;
-const int OrderData::kOrderFieldNumber;
-const int OrderData::kPriceFieldNumber;
-const int OrderData::kVolumeFieldNumber;
-const int OrderData::kOrderKindFieldNumber;
-const int OrderData::kFunctionCodeFieldNumber;
+const int OrderData::kHTSCSecurityIDFieldNumber;
+const int OrderData::kMDDateFieldNumber;
+const int OrderData::kMDTimeFieldNumber;
+const int OrderData::kSecurityIDSourceFieldNumber;
+const int OrderData::kSecurityTypeFieldNumber;
+const int OrderData::kOrderIndexFieldNumber;
+const int OrderData::kOrderTypeFieldNumber;
+const int OrderData::kOrderPriceFieldNumber;
+const int OrderData::kOrderQtyFieldNumber;
+const int OrderData::kOrderBSFlagFieldNumber;
+const int OrderData::kChannelNoFieldNumber;
+const int OrderData::kExchangeDateFieldNumber;
+const int OrderData::kExchangeTimeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 OrderData::OrderData()
@@ -165,12 +176,9 @@ OrderData::OrderData(const OrderData& from)
 
 void OrderData::SharedCtor() {
   _cached_size_ = 0;
-  windcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  orderkind_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  functioncode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&actionday_, 0, reinterpret_cast<char*>(&volume_) -
-    reinterpret_cast<char*>(&actionday_) + sizeof(volume_));
+  htscsecurityid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&mddate_, 0, reinterpret_cast<char*>(&exchangetime_) -
+    reinterpret_cast<char*>(&mddate_) + sizeof(exchangetime_));
 }
 
 OrderData::~OrderData() {
@@ -179,10 +187,7 @@ OrderData::~OrderData() {
 }
 
 void OrderData::SharedDtor() {
-  windcode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  orderkind_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  functioncode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  htscsecurityid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void OrderData::SetCachedSize(int size) const {
@@ -229,20 +234,12 @@ void OrderData::Clear() {
 } while (0)
 
   if (_has_bits_[0 / 32] & 255u) {
-    ZR_(actionday_, volume_);
-    if (has_windcode()) {
-      windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_code()) {
-      code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_orderkind()) {
-      orderkind_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    ZR_(mddate_, ordertype_);
+    if (has_htscsecurityid()) {
+      htscsecurityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  if (has_functioncode()) {
-    functioncode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
+  ZR_(orderbsflag_, exchangetime_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -263,141 +260,195 @@ bool OrderData::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string WindCode = 1;
+      // required string HTSCSecurityID = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_windcode()));
+                input, this->mutable_htscsecurityid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->windcode().data(), this->windcode().length(),
+            this->htscsecurityid().data(), this->htscsecurityid().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.OrderData.WindCode");
+            "comm.OrderData.HTSCSecurityID");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_Code;
+        if (input->ExpectTag(16)) goto parse_MDDate;
         break;
       }
 
-      // required string Code = 2;
+      // required int32 MDDate = 2;
       case 2: {
-        if (tag == 18) {
-         parse_Code:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_code()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->code().data(), this->code().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.OrderData.Code");
+        if (tag == 16) {
+         parse_MDDate:
+          set_has_mddate();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mddate_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_ActionDay;
+        if (input->ExpectTag(24)) goto parse_MDTime;
         break;
       }
 
-      // required int32 ActionDay = 3;
+      // required int32 MDTime = 3;
       case 3: {
         if (tag == 24) {
-         parse_ActionDay:
-          set_has_actionday();
+         parse_MDTime:
+          set_has_mdtime();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &actionday_)));
+                 input, &mdtime_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_Time;
+        if (input->ExpectTag(32)) goto parse_securityIDSource;
         break;
       }
 
-      // required int32 Time = 4;
+      // optional int64 securityIDSource = 4;
       case 4: {
         if (tag == 32) {
-         parse_Time:
-          set_has_time();
+         parse_securityIDSource:
+          set_has_securityidsource();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &time_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securityidsource_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_Order;
+        if (input->ExpectTag(40)) goto parse_securityType;
         break;
       }
 
-      // required int32 Order = 5;
+      // optional int64 securityType = 5;
       case 5: {
         if (tag == 40) {
-         parse_Order:
-          set_has_order();
+         parse_securityType:
+          set_has_securitytype();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &order_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securitytype_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_Price;
+        if (input->ExpectTag(48)) goto parse_OrderIndex;
         break;
       }
 
-      // required int32 Price = 6;
+      // optional int64 OrderIndex = 6;
       case 6: {
         if (tag == 48) {
-         parse_Price:
-          set_has_price();
+         parse_OrderIndex:
+          set_has_orderindex();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &price_)));
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &orderindex_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_Volume;
+        if (input->ExpectTag(56)) goto parse_OrderType;
         break;
       }
 
-      // required int32 Volume = 7;
+      // optional int32 OrderType = 7;
       case 7: {
         if (tag == 56) {
-         parse_Volume:
-          set_has_volume();
+         parse_OrderType:
+          set_has_ordertype();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &volume_)));
+                 input, &ordertype_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(66)) goto parse_OrderKind;
+        if (input->ExpectTag(64)) goto parse_OrderPrice;
         break;
       }
 
-      // required string OrderKind = 8;
+      // optional int64 OrderPrice = 8;
       case 8: {
-        if (tag == 66) {
-         parse_OrderKind:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_orderkind()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->orderkind().data(), this->orderkind().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.OrderData.OrderKind");
+        if (tag == 64) {
+         parse_OrderPrice:
+          set_has_orderprice();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &orderprice_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_FunctionCode;
+        if (input->ExpectTag(72)) goto parse_OrderQty;
         break;
       }
 
-      // required string FunctionCode = 9;
+      // optional int64 OrderQty = 9;
       case 9: {
-        if (tag == 74) {
-         parse_FunctionCode:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_functioncode()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->functioncode().data(), this->functioncode().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.OrderData.FunctionCode");
+        if (tag == 72) {
+         parse_OrderQty:
+          set_has_orderqty();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &orderqty_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_OrderBSFlag;
+        break;
+      }
+
+      // optional int32 OrderBSFlag = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_OrderBSFlag:
+          set_has_orderbsflag();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &orderbsflag_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(88)) goto parse_ChannelNo;
+        break;
+      }
+
+      // optional int32 ChannelNo = 11;
+      case 11: {
+        if (tag == 88) {
+         parse_ChannelNo:
+          set_has_channelno();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channelno_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(96)) goto parse_ExchangeDate;
+        break;
+      }
+
+      // optional int32 ExchangeDate = 12;
+      case 12: {
+        if (tag == 96) {
+         parse_ExchangeDate:
+          set_has_exchangedate();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exchangedate_)));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(104)) goto parse_ExchangeTime;
+        break;
+      }
+
+      // optional int32 ExchangeTime = 13;
+      case 13: {
+        if (tag == 104) {
+         parse_ExchangeTime:
+          set_has_exchangetime();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exchangetime_)));
         } else {
           goto handle_unusual;
         }
@@ -430,69 +481,74 @@ failure:
 void OrderData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:comm.OrderData)
-  // required string WindCode = 1;
-  if (has_windcode()) {
+  // required string HTSCSecurityID = 1;
+  if (has_htscsecurityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->windcode().data(), this->windcode().length(),
+      this->htscsecurityid().data(), this->htscsecurityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.WindCode");
+      "comm.OrderData.HTSCSecurityID");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->windcode(), output);
+      1, this->htscsecurityid(), output);
   }
 
-  // required string Code = 2;
-  if (has_code()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->code().data(), this->code().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.Code");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->code(), output);
+  // required int32 MDDate = 2;
+  if (has_mddate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->mddate(), output);
   }
 
-  // required int32 ActionDay = 3;
-  if (has_actionday()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->actionday(), output);
+  // required int32 MDTime = 3;
+  if (has_mdtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->mdtime(), output);
   }
 
-  // required int32 Time = 4;
-  if (has_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->time(), output);
+  // optional int64 securityIDSource = 4;
+  if (has_securityidsource()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->securityidsource(), output);
   }
 
-  // required int32 Order = 5;
-  if (has_order()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->order(), output);
+  // optional int64 securityType = 5;
+  if (has_securitytype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->securitytype(), output);
   }
 
-  // required int32 Price = 6;
-  if (has_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->price(), output);
+  // optional int64 OrderIndex = 6;
+  if (has_orderindex()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->orderindex(), output);
   }
 
-  // required int32 Volume = 7;
-  if (has_volume()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->volume(), output);
+  // optional int32 OrderType = 7;
+  if (has_ordertype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->ordertype(), output);
   }
 
-  // required string OrderKind = 8;
-  if (has_orderkind()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->orderkind().data(), this->orderkind().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.OrderKind");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      8, this->orderkind(), output);
+  // optional int64 OrderPrice = 8;
+  if (has_orderprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->orderprice(), output);
   }
 
-  // required string FunctionCode = 9;
-  if (has_functioncode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->functioncode().data(), this->functioncode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.FunctionCode");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      9, this->functioncode(), output);
+  // optional int64 OrderQty = 9;
+  if (has_orderqty()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->orderqty(), output);
+  }
+
+  // optional int32 OrderBSFlag = 10;
+  if (has_orderbsflag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->orderbsflag(), output);
+  }
+
+  // optional int32 ChannelNo = 11;
+  if (has_channelno()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->channelno(), output);
+  }
+
+  // optional int32 ExchangeDate = 12;
+  if (has_exchangedate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->exchangedate(), output);
+  }
+
+  // optional int32 ExchangeTime = 13;
+  if (has_exchangetime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->exchangetime(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -506,73 +562,75 @@ void OrderData::SerializeWithCachedSizes(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:comm.OrderData)
-  // required string WindCode = 1;
-  if (has_windcode()) {
+  // required string HTSCSecurityID = 1;
+  if (has_htscsecurityid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->windcode().data(), this->windcode().length(),
+      this->htscsecurityid().data(), this->htscsecurityid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.WindCode");
+      "comm.OrderData.HTSCSecurityID");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->windcode(), target);
+        1, this->htscsecurityid(), target);
   }
 
-  // required string Code = 2;
-  if (has_code()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->code().data(), this->code().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.Code");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->code(), target);
+  // required int32 MDDate = 2;
+  if (has_mddate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->mddate(), target);
   }
 
-  // required int32 ActionDay = 3;
-  if (has_actionday()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->actionday(), target);
+  // required int32 MDTime = 3;
+  if (has_mdtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->mdtime(), target);
   }
 
-  // required int32 Time = 4;
-  if (has_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->time(), target);
+  // optional int64 securityIDSource = 4;
+  if (has_securityidsource()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->securityidsource(), target);
   }
 
-  // required int32 Order = 5;
-  if (has_order()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->order(), target);
+  // optional int64 securityType = 5;
+  if (has_securitytype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->securitytype(), target);
   }
 
-  // required int32 Price = 6;
-  if (has_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->price(), target);
+  // optional int64 OrderIndex = 6;
+  if (has_orderindex()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->orderindex(), target);
   }
 
-  // required int32 Volume = 7;
-  if (has_volume()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->volume(), target);
+  // optional int32 OrderType = 7;
+  if (has_ordertype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->ordertype(), target);
   }
 
-  // required string OrderKind = 8;
-  if (has_orderkind()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->orderkind().data(), this->orderkind().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.OrderKind");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        8, this->orderkind(), target);
+  // optional int64 OrderPrice = 8;
+  if (has_orderprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->orderprice(), target);
   }
 
-  // required string FunctionCode = 9;
-  if (has_functioncode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->functioncode().data(), this->functioncode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.OrderData.FunctionCode");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->functioncode(), target);
+  // optional int64 OrderQty = 9;
+  if (has_orderqty()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->orderqty(), target);
+  }
+
+  // optional int32 OrderBSFlag = 10;
+  if (has_orderbsflag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->orderbsflag(), target);
+  }
+
+  // optional int32 ChannelNo = 11;
+  if (has_channelno()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->channelno(), target);
+  }
+
+  // optional int32 ExchangeDate = 12;
+  if (has_exchangedate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->exchangedate(), target);
+  }
+
+  // optional int32 ExchangeTime = 13;
+  if (has_exchangetime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->exchangetime(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -587,67 +645,25 @@ size_t OrderData::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:comm.OrderData)
   size_t total_size = 0;
 
-  if (has_windcode()) {
-    // required string WindCode = 1;
+  if (has_htscsecurityid()) {
+    // required string HTSCSecurityID = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->windcode());
+        this->htscsecurityid());
   }
 
-  if (has_code()) {
-    // required string Code = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->code());
-  }
-
-  if (has_actionday()) {
-    // required int32 ActionDay = 3;
+  if (has_mddate()) {
+    // required int32 MDDate = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->actionday());
+        this->mddate());
   }
 
-  if (has_time()) {
-    // required int32 Time = 4;
+  if (has_mdtime()) {
+    // required int32 MDTime = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->time());
-  }
-
-  if (has_order()) {
-    // required int32 Order = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->order());
-  }
-
-  if (has_price()) {
-    // required int32 Price = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->price());
-  }
-
-  if (has_volume()) {
-    // required int32 Volume = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->volume());
-  }
-
-  if (has_orderkind()) {
-    // required string OrderKind = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->orderkind());
-  }
-
-  if (has_functioncode()) {
-    // required string FunctionCode = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->functioncode());
+        this->mdtime());
   }
 
   return total_size;
@@ -656,54 +672,98 @@ size_t OrderData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:comm.OrderData)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x000001ff) ^ 0x000001ff) == 0) {  // All required fields are present.
-    // required string WindCode = 1;
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required string HTSCSecurityID = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->windcode());
+        this->htscsecurityid());
 
-    // required string Code = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->code());
-
-    // required int32 ActionDay = 3;
+    // required int32 MDDate = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->actionday());
+        this->mddate());
 
-    // required int32 Time = 4;
+    // required int32 MDTime = 3;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->time());
-
-    // required int32 Order = 5;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->order());
-
-    // required int32 Price = 6;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->price());
-
-    // required int32 Volume = 7;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->volume());
-
-    // required string OrderKind = 8;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->orderkind());
-
-    // required string FunctionCode = 9;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->functioncode());
+        this->mdtime());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[3 / 32] & 248u) {
+    // optional int64 securityIDSource = 4;
+    if (has_securityidsource()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->securityidsource());
+    }
+
+    // optional int64 securityType = 5;
+    if (has_securitytype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->securitytype());
+    }
+
+    // optional int64 OrderIndex = 6;
+    if (has_orderindex()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->orderindex());
+    }
+
+    // optional int32 OrderType = 7;
+    if (has_ordertype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ordertype());
+    }
+
+    // optional int64 OrderPrice = 8;
+    if (has_orderprice()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->orderprice());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & 7936u) {
+    // optional int64 OrderQty = 9;
+    if (has_orderqty()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->orderqty());
+    }
+
+    // optional int32 OrderBSFlag = 10;
+    if (has_orderbsflag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->orderbsflag());
+    }
+
+    // optional int32 ChannelNo = 11;
+    if (has_channelno()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->channelno());
+    }
+
+    // optional int32 ExchangeDate = 12;
+    if (has_exchangedate()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exchangedate());
+    }
+
+    // optional int32 ExchangeTime = 13;
+    if (has_exchangetime()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exchangetime());
+    }
+
   }
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
@@ -744,38 +804,47 @@ void OrderData::MergeFrom(const OrderData& from) {
 void OrderData::UnsafeMergeFrom(const OrderData& from) {
   GOOGLE_DCHECK(&from != this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_windcode()) {
-      set_has_windcode();
-      windcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.windcode_);
+    if (from.has_htscsecurityid()) {
+      set_has_htscsecurityid();
+      htscsecurityid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.htscsecurityid_);
     }
-    if (from.has_code()) {
-      set_has_code();
-      code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.code_);
+    if (from.has_mddate()) {
+      set_mddate(from.mddate());
     }
-    if (from.has_actionday()) {
-      set_actionday(from.actionday());
+    if (from.has_mdtime()) {
+      set_mdtime(from.mdtime());
     }
-    if (from.has_time()) {
-      set_time(from.time());
+    if (from.has_securityidsource()) {
+      set_securityidsource(from.securityidsource());
     }
-    if (from.has_order()) {
-      set_order(from.order());
+    if (from.has_securitytype()) {
+      set_securitytype(from.securitytype());
     }
-    if (from.has_price()) {
-      set_price(from.price());
+    if (from.has_orderindex()) {
+      set_orderindex(from.orderindex());
     }
-    if (from.has_volume()) {
-      set_volume(from.volume());
+    if (from.has_ordertype()) {
+      set_ordertype(from.ordertype());
     }
-    if (from.has_orderkind()) {
-      set_has_orderkind();
-      orderkind_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.orderkind_);
+    if (from.has_orderprice()) {
+      set_orderprice(from.orderprice());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_functioncode()) {
-      set_has_functioncode();
-      functioncode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.functioncode_);
+    if (from.has_orderqty()) {
+      set_orderqty(from.orderqty());
+    }
+    if (from.has_orderbsflag()) {
+      set_orderbsflag(from.orderbsflag());
+    }
+    if (from.has_channelno()) {
+      set_channelno(from.channelno());
+    }
+    if (from.has_exchangedate()) {
+      set_exchangedate(from.exchangedate());
+    }
+    if (from.has_exchangetime()) {
+      set_exchangetime(from.exchangetime());
     }
   }
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -799,7 +868,7 @@ void OrderData::CopyFrom(const OrderData& from) {
 }
 
 bool OrderData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   return true;
 }
@@ -809,15 +878,19 @@ void OrderData::Swap(OrderData* other) {
   InternalSwap(other);
 }
 void OrderData::InternalSwap(OrderData* other) {
-  windcode_.Swap(&other->windcode_);
-  code_.Swap(&other->code_);
-  std::swap(actionday_, other->actionday_);
-  std::swap(time_, other->time_);
-  std::swap(order_, other->order_);
-  std::swap(price_, other->price_);
-  std::swap(volume_, other->volume_);
-  orderkind_.Swap(&other->orderkind_);
-  functioncode_.Swap(&other->functioncode_);
+  htscsecurityid_.Swap(&other->htscsecurityid_);
+  std::swap(mddate_, other->mddate_);
+  std::swap(mdtime_, other->mdtime_);
+  std::swap(securityidsource_, other->securityidsource_);
+  std::swap(securitytype_, other->securitytype_);
+  std::swap(orderindex_, other->orderindex_);
+  std::swap(ordertype_, other->ordertype_);
+  std::swap(orderprice_, other->orderprice_);
+  std::swap(orderqty_, other->orderqty_);
+  std::swap(orderbsflag_, other->orderbsflag_);
+  std::swap(channelno_, other->channelno_);
+  std::swap(exchangedate_, other->exchangedate_);
+  std::swap(exchangetime_, other->exchangetime_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -834,340 +907,346 @@ void OrderData::InternalSwap(OrderData* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // OrderData
 
-// required string WindCode = 1;
-bool OrderData::has_windcode() const {
+// required string HTSCSecurityID = 1;
+bool OrderData::has_htscsecurityid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void OrderData::set_has_windcode() {
+void OrderData::set_has_htscsecurityid() {
   _has_bits_[0] |= 0x00000001u;
 }
-void OrderData::clear_has_windcode() {
+void OrderData::clear_has_htscsecurityid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void OrderData::clear_windcode() {
-  windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_windcode();
+void OrderData::clear_htscsecurityid() {
+  htscsecurityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_htscsecurityid();
 }
-const ::std::string& OrderData::windcode() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.WindCode)
-  return windcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& OrderData::htscsecurityid() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.HTSCSecurityID)
+  return htscsecurityid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void OrderData::set_windcode(const ::std::string& value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.OrderData.WindCode)
+void OrderData::set_htscsecurityid(const ::std::string& value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.OrderData.HTSCSecurityID)
 }
-void OrderData::set_windcode(const char* value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.OrderData.WindCode)
+void OrderData::set_htscsecurityid(const char* value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.OrderData.HTSCSecurityID)
 }
-void OrderData::set_windcode(const char* value, size_t size) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void OrderData::set_htscsecurityid(const char* value, size_t size) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.OrderData.WindCode)
+  // @@protoc_insertion_point(field_set_pointer:comm.OrderData.HTSCSecurityID)
 }
-::std::string* OrderData::mutable_windcode() {
-  set_has_windcode();
-  // @@protoc_insertion_point(field_mutable:comm.OrderData.WindCode)
-  return windcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* OrderData::mutable_htscsecurityid() {
+  set_has_htscsecurityid();
+  // @@protoc_insertion_point(field_mutable:comm.OrderData.HTSCSecurityID)
+  return htscsecurityid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* OrderData::release_windcode() {
-  // @@protoc_insertion_point(field_release:comm.OrderData.WindCode)
-  clear_has_windcode();
-  return windcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* OrderData::release_htscsecurityid() {
+  // @@protoc_insertion_point(field_release:comm.OrderData.HTSCSecurityID)
+  clear_has_htscsecurityid();
+  return htscsecurityid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void OrderData::set_allocated_windcode(::std::string* windcode) {
-  if (windcode != NULL) {
-    set_has_windcode();
+void OrderData::set_allocated_htscsecurityid(::std::string* htscsecurityid) {
+  if (htscsecurityid != NULL) {
+    set_has_htscsecurityid();
   } else {
-    clear_has_windcode();
+    clear_has_htscsecurityid();
   }
-  windcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), windcode);
-  // @@protoc_insertion_point(field_set_allocated:comm.OrderData.WindCode)
+  htscsecurityid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), htscsecurityid);
+  // @@protoc_insertion_point(field_set_allocated:comm.OrderData.HTSCSecurityID)
 }
 
-// required string Code = 2;
-bool OrderData::has_code() const {
+// required int32 MDDate = 2;
+bool OrderData::has_mddate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void OrderData::set_has_code() {
+void OrderData::set_has_mddate() {
   _has_bits_[0] |= 0x00000002u;
 }
-void OrderData::clear_has_code() {
+void OrderData::clear_has_mddate() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void OrderData::clear_code() {
-  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_code();
+void OrderData::clear_mddate() {
+  mddate_ = 0;
+  clear_has_mddate();
 }
-const ::std::string& OrderData::code() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.Code)
-  return code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int32 OrderData::mddate() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.MDDate)
+  return mddate_;
 }
-void OrderData::set_code(const ::std::string& value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.OrderData.Code)
-}
-void OrderData::set_code(const char* value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.OrderData.Code)
-}
-void OrderData::set_code(const char* value, size_t size) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.OrderData.Code)
-}
-::std::string* OrderData::mutable_code() {
-  set_has_code();
-  // @@protoc_insertion_point(field_mutable:comm.OrderData.Code)
-  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* OrderData::release_code() {
-  // @@protoc_insertion_point(field_release:comm.OrderData.Code)
-  clear_has_code();
-  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void OrderData::set_allocated_code(::std::string* code) {
-  if (code != NULL) {
-    set_has_code();
-  } else {
-    clear_has_code();
-  }
-  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
-  // @@protoc_insertion_point(field_set_allocated:comm.OrderData.Code)
+void OrderData::set_mddate(::google::protobuf::int32 value) {
+  set_has_mddate();
+  mddate_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.MDDate)
 }
 
-// required int32 ActionDay = 3;
-bool OrderData::has_actionday() const {
+// required int32 MDTime = 3;
+bool OrderData::has_mdtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void OrderData::set_has_actionday() {
+void OrderData::set_has_mdtime() {
   _has_bits_[0] |= 0x00000004u;
 }
-void OrderData::clear_has_actionday() {
+void OrderData::clear_has_mdtime() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void OrderData::clear_actionday() {
-  actionday_ = 0;
-  clear_has_actionday();
+void OrderData::clear_mdtime() {
+  mdtime_ = 0;
+  clear_has_mdtime();
 }
-::google::protobuf::int32 OrderData::actionday() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.ActionDay)
-  return actionday_;
+::google::protobuf::int32 OrderData::mdtime() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.MDTime)
+  return mdtime_;
 }
-void OrderData::set_actionday(::google::protobuf::int32 value) {
-  set_has_actionday();
-  actionday_ = value;
-  // @@protoc_insertion_point(field_set:comm.OrderData.ActionDay)
+void OrderData::set_mdtime(::google::protobuf::int32 value) {
+  set_has_mdtime();
+  mdtime_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.MDTime)
 }
 
-// required int32 Time = 4;
-bool OrderData::has_time() const {
+// optional int64 securityIDSource = 4;
+bool OrderData::has_securityidsource() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void OrderData::set_has_time() {
+void OrderData::set_has_securityidsource() {
   _has_bits_[0] |= 0x00000008u;
 }
-void OrderData::clear_has_time() {
+void OrderData::clear_has_securityidsource() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void OrderData::clear_time() {
-  time_ = 0;
-  clear_has_time();
+void OrderData::clear_securityidsource() {
+  securityidsource_ = GOOGLE_LONGLONG(0);
+  clear_has_securityidsource();
 }
-::google::protobuf::int32 OrderData::time() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.Time)
-  return time_;
+::google::protobuf::int64 OrderData::securityidsource() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.securityIDSource)
+  return securityidsource_;
 }
-void OrderData::set_time(::google::protobuf::int32 value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:comm.OrderData.Time)
+void OrderData::set_securityidsource(::google::protobuf::int64 value) {
+  set_has_securityidsource();
+  securityidsource_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.securityIDSource)
 }
 
-// required int32 Order = 5;
-bool OrderData::has_order() const {
+// optional int64 securityType = 5;
+bool OrderData::has_securitytype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void OrderData::set_has_order() {
+void OrderData::set_has_securitytype() {
   _has_bits_[0] |= 0x00000010u;
 }
-void OrderData::clear_has_order() {
+void OrderData::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void OrderData::clear_order() {
-  order_ = 0;
-  clear_has_order();
+void OrderData::clear_securitytype() {
+  securitytype_ = GOOGLE_LONGLONG(0);
+  clear_has_securitytype();
 }
-::google::protobuf::int32 OrderData::order() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.Order)
-  return order_;
+::google::protobuf::int64 OrderData::securitytype() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.securityType)
+  return securitytype_;
 }
-void OrderData::set_order(::google::protobuf::int32 value) {
-  set_has_order();
-  order_ = value;
-  // @@protoc_insertion_point(field_set:comm.OrderData.Order)
+void OrderData::set_securitytype(::google::protobuf::int64 value) {
+  set_has_securitytype();
+  securitytype_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.securityType)
 }
 
-// required int32 Price = 6;
-bool OrderData::has_price() const {
+// optional int64 OrderIndex = 6;
+bool OrderData::has_orderindex() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void OrderData::set_has_price() {
+void OrderData::set_has_orderindex() {
   _has_bits_[0] |= 0x00000020u;
 }
-void OrderData::clear_has_price() {
+void OrderData::clear_has_orderindex() {
   _has_bits_[0] &= ~0x00000020u;
 }
-void OrderData::clear_price() {
-  price_ = 0;
-  clear_has_price();
+void OrderData::clear_orderindex() {
+  orderindex_ = GOOGLE_LONGLONG(0);
+  clear_has_orderindex();
 }
-::google::protobuf::int32 OrderData::price() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.Price)
-  return price_;
+::google::protobuf::int64 OrderData::orderindex() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.OrderIndex)
+  return orderindex_;
 }
-void OrderData::set_price(::google::protobuf::int32 value) {
-  set_has_price();
-  price_ = value;
-  // @@protoc_insertion_point(field_set:comm.OrderData.Price)
+void OrderData::set_orderindex(::google::protobuf::int64 value) {
+  set_has_orderindex();
+  orderindex_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.OrderIndex)
 }
 
-// required int32 Volume = 7;
-bool OrderData::has_volume() const {
+// optional int32 OrderType = 7;
+bool OrderData::has_ordertype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-void OrderData::set_has_volume() {
+void OrderData::set_has_ordertype() {
   _has_bits_[0] |= 0x00000040u;
 }
-void OrderData::clear_has_volume() {
+void OrderData::clear_has_ordertype() {
   _has_bits_[0] &= ~0x00000040u;
 }
-void OrderData::clear_volume() {
-  volume_ = 0;
-  clear_has_volume();
+void OrderData::clear_ordertype() {
+  ordertype_ = 0;
+  clear_has_ordertype();
 }
-::google::protobuf::int32 OrderData::volume() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.Volume)
-  return volume_;
+::google::protobuf::int32 OrderData::ordertype() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.OrderType)
+  return ordertype_;
 }
-void OrderData::set_volume(::google::protobuf::int32 value) {
-  set_has_volume();
-  volume_ = value;
-  // @@protoc_insertion_point(field_set:comm.OrderData.Volume)
+void OrderData::set_ordertype(::google::protobuf::int32 value) {
+  set_has_ordertype();
+  ordertype_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.OrderType)
 }
 
-// required string OrderKind = 8;
-bool OrderData::has_orderkind() const {
+// optional int64 OrderPrice = 8;
+bool OrderData::has_orderprice() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-void OrderData::set_has_orderkind() {
+void OrderData::set_has_orderprice() {
   _has_bits_[0] |= 0x00000080u;
 }
-void OrderData::clear_has_orderkind() {
+void OrderData::clear_has_orderprice() {
   _has_bits_[0] &= ~0x00000080u;
 }
-void OrderData::clear_orderkind() {
-  orderkind_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_orderkind();
+void OrderData::clear_orderprice() {
+  orderprice_ = GOOGLE_LONGLONG(0);
+  clear_has_orderprice();
 }
-const ::std::string& OrderData::orderkind() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.OrderKind)
-  return orderkind_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int64 OrderData::orderprice() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.OrderPrice)
+  return orderprice_;
 }
-void OrderData::set_orderkind(const ::std::string& value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.OrderData.OrderKind)
-}
-void OrderData::set_orderkind(const char* value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.OrderData.OrderKind)
-}
-void OrderData::set_orderkind(const char* value, size_t size) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.OrderData.OrderKind)
-}
-::std::string* OrderData::mutable_orderkind() {
-  set_has_orderkind();
-  // @@protoc_insertion_point(field_mutable:comm.OrderData.OrderKind)
-  return orderkind_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* OrderData::release_orderkind() {
-  // @@protoc_insertion_point(field_release:comm.OrderData.OrderKind)
-  clear_has_orderkind();
-  return orderkind_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void OrderData::set_allocated_orderkind(::std::string* orderkind) {
-  if (orderkind != NULL) {
-    set_has_orderkind();
-  } else {
-    clear_has_orderkind();
-  }
-  orderkind_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), orderkind);
-  // @@protoc_insertion_point(field_set_allocated:comm.OrderData.OrderKind)
+void OrderData::set_orderprice(::google::protobuf::int64 value) {
+  set_has_orderprice();
+  orderprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.OrderPrice)
 }
 
-// required string FunctionCode = 9;
-bool OrderData::has_functioncode() const {
+// optional int64 OrderQty = 9;
+bool OrderData::has_orderqty() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-void OrderData::set_has_functioncode() {
+void OrderData::set_has_orderqty() {
   _has_bits_[0] |= 0x00000100u;
 }
-void OrderData::clear_has_functioncode() {
+void OrderData::clear_has_orderqty() {
   _has_bits_[0] &= ~0x00000100u;
 }
-void OrderData::clear_functioncode() {
-  functioncode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_functioncode();
+void OrderData::clear_orderqty() {
+  orderqty_ = GOOGLE_LONGLONG(0);
+  clear_has_orderqty();
 }
-const ::std::string& OrderData::functioncode() const {
-  // @@protoc_insertion_point(field_get:comm.OrderData.FunctionCode)
-  return functioncode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::google::protobuf::int64 OrderData::orderqty() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.OrderQty)
+  return orderqty_;
 }
-void OrderData::set_functioncode(const ::std::string& value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.OrderData.FunctionCode)
+void OrderData::set_orderqty(::google::protobuf::int64 value) {
+  set_has_orderqty();
+  orderqty_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.OrderQty)
 }
-void OrderData::set_functioncode(const char* value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.OrderData.FunctionCode)
+
+// optional int32 OrderBSFlag = 10;
+bool OrderData::has_orderbsflag() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
-void OrderData::set_functioncode(const char* value, size_t size) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.OrderData.FunctionCode)
+void OrderData::set_has_orderbsflag() {
+  _has_bits_[0] |= 0x00000200u;
 }
-::std::string* OrderData::mutable_functioncode() {
-  set_has_functioncode();
-  // @@protoc_insertion_point(field_mutable:comm.OrderData.FunctionCode)
-  return functioncode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void OrderData::clear_has_orderbsflag() {
+  _has_bits_[0] &= ~0x00000200u;
 }
-::std::string* OrderData::release_functioncode() {
-  // @@protoc_insertion_point(field_release:comm.OrderData.FunctionCode)
-  clear_has_functioncode();
-  return functioncode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void OrderData::clear_orderbsflag() {
+  orderbsflag_ = 0;
+  clear_has_orderbsflag();
 }
-void OrderData::set_allocated_functioncode(::std::string* functioncode) {
-  if (functioncode != NULL) {
-    set_has_functioncode();
-  } else {
-    clear_has_functioncode();
-  }
-  functioncode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), functioncode);
-  // @@protoc_insertion_point(field_set_allocated:comm.OrderData.FunctionCode)
+::google::protobuf::int32 OrderData::orderbsflag() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.OrderBSFlag)
+  return orderbsflag_;
+}
+void OrderData::set_orderbsflag(::google::protobuf::int32 value) {
+  set_has_orderbsflag();
+  orderbsflag_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.OrderBSFlag)
+}
+
+// optional int32 ChannelNo = 11;
+bool OrderData::has_channelno() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void OrderData::set_has_channelno() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void OrderData::clear_has_channelno() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void OrderData::clear_channelno() {
+  channelno_ = 0;
+  clear_has_channelno();
+}
+::google::protobuf::int32 OrderData::channelno() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.ChannelNo)
+  return channelno_;
+}
+void OrderData::set_channelno(::google::protobuf::int32 value) {
+  set_has_channelno();
+  channelno_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.ChannelNo)
+}
+
+// optional int32 ExchangeDate = 12;
+bool OrderData::has_exchangedate() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void OrderData::set_has_exchangedate() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void OrderData::clear_has_exchangedate() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void OrderData::clear_exchangedate() {
+  exchangedate_ = 0;
+  clear_has_exchangedate();
+}
+::google::protobuf::int32 OrderData::exchangedate() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.ExchangeDate)
+  return exchangedate_;
+}
+void OrderData::set_exchangedate(::google::protobuf::int32 value) {
+  set_has_exchangedate();
+  exchangedate_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.ExchangeDate)
+}
+
+// optional int32 ExchangeTime = 13;
+bool OrderData::has_exchangetime() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+void OrderData::set_has_exchangetime() {
+  _has_bits_[0] |= 0x00001000u;
+}
+void OrderData::clear_has_exchangetime() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+void OrderData::clear_exchangetime() {
+  exchangetime_ = 0;
+  clear_has_exchangetime();
+}
+::google::protobuf::int32 OrderData::exchangetime() const {
+  // @@protoc_insertion_point(field_get:comm.OrderData.ExchangeTime)
+  return exchangetime_;
+}
+void OrderData::set_exchangetime(::google::protobuf::int32 value) {
+  set_has_exchangetime();
+  exchangetime_ = value;
+  // @@protoc_insertion_point(field_set:comm.OrderData.ExchangeTime)
 }
 
 inline const OrderData* OrderData::internal_default_instance() {

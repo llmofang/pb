@@ -112,145 +112,207 @@ class TransactionData : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // required string WindCode = 1;
-  bool has_windcode() const;
-  void clear_windcode();
-  static const int kWindCodeFieldNumber = 1;
-  const ::std::string& windcode() const;
-  void set_windcode(const ::std::string& value);
-  void set_windcode(const char* value);
-  void set_windcode(const char* value, size_t size);
-  ::std::string* mutable_windcode();
-  ::std::string* release_windcode();
-  void set_allocated_windcode(::std::string* windcode);
+  // required string HTSCSecurityID = 1;
+  bool has_htscsecurityid() const;
+  void clear_htscsecurityid();
+  static const int kHTSCSecurityIDFieldNumber = 1;
+  const ::std::string& htscsecurityid() const;
+  void set_htscsecurityid(const ::std::string& value);
+  void set_htscsecurityid(const char* value);
+  void set_htscsecurityid(const char* value, size_t size);
+  ::std::string* mutable_htscsecurityid();
+  ::std::string* release_htscsecurityid();
+  void set_allocated_htscsecurityid(::std::string* htscsecurityid);
 
-  // required string Code = 2;
-  bool has_code() const;
-  void clear_code();
-  static const int kCodeFieldNumber = 2;
-  const ::std::string& code() const;
-  void set_code(const ::std::string& value);
-  void set_code(const char* value);
-  void set_code(const char* value, size_t size);
-  ::std::string* mutable_code();
-  ::std::string* release_code();
-  void set_allocated_code(::std::string* code);
+  // required int32 MDDate = 2;
+  bool has_mddate() const;
+  void clear_mddate();
+  static const int kMDDateFieldNumber = 2;
+  ::google::protobuf::int32 mddate() const;
+  void set_mddate(::google::protobuf::int32 value);
 
-  // required int32 ActionDay = 3;
-  bool has_actionday() const;
-  void clear_actionday();
-  static const int kActionDayFieldNumber = 3;
-  ::google::protobuf::int32 actionday() const;
-  void set_actionday(::google::protobuf::int32 value);
+  // required int32 MDTime = 3;
+  bool has_mdtime() const;
+  void clear_mdtime();
+  static const int kMDTimeFieldNumber = 3;
+  ::google::protobuf::int32 mdtime() const;
+  void set_mdtime(::google::protobuf::int32 value);
 
-  // required int32 Time = 4;
-  bool has_time() const;
-  void clear_time();
-  static const int kTimeFieldNumber = 4;
-  ::google::protobuf::int32 time() const;
-  void set_time(::google::protobuf::int32 value);
+  // optional int64 securityIDSource = 4;
+  bool has_securityidsource() const;
+  void clear_securityidsource();
+  static const int kSecurityIDSourceFieldNumber = 4;
+  ::google::protobuf::int64 securityidsource() const;
+  void set_securityidsource(::google::protobuf::int64 value);
 
-  // required int32 Index = 5;
-  bool has_index() const;
-  void clear_index();
-  static const int kIndexFieldNumber = 5;
-  ::google::protobuf::int32 index() const;
-  void set_index(::google::protobuf::int32 value);
+  // optional int64 securityType = 5;
+  bool has_securitytype() const;
+  void clear_securitytype();
+  static const int kSecurityTypeFieldNumber = 5;
+  ::google::protobuf::int64 securitytype() const;
+  void set_securitytype(::google::protobuf::int64 value);
 
-  // required int32 Price = 6;
-  bool has_price() const;
-  void clear_price();
-  static const int kPriceFieldNumber = 6;
-  ::google::protobuf::int32 price() const;
-  void set_price(::google::protobuf::int32 value);
+  // optional int64 TradeIndex = 6;
+  bool has_tradeindex() const;
+  void clear_tradeindex();
+  static const int kTradeIndexFieldNumber = 6;
+  ::google::protobuf::int64 tradeindex() const;
+  void set_tradeindex(::google::protobuf::int64 value);
 
-  // required int32 Volume = 7;
-  bool has_volume() const;
-  void clear_volume();
-  static const int kVolumeFieldNumber = 7;
-  ::google::protobuf::int32 volume() const;
-  void set_volume(::google::protobuf::int32 value);
+  // optional int64 TradeBuyNo = 7;
+  bool has_tradebuyno() const;
+  void clear_tradebuyno();
+  static const int kTradeBuyNoFieldNumber = 7;
+  ::google::protobuf::int64 tradebuyno() const;
+  void set_tradebuyno(::google::protobuf::int64 value);
 
-  // required int32 Turnover = 8;
-  bool has_turnover() const;
-  void clear_turnover();
-  static const int kTurnoverFieldNumber = 8;
-  ::google::protobuf::int32 turnover() const;
-  void set_turnover(::google::protobuf::int32 value);
+  // optional int64 TradeSellNo = 8;
+  bool has_tradesellno() const;
+  void clear_tradesellno();
+  static const int kTradeSellNoFieldNumber = 8;
+  ::google::protobuf::int64 tradesellno() const;
+  void set_tradesellno(::google::protobuf::int64 value);
 
-  // required int32 BSFlag = 9;
-  bool has_bsflag() const;
-  void clear_bsflag();
-  static const int kBSFlagFieldNumber = 9;
-  ::google::protobuf::int32 bsflag() const;
-  void set_bsflag(::google::protobuf::int32 value);
+  // optional int32 TradeType = 9;
+  bool has_tradetype() const;
+  void clear_tradetype();
+  static const int kTradeTypeFieldNumber = 9;
+  ::google::protobuf::int32 tradetype() const;
+  void set_tradetype(::google::protobuf::int32 value);
 
-  // required string OrderKind = 10;
-  bool has_orderkind() const;
-  void clear_orderkind();
-  static const int kOrderKindFieldNumber = 10;
-  const ::std::string& orderkind() const;
-  void set_orderkind(const ::std::string& value);
-  void set_orderkind(const char* value);
-  void set_orderkind(const char* value, size_t size);
-  ::std::string* mutable_orderkind();
-  ::std::string* release_orderkind();
-  void set_allocated_orderkind(::std::string* orderkind);
+  // optional int32 TradeBSFlag = 10;
+  bool has_tradebsflag() const;
+  void clear_tradebsflag();
+  static const int kTradeBSFlagFieldNumber = 10;
+  ::google::protobuf::int32 tradebsflag() const;
+  void set_tradebsflag(::google::protobuf::int32 value);
 
-  // required string FunctionCode = 11;
-  bool has_functioncode() const;
-  void clear_functioncode();
-  static const int kFunctionCodeFieldNumber = 11;
-  const ::std::string& functioncode() const;
-  void set_functioncode(const ::std::string& value);
-  void set_functioncode(const char* value);
-  void set_functioncode(const char* value, size_t size);
-  ::std::string* mutable_functioncode();
-  ::std::string* release_functioncode();
-  void set_allocated_functioncode(::std::string* functioncode);
+  // optional int64 TradePrice = 11;
+  bool has_tradeprice() const;
+  void clear_tradeprice();
+  static const int kTradePriceFieldNumber = 11;
+  ::google::protobuf::int64 tradeprice() const;
+  void set_tradeprice(::google::protobuf::int64 value);
 
-  // required int32 AskOrder = 12;
-  bool has_askorder() const;
-  void clear_askorder();
-  static const int kAskOrderFieldNumber = 12;
-  ::google::protobuf::int32 askorder() const;
-  void set_askorder(::google::protobuf::int32 value);
+  // optional int64 TradeQty = 12;
+  bool has_tradeqty() const;
+  void clear_tradeqty();
+  static const int kTradeQtyFieldNumber = 12;
+  ::google::protobuf::int64 tradeqty() const;
+  void set_tradeqty(::google::protobuf::int64 value);
 
-  // required int32 BidOrder = 13;
-  bool has_bidorder() const;
-  void clear_bidorder();
-  static const int kBidOrderFieldNumber = 13;
-  ::google::protobuf::int32 bidorder() const;
-  void set_bidorder(::google::protobuf::int32 value);
+  // optional int64 TradeMoney = 13;
+  bool has_trademoney() const;
+  void clear_trademoney();
+  static const int kTradeMoneyFieldNumber = 13;
+  ::google::protobuf::int64 trademoney() const;
+  void set_trademoney(::google::protobuf::int64 value);
+
+  // optional int32 ChannelNo = 14;
+  bool has_channelno() const;
+  void clear_channelno();
+  static const int kChannelNoFieldNumber = 14;
+  ::google::protobuf::int32 channelno() const;
+  void set_channelno(::google::protobuf::int32 value);
+
+  // optional int32 ExchangeDate = 15;
+  bool has_exchangedate() const;
+  void clear_exchangedate();
+  static const int kExchangeDateFieldNumber = 15;
+  ::google::protobuf::int32 exchangedate() const;
+  void set_exchangedate(::google::protobuf::int32 value);
+
+  // optional int32 ExchangeTime = 16;
+  bool has_exchangetime() const;
+  void clear_exchangetime();
+  static const int kExchangeTimeFieldNumber = 16;
+  ::google::protobuf::int32 exchangetime() const;
+  void set_exchangetime(::google::protobuf::int32 value);
+
+  // optional int64 TradeCleanPrice = 17;
+  bool has_tradecleanprice() const;
+  void clear_tradecleanprice();
+  static const int kTradeCleanPriceFieldNumber = 17;
+  ::google::protobuf::int64 tradecleanprice() const;
+  void set_tradecleanprice(::google::protobuf::int64 value);
+
+  // optional int64 AccruedInterestAmt = 18;
+  bool has_accruedinterestamt() const;
+  void clear_accruedinterestamt();
+  static const int kAccruedInterestAmtFieldNumber = 18;
+  ::google::protobuf::int64 accruedinterestamt() const;
+  void set_accruedinterestamt(::google::protobuf::int64 value);
+
+  // optional int64 TradeDirtyPrice = 19;
+  bool has_tradedirtyprice() const;
+  void clear_tradedirtyprice();
+  static const int kTradeDirtyPriceFieldNumber = 19;
+  ::google::protobuf::int64 tradedirtyprice() const;
+  void set_tradedirtyprice(::google::protobuf::int64 value);
+
+  // optional int64 MaturityYield = 20;
+  bool has_maturityyield() const;
+  void clear_maturityyield();
+  static const int kMaturityYieldFieldNumber = 20;
+  ::google::protobuf::int64 maturityyield() const;
+  void set_maturityyield(::google::protobuf::int64 value);
+
+  // optional string FITradingMethod = 21;
+  bool has_fitradingmethod() const;
+  void clear_fitradingmethod();
+  static const int kFITradingMethodFieldNumber = 21;
+  const ::std::string& fitradingmethod() const;
+  void set_fitradingmethod(const ::std::string& value);
+  void set_fitradingmethod(const char* value);
+  void set_fitradingmethod(const char* value, size_t size);
+  ::std::string* mutable_fitradingmethod();
+  ::std::string* release_fitradingmethod();
+  void set_allocated_fitradingmethod(::std::string* fitradingmethod);
 
   // @@protoc_insertion_point(class_scope:comm.TransactionData)
  private:
-  inline void set_has_windcode();
-  inline void clear_has_windcode();
-  inline void set_has_code();
-  inline void clear_has_code();
-  inline void set_has_actionday();
-  inline void clear_has_actionday();
-  inline void set_has_time();
-  inline void clear_has_time();
-  inline void set_has_index();
-  inline void clear_has_index();
-  inline void set_has_price();
-  inline void clear_has_price();
-  inline void set_has_volume();
-  inline void clear_has_volume();
-  inline void set_has_turnover();
-  inline void clear_has_turnover();
-  inline void set_has_bsflag();
-  inline void clear_has_bsflag();
-  inline void set_has_orderkind();
-  inline void clear_has_orderkind();
-  inline void set_has_functioncode();
-  inline void clear_has_functioncode();
-  inline void set_has_askorder();
-  inline void clear_has_askorder();
-  inline void set_has_bidorder();
-  inline void clear_has_bidorder();
+  inline void set_has_htscsecurityid();
+  inline void clear_has_htscsecurityid();
+  inline void set_has_mddate();
+  inline void clear_has_mddate();
+  inline void set_has_mdtime();
+  inline void clear_has_mdtime();
+  inline void set_has_securityidsource();
+  inline void clear_has_securityidsource();
+  inline void set_has_securitytype();
+  inline void clear_has_securitytype();
+  inline void set_has_tradeindex();
+  inline void clear_has_tradeindex();
+  inline void set_has_tradebuyno();
+  inline void clear_has_tradebuyno();
+  inline void set_has_tradesellno();
+  inline void clear_has_tradesellno();
+  inline void set_has_tradetype();
+  inline void clear_has_tradetype();
+  inline void set_has_tradebsflag();
+  inline void clear_has_tradebsflag();
+  inline void set_has_tradeprice();
+  inline void clear_has_tradeprice();
+  inline void set_has_tradeqty();
+  inline void clear_has_tradeqty();
+  inline void set_has_trademoney();
+  inline void clear_has_trademoney();
+  inline void set_has_channelno();
+  inline void clear_has_channelno();
+  inline void set_has_exchangedate();
+  inline void clear_has_exchangedate();
+  inline void set_has_exchangetime();
+  inline void clear_has_exchangetime();
+  inline void set_has_tradecleanprice();
+  inline void clear_has_tradecleanprice();
+  inline void set_has_accruedinterestamt();
+  inline void clear_has_accruedinterestamt();
+  inline void set_has_tradedirtyprice();
+  inline void clear_has_tradedirtyprice();
+  inline void set_has_maturityyield();
+  inline void clear_has_maturityyield();
+  inline void set_has_fitradingmethod();
+  inline void clear_has_fitradingmethod();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -258,19 +320,27 @@ class TransactionData : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr windcode_;
-  ::google::protobuf::internal::ArenaStringPtr code_;
-  ::google::protobuf::internal::ArenaStringPtr orderkind_;
-  ::google::protobuf::internal::ArenaStringPtr functioncode_;
-  ::google::protobuf::int32 actionday_;
-  ::google::protobuf::int32 time_;
-  ::google::protobuf::int32 index_;
-  ::google::protobuf::int32 price_;
-  ::google::protobuf::int32 volume_;
-  ::google::protobuf::int32 turnover_;
-  ::google::protobuf::int32 bsflag_;
-  ::google::protobuf::int32 askorder_;
-  ::google::protobuf::int32 bidorder_;
+  ::google::protobuf::internal::ArenaStringPtr htscsecurityid_;
+  ::google::protobuf::internal::ArenaStringPtr fitradingmethod_;
+  ::google::protobuf::int32 mddate_;
+  ::google::protobuf::int32 mdtime_;
+  ::google::protobuf::int64 securityidsource_;
+  ::google::protobuf::int64 securitytype_;
+  ::google::protobuf::int64 tradeindex_;
+  ::google::protobuf::int64 tradebuyno_;
+  ::google::protobuf::int64 tradesellno_;
+  ::google::protobuf::int32 tradetype_;
+  ::google::protobuf::int32 tradebsflag_;
+  ::google::protobuf::int64 tradeprice_;
+  ::google::protobuf::int64 tradeqty_;
+  ::google::protobuf::int64 trademoney_;
+  ::google::protobuf::int32 channelno_;
+  ::google::protobuf::int32 exchangedate_;
+  ::google::protobuf::int64 tradecleanprice_;
+  ::google::protobuf::int64 accruedinterestamt_;
+  ::google::protobuf::int64 tradedirtyprice_;
+  ::google::protobuf::int64 maturityyield_;
+  ::google::protobuf::int32 exchangetime_;
   friend void  protobuf_InitDefaults_transactionData_2eproto_impl();
   friend void  protobuf_AddDesc_transactionData_2eproto_impl();
   friend void protobuf_AssignDesc_transactionData_2eproto();
@@ -288,436 +358,568 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<TransactionData> Tran
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // TransactionData
 
-// required string WindCode = 1;
-inline bool TransactionData::has_windcode() const {
+// required string HTSCSecurityID = 1;
+inline bool TransactionData::has_htscsecurityid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void TransactionData::set_has_windcode() {
+inline void TransactionData::set_has_htscsecurityid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void TransactionData::clear_has_windcode() {
+inline void TransactionData::clear_has_htscsecurityid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void TransactionData::clear_windcode() {
-  windcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_windcode();
+inline void TransactionData::clear_htscsecurityid() {
+  htscsecurityid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_htscsecurityid();
 }
-inline const ::std::string& TransactionData::windcode() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.WindCode)
-  return windcode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& TransactionData::htscsecurityid() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.HTSCSecurityID)
+  return htscsecurityid_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void TransactionData::set_windcode(const ::std::string& value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.WindCode)
+inline void TransactionData::set_htscsecurityid(const ::std::string& value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.TransactionData.HTSCSecurityID)
 }
-inline void TransactionData::set_windcode(const char* value) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.WindCode)
+inline void TransactionData::set_htscsecurityid(const char* value) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.TransactionData.HTSCSecurityID)
 }
-inline void TransactionData::set_windcode(const char* value, size_t size) {
-  set_has_windcode();
-  windcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void TransactionData::set_htscsecurityid(const char* value, size_t size) {
+  set_has_htscsecurityid();
+  htscsecurityid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.WindCode)
+  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.HTSCSecurityID)
 }
-inline ::std::string* TransactionData::mutable_windcode() {
-  set_has_windcode();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.WindCode)
-  return windcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* TransactionData::mutable_htscsecurityid() {
+  set_has_htscsecurityid();
+  // @@protoc_insertion_point(field_mutable:comm.TransactionData.HTSCSecurityID)
+  return htscsecurityid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* TransactionData::release_windcode() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.WindCode)
-  clear_has_windcode();
-  return windcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* TransactionData::release_htscsecurityid() {
+  // @@protoc_insertion_point(field_release:comm.TransactionData.HTSCSecurityID)
+  clear_has_htscsecurityid();
+  return htscsecurityid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void TransactionData::set_allocated_windcode(::std::string* windcode) {
-  if (windcode != NULL) {
-    set_has_windcode();
+inline void TransactionData::set_allocated_htscsecurityid(::std::string* htscsecurityid) {
+  if (htscsecurityid != NULL) {
+    set_has_htscsecurityid();
   } else {
-    clear_has_windcode();
+    clear_has_htscsecurityid();
   }
-  windcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), windcode);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.WindCode)
+  htscsecurityid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), htscsecurityid);
+  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.HTSCSecurityID)
 }
 
-// required string Code = 2;
-inline bool TransactionData::has_code() const {
+// required int32 MDDate = 2;
+inline bool TransactionData::has_mddate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void TransactionData::set_has_code() {
+inline void TransactionData::set_has_mddate() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void TransactionData::clear_has_code() {
+inline void TransactionData::clear_has_mddate() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void TransactionData::clear_code() {
-  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_code();
+inline void TransactionData::clear_mddate() {
+  mddate_ = 0;
+  clear_has_mddate();
 }
-inline const ::std::string& TransactionData::code() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Code)
-  return code_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::int32 TransactionData::mddate() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MDDate)
+  return mddate_;
 }
-inline void TransactionData::set_code(const ::std::string& value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Code)
-}
-inline void TransactionData::set_code(const char* value) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.Code)
-}
-inline void TransactionData::set_code(const char* value, size_t size) {
-  set_has_code();
-  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.Code)
-}
-inline ::std::string* TransactionData::mutable_code() {
-  set_has_code();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.Code)
-  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* TransactionData::release_code() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.Code)
-  clear_has_code();
-  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void TransactionData::set_allocated_code(::std::string* code) {
-  if (code != NULL) {
-    set_has_code();
-  } else {
-    clear_has_code();
-  }
-  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.Code)
+inline void TransactionData::set_mddate(::google::protobuf::int32 value) {
+  set_has_mddate();
+  mddate_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MDDate)
 }
 
-// required int32 ActionDay = 3;
-inline bool TransactionData::has_actionday() const {
+// required int32 MDTime = 3;
+inline bool TransactionData::has_mdtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void TransactionData::set_has_actionday() {
+inline void TransactionData::set_has_mdtime() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void TransactionData::clear_has_actionday() {
+inline void TransactionData::clear_has_mdtime() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void TransactionData::clear_actionday() {
-  actionday_ = 0;
-  clear_has_actionday();
+inline void TransactionData::clear_mdtime() {
+  mdtime_ = 0;
+  clear_has_mdtime();
 }
-inline ::google::protobuf::int32 TransactionData::actionday() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.ActionDay)
-  return actionday_;
+inline ::google::protobuf::int32 TransactionData::mdtime() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MDTime)
+  return mdtime_;
 }
-inline void TransactionData::set_actionday(::google::protobuf::int32 value) {
-  set_has_actionday();
-  actionday_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.ActionDay)
+inline void TransactionData::set_mdtime(::google::protobuf::int32 value) {
+  set_has_mdtime();
+  mdtime_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MDTime)
 }
 
-// required int32 Time = 4;
-inline bool TransactionData::has_time() const {
+// optional int64 securityIDSource = 4;
+inline bool TransactionData::has_securityidsource() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void TransactionData::set_has_time() {
+inline void TransactionData::set_has_securityidsource() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void TransactionData::clear_has_time() {
+inline void TransactionData::clear_has_securityidsource() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void TransactionData::clear_time() {
-  time_ = 0;
-  clear_has_time();
+inline void TransactionData::clear_securityidsource() {
+  securityidsource_ = GOOGLE_LONGLONG(0);
+  clear_has_securityidsource();
 }
-inline ::google::protobuf::int32 TransactionData::time() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Time)
-  return time_;
+inline ::google::protobuf::int64 TransactionData::securityidsource() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.securityIDSource)
+  return securityidsource_;
 }
-inline void TransactionData::set_time(::google::protobuf::int32 value) {
-  set_has_time();
-  time_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Time)
+inline void TransactionData::set_securityidsource(::google::protobuf::int64 value) {
+  set_has_securityidsource();
+  securityidsource_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.securityIDSource)
 }
 
-// required int32 Index = 5;
-inline bool TransactionData::has_index() const {
+// optional int64 securityType = 5;
+inline bool TransactionData::has_securitytype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void TransactionData::set_has_index() {
+inline void TransactionData::set_has_securitytype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void TransactionData::clear_has_index() {
+inline void TransactionData::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void TransactionData::clear_index() {
-  index_ = 0;
-  clear_has_index();
+inline void TransactionData::clear_securitytype() {
+  securitytype_ = GOOGLE_LONGLONG(0);
+  clear_has_securitytype();
 }
-inline ::google::protobuf::int32 TransactionData::index() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Index)
-  return index_;
+inline ::google::protobuf::int64 TransactionData::securitytype() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.securityType)
+  return securitytype_;
 }
-inline void TransactionData::set_index(::google::protobuf::int32 value) {
-  set_has_index();
-  index_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Index)
+inline void TransactionData::set_securitytype(::google::protobuf::int64 value) {
+  set_has_securitytype();
+  securitytype_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.securityType)
 }
 
-// required int32 Price = 6;
-inline bool TransactionData::has_price() const {
+// optional int64 TradeIndex = 6;
+inline bool TransactionData::has_tradeindex() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void TransactionData::set_has_price() {
+inline void TransactionData::set_has_tradeindex() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void TransactionData::clear_has_price() {
+inline void TransactionData::clear_has_tradeindex() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void TransactionData::clear_price() {
-  price_ = 0;
-  clear_has_price();
+inline void TransactionData::clear_tradeindex() {
+  tradeindex_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeindex();
 }
-inline ::google::protobuf::int32 TransactionData::price() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Price)
-  return price_;
+inline ::google::protobuf::int64 TransactionData::tradeindex() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeIndex)
+  return tradeindex_;
 }
-inline void TransactionData::set_price(::google::protobuf::int32 value) {
-  set_has_price();
-  price_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Price)
+inline void TransactionData::set_tradeindex(::google::protobuf::int64 value) {
+  set_has_tradeindex();
+  tradeindex_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeIndex)
 }
 
-// required int32 Volume = 7;
-inline bool TransactionData::has_volume() const {
+// optional int64 TradeBuyNo = 7;
+inline bool TransactionData::has_tradebuyno() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void TransactionData::set_has_volume() {
+inline void TransactionData::set_has_tradebuyno() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void TransactionData::clear_has_volume() {
+inline void TransactionData::clear_has_tradebuyno() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void TransactionData::clear_volume() {
-  volume_ = 0;
-  clear_has_volume();
+inline void TransactionData::clear_tradebuyno() {
+  tradebuyno_ = GOOGLE_LONGLONG(0);
+  clear_has_tradebuyno();
 }
-inline ::google::protobuf::int32 TransactionData::volume() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Volume)
-  return volume_;
+inline ::google::protobuf::int64 TransactionData::tradebuyno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeBuyNo)
+  return tradebuyno_;
 }
-inline void TransactionData::set_volume(::google::protobuf::int32 value) {
-  set_has_volume();
-  volume_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Volume)
+inline void TransactionData::set_tradebuyno(::google::protobuf::int64 value) {
+  set_has_tradebuyno();
+  tradebuyno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeBuyNo)
 }
 
-// required int32 Turnover = 8;
-inline bool TransactionData::has_turnover() const {
+// optional int64 TradeSellNo = 8;
+inline bool TransactionData::has_tradesellno() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void TransactionData::set_has_turnover() {
+inline void TransactionData::set_has_tradesellno() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void TransactionData::clear_has_turnover() {
+inline void TransactionData::clear_has_tradesellno() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void TransactionData::clear_turnover() {
-  turnover_ = 0;
-  clear_has_turnover();
+inline void TransactionData::clear_tradesellno() {
+  tradesellno_ = GOOGLE_LONGLONG(0);
+  clear_has_tradesellno();
 }
-inline ::google::protobuf::int32 TransactionData::turnover() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.Turnover)
-  return turnover_;
+inline ::google::protobuf::int64 TransactionData::tradesellno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeSellNo)
+  return tradesellno_;
 }
-inline void TransactionData::set_turnover(::google::protobuf::int32 value) {
-  set_has_turnover();
-  turnover_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.Turnover)
+inline void TransactionData::set_tradesellno(::google::protobuf::int64 value) {
+  set_has_tradesellno();
+  tradesellno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeSellNo)
 }
 
-// required int32 BSFlag = 9;
-inline bool TransactionData::has_bsflag() const {
+// optional int32 TradeType = 9;
+inline bool TransactionData::has_tradetype() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void TransactionData::set_has_bsflag() {
+inline void TransactionData::set_has_tradetype() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void TransactionData::clear_has_bsflag() {
+inline void TransactionData::clear_has_tradetype() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void TransactionData::clear_bsflag() {
-  bsflag_ = 0;
-  clear_has_bsflag();
+inline void TransactionData::clear_tradetype() {
+  tradetype_ = 0;
+  clear_has_tradetype();
 }
-inline ::google::protobuf::int32 TransactionData::bsflag() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.BSFlag)
-  return bsflag_;
+inline ::google::protobuf::int32 TransactionData::tradetype() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeType)
+  return tradetype_;
 }
-inline void TransactionData::set_bsflag(::google::protobuf::int32 value) {
-  set_has_bsflag();
-  bsflag_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.BSFlag)
+inline void TransactionData::set_tradetype(::google::protobuf::int32 value) {
+  set_has_tradetype();
+  tradetype_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeType)
 }
 
-// required string OrderKind = 10;
-inline bool TransactionData::has_orderkind() const {
+// optional int32 TradeBSFlag = 10;
+inline bool TransactionData::has_tradebsflag() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void TransactionData::set_has_orderkind() {
+inline void TransactionData::set_has_tradebsflag() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void TransactionData::clear_has_orderkind() {
+inline void TransactionData::clear_has_tradebsflag() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void TransactionData::clear_orderkind() {
-  orderkind_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_orderkind();
+inline void TransactionData::clear_tradebsflag() {
+  tradebsflag_ = 0;
+  clear_has_tradebsflag();
 }
-inline const ::std::string& TransactionData::orderkind() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.OrderKind)
-  return orderkind_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::int32 TransactionData::tradebsflag() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeBSFlag)
+  return tradebsflag_;
 }
-inline void TransactionData::set_orderkind(const ::std::string& value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.OrderKind)
-}
-inline void TransactionData::set_orderkind(const char* value) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.OrderKind)
-}
-inline void TransactionData::set_orderkind(const char* value, size_t size) {
-  set_has_orderkind();
-  orderkind_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.OrderKind)
-}
-inline ::std::string* TransactionData::mutable_orderkind() {
-  set_has_orderkind();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.OrderKind)
-  return orderkind_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* TransactionData::release_orderkind() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.OrderKind)
-  clear_has_orderkind();
-  return orderkind_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void TransactionData::set_allocated_orderkind(::std::string* orderkind) {
-  if (orderkind != NULL) {
-    set_has_orderkind();
-  } else {
-    clear_has_orderkind();
-  }
-  orderkind_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), orderkind);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.OrderKind)
+inline void TransactionData::set_tradebsflag(::google::protobuf::int32 value) {
+  set_has_tradebsflag();
+  tradebsflag_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeBSFlag)
 }
 
-// required string FunctionCode = 11;
-inline bool TransactionData::has_functioncode() const {
+// optional int64 TradePrice = 11;
+inline bool TransactionData::has_tradeprice() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void TransactionData::set_has_functioncode() {
+inline void TransactionData::set_has_tradeprice() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void TransactionData::clear_has_functioncode() {
+inline void TransactionData::clear_has_tradeprice() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void TransactionData::clear_functioncode() {
-  functioncode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_functioncode();
+inline void TransactionData::clear_tradeprice() {
+  tradeprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeprice();
 }
-inline const ::std::string& TransactionData::functioncode() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.FunctionCode)
-  return functioncode_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::int64 TransactionData::tradeprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradePrice)
+  return tradeprice_;
 }
-inline void TransactionData::set_functioncode(const ::std::string& value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:comm.TransactionData.FunctionCode)
-}
-inline void TransactionData::set_functioncode(const char* value) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.TransactionData.FunctionCode)
-}
-inline void TransactionData::set_functioncode(const char* value, size_t size) {
-  set_has_functioncode();
-  functioncode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.FunctionCode)
-}
-inline ::std::string* TransactionData::mutable_functioncode() {
-  set_has_functioncode();
-  // @@protoc_insertion_point(field_mutable:comm.TransactionData.FunctionCode)
-  return functioncode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* TransactionData::release_functioncode() {
-  // @@protoc_insertion_point(field_release:comm.TransactionData.FunctionCode)
-  clear_has_functioncode();
-  return functioncode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void TransactionData::set_allocated_functioncode(::std::string* functioncode) {
-  if (functioncode != NULL) {
-    set_has_functioncode();
-  } else {
-    clear_has_functioncode();
-  }
-  functioncode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), functioncode);
-  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.FunctionCode)
+inline void TransactionData::set_tradeprice(::google::protobuf::int64 value) {
+  set_has_tradeprice();
+  tradeprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradePrice)
 }
 
-// required int32 AskOrder = 12;
-inline bool TransactionData::has_askorder() const {
+// optional int64 TradeQty = 12;
+inline bool TransactionData::has_tradeqty() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void TransactionData::set_has_askorder() {
+inline void TransactionData::set_has_tradeqty() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void TransactionData::clear_has_askorder() {
+inline void TransactionData::clear_has_tradeqty() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void TransactionData::clear_askorder() {
-  askorder_ = 0;
-  clear_has_askorder();
+inline void TransactionData::clear_tradeqty() {
+  tradeqty_ = GOOGLE_LONGLONG(0);
+  clear_has_tradeqty();
 }
-inline ::google::protobuf::int32 TransactionData::askorder() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.AskOrder)
-  return askorder_;
+inline ::google::protobuf::int64 TransactionData::tradeqty() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeQty)
+  return tradeqty_;
 }
-inline void TransactionData::set_askorder(::google::protobuf::int32 value) {
-  set_has_askorder();
-  askorder_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.AskOrder)
+inline void TransactionData::set_tradeqty(::google::protobuf::int64 value) {
+  set_has_tradeqty();
+  tradeqty_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeQty)
 }
 
-// required int32 BidOrder = 13;
-inline bool TransactionData::has_bidorder() const {
+// optional int64 TradeMoney = 13;
+inline bool TransactionData::has_trademoney() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void TransactionData::set_has_bidorder() {
+inline void TransactionData::set_has_trademoney() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void TransactionData::clear_has_bidorder() {
+inline void TransactionData::clear_has_trademoney() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void TransactionData::clear_bidorder() {
-  bidorder_ = 0;
-  clear_has_bidorder();
+inline void TransactionData::clear_trademoney() {
+  trademoney_ = GOOGLE_LONGLONG(0);
+  clear_has_trademoney();
 }
-inline ::google::protobuf::int32 TransactionData::bidorder() const {
-  // @@protoc_insertion_point(field_get:comm.TransactionData.BidOrder)
-  return bidorder_;
+inline ::google::protobuf::int64 TransactionData::trademoney() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeMoney)
+  return trademoney_;
 }
-inline void TransactionData::set_bidorder(::google::protobuf::int32 value) {
-  set_has_bidorder();
-  bidorder_ = value;
-  // @@protoc_insertion_point(field_set:comm.TransactionData.BidOrder)
+inline void TransactionData::set_trademoney(::google::protobuf::int64 value) {
+  set_has_trademoney();
+  trademoney_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeMoney)
+}
+
+// optional int32 ChannelNo = 14;
+inline bool TransactionData::has_channelno() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void TransactionData::set_has_channelno() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void TransactionData::clear_has_channelno() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void TransactionData::clear_channelno() {
+  channelno_ = 0;
+  clear_has_channelno();
+}
+inline ::google::protobuf::int32 TransactionData::channelno() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ChannelNo)
+  return channelno_;
+}
+inline void TransactionData::set_channelno(::google::protobuf::int32 value) {
+  set_has_channelno();
+  channelno_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ChannelNo)
+}
+
+// optional int32 ExchangeDate = 15;
+inline bool TransactionData::has_exchangedate() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void TransactionData::set_has_exchangedate() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void TransactionData::clear_has_exchangedate() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void TransactionData::clear_exchangedate() {
+  exchangedate_ = 0;
+  clear_has_exchangedate();
+}
+inline ::google::protobuf::int32 TransactionData::exchangedate() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ExchangeDate)
+  return exchangedate_;
+}
+inline void TransactionData::set_exchangedate(::google::protobuf::int32 value) {
+  set_has_exchangedate();
+  exchangedate_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ExchangeDate)
+}
+
+// optional int32 ExchangeTime = 16;
+inline bool TransactionData::has_exchangetime() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void TransactionData::set_has_exchangetime() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void TransactionData::clear_has_exchangetime() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void TransactionData::clear_exchangetime() {
+  exchangetime_ = 0;
+  clear_has_exchangetime();
+}
+inline ::google::protobuf::int32 TransactionData::exchangetime() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.ExchangeTime)
+  return exchangetime_;
+}
+inline void TransactionData::set_exchangetime(::google::protobuf::int32 value) {
+  set_has_exchangetime();
+  exchangetime_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.ExchangeTime)
+}
+
+// optional int64 TradeCleanPrice = 17;
+inline bool TransactionData::has_tradecleanprice() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void TransactionData::set_has_tradecleanprice() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void TransactionData::clear_has_tradecleanprice() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void TransactionData::clear_tradecleanprice() {
+  tradecleanprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradecleanprice();
+}
+inline ::google::protobuf::int64 TransactionData::tradecleanprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeCleanPrice)
+  return tradecleanprice_;
+}
+inline void TransactionData::set_tradecleanprice(::google::protobuf::int64 value) {
+  set_has_tradecleanprice();
+  tradecleanprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeCleanPrice)
+}
+
+// optional int64 AccruedInterestAmt = 18;
+inline bool TransactionData::has_accruedinterestamt() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void TransactionData::set_has_accruedinterestamt() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void TransactionData::clear_has_accruedinterestamt() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void TransactionData::clear_accruedinterestamt() {
+  accruedinterestamt_ = GOOGLE_LONGLONG(0);
+  clear_has_accruedinterestamt();
+}
+inline ::google::protobuf::int64 TransactionData::accruedinterestamt() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.AccruedInterestAmt)
+  return accruedinterestamt_;
+}
+inline void TransactionData::set_accruedinterestamt(::google::protobuf::int64 value) {
+  set_has_accruedinterestamt();
+  accruedinterestamt_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.AccruedInterestAmt)
+}
+
+// optional int64 TradeDirtyPrice = 19;
+inline bool TransactionData::has_tradedirtyprice() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void TransactionData::set_has_tradedirtyprice() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void TransactionData::clear_has_tradedirtyprice() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void TransactionData::clear_tradedirtyprice() {
+  tradedirtyprice_ = GOOGLE_LONGLONG(0);
+  clear_has_tradedirtyprice();
+}
+inline ::google::protobuf::int64 TransactionData::tradedirtyprice() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.TradeDirtyPrice)
+  return tradedirtyprice_;
+}
+inline void TransactionData::set_tradedirtyprice(::google::protobuf::int64 value) {
+  set_has_tradedirtyprice();
+  tradedirtyprice_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.TradeDirtyPrice)
+}
+
+// optional int64 MaturityYield = 20;
+inline bool TransactionData::has_maturityyield() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void TransactionData::set_has_maturityyield() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void TransactionData::clear_has_maturityyield() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void TransactionData::clear_maturityyield() {
+  maturityyield_ = GOOGLE_LONGLONG(0);
+  clear_has_maturityyield();
+}
+inline ::google::protobuf::int64 TransactionData::maturityyield() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.MaturityYield)
+  return maturityyield_;
+}
+inline void TransactionData::set_maturityyield(::google::protobuf::int64 value) {
+  set_has_maturityyield();
+  maturityyield_ = value;
+  // @@protoc_insertion_point(field_set:comm.TransactionData.MaturityYield)
+}
+
+// optional string FITradingMethod = 21;
+inline bool TransactionData::has_fitradingmethod() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void TransactionData::set_has_fitradingmethod() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void TransactionData::clear_has_fitradingmethod() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void TransactionData::clear_fitradingmethod() {
+  fitradingmethod_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fitradingmethod();
+}
+inline const ::std::string& TransactionData::fitradingmethod() const {
+  // @@protoc_insertion_point(field_get:comm.TransactionData.FITradingMethod)
+  return fitradingmethod_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void TransactionData::set_fitradingmethod(const ::std::string& value) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:comm.TransactionData.FITradingMethod)
+}
+inline void TransactionData::set_fitradingmethod(const char* value) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:comm.TransactionData.FITradingMethod)
+}
+inline void TransactionData::set_fitradingmethod(const char* value, size_t size) {
+  set_has_fitradingmethod();
+  fitradingmethod_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:comm.TransactionData.FITradingMethod)
+}
+inline ::std::string* TransactionData::mutable_fitradingmethod() {
+  set_has_fitradingmethod();
+  // @@protoc_insertion_point(field_mutable:comm.TransactionData.FITradingMethod)
+  return fitradingmethod_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* TransactionData::release_fitradingmethod() {
+  // @@protoc_insertion_point(field_release:comm.TransactionData.FITradingMethod)
+  clear_has_fitradingmethod();
+  return fitradingmethod_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void TransactionData::set_allocated_fitradingmethod(::std::string* fitradingmethod) {
+  if (fitradingmethod != NULL) {
+    set_has_fitradingmethod();
+  } else {
+    clear_has_fitradingmethod();
+  }
+  fitradingmethod_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fitradingmethod);
+  // @@protoc_insertion_point(field_set_allocated:comm.TransactionData.FITradingMethod)
 }
 
 inline const TransactionData* TransactionData::internal_default_instance() {
