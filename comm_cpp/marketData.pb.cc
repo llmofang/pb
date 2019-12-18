@@ -148,8 +148,8 @@ void protobuf_AddDesc_marketData_2eproto_impl() {
     "\n\020marketData.proto\022\004comm\"\240\n\n\nMarketData\022"
     "\026\n\016HTSCSecurityID\030\001 \002(\t\022\016\n\006MDDate\030\002 \002(\005\022"
     "\016\n\006MDTime\030\003 \002(\005\022\030\n\020TradingPhaseCode\030\004 \001("
-    "\t\022\030\n\020securityIDSource\030\005 \001(\t\022\024\n\014securityT"
-    "ype\030\006 \001(\t\022\r\n\005MaxPx\030\007 \001(\003\022\r\n\005MinPx\030\010 \001(\003\022"
+    "\t\022\030\n\020securityIDSource\030\005 \001(\003\022\024\n\014securityT"
+    "ype\030\006 \001(\003\022\r\n\005MaxPx\030\007 \001(\003\022\r\n\005MinPx\030\010 \001(\003\022"
     "\022\n\nPreClosePx\030\t \001(\003\022\021\n\tNumTrades\030\n \001(\003\022\030"
     "\n\020TotalVolumeTrade\030\013 \001(\003\022\027\n\017TotalValueTr"
     "ade\030\014 \001(\003\022\016\n\006LastPx\030\r \001(\003\022\016\n\006OpenPx\030\016 \001("
@@ -287,8 +287,6 @@ MarketData::MarketData(const MarketData& from)
 void MarketData::SharedCtor() {
   htscsecurityid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tradingphasecode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  securityidsource_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  securitytype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&mddate_, 0, reinterpret_cast<char*>(&channelno_) -
     reinterpret_cast<char*>(&mddate_) + sizeof(channelno_));
   _cached_size_ = 0;
@@ -302,8 +300,6 @@ MarketData::~MarketData() {
 void MarketData::SharedDtor() {
   htscsecurityid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tradingphasecode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  securityidsource_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  securitytype_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MarketData::SetCachedSize(int size) const {
@@ -356,12 +352,6 @@ void MarketData::Clear() {
     }
     if (has_tradingphasecode()) {
       tradingphasecode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_securityidsource()) {
-      securityidsource_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
-    if (has_securitytype()) {
-      securitytype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
   ZR_(preclosepx_, highpx_);
@@ -456,37 +446,33 @@ bool MarketData::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_securityIDSource;
+        if (input->ExpectTag(40)) goto parse_securityIDSource;
         break;
       }
 
-      // optional string securityIDSource = 5;
+      // optional int64 securityIDSource = 5;
       case 5: {
-        if (tag == 42) {
+        if (tag == 40) {
          parse_securityIDSource:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_securityidsource()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->securityidsource().data(), this->securityidsource().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.MarketData.securityIDSource");
+          set_has_securityidsource();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securityidsource_)));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(50)) goto parse_securityType;
+        if (input->ExpectTag(48)) goto parse_securityType;
         break;
       }
 
-      // optional string securityType = 6;
+      // optional int64 securityType = 6;
       case 6: {
-        if (tag == 50) {
+        if (tag == 48) {
          parse_securityType:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_securitytype()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->securitytype().data(), this->securitytype().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "comm.MarketData.securityType");
+          set_has_securitytype();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &securitytype_)));
         } else {
           goto handle_unusual;
         }
@@ -1316,24 +1302,14 @@ void MarketData::SerializeWithCachedSizes(
       4, this->tradingphasecode(), output);
   }
 
-  // optional string securityIDSource = 5;
+  // optional int64 securityIDSource = 5;
   if (has_securityidsource()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securityidsource().data(), this->securityidsource().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.MarketData.securityIDSource");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->securityidsource(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->securityidsource(), output);
   }
 
-  // optional string securityType = 6;
+  // optional int64 securityType = 6;
   if (has_securitytype()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securitytype().data(), this->securitytype().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.MarketData.securityType");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->securitytype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->securitytype(), output);
   }
 
   // optional int64 MaxPx = 7;
@@ -1632,26 +1608,14 @@ void MarketData::SerializeWithCachedSizes(
         4, this->tradingphasecode(), target);
   }
 
-  // optional string securityIDSource = 5;
+  // optional int64 securityIDSource = 5;
   if (has_securityidsource()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securityidsource().data(), this->securityidsource().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.MarketData.securityIDSource");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->securityidsource(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->securityidsource(), target);
   }
 
-  // optional string securityType = 6;
+  // optional int64 securityType = 6;
   if (has_securitytype()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->securitytype().data(), this->securitytype().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "comm.MarketData.securityType");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->securitytype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->securitytype(), target);
   }
 
   // optional int64 MaxPx = 7;
@@ -1973,17 +1937,17 @@ size_t MarketData::ByteSizeLong() const {
           this->tradingphasecode());
     }
 
-    // optional string securityIDSource = 5;
+    // optional int64 securityIDSource = 5;
     if (has_securityidsource()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->securityidsource());
     }
 
-    // optional string securityType = 6;
+    // optional int64 securityType = 6;
     if (has_securitytype()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->securitytype());
     }
 
@@ -2451,12 +2415,10 @@ void MarketData::UnsafeMergeFrom(const MarketData& from) {
       tradingphasecode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tradingphasecode_);
     }
     if (from.has_securityidsource()) {
-      set_has_securityidsource();
-      securityidsource_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securityidsource_);
+      set_securityidsource(from.securityidsource());
     }
     if (from.has_securitytype()) {
-      set_has_securitytype();
-      securitytype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.securitytype_);
+      set_securitytype(from.securitytype());
     }
     if (from.has_maxpx()) {
       set_maxpx(from.maxpx());
@@ -2627,8 +2589,8 @@ void MarketData::InternalSwap(MarketData* other) {
   std::swap(mddate_, other->mddate_);
   std::swap(mdtime_, other->mdtime_);
   tradingphasecode_.Swap(&other->tradingphasecode_);
-  securityidsource_.Swap(&other->securityidsource_);
-  securitytype_.Swap(&other->securitytype_);
+  std::swap(securityidsource_, other->securityidsource_);
+  std::swap(securitytype_, other->securitytype_);
   std::swap(maxpx_, other->maxpx_);
   std::swap(minpx_, other->minpx_);
   std::swap(preclosepx_, other->preclosepx_);
@@ -2851,7 +2813,7 @@ void MarketData::set_allocated_tradingphasecode(::std::string* tradingphasecode)
   // @@protoc_insertion_point(field_set_allocated:comm.MarketData.TradingPhaseCode)
 }
 
-// optional string securityIDSource = 5;
+// optional int64 securityIDSource = 5;
 bool MarketData::has_securityidsource() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2862,50 +2824,20 @@ void MarketData::clear_has_securityidsource() {
   _has_bits_[0] &= ~0x00000010u;
 }
 void MarketData::clear_securityidsource() {
-  securityidsource_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  securityidsource_ = GOOGLE_LONGLONG(0);
   clear_has_securityidsource();
 }
-const ::std::string& MarketData::securityidsource() const {
+::google::protobuf::int64 MarketData::securityidsource() const {
   // @@protoc_insertion_point(field_get:comm.MarketData.securityIDSource)
-  return securityidsource_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return securityidsource_;
 }
-void MarketData::set_securityidsource(const ::std::string& value) {
+void MarketData::set_securityidsource(::google::protobuf::int64 value) {
   set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  securityidsource_ = value;
   // @@protoc_insertion_point(field_set:comm.MarketData.securityIDSource)
 }
-void MarketData::set_securityidsource(const char* value) {
-  set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.MarketData.securityIDSource)
-}
-void MarketData::set_securityidsource(const char* value, size_t size) {
-  set_has_securityidsource();
-  securityidsource_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.securityIDSource)
-}
-::std::string* MarketData::mutable_securityidsource() {
-  set_has_securityidsource();
-  // @@protoc_insertion_point(field_mutable:comm.MarketData.securityIDSource)
-  return securityidsource_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* MarketData::release_securityidsource() {
-  // @@protoc_insertion_point(field_release:comm.MarketData.securityIDSource)
-  clear_has_securityidsource();
-  return securityidsource_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void MarketData::set_allocated_securityidsource(::std::string* securityidsource) {
-  if (securityidsource != NULL) {
-    set_has_securityidsource();
-  } else {
-    clear_has_securityidsource();
-  }
-  securityidsource_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), securityidsource);
-  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.securityIDSource)
-}
 
-// optional string securityType = 6;
+// optional int64 securityType = 6;
 bool MarketData::has_securitytype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2916,47 +2848,17 @@ void MarketData::clear_has_securitytype() {
   _has_bits_[0] &= ~0x00000020u;
 }
 void MarketData::clear_securitytype() {
-  securitytype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  securitytype_ = GOOGLE_LONGLONG(0);
   clear_has_securitytype();
 }
-const ::std::string& MarketData::securitytype() const {
+::google::protobuf::int64 MarketData::securitytype() const {
   // @@protoc_insertion_point(field_get:comm.MarketData.securityType)
-  return securitytype_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return securitytype_;
 }
-void MarketData::set_securitytype(const ::std::string& value) {
+void MarketData::set_securitytype(::google::protobuf::int64 value) {
   set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  securitytype_ = value;
   // @@protoc_insertion_point(field_set:comm.MarketData.securityType)
-}
-void MarketData::set_securitytype(const char* value) {
-  set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:comm.MarketData.securityType)
-}
-void MarketData::set_securitytype(const char* value, size_t size) {
-  set_has_securitytype();
-  securitytype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:comm.MarketData.securityType)
-}
-::std::string* MarketData::mutable_securitytype() {
-  set_has_securitytype();
-  // @@protoc_insertion_point(field_mutable:comm.MarketData.securityType)
-  return securitytype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* MarketData::release_securitytype() {
-  // @@protoc_insertion_point(field_release:comm.MarketData.securityType)
-  clear_has_securitytype();
-  return securitytype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void MarketData::set_allocated_securitytype(::std::string* securitytype) {
-  if (securitytype != NULL) {
-    set_has_securitytype();
-  } else {
-    clear_has_securitytype();
-  }
-  securitytype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), securitytype);
-  // @@protoc_insertion_point(field_set_allocated:comm.MarketData.securityType)
 }
 
 // optional int64 MaxPx = 7;
